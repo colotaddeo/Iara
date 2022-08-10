@@ -1,5 +1,10 @@
 
 export const signUp = async (req, res) => {
+
+    const {firstName, lastName, email, password, doctorId, HospitalName, HospitalEmail} = req.body
+
+    
+
     res.json("Registrandose")
 }
 
