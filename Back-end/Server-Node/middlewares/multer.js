@@ -3,12 +3,12 @@
 import multer from "multer";
 
 const storage = multer.diskStorage({
-    destination: 'images',
+    destination: 'Back-end/Server-Node/images',
     filename: (req, file, cb) => {
         cb(null, file.originalname);
     }
 })
 
 export const upload = multer({
-    storage,
+    storage
 }).single('file');
