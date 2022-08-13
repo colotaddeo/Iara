@@ -52,20 +52,24 @@ export const getImage = async (req, res) => {
 
 export const updateImage = async (req, res) => {
 
-    const { id } = req.params;
+    try {
+        const {id} = req.params
 
-    const {title, description} = req.body
+        const {title, description} = req.body;
 
-    /*const [existingUser] = await pool.query("SELECT * FROM paciente WHERE id = ?", [req.params.id])
+        const [existingUser] = await pool.query("SELECT * FROM paciente WHERE id = ?", [req.params.id])
 
-    if(existingUser.length === 0){
-        return res.status(404).json({message: "El usuario no fue encontrado"});
-    }
-    */
+        if(existingUser.length === 0){
+            return res.status(404).json({message: "El usuario no fue encontrado"});
+        }
 
-    const result = await pool.query("UPDATE paciente SET titulo = ?, descripcion = ? WHERE id = ?", [title, description, id])
+        const [result] = await pool.query("UPDATE paciente SET titulo = ?, descripcion = ? WHERE id = ?", [title, description, id])
     
-    res.json(result[0])
+        res.json(result)
+    } catch (error) {
+        return res.status(500).json({message: error.message})
+    }
+    
    
 }
 

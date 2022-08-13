@@ -1,6 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
-import imageRoutes from './routes/image.routes.js'
+import imageRoutes from './routes/images.routes.js'
 import userRoutes from './routes/user.routes.js'
 
 //Initializations
