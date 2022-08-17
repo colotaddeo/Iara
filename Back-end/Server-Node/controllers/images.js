@@ -8,7 +8,7 @@ export const uploadImage = async (req, res) => {
         const filename = req.file.filename;
         const path = req.file.path;
 
-        const [result] = await pool.query("INSERT INTO paciente (titulo, descripcion, nombre_img, ruta_img) VALUES (?, ?, ?, ?)", [title, description, filename, path])
+        const [result] = await pool.query("INSERT INTO radiografias (nombre_img, titulo_img, descripcion_img, ruta_img) VALUES (?, ?, ?, ?)", [filename, title, description, path])
 
         console.log(result)
 
@@ -25,7 +25,7 @@ export const uploadImage = async (req, res) => {
 export const getImages = async (req, res) => {
 
     try {
-        const [result] = await pool.query("SELECT * FROM paciente ORDER BY createdAt ASC")
+        const [result] = await pool.query("SELECT * FROM radiografias ORDER BY createdAt ASC")
 
         res.json(result);
     } catch (error) {
@@ -36,7 +36,7 @@ export const getImages = async (req, res) => {
 export const getImage = async (req, res) => {
 
     try {
-        const [result] = await pool.query("SELECT * FROM paciente WHERE id = ?", [req.params.id])
+        const [result] = await pool.query("SELECT * FROM radiografias WHERE id = ?", [req.params.id])
 
         console.log(result.length)
 
@@ -57,16 +57,17 @@ export const updateImage = async (req, res) => {
 
         const {title, description} = req.body;
 
-        const [existingUser] = await pool.query("SELECT * FROM paciente WHERE id = ?", [req.params.id])
+        const [existingUser] = await pool.query("SELECT * FROM radiografias WHERE id = ?", [req.params.id])
 
         if(existingUser.length === 0){
             return res.status(404).json({message: "El usuario no fue encontrado"});
         }
 
-        const [result] = await pool.query("UPDATE paciente SET titulo = ?, descripcion = ? WHERE id = ?", [title, description, id])
+        const [result] = await pool.query("UPDATE radiografias SET titulo_img = ?, descripcion_img = ? WHERE id = ?", [title, description, id])
     
         res.json(result)
     } catch (error) {
+        console.log(error)
         return res.status(500).json({message: error.message})
     }
     
@@ -76,7 +77,7 @@ export const updateImage = async (req, res) => {
 export const deleteImage = async (req, res) => {
 
     try {
-        const[result] = await pool.query("DELETE FROM paciente WHERE id = ?", [req.params.id])
+        const[result] = await pool.query("DELETE FROM radiografias WHERE id = ?", [req.params.id])
 
         if(result.affectedRows === 0){
             return res.status(404).json({message: "La imagen no fue encontrada"})
