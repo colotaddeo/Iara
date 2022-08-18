@@ -1,5 +1,7 @@
 import bcrypt from 'bcryptjs'
 import { pool } from '../db.js'
+import jwt from 'jsonwebtoken'
+import { SECRET, REFRESH_TOKEN_SECRET } from '../config.js'
 
 
 export const signUp = async (req, res) => {
@@ -44,7 +46,11 @@ export const signIn = async (req, res) => {
 
         if(!isPasswordCorrect) return res.status(400).json({ message: "La contraseña es inválida" })
 
-        res.json({existingUser})
+        const token = jwt.sign({ email: existingUser[0].email, id: existingUser[0].id }, SECRET, {expiresIn: "30s"})
+
+        const refreshToken = jwt.sign({ email: existingUser[0].email, id: existingUser[0].id }, REFRESH_TOKEN_SECRET, {expiresIn: "1m"})
+
+        res.json({existingUser, token, refreshToken})
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
