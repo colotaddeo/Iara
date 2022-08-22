@@ -10,7 +10,6 @@ export const signUp = async (req, res) => {
         
         const {firstName, lastName, email, password, doctorId, HospitalName, HospitalEmail} = req.body
 
-
         const [existingUser] = await pool.query ("SELECT * FROM registro WHERE email = ?", [email])
         
         if(existingUser.length !== 0) return res.status(404).json({ message: "El usuario ya existe" });

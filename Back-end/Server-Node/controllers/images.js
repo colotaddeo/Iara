@@ -1,13 +1,22 @@
 import { pool } from '../db.js'
-
 //Funciones de las rutas. Esto con el objetivo de tener el código lo más organizado posible.
 export const uploadImage = async (req, res) => {
 
     try {
+
+        //Recibir info del front
         const {title, description} = req.body;
         const filename = req.file.filename;
         const path = req.file.path;
 
+        //Mandar la info a python
+
+
+        //Recibir la info de python
+
+
+
+        //Mandar la info a la db
         const [result] = await pool.query("INSERT INTO radiografias (nombre_img, titulo_img, descripcion_img, ruta_img) VALUES (?, ?, ?, ?)", [filename, title, description, path])
 
         console.log(result)
