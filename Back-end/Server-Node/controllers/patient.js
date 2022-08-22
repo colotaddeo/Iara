@@ -63,7 +63,9 @@ export const updatePatient = async (req, res) => {
 
         const id_medico = req.user
 
-        const [existingPatient] = await pool.query("SELECT * FROM paciente WHERE id = ?", [id])
+        const [existingPatient] = await pool.query("SELECT * FROM paciente WHERE id_medico = ?", [id_medico])
+
+        console.log(existingPatient)
 
         if(existingPatient.length === 0) return res.status(404).json({message: "El usuario no fue encontrado"});
 
