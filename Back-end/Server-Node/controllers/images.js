@@ -15,7 +15,6 @@ export const uploadImage = async (req, res) => {
         //Recibir la info de python
 
 
-
         //Mandar la info a la db
         const [result] = await pool.query("INSERT INTO radiografias (nombre_img, titulo_img, descripcion_img, ruta_img) VALUES (?, ?, ?, ?)", [filename, title, description, path])
 
@@ -96,4 +95,16 @@ export const deleteImage = async (req, res) => {
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
+}
+
+export const getImageBySearch = async (req, res) => {
+    res.json("Buscando imagen")
+}
+
+export const getFrontalImages = (req, res) => {
+    res.json("Obteniendo imagenes frontales")
+}
+
+export const getProfileImages = (req, res) => {
+    res.json("Obteniendo imagenes de perfil")
 }

@@ -2,7 +2,7 @@ import { Router } from "express";
 
 const router = Router();
 
-import { uploadPatient, getPatients, getPatient, updatePatient, deletePatient } from "../controllers/patient.js";
+import { uploadPatient, getPatients, getPatient, updatePatient, deletePatient, getPatientBySearch} from "../controllers/patient.js";
 import auth from '../middlewares/authJwt.js'
 
 //Ruta que te permite subir un paciente
@@ -19,5 +19,7 @@ router.put('/patient/:id', auth, updatePatient)
 
 //Ruta que te permite eliminar un paciente
 router.delete('/patient/:id', auth, deletePatient)
+
+router.get('/patient/search', getPatientBySearch)
 
 export default router

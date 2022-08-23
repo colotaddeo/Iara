@@ -2,7 +2,7 @@ import { Router } from "express";
 const router = Router();
 
 
-import { uploadImage, getImages, getImage, deleteImage, updateImage } from "../controllers/images.js";
+import { uploadImage, getImages, getImage, deleteImage, updateImage, getImageBySearch, getFrontalImages, getProfileImages } from "../controllers/images.js";
 import { upload } from "../middlewares/multer.js"
 
 //Definiendo rutas de la aplicación
@@ -22,6 +22,15 @@ router.put('/images/:id', updateImage);
 
 //Ruta que te permite eliminar una imagen
 router.delete('/images/:id', deleteImage);
+
+
+router.get('images/search', getImageBySearch)
+
+
+router.get('/frontalImages', getFrontalImages)
+
+
+router.get('/profileImages', getProfileImages)
 
 
 
