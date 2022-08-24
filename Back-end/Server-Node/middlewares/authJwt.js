@@ -13,11 +13,9 @@ const authJwt = async (req, res, next) => {
 
     req.user = decoded.id
 
-    req.email = decoded.email
-
-    const [result] = await pool.query("SELECT *  FROM registro WHERE id = ?", [req.user])
-
-    if(decoded.email !== result[0].email) return res.status(404).json({message: "Hemos encontrado movimiento extraños en su cuenta"})
+    const [result] = await pool.query("SELECT * FROM registro WHERE id = ?", [req.user])
+    
+    if(result.length === 0) return res.status(404).json("El usuario no ha sido encontrado")
 
     next()
 

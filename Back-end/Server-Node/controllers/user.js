@@ -45,9 +45,9 @@ export const signIn = async (req, res) => {
 
         if(!isPasswordCorrect) return res.status(400).json({ message: "La contraseña es inválida" })
 
-        const token = jwt.sign({ email: existingUser[0].email, id: existingUser[0].id }, SECRET, {expiresIn: "30s"})
+        const token = jwt.sign({ id: existingUser[0].id }, SECRET, {expiresIn: "2m"})
 
-        const refreshToken = jwt.sign({ email: existingUser[0].email, id: existingUser[0].id }, REFRESH_TOKEN_SECRET, {expiresIn: "1m"})
+        const refreshToken = jwt.sign({ id: existingUser[0].id }, REFRESH_TOKEN_SECRET, {expiresIn: "5m"})
 
         res.json({existingUser, token, refreshToken})
     } catch (error) {
