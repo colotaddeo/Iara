@@ -15,7 +15,7 @@ const authJwt = async (req, res, next) => {
 
     const [result] = await pool.query("SELECT * FROM registro WHERE id = ?", [req.user])
     
-    if(result.length === 0) return res.status(404).json("El usuario no ha sido encontrado")
+    if(result.length === 0) return res.status(404).json("El token no es válido")
 
     next()
 

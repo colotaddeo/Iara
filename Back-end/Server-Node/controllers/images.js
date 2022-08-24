@@ -6,6 +6,7 @@ export const uploadImage = async (req, res) => {
 
         //Recibir info del front
         const {title, description} = req.body;
+        const id = req.query
         const filename = req.file.filename;
         const path = req.file.path;
 

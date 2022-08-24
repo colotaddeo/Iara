@@ -96,5 +96,13 @@ export const deletePatient = async (req, res) => {
 }
 
 export const getPatientBySearch = async (req, res) => {
-    res.json("Buscando paciente")
+
+    const { firstName, lastName } = req.query;
+
+
+    //const [result] = await pool.query("SELECT nombre, apellido FROM paciente WHERE nombre LIKE CONCAT ('%', ?, '%') OR apellido LIKE CONCAT ('%', ?, '%')", [firstName, lastName])
+
+    const [resultado] = await pool.query("SELECT nombre, apellido FROM paciente WHERE nombre REGEXP CONCAT(^,?) OR apellido REGEXP CONCAT(^,?)", [firstName, lastName])
+
+    res.json({ data: resultado })
 }
