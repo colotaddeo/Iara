@@ -2,9 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    z-index: 0;
+    background-image:inherit;
 }
 
-.logo{
-    border-radius: 10px;
+img.logo{
+    margin: 3em;
+    max-height: 5em;
+    max-width: 5em;
+}
+img.background{
+    height: 15em;
+    width: 15em;
+    z-index: 1;
+
+}
+li.nav-buttons{
+    background-color: yellow;
+    border: 5px solid green;
+    color:violet;
 }
