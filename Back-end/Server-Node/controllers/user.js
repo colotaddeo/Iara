@@ -91,3 +91,12 @@ export const refreshToken = async (req, res) => {
 export const logout = async (req, res) => {
     res.json("Saliendo de la sesión")
 }
+
+export const forgotPassword = async (req, res) => {
+    res.json("Recuperando contraseña")
+}
+
+export const updatePassword = async (req, res) => {
+    res.json("Actualizando contraseña")
+}
+
