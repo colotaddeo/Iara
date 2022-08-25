@@ -49,12 +49,19 @@ export const signIn = async (req, res) => {
 
         const refreshToken = jwt.sign({ id: existingUser[0].id }, REFRESH_TOKEN_SECRET, {expiresIn: "5m"})
 
-        const serializeToken = serialize('AccessToken', token, {
+        const serializeAccessToken = serialize('AccessToken', token, {
             httpOnly: true
         })
 
+        const serializeRefreshToken = serialize('RefreshToken', refreshToken, {
+            httpOnly: true
+        })
 
-        res.json({existingUser, token, refreshToken})
+        res.setHeader('Set-Cookie', serializeAccessToken)
+        res.setHeader('Set-Cookie', serializeRefreshToken)
+
+        return res.json({ existingUser })
+
     } catch (error) {
         return res.status(500).json({message: error.message})
     }
@@ -89,7 +96,22 @@ export const refreshToken = async (req, res) => {
 }
 
 export const logout = async (req, res) => {
-    res.json("Saliendo de la sesión")
+
+    const serializedRefreshToken = serialize('RefreshToken', null, {
+        httpOnly: true,
+        maxAge: 0,
+        path: '/'
+    })
+
+    const serializedAccessToken = serialize('AccessToken', null, {
+        httpOnly: true,
+        maxAge: 0,
+        path: '/'
+    })
+
+    res.setHeader('Set-Cookie', serializedRefreshToken)
+    res.setHeader('Set-Cookie', serializedAccessToken)
+    res.status(200).json("Se ha deslogueado")
 }
 
 export const forgotPassword = async (req, res) => {

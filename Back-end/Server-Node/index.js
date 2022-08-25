@@ -1,5 +1,6 @@
 import express from 'express';
 import morgan from 'morgan';
+import cookieParser from 'cookie-parser';
 import imageRoutes from './routes/images.routes.js'
 import userRoutes from './routes/user.routes.js'
 import patientRoutes from './routes/patient.routes.js'
@@ -13,6 +14,7 @@ app.set('port', process.env.PORT || 4000);
 //Middlewares
 app.use(express.json())
 app.use(morgan('dev'))
+app.use(cookieParser())
 
 //Routes
 app.use(imageRoutes);
