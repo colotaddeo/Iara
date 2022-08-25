@@ -20,7 +20,6 @@ const Header = () => {
   return (
     <header className="header-conteiner">
       <ul>
-        <img src={Background} alt="Background" className="background"/>
         <img src= {Logo} alt="Logo" className="logo"/>
         {datosNav.map(({id, text})=> {
           return (
