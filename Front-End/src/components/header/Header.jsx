@@ -2,7 +2,6 @@ import React from 'react'
 import './Header.css'
 import navButtons from '../navButtons/navButtons.jsx'
 import Logo from '../../assets/logo.png'
-import Background from '../../assets/background.png'
 
 const datosNav = [
   {
