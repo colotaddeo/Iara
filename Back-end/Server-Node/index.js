@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import express from 'express';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
@@ -7,9 +8,10 @@ import patientRoutes from './routes/patient.routes.js'
 
 //Initializations
 const app = express();
+const PORT = process.env.PORT
 
 //Settings
-app.set('port', process.env.PORT || 4000);
+app.set('port', PORT);
 
 //Middlewares
 app.use(express.json())
@@ -23,5 +25,5 @@ app.use(patientRoutes)
 
 
 //Server on port...
-app.listen(app.get('port'));
-console.log('Server on port', app.get('port'));
+app.listen(PORT);
+console.log('Server on port', PORT);

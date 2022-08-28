@@ -45,19 +45,27 @@ export const signIn = async (req, res) => {
 
         if(!isPasswordCorrect) return res.status(400).json({ message: "La contraseña es inválida" })
 
-        const token = jwt.sign({ id: existingUser[0].id }, SECRET, {expiresIn: "2m"})
+        const token = jwt.sign({ id: existingUser[0].id }, process.env.SECRET, {expiresIn: "2m"})
 
-        const refreshToken = jwt.sign({ id: existingUser[0].id }, REFRESH_TOKEN_SECRET, {expiresIn: "5m"})
+        const refreshToken = jwt.sign({ id: existingUser[0].id }, process.env.REFRESH_TOKEN_SECRET, {expiresIn: "1h"})
 
-        const serializeAccessToken = serialize('AccessToken', token, {
-            httpOnly: true
+        
+
+        /*const serializeAccessToken = serialize('AccessToken', token, {
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60,
+            path: '/'
         })
+        */
+        
 
         const serializeRefreshToken = serialize('RefreshToken', refreshToken, {
-            httpOnly: true
+            httpOnly: true,
+            maxAge: 1000 * 60 * 60,
+            path: '/'
         })
 
-        res.setHeader('Set-Cookie', serializeAccessToken)
+        //res.setHeader('Set-Cookie', serializeAccessToken)
         res.setHeader('Set-Cookie', serializeRefreshToken)
 
         return res.json({ existingUser })
@@ -97,13 +105,14 @@ export const refreshToken = async (req, res) => {
 
 export const logout = async (req, res) => {
 
-    const serializedRefreshToken = serialize('RefreshToken', null, {
+    const serializedAccessToken = serialize('AccessToken', null, {
         httpOnly: true,
         maxAge: 0,
         path: '/'
     })
 
-    const serializedAccessToken = serialize('AccessToken', null, {
+
+    const serializedRefreshToken = serialize('RefreshToken', null, {
         httpOnly: true,
         maxAge: 0,
         path: '/'
