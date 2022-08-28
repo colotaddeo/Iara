@@ -51,12 +51,12 @@ export const signIn = async (req, res) => {
 
         
 
-        /*const serializeAccessToken = serialize('AccessToken', token, {
+        const serializeAccessToken = serialize('AccessToken', token, {
             httpOnly: true,
             maxAge: 1000 * 60 * 60,
             path: '/'
         })
-        */
+        
         
 
         const serializeRefreshToken = serialize('RefreshToken', refreshToken, {
@@ -66,7 +66,7 @@ export const signIn = async (req, res) => {
         })
 
         //res.setHeader('Set-Cookie', serializeAccessToken)
-        res.setHeader('Set-Cookie', serializeRefreshToken)
+        res.setHeader('Set-Cookie', [serializeAccessToken, serializeRefreshToken])
 
         return res.json({ existingUser })
 
