@@ -21,7 +21,6 @@ nav{
     justify-content: space-evenly;
 }
 a{
-    letter-spacing: 2px;
     text-decoration: none;
     color: #333;
     font-size: 1.5rem;
@@ -55,7 +54,6 @@ a.nav-link .animate{
     height:20%;
     border:2px solid;
     transition:all .6s ease;
-    border-radius:2px
 }
 
 a.nav-link .animate::before{
