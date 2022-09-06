@@ -1,3 +1,4 @@
+/* responsive */
 body{
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -7,24 +8,21 @@ body{
 nav{
     display: flex;
     justify-content: space-around;
-    width: 100%;
     align-items: center;
+    width: 100%;
 }
 
 a{
     text-decoration: none;
     color: white;
     font-size: 1.5rem;
-    position:relative;
-    margin: 1em;
-
+    position: relative;
 }
 a.nav-link{
     text-decoration: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     position: relative;
-    margin: 2em;
 }
 
 a.nav-link::after{
@@ -39,7 +37,7 @@ a.nav-link::after{
     /*animacion de derecha a izquierda*/
     transform-origin: left;
     transform: scaleX(0);
-    transition: transform .5s ease-in-out;
+    transition: all .2s ease-in-out;
 }
 a.nav-link:hover::after{
     /*animacion de derecha a izquierda*/
@@ -47,10 +45,6 @@ a.nav-link:hover::after{
   transform: scaleX(1);
 }
 
-a.nav-link:active:focus{
-    background-color: white;
-    transition: 5s;
-}
 
 
 
@@ -59,7 +53,7 @@ a.nav-link:active:focus{
 
 header{
     display: flex;
-    height: 70px;
+    min-height: 8vh;
     background-color : transparent;
     justify-content : center;
     align-items: center;
@@ -76,11 +70,124 @@ header{
     padding: 10px;
     border: solid 2px white;
     border-radius: 10px;
+    transition: .2s all ease;
+    margin: 20px;
 }
 .register-buttons a:hover{
     padding: 10px;
     border-radius: 10px;
     background-color: white;
     color: black;
-    transition: 1s;
 }
+
+
+@media(max-width: 880px) {
+    .top-nav {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: transparent;
+        color: #FFF;
+        height: 50px;
+        padding: 1em;
+      }
+      
+      .menu {
+        display: flex;
+        flex-direction: row;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .menu > li {
+        margin: 0 1rem;
+        overflow: hidden;
+      }
+      
+      .menu-button-container {
+        display: none;
+        height: 100%;
+        width: 30px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      #menu-toggle {
+        display: none;
+      }
+      
+      .menu-button,
+      .menu-button::before,
+      .menu-button::after {
+        display: block;
+        background-color: white;
+        position: absolute;
+        height: 4px;
+        width: 30px;
+        transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        border-radius: 2px;
+      }
+      
+      .menu-button::before {
+        content: '';
+        margin-top: -8px;
+      }
+      
+      .menu-button::after {
+        content: '';
+        margin-top: 8px;
+      }
+      
+      #menu-toggle:checked + .menu-button-container .menu-button::before {
+        margin-top: 0px;
+        transform: rotate(405deg);
+      }
+      
+      #menu-toggle:checked + .menu-button-container .menu-button {
+        background: #fff;
+      }
+      
+      #menu-toggle:checked + .menu-button-container .menu-button::after {
+        margin-top: 0px;
+        transform: rotate(-405deg);
+      }
+      
+        .menu-button-container {
+          display: flex;
+        }
+        .menu {
+          position: absolute;
+          top: 0;
+          margin-top: 50px;
+          left: 0;
+          flex-direction: column;
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+        }
+        #menu-toggle ~ .menu li {
+          height: 0;
+          margin: 0;
+          padding: 0;
+          border: 0;
+          transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        #menu-toggle:checked ~ .menu li {
+          height: 2.5em;
+          padding: 0.5em;
+          transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .menu > li {
+          display: flex;
+          justify-content: center;
+          margin: 0;
+          padding: 0.5em 0;
+          width: 100%;
+          color: white;
+          background-color: transparent;
+        }
+      }
