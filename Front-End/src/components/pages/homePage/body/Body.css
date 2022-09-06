@@ -1,0 +1,14 @@
+.body-conteiner{
+    background-color: #004C4F;
+}
+.inicio h1{
+    color: white;
+    font-family: 'DM Sans';
+    font-size: 200px;
+    padding: 1.5em 1em 0 1em;
+    
+}
+.inicio p{
+    color: white;
+    padding-left: 1em;
+}

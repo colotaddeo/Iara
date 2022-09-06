@@ -34,9 +34,9 @@ export const Header = () => {
   return (
     <header className="header-conteiner">
 
-      <image>
+      <div className='logo-conteiner'>
         <img src={Logo} alt="logo" className='logo' />
-      </image>
+      </div>
       
       <nav>
         {datosNav.map(({route, text})=> {
@@ -46,8 +46,13 @@ export const Header = () => {
           )
         })}
 
+        <div className="register-buttons">
+        <a href="/login">Log in</a>
+        <a href="/signup">Sign up</a>
+        </div>
+
       </nav>
-    
+        
     </header>
   )
 }

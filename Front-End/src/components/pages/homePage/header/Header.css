@@ -3,69 +3,54 @@ body{
     margin: 0;
 }
 
-/* a{
-    color: black;
-    margin: 5em;
-    padding: 1em;
-    background-color: transparent;
-    cursor: pointer;
-    font-weight: bold;
-    line-height: 50px;
-    position : relative;
-    text-decoration: none;
-
-} */
 
 nav{
-    margin: 2rem 1.5rem;
-    justify-content: space-evenly;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
 }
+
 a{
     text-decoration: none;
-    color: #333;
+    color: white;
+    font-size: 1.5rem;
+    position:relative;
+    margin: 1em;
+
+}
+a.nav-link{
+    text-decoration: none;
+    color: white;
     font-size: 1.5rem;
     position: relative;
     margin: 2em;
 }
-a::after{
+
+a.nav-link::after{
     content: "";
     position: absolute;
     right: 0;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     height: 2px;
     width: 100%;
     background: white;
     /*animacion de derecha a izquierda*/
-    transform-origin: right;
+    transform-origin: left;
     transform: scaleX(0);
     transition: transform .5s ease-in-out;
 }
-a:hover::after{
+a.nav-link:hover::after{
     /*animacion de derecha a izquierda*/
   transform-origin: left;
   transform: scaleX(1);
 }
 
-a.nav-link .animate{
-    content:"";
-    position:absolute;
-    width:20%;
-    height:20%;
-    border:2px solid;
-    transition:all .6s ease;
+a.nav-link:active:focus{
+    background-color: white;
+    transition: 5s;
 }
-
-a.nav-link .animate::before{
-    top:0;
-    left:0;
-    border-color:#566473 transparent transparent #566473
-}
-a.nav-link .animate:hover:before{
-    width:100%;
-    height:100%
-}
-
 
 
 
@@ -75,7 +60,7 @@ a.nav-link .animate:hover:before{
 header{
     display: flex;
     height: 70px;
-    background-color : grey;
+    background-color : transparent;
     justify-content : center;
     align-items: center;
     padding: 10px;
@@ -83,8 +68,19 @@ header{
 
 .logo{
     display: flex;
-    align-items: center;
+    justify-content: left;
     max-width: 4em;
     
 }
-
+.register-buttons a{
+    padding: 10px;
+    border: solid 2px white;
+    border-radius: 10px;
+}
+.register-buttons a:hover{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
+    transition: 1s;
+}
