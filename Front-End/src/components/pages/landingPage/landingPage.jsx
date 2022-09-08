@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from '../homePage/header/Header.jsx'
-import Body from '../homePage/body/Body.jsx'
+import Header from '../landingPage/header/Header.jsx'
+import Body from '../landingPage/body/Body.jsx'
 
 export const HomePage = () => {
   return (

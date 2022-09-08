@@ -1,22 +1,22 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Header from "./components/pages/homePage/header/Header.jsx";
-import Body from "./components/pages/homePage/body/Body.jsx";
-import NotFound from "./components/pages/notFoundPage/NotFound.jsx";
-import NavBar from "./components/pages/homePage/navBar/navBar.jsx";
-import HomePage from "./components/pages/homePage/homePage";
+import LandingPage from "./components/pages/landingPage/landingPage";
+import LogInPage from "./components/pages/logInPage/logIn";
+import SignUpPage from "./components/pages/signUpPage/signUp";
+import NotFound from "./components/pages/notFoundPage/NotFound";
+
 
 function App() {
   return (
     <>
-      <HomePage />
-      {/* <NavBar />
+      {/* ¿como bloquear una página que es solo para registrados a un no-user? */}
       <Routes>
-        <Route path="/" element={<Header />} />
-        <Route path="/Body" element={<Body />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/logIn" element={<LogInPage />} />
+        <Route path="/signUp" element={<SignUpPage />} />
         <Route path="*" element={<NotFound />} />
-      </Routes> */}
+      </Routes>
     </>
   );
 }
