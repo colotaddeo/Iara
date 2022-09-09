@@ -54,7 +54,7 @@ export const Header = () => {
         {datosNav.map(({route, text})=> {
           return (
             
-            <a href="#" onClick={handleClick} className={["nav-link", animate].join(" ")}>{text}</a>
+            <a href= {route} onClick={handleClick} className={["nav-link", animate].join(" ")}>{text}</a>
            )
           })}
 
