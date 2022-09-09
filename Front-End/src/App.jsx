@@ -6,8 +6,12 @@ import LogInPage from "./components/pages/logInPage/logIn";
 import SignUpPage from "./components/pages/signUpPage/signUp";
 import NotFound from "./components/pages/notFoundPage/NotFound";
 import Home from "./components/pages/home/Home";
+import UserContext from "./context"
 
 function App() {
+
+const
+
   return (
     <>
       <Routes>
