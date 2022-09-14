@@ -1,8 +1,9 @@
 import React from 'react'
-import Header from '../landingPage/header/Header.jsx'
-import Body from '../landingPage/body/Body.jsx'
+import Header from '../landingPage/header/Header'
+import Body from '../landingPage/body/Body'
 
-export const HomePage = () => {
+   const HomePage = () => {
+  console.log("HEY")
   return (
     <div>
       <Header />

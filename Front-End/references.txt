@@ -2,3 +2,6 @@ nombre de las clases --> minuscula con guion medio entre palabras
 
 nombre de carpetas componentes --> minuscula la 1era palabra, desp mayuscula primera letra de cada palabra
 nombre de archivos dentro de componentes --> = carpeta de componentes
+
+Sign Up -->Registrarse
+Log In --> Iniciar Sesión
