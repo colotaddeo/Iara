@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import LandingPage from "./components/pages/landingPage/landingPage";
 import LogInPage from "./components/pages/logInPage/logIn";
-import SignUp from "./components/pages/signUp/signUp";
+import SignUp from "./components/signup/signUp";
 import NotFound from "./components/pages/notFoundPage/NotFound";
 import Home from "./components/pages/home/Home";
 import loginContext from "./Context";
