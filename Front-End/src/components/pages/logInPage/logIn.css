@@ -1,10 +1,9 @@
-form{
+.login-container form{
     background-color: aqua;
 }
-label{
-    background-color: aqua;
-}
-input{
+
+
+.login-container input{
     background-color: aqua;
     border: solid 5px red;
     width: 20em;

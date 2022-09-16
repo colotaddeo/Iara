@@ -7,7 +7,7 @@ import './logIn.css'
 
 const LogIn = () => {
   return (
-    <div>
+    <div className='login-container'>
         <h1>ESTE ES EL LOGIN, Iniciar sesión</h1>
 
         <form>
