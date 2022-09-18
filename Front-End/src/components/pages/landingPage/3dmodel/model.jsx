@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useRef, useEffect } from "react"
 import * as THREE from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js"
@@ -15,17 +15,19 @@ const Object = () => {
   )
   const renderer = new THREE.WebGLRenderer({ antialias: true })
   const controls = new OrbitControls(camera, renderer.domElement)
+  const material = new THREE.MeshBasicMaterial();
 
   useEffect(() => {
     const canvas = canvasRef.current
     renderer.setSize(window.innerWidth, window.innerHeight)
     canvas.appendChild(renderer.domElement)
-    camera.position.z = 4;
+    camera.position.z = 1;
     controls.update()
-    const light = new THREE.AmbientLight(0xffffff, 0.5)
+    const light = new THREE.AmbientLight(0xffffff, 1)
     scene.add(light)
     const light2 = new THREE.PointLight(0xffffff, 0.5)
     scene.add(light2)
+    material.transparent = true;
     function loadGLTF() {
       let object = new GLTFLoader()
       object.load(
@@ -34,14 +36,14 @@ const Object = () => {
           scene.add(gltf.scene)
         },
         function (error) {
-          console.error(error)
+          console.log(error)
         }
       )
     }
     loadGLTF()
     const animate = () => {
       requestAnimationFrame(animate)
-      renderer.render(scene, camera)
+      renderer.render(scene, camera, material)
     }
     animate()
   }, [])
