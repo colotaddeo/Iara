@@ -60,6 +60,10 @@ const signUp = () => {
           </ul> */}
         
         </div>
+        <div className='button-container'>
+          <a href="">Confirmar</a>
+        </div>
+
 
       </div>
     </div>

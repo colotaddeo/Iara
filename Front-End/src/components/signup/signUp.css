@@ -10,7 +10,6 @@
 /* Video */
 
 .multimedia {
-    position: relative;
   display: block;
   left: 0;
   bottom: 0;
@@ -28,12 +27,12 @@
 /* Form */
 
 .form {
-  margin-top: 133px;
+  margin-top: 100px;
   margin-left: 145px;
 }
 .form h2 {
   font-size: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: white;
 }
 
@@ -70,7 +69,7 @@
   outline: none;
 }
 
-.form-input:focus::placeholder {
+.form-input:focus::placeholder{
     transform: translateY(-35px);
     transition: 0.2s ease all;
     font-size: 14px;
@@ -97,8 +96,7 @@
   position: absolute;
   background: #01adb4;
   transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transition: 0.2s ease all;
+
 }
 /* subrayado on hover (color sage)*/
 
@@ -117,19 +115,30 @@
 /* DROPDOWN */
 
 .dropdown-container select {
-    position: absolute;
+
     width: 200px;
     height: 50px;
     font-size: 25px;
     border:none;
     color: white;
     outline: none;
+    
 }
 .dropdown-container select:focus{
     border: 3px solid #01adb4;
 }
 
-
 /* DROPDOWN */
 
+/* CONFIRMAR */
+
+
+.form a{
+    padding: 5px 270px 5px 270px;
+    background-color: #01adb4;
+    font-size: 30px;
+
+}
+
+/* CONFIRMAR */
 /* Form */
