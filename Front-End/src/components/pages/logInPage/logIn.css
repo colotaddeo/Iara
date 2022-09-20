@@ -1,13 +1,22 @@
-.login-container form{
-    background-color: aqua;
+.login-container{
+    display:flex;
 }
 
+/* FORM */
 
-.login-container input{
-    background-color: aqua;
-    border: solid 5px red;
-    width: 20em;
-    height: 5em;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
+.form{
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
+/* FORM */
+/* MEDIA */
+
+.multimedia{
+    width: 100vw;
+    height: 60vh;
+    right: 0;
+    object-fit: cover;
+}
+
+/* MEDIA */

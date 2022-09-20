@@ -1,11 +1,11 @@
 import React from 'react'
-import Media from '../../assets/video2.mp4'
 import './signUp.css'
+import Media from '../Media/Media.jsx'
 
 
 const signUp = () => {
 
-  const datosLog = [
+  const datosSign = [
     {
       lbl: "Nombre:",
       type: "text"
@@ -27,14 +27,13 @@ const signUp = () => {
   return (
     <div className="all-container">
       <div className="multimedia">
-        <video src={Media} loop autoPlay muted></video>
-
+        <Media />
       </div>
       <div className="form">
         
         <h2>Crear cuenta</h2>
 
-        {datosLog.map(({ lbl, type }, index) => {
+        {datosSign.map(({ lbl, type }, index) => {
           return (
             <form key={index} className='login-form'>
 

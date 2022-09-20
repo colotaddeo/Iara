@@ -2,25 +2,40 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import Home from '../home/Home';
 import {Formik} from 'formik';
-import './logIn.css'
+import './logIn.css';
+import Media from '../../../assets/video4.mp4'
 
 
 const LogIn = () => {
+  const datosLog = [
+    {
+      lbl: "Email",
+      type:"email"
+    },
+    {
+      lbl:"Contraseña",
+      type:"password"
+    }
+  ]
   return (
     <div className='login-container'>
-        <h1>ESTE ES EL LOGIN, Iniciar sesión</h1>
+      <div className='form'>
+        {datosLog.map(({ lbl, type }, index) => {
+          return (
+            <form key={index} className='login-form'>
 
-        <form>
-          <label>Ingresa tu apelido</label>
-          <br />
-          <input type="text" placeholder="ingresa tu apellido"/>
-          <br />
-          <label>Ingresa tu dni</label>
-          <br />
-          <input type="number" min="1"placeholder="ingresa tu dni"/>
-        </form>
-      
-        <Link to= '/home' >Verificar, entrar</Link>
+              <input type={type} className="form-input" placeholder={lbl}/>
+              <span className='bar'></span>
+
+            </form>
+          )
+        })}
+      </div>
+      <div className='multimedia'>
+        <video src={Media} loop autoPlay muted></video>
+      </div>
+
+      {/* <Link to= '/home' >Verificar, entrar</Link> */}
     </div>
   )
 }
