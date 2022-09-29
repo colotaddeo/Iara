@@ -1,10 +1,12 @@
 import React from 'react'
+import './Home.css'
+import {Animated} from "react-animated-css";
+import Header from '../landingPage/header/Header.jsx'
 
 const Home = () => {
   return (
-    
     <div>
-      <h1>Esta es la home, el equivalente a la landing pero logueado</h1>
+      <p>ksdkdm</p>
     </div>
   )
 }

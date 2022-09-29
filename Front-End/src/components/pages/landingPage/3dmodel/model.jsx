@@ -31,7 +31,7 @@ const Object = () => {
     function loadGLTF() {
       let object = new GLTFLoader()
       object.load(
-        "./lung.glb",
+        "./ADN.glb",
         function (gltf) {
           scene.add(gltf.scene)
         },
