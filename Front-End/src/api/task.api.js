@@ -1,4 +1,11 @@
 import axios from "axios";
+import form from '../components/pages/logInPage/logIn'
 
-export const createTaskRequest = async (task) => 
-    await axios.post("https://localhost:4000/tasks", task)
+const URI = "https://localhost:4000/tasks"
+
+export const createTaskRequest = async (task) => {
+    await axios.post(URI, {
+        
+    })
+}
+    
