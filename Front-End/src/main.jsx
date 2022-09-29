@@ -7,10 +7,10 @@ import { LoginProvider } from './Context'
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <LoginProvider>
+    {/* <LoginProvider> */}
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </LoginProvider>
+    {/* </LoginProvider> */}
   </React.StrictMode>
 );

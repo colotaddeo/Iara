@@ -10,8 +10,8 @@ import loginContext from "./Context";
 
 function App() {
 
-  const { loggedIn } = useContext(loginContext)
-  console.log(loggedIn)
+  // const { loggedIn } = useContext(loginContext)
+  // console.log(loggedIn)
 
   return (
     <>
@@ -22,7 +22,7 @@ function App() {
         <Route path="/Home" element={<Home />} />
         
         <Route path="*" element={<NotFound />} />
-        <Route path="/Home" element={loggedIn ? <Home /> : <Navigate to="/logIn"/>} />
+        {/* <Route path="/Home" element={loggedIn ? <Home /> : <Navigate to="/logIn"/>} /> */}
       </Routes>
     </>
   );
