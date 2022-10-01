@@ -1,6 +1,7 @@
 import React from 'react'
 import './signUp.css'
 import Media from '../Media/Media.jsx'
+import Imagen from '../.././assets/Doctora1.png'
 
 
 const signUp = () => {
@@ -26,8 +27,15 @@ const signUp = () => {
   
   return (
     <div className="all-container">
-      <div className="multimedia">
-        <Media />
+      <div className='imagen'>
+        {/* <Media /> */}
+
+        <img src={Imagen} alt="IMagen ilustrativa" />
+
+      </div>
+      <div className="title">
+        <h1>Un paso a la vez...  <br/> Comencemos.</h1>
+        <p>Crea una cuenta para comenzar tu recorrido. Descubre las <br/> funcionalidades de Iara.</p>
       </div>
       <div className="form">
         

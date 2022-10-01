@@ -1,18 +1,47 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&display=swap");
 
+
 .all-container {
   display: flex;
   background-color: #2b2b2b;
-  font-family: "DM Sans", 'sans-serif';
-  overflow: hidden;
+  font-family: sans-serif;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;;
+}
+/* Imagen */
+
+.imagen img{
+  filter:opacity(50%);
+  height: 100vh;
+  width: 60vw;
+  object-fit: cover;
+
 }
 
+.title{
+  margin-top: 100px;
+  margin-left: 70px;
+  position: absolute;
+  color: white;
+  font-size: 25px;
+}
+.title p{
+  margin-top: 3vh;
+  margin-left: 0;
+
+}
+
+ 
+/* Imagen */
 
 /* Form */
 
-.form {
+.form { 
+  /* Margen para centrar un toque*/
   margin-top: 100px;
   margin-left: 70px;
+  /* Margen para centrar un toque*/
 }
 .form h2 {
   font-size: 60px;
@@ -100,16 +129,16 @@
 
 .dropdown-container select {
 
-    width: 200px;
-    height: 50px;
-    font-size: 25px;
-    border:none;
-    color: white;
-    outline: none;
+  width: 200px;
+  height: 50px;
+  font-size: 25px;
+  border:none;
+  color: white;
+  outline: none;
     
 }
 .dropdown-container select:focus{
-    border: 3px solid #01adb4;
+  border: 3px solid #01adb4;
 }
 
 /* DROPDOWN */
@@ -118,10 +147,9 @@
 
 
 .form a{
-    padding: 5px 270px 5px 270px;
-    background-color: #01adb4;
-    font-size: 30px;
-
+  padding: 5px 270px 5px 270px;
+  background-color: #01adb4;
+  font-size: 30px;
 }
 
 /* CONFIRMAR */

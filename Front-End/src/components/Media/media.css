@@ -1,7 +1,7 @@
 /* Video */
 
 .multimedia {
-    display: block;
+    display: flex;
     left: 0;
     bottom: 0;
   }
