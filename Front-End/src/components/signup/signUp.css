@@ -146,10 +146,15 @@
 /* CONFIRMAR */
 
 
-.form a{
+.button-container .confirm{
   padding: 5px 270px 5px 270px;
   background-color: #01adb4;
   font-size: 30px;
+  display: block;
+}
+.button-container .login-button{
+  background: none;
+  color: #01adb4;
 }
 
 /* CONFIRMAR */

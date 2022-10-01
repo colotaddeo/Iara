@@ -2,6 +2,7 @@ import React from 'react'
 import './signUp.css'
 import Media from '../Media/Media.jsx'
 import Imagen from '../.././assets/Doctora1.png'
+import {Link} from 'react-router-dom';
 
 
 const signUp = () => {
@@ -68,7 +69,8 @@ const signUp = () => {
         
         </div>
         <div className='button-container'>
-          <a href="">Confirmar</a>
+        <Link to= '/home' className='login-button'>Ya tenes cuneta?</Link>
+        <a href="" className='confirm'>Confirmar</a>
         </div>
 
 

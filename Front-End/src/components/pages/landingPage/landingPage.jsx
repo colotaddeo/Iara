@@ -8,7 +8,7 @@ import Model from'../landingPage/3dmodel/model'
     <div>
       <Header />
       <Body />
-      {/* <Model /> */}
+      <Model />
 
     </div>
   )

@@ -33,6 +33,9 @@ export const signUp = async (req, res) => {
 export const signIn = async (req, res) => {
 
     try {
+
+        console.log(req.body);
+
         const { email, password } = req.body
 
         const [existingUser] = await pool.query("SELECT * FROM registro WHERE email = ?", [email])
@@ -98,7 +101,9 @@ export const refreshToken = async (req, res) => {
         const token = jwt.sign({ id: existingUser[0].id }, SECRET, {expiresIn: "2m"})
 
         res.json({token})
+
     } catch (error) {
+
         return res.status(500).json({message: error.message})
     }
 }

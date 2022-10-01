@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-// import {Animated} from "react-animated-css";
+import {Animated} from "react-animated-css";
 import Header from '../landingPage/header/Header.jsx'
 
 const Home = () => {

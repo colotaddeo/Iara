@@ -44,6 +44,8 @@ const Object = () => {
     const animate = () => {
       requestAnimationFrame(animate)
       renderer.render(scene, camera, material)
+
+      // rendered.rotation.y += 0.1;
     }
     animate()
   }, [])

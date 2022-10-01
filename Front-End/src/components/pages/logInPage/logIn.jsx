@@ -1,56 +1,66 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import Home from '../home/Home';
-import {Formik} from 'formik';
+import {Formik, useFormik} from 'formik';
 import './logIn.css';
 import Media from '../../../assets/video4.mp4'
 import axios from 'axios';
+import Imagen from '../../../assets/Doctora1.png'
 
-const URI = "https://localhost:4000/tasks"
+const URI = "https://localhost:4000/signin"
 
 const LogIn = () => {
-  const datosLog = [
-    {
-      lbl: "Email",
-      type:"email",
-      ref: "emailRef"
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password:''
     },
-    {
-      lbl:"Contraseña",
-      type:"password",
-      ref: "passwordRef"
-    }
-  ]
-  const emailRef = useRef(null)
-  const passwordRef = passwordRef(null)
+    onSubmit: values => {
+      alert(JSON.stringify(values, null, 2));
+    },
+  });
+  // var emailRef = emailRef(null)
+  // var passwordRef = passwordRef(null)
 
 
-  const sendData = async () => {
-    const data = await axios.post(URI, {
-      email: ref.current.value,
-      password: ref.current.value
-    })
-  }
+
 
   return (
     <div className='login-container'>
       <div className='form'>
-        {datosLog.map(({ lbl, type }, index) => {
-          return (
-            <form onSubmit={sendData} key={index} className='login-form'>
 
-              <input ref={ref} type={type} className="form-input" placeholder={lbl} />
-              <span className='bar'></span>
-              <button type="submit"></button>
-            </form>
-          )
-        })}
+        <Formik
+          initialValues={{
+            email:'',
+            password:'',
+          }}
+        >
+          <form onSubmit={formik.handleSubmit}>
+            <label htmlFor="email">Email Address</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+            />
+            <input
+              id="password"
+              name="password"
+              type="password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+            />
+            <button type="submit">Submit</button>
+          </form>
+        </Formik>
+
       </div>
-      <div className='multimedia'>
-        <video src={Media} loop autoPlay muted></video>
+      <div className='imagen'>
+        <img src={Imagen} alt="Imagen" />
       </div>
 
-      {/* <Link to= '/home' >Verificar, entrar</Link> */}
     </div>
   )
 }
