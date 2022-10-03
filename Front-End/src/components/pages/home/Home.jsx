@@ -1,12 +1,12 @@
 import React from 'react'
 import './Home.css'
-import {Animated} from "react-animated-css";
-import Header from '../landingPage/header/Header.jsx'
+import {Animated} from "react-animated-css"
+import Nav from '../home/NavBar/NavBar'
 
 const Home = () => {
   return (
     <div>
-      <p>ksdkdm</p>
+      <Nav/>
     </div>
   )
 }
