@@ -18,10 +18,21 @@ const LogIn = () => {
     },
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
+      fetch(values);
     },
   });
-  // var emailRef = emailRef(null)
-  // var passwordRef = passwordRef(null)
+
+  const fetch = (JSON) => {
+    fetch({URI},{
+      method: "POST",
+      body: JSON.stringify(JSON),
+      headers: {"Content-Type" : "application/json" }
+    })
+
+    .then(res => res.json())
+    .catch(error => console.log("Error", error))
+    .then(response => console.log("Éxito", response))
+  }
 
 
 
