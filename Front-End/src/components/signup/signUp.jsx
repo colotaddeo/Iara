@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './signUp.css'
 import Media from '../Media/Media.jsx'
 import Imagen from '../.././assets/Doctora1.png'
@@ -18,13 +18,26 @@ const signUp = () => {
     },
     {
       lbl: "DNI:",
-      type: "number"
+      type: "text",
     },
     {
       lbl: "E-mail:",
       type: "email"
     }
   ]
+  const Numeros= (string) =>{//Solo numeros
+    var out = '';
+    var filtro = '1234567890';//Caracteres validos
+	
+    //Recorrer el texto y verificar si el caracter se encuentra en la lista de validos 
+    for (var i=0; i<string.length; i++)
+       if (filtro.indexOf(string.charAt(i)) != -1) 
+        //Se añaden a la salida los caracteres validos
+	     out += string.charAt(i);
+	
+    //Retornar valor filtrado
+    return out;
+  } 
   
   return (
     <div className="all-container">
@@ -60,19 +73,12 @@ const signUp = () => {
             <option value="Umai">Umai</option>
             <option value="Muñiz">Muñiz</option>
           </select>
-          {/* <span>Institución</span>
-
-          <ul>
-            <li>Muñiz</li>
-            <li>Umai</li>
-          </ul> */}
         
         </div>
         <div className='button-container'>
-        <Link to= '/home' className='login-button'>Ya tenes cuneta?</Link>
+        <Link to= '/home' className='login-button'>Ya tenes cuenta?</Link>
         <a href="" className='confirm'>Confirmar</a>
         </div>
-
 
       </div>
     </div>
