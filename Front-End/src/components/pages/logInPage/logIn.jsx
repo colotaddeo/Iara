@@ -29,7 +29,7 @@ const LogIn = () => {
   return (
     <div className='login-container'>
       <div className='form'>
-
+        <h2 className="titulo__login">Iniciar sesion</h2>
         <Formik
           initialValues={{
             email:'',
@@ -42,22 +42,26 @@ const LogIn = () => {
               id="email"
               name="email"
               type="email"
+              placeholder="Enter your Email"
               onChange={formik.handleChange}
               value={formik.values.email}
+              className="input__login"
             />
             <input
               id="password"
               name="password"
               type="password"
+              placeholder="Enter your password"
               onChange={formik.handleChange}
               value={formik.values.password}
+              className="input__login"
             />
-            <button type="submit">Submit</button>
+            <button className="button__login" type="submit">Submit</button>
           </form>
         </Formik>
 
       </div>
-      <div className='imagen'>
+      <div className='imagen' id='imagen__login'>
         <img src={Imagen} alt="Imagen" />
       </div>
 
