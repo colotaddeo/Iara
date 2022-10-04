@@ -1,12 +1,19 @@
 .login-container{
     display:flex;
+    background-color: #2b2b2b;
 }
 
 /* FORM */
 
-.form{
+.form-login{
     margin-left: 5px;
     margin-right: 5px;
+}
+
+.form-login h2{
+    font-size: 60px;
+    margin-bottom: 20px;
+    color: white;
 }
 
 /* FORM */
@@ -29,40 +36,67 @@ label{
 
 /* MEDIA */
 
+
 .input__login{
     outline: none;
-    background-color: #000;
+    background: transparent;
     margin: 3px;
-    border: 2px solid #444;
-    border-radius: 5px;
-    color: #555;
+    border: none;
+    padding: 36px 10px 10px 5px;
+    border-bottom: 2px solid #fff;
+    color: #fff;
     width: 300px;
-    height: 50px;
     position: absolute;
-    font-size: 15px;
+    font-size: 16px;
+    display: block;
+    left: 100px;
 }
 
-#email{
-    
+.input__login:focus{
+    border-bottom: 2px solid #01adb4;
+}
+
+.input__login::placeholder{
+    color: white;
+    font-family: "DM Sans", 'sans-serif';
+    font-size: 16px;
+}
+
+.input__login:focus::placeholder{
+    transform: translateY(-35px);
+    transition: 0.2s ease all;
+    font-size: 14px;
+    color: #01adb4;
+}
+
+#email{ 
     top: 200px;
-    left: 100px;
 }
 
 #password{
     top: 300px;
-    left: 100px;
 }
 
 .button__login{
     width: 304px;
     height: 35px;
-    background-color: #3bd;
+    background-color: #01adb4;
     color: #ddd;
+    border: none;
     border-radius: 5px;
     position: absolute;
     top: 400px;
     left: 100px;
     font-size: 15px;
+}
+
+.button__login:hover{
+    background-color: #4bf;
+    
+}
+
+.button__login:active{
+    background-color: #26f;;
 }
 
 

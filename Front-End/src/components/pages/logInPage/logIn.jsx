@@ -39,8 +39,8 @@ const LogIn = () => {
 
   return (
     <div className='login-container'>
-      <div className='form'>
-        <h2 className="titulo__login">Iniciar sesion</h2>
+      <div className='form-login'>
+      <h2 className="titulo__login">Iniciar sesion</h2>
         <Formik
           initialValues={{
             email:'',
