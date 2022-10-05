@@ -30,7 +30,7 @@ const LogIn = () => {
   const fetchinfo = (valoresIniciales) => {
 
 
-    fetch("http://localhost:4000/signin",{
+    fetch("http://localhost:4000/user/signin",{
 
       method: "POST",
       body: JSON.stringify(valoresIniciales),
@@ -39,8 +39,8 @@ const LogIn = () => {
     })
 
     .then(res => res.json())
-    .then(res => console.log(res))
     .catch(error => console.log("Error", error))
+    .then(response => console.log(response))
   }
 
 
