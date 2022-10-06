@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import Home from '../home/Home';
-import {Formik, useFormik, Form, Field} from 'formik';
+import {Formik, Form, Field} from 'formik';
 import './logIn.css';
 import Media from '../../../assets/video4.mp4'
 import axios from 'axios';
@@ -51,13 +51,15 @@ const LogIn = () => {
         <Formik 
 
           initialValues={valoresIniciales}
-          onSubmit={(valoresIniciales) => {
+          onSubmit={(valoresIniciales, formikHelpers) => {
 
             fetchinfo(valoresIniciales); 
             alert(JSON.stringify(valoresIniciales));
             console.log(valoresIniciales);
+            formikHelpers.resetForm()
 
           }}
+          
 
         >
           <Form>

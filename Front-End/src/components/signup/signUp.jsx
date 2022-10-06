@@ -3,6 +3,7 @@ import './signUp.css'
 import Media from '../Media/Media.jsx'
 import Imagen from '../.././assets/Doctora1.png'
 import {Link} from 'react-router-dom';
+import {Formik, useFormik, Form, Field} from 'formik';
 
 
 const signUp = () => {
@@ -41,30 +42,55 @@ const signUp = () => {
   
   return (
     <div className="all-container">
+
       <div className='imagen'>
-        {/* <Media /> */}
 
         <img src={Imagen} alt="IMagen ilustrativa" />
 
       </div>
-      <div className="title">
-        <h1>Un paso a la vez...  <br/> Comencemos.</h1>
-        <p>Crea una cuenta para comenzar tu recorrido. Descubre las <br/> funcionalidades de Iara.</p>
-      </div>
+
       <div className="form">
         
         <h2>Crear cuenta</h2>
 
-        {datosSign.map(({ lbl, type }, index) => {
-          return (
-            <form key={index} className='login-form'>
+        <Formik 
 
-              <input type={type} className="form-input" placeholder={lbl}/>
-              <span className='bar'></span>
+          initialValues={valoresIniciales}
+          onSubmit={(valoresIniciales) => {
 
-            </form>
-          )
-        })}
+            fetchinfo(valoresIniciales); 
+            alert(JSON.stringify(valoresIniciales));
+            console.log(valoresIniciales);
+
+          }}
+          
+
+        >
+          <Form>
+            <Field
+              id="nombre"
+              name="nombre"
+              type="text"
+              placeholder="Ingresá tu nombre"
+              className="input__signup"
+            />
+            <Field
+              id="apellido"
+              name="apellido"
+              type="text"
+              placeholder="Ingresa tu apellido"
+              className="input__signup"
+            />
+            <Field
+              id="apellido"
+              name="apellido"
+              type="text"
+              placeholder="Ingresa tu apellido"
+              className="input__signup"
+            />
+            <button className="button__login" type="submit">Submit</button>
+          </Form>
+        </Formik>
 
         <div className='dropdown-container'>
 
