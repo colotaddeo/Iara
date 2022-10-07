@@ -1,7 +1,6 @@
 .login-container{
     display:flex;
     background-color: #1A1A1A;
-    align-items: top;
     justify-content: center;
 }
 
@@ -9,12 +8,13 @@
 
 .form-login{
     margin: 20px 30px;
-    padding: 20px 20px;
+    padding: 20px 20px 0 ;
     flex: 1;
     order: 2;
     flex-grow: 1;
-    flex-shrink: 0;
-    
+    display: flex;
+    flex-shrink: 0;   
+    flex-direction: column;
 }
 
 .form-login h2{
@@ -41,41 +41,38 @@
     display: flex;
     order: 1;
     flex-shrink: 4;
-    flex-grow: 1;
+    height: 100vh;
+    width: 70vw;
+    flex-grow: 2;
 }
-
+.login-container .imagen img{
+    width: 100%;
+    height: 100%;
+} 
 
 /* MEDIA */
 
 
 .input__login{
-    outline: none;
-    background: transparent;
-    border: none;
-    padding: 36px 10px 10px 5px;
-    border-bottom: 2px solid #fff;
-    color: #fff;
-    width: 100%;
-    font-size: 16px;
     display: block;
     margin-bottom: 50px;
+    position: relative;
 }
 
-.input__login:focus{
-    border-bottom: 2px solid #01adb4;
-}
-
-.input__login::placeholder{
-    color: white;
-    font-family: "DM Sans", 'sans-serif';
+.input__login input{
+    border-radius: 5px;
+    outline: none;
+    background: transparent;
+    padding: 16px 10px 10px 5px;
+    border: 2px solid #EBEBEB;
+    color: #EBEBEB;
+    width: 100%;
     font-size: 16px;
 }
 
-.input__login:focus::placeholder{
-    transform: translateY(-35px);
-    transition: 0.2s ease all;
-    font-size: 14px;
-    color: #01adb4;
+.input__login input:focus{
+    border: 2px solid #01adb4;
+    color: #01ADB4;
 }
 
 .button__login{
@@ -88,6 +85,29 @@
     font-size: 15px;
 }
 
+.input__login label{
+    font-size: 100%;
+    position: absolute;
+    left: 0;
+    color: #EBEBEB;
+    transform: translateY(-50%) scale(.9);
+    margin: 0em;
+    margin-left: 1.3em;
+    padding: 0.4em;
+    background-color: #1A1A1A;
+}
+
+.input__login :is(input:focus)~label {
+    color: #01ADB4;
+  }
+
+.input__login a{
+    color: #01ADB4;
+    position: relative;
+    top: 5px;
+    font-size: 15px;
+}
+
 .button__login:hover{
     background-color: #4bf;
     
@@ -97,10 +117,37 @@
     background-color: #26f;;
 }
 
+.registrate__login{
+    font-size: 15px;
+    text-align: end;
+    width: 100%;
+    color: #EBEBEB;
+    position: relative;
+    top: 5px;
+}
+
+.registrate__login a{
+    font-size: 15px;
+    color: #01adb4;
+}
+
+
+.logo__login{
+   justify-content: center;
+   color: #EBEBEB;
+   align-items: flex-end;
+   display: flex;
+   height: 12em;
+
+}
+
+
 @media screen and (max-width:900px) {
     #imagen__login{
-        width: 40vw;
+        width: 45vw;
+        flex-grow: 1;
     }
+    
 }
 
 @media screen and (max-width:600px) {

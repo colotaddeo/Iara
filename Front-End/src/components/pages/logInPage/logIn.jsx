@@ -6,6 +6,7 @@ import './logIn.css';
 import Media from '../../../assets/video4.mp4'
 import axios from 'axios';
 import Imagen from '../../../assets/Doctora1.png'
+import Logo from '../../../assets/logo-login.png'
 
 
 
@@ -63,29 +64,38 @@ const LogIn = () => {
 
         >
           <Form>
-            <Field
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Enter your Email"
-              className="input__login"
-            />
-            <Field
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Enter your password"
-              className="input__login"
-            />
+            <div className='input__login'>
+              <Field
+                id="email"
+                name="email"
+                type="email"
+              />
+              <label>Email</label>
+            </div>
+            <div className='input__login'>
+              <Field
+                id="password"
+                name="password"
+                type="password"
+              />
+              <label>Contraseña</label>
+              <a href="">¿Olvidadste tu Contraseña?</a>
+            </div>
             <button className="button__login" type="submit">Submit</button>
+            <div className='registrate__login'>
+              <span>¿Aún no tienes cuenta? </span>
+              <a href="">Registrate</a>
+            </div>
           </Form>
         </Formik>
-
+        <div className='logo__login'>
+          <img src={Logo} />
+          <label>IARA</label>
+        </div>
       </div>
       <div className='imagen' id='imagen__login'>
         <img src={Imagen} alt="Imagen" />
       </div>
-
     </div>
   )
 }
