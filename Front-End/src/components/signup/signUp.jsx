@@ -8,6 +8,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { styled } from '@mui/system';
 import * as Yup from 'yup'
 import axios from 'axios';
 
@@ -112,9 +113,17 @@ const signUp = () => {
 
         >
           {({ errors, isValid, touched, dirty }) => (
-          <Form>
+
+          <Form 
+          sx ={{
+            bgcolor: 'error.main'
+          }}
+          >
             
             <Field
+            sx ={{
+              bgcolor: 'error.main'
+            }}
               id="nombre"
               name="nombre"
               type="text"
