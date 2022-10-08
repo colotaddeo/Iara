@@ -113,6 +113,20 @@ const LogIn = () => {
                 className="input__signup"
 
                 />
+
+              <Button
+                sx={{
+                  display: 'block',
+                  minWidth:0.92
+                }}
+                variant="contained"
+                type="submit"
+                size="large"
+                disabled={!dirty || !isValid}
+              >
+                Continuar
+              </Button>
+              
             </Form>
           )}
         </Formik>
