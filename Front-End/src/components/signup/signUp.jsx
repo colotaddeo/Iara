@@ -85,6 +85,7 @@ const signUp = () => {
     sethospital(event.target.value);
   };
 
+
   return (
     <div className="all-container">
 
@@ -114,16 +115,9 @@ const signUp = () => {
         >
           {({ errors, isValid, touched, dirty }) => (
 
-          <Form 
-          sx ={{
-            bgcolor: 'error.main'
-          }}
-          >
+          <Form>
             
             <Field
-            sx ={{
-              bgcolor: 'error.main'
-            }}
               id="nombre"
               name="nombre"
               type="text"

@@ -162,3 +162,6 @@
 input{
   margin: 40px;
 }
+.MuiInputLabel-outlined{
+  color: #01adb4;
+}
