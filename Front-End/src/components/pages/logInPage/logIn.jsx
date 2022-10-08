@@ -28,7 +28,7 @@ const LogIn = () => {
   //   },
   // });
 
-  const fetchinfo = (valoresIniciales) => {
+  /*const fetchinfo = (valoresIniciales) => {
 
 
     fetch("http://localhost:4000/user/signin",{
@@ -43,7 +43,16 @@ const LogIn = () => {
     .catch(error => console.log("Error", error))
     .then(response => console.log(response))
   }
+  */
 
+  const useAxios = async (valoresIniciales) => {
+    console.log(valoresIniciales)
+    const response = await axios.post("http://localhost:4000/user/signin", JSON.stringify(valoresIniciales),{
+      headers: {'Content-Type' : 'application/json' },
+      withCredentials: true
+    })
+    console.log(response)
+  }
 
   return (
     <div className='login-container'>
@@ -54,8 +63,9 @@ const LogIn = () => {
           initialValues={valoresIniciales}
           onSubmit={(valoresIniciales, formikHelpers) => {
 
-            fetchinfo(valoresIniciales); 
-            alert(JSON.stringify(valoresIniciales));
+            //fetchinfo(valoresIniciales); 
+            //alert(JSON.stringify(valoresIniciales));
+            useAxios(valoresIniciales)
             console.log(valoresIniciales);
             formikHelpers.resetForm()
 
