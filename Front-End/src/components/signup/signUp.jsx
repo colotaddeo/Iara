@@ -26,28 +26,37 @@ const signUp = () => {
   }
 
   const validationSchema =  Yup.object({
+
     nombre: Yup.string()
       .required('Campo obligatorio')
       .min(2, 'Too Short!')
       .max(50, 'Too Long!'),
+
     apellido: Yup.string()
       .required('Campo obligatorio')
       .min(2, 'Too Short!')
       .max(50, 'Too Long!'),
+
     email: Yup.string()
       .required('Campo obligatorio')
       .email('Email inválido'),
+
     contraseña: Yup.string()
       .required('Campo obligatorio')
       .min(2, 'Too Short!')
       .max(50, 'Too Long!'),
+
     confirmarContraseña: Yup.string()
       .required('Campo obligatorio')
       .oneOf([Yup.ref("contraseña")], "Las contraseñas no coinciden"),
+
     hospital: Yup.string()
       .required('Campo obligatorio'),
 
-
+    matricula: Yup.string()
+      .required('Campo obligatorio')
+      .min(2, 'Too Short!')
+      .max(50, 'Too Long!')
   })
 
   const fetchAxios = (valoresIniciales) => {
@@ -118,6 +127,11 @@ const signUp = () => {
           <Form>
             
             <Field
+              
+              sx={{
+                mb:2,
+              }}
+
               id="nombre"
               name="nombre"
               type="text"
@@ -125,7 +139,6 @@ const signUp = () => {
               variant="outlined"
               color="primary"
               label="Nombre"
-              size="normal"
               error={Boolean(errors.nombre) && Boolean(touched.nombre)}
               helperText={Boolean(touched.nombre) && errors.nombre}
               className="input__signup"
@@ -133,6 +146,11 @@ const signUp = () => {
             />
 
             <Field
+              
+              sx={{
+                mx:2
+              }}
+
               id="apellido"
               name="apellido"
               type="text"
@@ -147,6 +165,12 @@ const signUp = () => {
             />
 
             <Field
+
+              sx={{
+                minWidth: 0.92,
+                my: 2
+              }}
+
               id="email"
               name="email"
               type="email"
@@ -155,12 +179,18 @@ const signUp = () => {
               variant="outlined"
               color="primary"
               label="Email"
-              size="normal"
+
               error={Boolean(errors.email) && Boolean(touched.email)}
               helperText={Boolean(touched.email) && errors.email}
             />
 
             <Field
+
+              sx={{
+                minWidth: 0.92,
+                my:2
+              }}
+
               id="contraseña"
               name="contraseña"
               type="password"
@@ -200,6 +230,12 @@ const signUp = () => {
             </FormControl> */}
 
             <Field
+
+              sx={{
+                minWidth: 0.92,
+                my: 2
+              }}
+
               id="confirmarContraseña"
               name="confirmarContraseña"
               type="password"
@@ -207,14 +243,18 @@ const signUp = () => {
               variant="outlined"
               color="primary"
               label="Confirmar contraseña"
-              size="normal"
               error={Boolean(errors.confirmarContraseña) && Boolean(touched.confirmarContraseña)}
               helperText={Boolean(touched.confirmarContraseña) && errors.confirmarContraseña}
               className="input__signup"
               
             />
 
-            <FormControl sx={{ m: 1, minWidth: 200 }}>
+            <FormControl 
+            
+              sx={{ 
+                my: 2, 
+                minWidth: 0.45
+              }}>
               <InputLabel id="hospital">Hospital Asociado</InputLabel>
               <Select
                 id="hospital"
@@ -222,6 +262,8 @@ const signUp = () => {
                 label="Hospital Asociado"
                 autoWidth
                 onChange={handleChangehospital}
+                error={Boolean(errors.email) && Boolean(touched.email)}
+                helperText={Boolean(touched.email) && errors.email}
               >
                 <MenuItem value="muñiz">Muñiz</MenuItem>
                 <MenuItem value="umai">umai</MenuItem>
@@ -229,7 +271,31 @@ const signUp = () => {
               </Select>
             </FormControl>
 
+            <Field
+
+              sx={{
+                mx:2,
+                my:2
+              }}
+
+              id="matricula"
+              name="matricula"
+              type="text"
+              as={TextField}
+              variant="outlined"
+              color="primary"
+              label="Matrícula"
+              error={Boolean(errors.contraseña) && Boolean(touched.contraseña)}
+              helperText={Boolean(touched.contraseña) && errors.contraseña}
+              className="input__signup"
+
+            />
+
             <Button
+              sx={{
+                display: 'block',
+                minWidth:0.92
+              }}
               variant="contained"
               type="submit"
               size="large"
@@ -244,7 +310,7 @@ const signUp = () => {
         </Formik>
 
         <div className='button-container'>
-        <Link to= '/login' className='login-button'>Ya tenes cuenta?</Link>
+        <Link to= '/login' className='login-button'>¿Ya tenes cuenta? <span>Ingresá</span></Link>
         </div>
 
       </div>

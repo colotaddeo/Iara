@@ -14,7 +14,7 @@
 .imagen img{
   filter:opacity(50%);
   height: 100vh;
-  width: 60vw;
+  width: 70vw;
   object-fit: cover;
 
 }
@@ -165,3 +165,4 @@ input{
 .MuiInputLabel-outlined{
   color: #01adb4;
 }
+
