@@ -1,6 +1,4 @@
 import React from "react";
-import { Formik } from "formik";
-import {createTaskRequest} from '../../../../api/task.api.js'
 import './Body.css'
 
 const Body = () => {
