@@ -1,17 +1,23 @@
 import React, {useState, useEffect, useRef} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate, useLocation} from 'react-router-dom';
 import Home from '../home/Home';
 import {Formik, Form, Field} from 'formik';
 import './logIn.css';
-import axios from 'axios';
 import Imagen from '../../../assets/Doctora1.png'
 import Logo from '../../../assets/logo-login.png'
 import { TextField, Button} from "@mui/material";
 import * as Yup from 'yup'
-
-
+import axios from '../../../api/axios';
+import useAuth from '../../../hooks/useAuth';
 
 const LogIn = () => {
+
+  const { setAuth } = useAuth()
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/Home";
+
 
   const valoresIniciales = {
     email: '',
@@ -23,13 +29,13 @@ const LogIn = () => {
       .required('Campo obligatorio')
       .email('Email inválido'),
 
-    contraseña: Yup.string()
+    password: Yup.string()
       .required('Campo obligatorio')
   })
+  /*
+  const fetchinfo = (valoresIniciales) => {
 
-  /*const fetchinfo = (valoresIniciales) => {
-
-
+    
     fetch("http://localhost:4000/user/signin",{
 
       method: "POST",
@@ -43,29 +49,39 @@ const LogIn = () => {
     .then(response => console.log(response))
   }
   */
+  
 
   const useAxios = async (valoresIniciales) => {
-    console.log(valoresIniciales)
-    const response = await axios.post("http://localhost:4000/user/signin", JSON.stringify(valoresIniciales),{
+    try {
+      console.log(valoresIniciales)
+      const response = await axios.post("/user/signin", JSON.stringify(valoresIniciales),{
       headers: {'Content-Type' : 'application/json' },
       withCredentials: true
     })
-    console.log(response)
+      const accessToken = response.data.accessToken;
+      console.log(response.data)
+      console.log(accessToken)
+      setAuth({ valoresIniciales, accessToken})
+      navigate(from, {replace: true})
+    } catch (error) {
+      console.error(error)
+    }
   }
+  
 
   return (
     <div className='login-container'>
       <div className='form-login'>  
         <h2 className="titulo__login">Inicio de sesión</h2>
         <Formik 
-
+          validationSchema={validationSchema}
           initialValues={valoresIniciales}
           onSubmit={(valoresIniciales, formikHelpers) => {
 
             useAxios(valoresIniciales)
+            //etchinfo(valoresIniciales)
             console.log(valoresIniciales);
             formikHelpers.resetForm()
-
           }}
           
         >
@@ -100,8 +116,8 @@ const LogIn = () => {
                   my:2
                 }}
 
-                id="contraseña"
-                name="contraseña"
+                id="password"
+                name="password"
                 type="password"
                 as={TextField}
                 variant="outlined"

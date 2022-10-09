@@ -64,7 +64,6 @@ const itemCategory = {
 
 export default function Navigator(props) {
   const { ...other } = props;
-
   return (
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
@@ -96,5 +95,7 @@ export default function Navigator(props) {
         ))}
       </List>
     </Drawer>
+
   );
+  
 }
