@@ -62,7 +62,8 @@ const LogIn = () => {
       console.log(response.data)
       console.log(accessToken)
       setAuth({ valoresIniciales, accessToken})
-      navigate(from, {replace: true})
+      console.log(from)
+      navigate(from, { replace: true })
     } catch (error) {
       console.error(error)
     }
@@ -146,6 +147,7 @@ const LogIn = () => {
             </Form>
           )}
         </Formik>
+        <Link to="/Home">Anda a home pibe</Link>
         <div className='logo__login'>
           <img src={Logo} />
           <label>IARA</label>
