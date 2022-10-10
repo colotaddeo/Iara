@@ -80,7 +80,7 @@ const LogIn = () => {
           onSubmit={(valoresIniciales, formikHelpers) => {
 
             useAxios(valoresIniciales)
-            //etchinfo(valoresIniciales)
+            //fetchinfo(valoresIniciales)
             console.log(valoresIniciales);
             formikHelpers.resetForm()
           }}
@@ -108,9 +108,9 @@ const LogIn = () => {
 
                 error={Boolean(errors.email) && Boolean(touched.email)}
                 helperText={Boolean(touched.email) && errors.email}
-                />
+              />
 
-                <Field
+              <Field
 
                 sx={{
                   minWidth: 0.92,
@@ -129,7 +129,7 @@ const LogIn = () => {
                 helperText={Boolean(touched.contraseña) && errors.contraseña}
                 className="input__signup"
 
-                />
+              />
 
               <Button
                 sx={{

@@ -22,7 +22,7 @@
     margin-bottom: 20px;
     color: white;
     text-align: center;
-    flex-grow: 12;
+
 }
 
 /* FORM */
@@ -139,7 +139,7 @@
    color: #EBEBEB;
    align-items: flex-end;
    display: flex;
-   height: 12em;
+   height: 42em;
 
 }
 
