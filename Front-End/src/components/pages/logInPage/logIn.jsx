@@ -147,7 +147,6 @@ const LogIn = () => {
             </Form>
           )}
         </Formik>
-        <Link to="/Home">Anda a home pibe</Link>
         <div className='logo__login'>
           <img src={Logo} />
           <label>IARA</label>

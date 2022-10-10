@@ -311,6 +311,7 @@ const signUp = () => {
 
         <div className='button-container'>
         <Link to= '/login' className='login-button'>¿Ya tenes cuenta? <span>Ingresá</span></Link>
+        <Link to="/Home">Volve a la home logueada pibe (es para testear si funcan los token lo pueden borrar de chill)</Link>
         </div>
 
       </div>
