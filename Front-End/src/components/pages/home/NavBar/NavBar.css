@@ -1,0 +1,5 @@
+.home__deco{
+ max-height: 150px;
+ min-width: 100vw;
+ object-fit: cover;
+}

@@ -5,7 +5,6 @@ const Home = () => {
   return(
     <section>
 
-      <h1>Bienvenido</h1>
       <Nav/>
       {/* <RecentPacients /> */}
     </section>

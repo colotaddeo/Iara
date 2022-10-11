@@ -68,18 +68,6 @@ const LogIn = () => {
       console.error(error)
     }
   }
- 
-  const infoUser = () => {
-
-    const infoUser = [
-      {
-        identidad: valoresIniciales.nombre + ' ' + valoresIniciales.apellido,
-        institución: valoresIniciales.hospital
-      }
-    ]
-    return infoUser
-  }
-
 
   return (
     <div className='login-container'>
@@ -136,8 +124,8 @@ const LogIn = () => {
                 color="primary"
                 label="Contraseña"
                 size="normal"
-                error={Boolean(errors.contraseña) && Boolean(touched.contraseña)}
-                helperText={Boolean(touched.contraseña) && errors.contraseña}
+                error={Boolean(errors.password) && Boolean(touched.password)}
+                helperText={Boolean(touched.password) && errors.password}
                 className="input__signup"
 
               />
@@ -171,4 +159,3 @@ const LogIn = () => {
 }
 
 export default LogIn
-export infoUser 

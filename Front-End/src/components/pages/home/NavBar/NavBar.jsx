@@ -1,4 +1,5 @@
 import * as React from 'react';
+import './NavBar.css'
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
@@ -18,7 +19,8 @@ import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 import Logo from '../../../../assets/logo-login.png'
-import useAuth from '../../../hooks/useAuth';
+import Imagen from './fondoHome.png'
+
 
 const categories = [
   {
@@ -46,9 +48,7 @@ const item = {
   my: 1,
   mx: 2,
   color: 'rgba(255, 255, 255, 0.7)',
-  '&:hover, &:focus': {
-    bgcolor: 'rgba(255, 255, 255, 0.08)',
-  },
+  overflow: 'none'
 };
 
 const itemCategory = {
@@ -58,34 +58,49 @@ const itemCategory = {
 };
 
 export default function Navigator(props) {
+
   const { ...other } = props;
+
   return (
+  <>
     <Drawer variant="permanent" {...other}>
       <List disablePadding>
-        <ListItem sx={{ ...item, ...itemCategory, fontSize: 22, color: '#fff', my:2}}>
+
+        <ListItem sx={{ ...item, ...itemCategory, fontSize: 20, color: '#fff', my:2}}>
           <img src={Logo}/><h2>IARA</h2>
         </ListItem>
       
         {categories.map(({ id, children }) => (
-          <Box key={id} sx={{ bgcolor: '#101F33' }}>
+
+          <Box key={id} sx={{ bgcolor: '#101F33'}}>
+
             <ListItem sx={{ py: 2, px: 3}}>
               <ListItemText sx={{ color: '#fff' }}>{id}</ListItemText>
             </ListItem>
+
             {children.map(({ id: childId, icon, active }) => (
+
               <ListItem disablePadding key={childId}>
+
                 <ListItemButton selected={active} sx={item}>
+
                   <ListItemIcon>{icon}</ListItemIcon>
+
                   <ListItemText>{childId}</ListItemText>
+
                 </ListItemButton>
+
               </ListItem>
             ))}
 
             <Divider sx={{ mt: 2 }} />
           </Box>
+          
         ))}
       </List>
     </Drawer>
-
+    <img className='home__deco' src={Imagen} alt="" />
+  </>          
   );
   
 }
