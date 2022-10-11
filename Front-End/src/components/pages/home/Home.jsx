@@ -7,7 +7,6 @@ const Home = () => {
 
       <h1>Bienvenido</h1>
       <Nav/>
-      <br />
       {/* <RecentPacients /> */}
     </section>
   )

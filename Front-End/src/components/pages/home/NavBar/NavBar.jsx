@@ -18,6 +18,7 @@ import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
 import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 import Logo from '../../../../assets/logo-login.png'
+import useAuth from '../../../hooks/useAuth';
 
 const categories = [
   {
@@ -26,7 +27,7 @@ const categories = [
 
       { 
         id: 'Recientes', 
-        icon: <TimerIcon /> 
+        icon: <TimerIcon />
       },
 
       {

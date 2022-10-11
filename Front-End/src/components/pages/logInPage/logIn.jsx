@@ -68,7 +68,18 @@ const LogIn = () => {
       console.error(error)
     }
   }
-  
+ 
+  const infoUser = () => {
+
+    const infoUser = [
+      {
+        identidad: valoresIniciales.nombre + ' ' + valoresIniciales.apellido,
+        institución: valoresIniciales.hospital
+      }
+    ]
+    return infoUser
+  }
+
 
   return (
     <div className='login-container'>
@@ -160,3 +171,4 @@ const LogIn = () => {
 }
 
 export default LogIn
+export infoUser 
