@@ -3,12 +3,12 @@ import { createContext, useState } from "react";
 const UserInfoContext = createContext({});
 
 export const UserInfoProvider = ({ children }) => {
-    const [auth, setAuth] = useState({});
+    const [Info, setInfo] = useState({});
 
     return (
-        <UserInfo.Provider value={{ auth, setAuth }}>
+        <Info.Provider value={{ Info, setInfo }}>
             {children}
-        </UserInfo.Provider>
+        </Info.Provider>
     )
 }
 

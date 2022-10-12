@@ -20,7 +20,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import PhonelinkSetupIcon from '@mui/icons-material/PhonelinkSetup';
 import Logo from '../../../../assets/logo-login.png'
 import Imagen from './fondoHome.png'
-import useUserInfo from '../../../hooks/UserInfoProvider';
+import useUserInfo from '../../../../hooks/useInfoProvider';
 
 
 const categories = [

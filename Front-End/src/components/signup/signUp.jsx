@@ -114,9 +114,10 @@ const signUp = () => {
           onSubmit={(valoresIniciales) => {
 
             fetchAxios(valoresIniciales); 
-            alert(JSON.stringify(valoresIniciales));
+            alert('Los datos han sido enviados exitosamente');
             console.log(valoresIniciales.json);
             formikHelpers.resetForm();
+
 
           }}
 
