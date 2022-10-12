@@ -2,6 +2,7 @@ import React from 'react'
 import Header from '../landingPage/header/Header'
 import Body from '../landingPage/body/Body'
 import Model from'../landingPage/3dmodel/model'
+import './style.css'
 
    const HomePage = () => {
   return (
@@ -27,6 +28,8 @@ import Model from'../landingPage/3dmodel/model'
         </nav>
       </header>
     </div>
+
+    
   )
 }
 export default HomePage
