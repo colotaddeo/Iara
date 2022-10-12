@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './Header.css'
-import Logo from '../../../../assets/logo.png'
+import Logo from '../../../../assets/logo-login.png'
 
 
 const Header = () => {
