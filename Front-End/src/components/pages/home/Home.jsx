@@ -6,7 +6,7 @@ const Home = () => {
     <section>
 
       <Nav/>
-      {/* <RecentPacients /> */}
+      <RecentPacients />
     </section>
   )
 }
