@@ -27,7 +27,8 @@ const RecentPacients= () => {
         console.error(err);
         else{
           console.error(err);
-          navigate('/login', { state: { from: location }, replace: true });
+          //navigate('/login', { state: { from: location }, replace: true });
+          navigate('/login')
           //navigate('/login');//Agarra la ruta de donde viene el usuario y lo va enviar al login. 
           //Pero en el historial del buscador va a reemplazarlo con la ruta de donde viene asi cuando se loguea sabemos que va directamente a la home
         }

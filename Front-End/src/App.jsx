@@ -30,14 +30,13 @@ function App() {
     <>
       <ThemeProvider theme={IaraTheme}>
         <Routes>
-          <Route path="/" element={<Layout />} >
+          {/*<Route path="/" element={<Layout />} >*/}
             <Route path="/" element={<LandingPage />} />
             <Route path="/logIn" element={<LogInPage />} />
             <Route path="/signUp" element={<SignUp />} />
             <Route path="/Home" element={<Home />} />
-
             <Route path="*" element={<NotFound />} />
-          </Route>
+          {/*</Route>*/}
 
           {/* <Route path="/Home" element={loggedIn ? <Home /> : <Navigate to="/logIn"/>} /> */}
         </Routes>

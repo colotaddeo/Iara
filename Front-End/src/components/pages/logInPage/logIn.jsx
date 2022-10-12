@@ -15,8 +15,9 @@ const LogIn = () => {
   const { setAuth } = useAuth()
 
   const navigate = useNavigate();
-  const location = useLocation();
+  /*const location = useLocation();
   const from = location.state?.from?.pathname || "/Home";
+  */
 
 
   const valoresIniciales = {
@@ -62,8 +63,9 @@ const LogIn = () => {
       console.log(response.data)
       console.log(accessToken)
       setAuth({ valoresIniciales, accessToken})
-      console.log(from)
-      navigate(from, { replace: true })
+      //console.log(from)
+      //navigate(from, { replace: true })
+      navigate('/Home')
     } catch (error) {
       console.error(error)
     }
