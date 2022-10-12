@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Layout from "./components/layout";
 
 function App() {
+
   const IaraTheme = createTheme({
     palette: {
       mode: "dark",
@@ -22,9 +23,6 @@ function App() {
       },
     },
   });
-  // console.log(loginContext);
-  // const { loggedIn } = useContext(loginContext)
-  // console.log(loggedIn)
 
   return (
     <>
@@ -38,7 +36,6 @@ function App() {
             <Route path="*" element={<NotFound />} />
           {/*</Route>*/}
 
-          {/* <Route path="/Home" element={loggedIn ? <Home /> : <Navigate to="/logIn"/>} /> */}
         </Routes>
       </ThemeProvider>
     </>

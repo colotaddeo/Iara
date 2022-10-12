@@ -154,6 +154,11 @@
 }
 .button-container .login-button{
   background: none;
+  font-size:medium;
+  margin-left: 9vw;
+}
+
+.button-container .login-button span{
   color: #01adb4;
 }
 

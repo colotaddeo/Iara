@@ -3,11 +3,11 @@ import Nav from './NavBar/NavBar'
 
 const Home = () => {
   return(
-    <section>
+    <>
 
       <Nav/>
       <RecentPacients />
-    </section>
+    </>
   )
 }
 
