@@ -13,17 +13,16 @@ import * as Yup from 'yup'
 import axios from 'axios';
 
 
-
+const valoresIniciales = {
+  nombre: '',
+  apellido:'',
+  email: '',
+  contraseña: '',
+  confirmarContraseña: '',
+  hospital: '-1',
+}
 const signUp = () => {
   
-  const valoresIniciales = {
-    nombre: '',
-    apellido:'',
-    email: '',
-    contraseña: '',
-    confirmarContraseña: '',
-    hospital: '-1',
-  }
 
   const validationSchema =  Yup.object({
 
@@ -320,3 +319,4 @@ const signUp = () => {
 }
 
 export default signUp
+export {valoresIniciales}
