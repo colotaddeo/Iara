@@ -61,22 +61,6 @@
     position: relative;
 }
 
-.input__login input{
-    border-radius: 5px;
-    outline: none;
-    background: transparent;
-    padding: 16px 10px 10px 5px;
-    border: 2px solid #EBEBEB;
-    color: #EBEBEB;
-    width: 100%;
-    font-size: 16px;
-}
-
-.input__login input:focus{
-    border: 2px solid #01adb4;
-    color: #01ADB4;
-}
-
 .button__login{
     min-width: 100%;
     height: 35px;
@@ -87,36 +71,12 @@
     font-size: 15px;
 }
 
-.input__login label{
-    font-size: 100%;
-    position: absolute;
-    left: 0;
-    color: #EBEBEB;
-    transform: translateY(-50%) scale(.9);
-    margin: 0em;
-    margin-left: 1.3em;
-    padding: 0.4em;
-    background-color: #1A1A1A;
-}
-
-.input__login :is(input:focus)~label {
-    color: #01ADB4;
-  }
 
 .input__login a{
     color: #01ADB4;
     position: relative;
     top: 5px;
     font-size: 15px;
-}
-
-.button__login:hover{
-    background-color: #4bf;
-    
-}
-
-.button__login:active{
-    background-color: #26f;;
 }
 
 .registrate__login{
@@ -139,8 +99,7 @@
    color: #EBEBEB;
    align-items: flex-end;
    display: flex;
-   height: 42em;
-
+   height: 100%;
 }
 
 
@@ -153,11 +112,14 @@
 }
 
 @media screen and (max-width:600px) {
+    
     #imagen__login{
         display: none;
     }
-    .form-login{
+    .login-container{
         height: 100vh;
-        align-content: center;
+    }
+    .form-login{
+        height: 95%; 
     }
 }
