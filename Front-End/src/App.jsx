@@ -5,7 +5,7 @@ import LandingPage from "./components/pages/landingPage/landingPage";
 import LogInPage from "./components/pages/logInPage/logIn";
 import SignUp from "./components/signup/signUp";
 import NotFound from "./components/pages/notFoundPage/NotFound";
-import Home from "./components/pages/home/Home";
+import Home from "./components/pages/HomeTest/home";
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Layout from "./components/layout";

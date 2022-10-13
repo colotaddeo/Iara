@@ -61,7 +61,7 @@ const RecentPacients= () => {
       )}
     </article>
     
-    <Link to="/signUp">Anda al registro pibe (es para testear lo puede borrar)</Link>
+    {/* <Link to="/signUp">Anda al registro pibe (es para testear lo puede borrar)</Link> */}
     </>
   );
 };

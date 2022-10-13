@@ -1,0 +1,74 @@
+.main_container {
+    max-height: 100vh;
+    max-width: 100vw;
+}
+.side_bar {
+    height: 100vh;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    transition: .2s all ease;
+}
+.logo_container {
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.side_bar_links {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.side_bar_links>a{
+    margin: 10px;
+    word-spacing: 15px;
+    padding: 10px;
+    width: 90%;
+    white-space: nowrap;
+    transition: .2s all ease;
+}
+.side_bar_links>a:hover {
+    background-color: #01adb4;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: row;
+}
+.primary_container {
+    width: 100vw;
+}
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 20vh;
+    background: url("../../../assets/banner.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+.closed {
+    width: 0px;
+    overflow: hidden;
+}
+.table_heading {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 4rem;
+}
+.main_container > h2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 100;
+    font-size: 3rem;
+}
