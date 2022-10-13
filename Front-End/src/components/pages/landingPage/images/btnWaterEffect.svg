@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" width="300" height="150">
+	<title>image</title>
+	<defs>
+		<image  width="300" height="137" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACJBAMAAABk9RivAAAAAXNSR0IB2cksfwAAAC1QTFRFAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSaAJSanpG45AAAAA90Uk5TAB5EYYKhus7h8Pn+/zQLnoR6JQAAAbpJREFUeJzt1DtOAmEUhmFiLzHCAixwBUiJhczQ2YhgZSUI9Ipgr+AG5OYChLAAFRYgA4UrMARr9yDihUAYmHcMicX3dENyTl7+uXg8K7K5Y55elKq1Zrvd6ffa7WajWsrFI69u9w13zHjcCA/cB4XSpVqnb+OpkgrjlYFM/Xu8V0nt4vH3UPqmZRc00b3eB0vXju6mx++TL86nh2a+trzox2Nyw9laf3bOwffKe05mvYE0SPpinQ2WL96+dP2/vKF8izaNPR8vXrwerS8at67snzJvIOOuaex2y3axL1qwfW1+lWPzjuxvTZ+sk8H8Kqd7rWJs+vn3mS7v3bSHgzlRfg9Z0SimjEgwaBgJR98Bp2GxmRN7y/ZR1qp0zyffMW+gMPrlX2SNWJXcoWGYiUJrfPlfsmYoi1AWoSxCWYSyCGURyiKURSiLUBahLEJZhLIIZRHKIpRFKItQFqEsQlmEsghlEcoilEUoi1AWoSxCWYSyCGURyiKURSiLUBahLEJZhLIIZRHKIpRFKItQFqEsQlmEsghlEcoilEUoi1AWoSxCWYSyCGURyiKURSiLUBahLEJZhLIIZREfklWdu3jOjYcAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="13"/>
+</svg>
