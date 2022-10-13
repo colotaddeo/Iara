@@ -492,9 +492,9 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-top: 12.5px;
+  gap: 5px;
   width: 305px;
-  height: 500px;
+  height: 490px;
   background: #000000;
   border-radius: 11px;
 }
