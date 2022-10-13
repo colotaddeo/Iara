@@ -7,7 +7,16 @@ import './home.css'
 
 function Home() {
     const [active, setActive] = useState(false);
-    let pacientes = []
+    let pacientes = [
+        {
+        dni: 47202456,
+        nombre: 'jorgelin'
+    },
+    {
+        dni:34567234,
+        nombre: "sodfosd"
+    }
+]
     // const getRecentUsers = async () => {
     //     try {
     //       const response = await axiosPrivate.get("/patient/uploadedRecently", {
@@ -50,7 +59,7 @@ function Home() {
                 <h1 className="table_heading">Recientes</h1>
                 {pacientes.length > 0 ? pacientes.map((paciente) => {
                     return (
-                        <h1>hEy</h1>
+                        <h1>{paciente.dni}</h1>
                     )
                 }) : <h2>Aun no hay pacientes registrados</h2>}
             </div>
