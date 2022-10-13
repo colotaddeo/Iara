@@ -1,0 +1,172 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: $black;
+    //Scrollbar
+    body::-webkit-scrollbar {
+        width: 10px; 
+      }
+      
+      body::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      body::-webkit-scrollbar-thumb {
+        background-color: $cyan;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+      }
+}
+
+*,*::before, *::after {
+    box-sizing: inherit;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    //font-size: $header-links;
+    font-weight: 300;
+    color: $white;
+    line-height: 1.3;
+}
+
+a {
+    text-decoration: none;
+}
+
+.wrapper ul{
+    display: flex;
+    list-style: none;
+}
+
+.wrapper ul li a{
+    text-decoration: none;
+    position: relative;
+    margin: 0 80px;
+}
+
+.wrapper ul li a:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    bottom: -9px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s linear;
+}
+
+.wrapper ul li a:hover:after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
+}
+
+// FlexBox
+.flex {
+    display: flex;
+
+    &-jc-sb {
+        justify-content: space-between;
+    }
+
+    &-jc-c {
+        justify-content: center;
+    }
+
+    &-jc-r {
+        justify-content: right;
+    }
+
+    &-jc-l {
+        justify-content: right;
+    }
+
+    &-ai-c {
+        align-items: center;
+    }
+    &-ai-l {
+        align-items: left;
+    }
+}
+
+//Buttons
+.nav__button {
+    padding-top: 0.7rem;
+    display: flex;
+    align-content: center;
+}
+
+button, .button {
+    width: 259px;
+    height: 49px;
+    cursor: pointer;
+
+    white-space: nowrap;
+    color: $white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duraion: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+
+    &:hover, &:focus, &active {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+.cyanBtn {
+    background: linear-gradient(to right, $darkCyan, $cyan);
+    border: 0;
+    border-radius: 10px;
+}
+
+.transparantBtn {
+    background: transparent;
+    color: $white;
+    border: 2px solid $white;
+    border-radius: 10px;
+    background-image: url("/images/btnWaterEffect.svg");
+    background-repeat: repeat-x;
+    background-position: 0 -100%;
+    transition: 0.5s ease;
+
+    &:hover{
+       background-position: center; 
+    }
+}
+
+.levitate {
+    -webkit-transition-duraion: 1.25s;
+    transition-duration: 1.25s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+
+    &:hover, &:focus, &active {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+//visibility
+.hide-for-mobile{
+    @include breakpoint-down(medium){
+        display: none;
+    }
+}
+
+.hide-for-desktop{
+    @include breakpoint-up(large){
+        display: none;
+    }
+}

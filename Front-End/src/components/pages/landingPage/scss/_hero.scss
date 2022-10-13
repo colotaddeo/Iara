@@ -1,0 +1,72 @@
+.hero {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    &__image {
+        padding-right: 5.625rem; //90px
+        padding-top: 14.6875rem; //235px
+    }
+
+    &__text {
+        flex-direction: column;
+        padding-left: 12.8125rem; //205px
+        h1 {
+            margin: 0;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 78px;
+            cursor: default;
+
+            color: $white;
+        }
+
+        button {
+            width: 231px;
+            height: 40px;
+            border-radius: 10px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        p {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            cursor: default;
+
+            color: $white;
+        }
+    }
+
+    &__buttons {
+        display: flex;
+        padding-top: 20px;
+        gap: 20px;
+    }
+
+    &__IARAtxt {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 78px;
+
+        background: linear-gradient(270deg, #01ADB4 13.71%, #00555A 176.79%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+    }
+
+    &__gratuitatxt {
+        font-style: italic;
+    }  
+}

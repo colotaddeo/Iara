@@ -8,7 +8,6 @@ import './style.css'
 //Images
 import logoIara from './images/logoTxt.svg'
 import landingImage from './images/landingImage.svg'
-import btnWaterEffect from './images/btnWaterEffect.svg'
 import herramienta_complementaria from './images/herramienta_complementaria.svg'
 import instagram_logo from './images/instagram_logo.svg'
 import man_with_rx from './images/man_with_rx.svg'
@@ -25,6 +24,7 @@ const HomePage = () => {
     <div>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"></link>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"></link>
+      
       <header class="header">
         <nav class="flex flex-jc-sb flex ai-c">
 
@@ -55,12 +55,12 @@ const HomePage = () => {
                 Mejora tus diagnósticos<br/>utilizando
                 <span class="hero__IARAtxt"> IARA</span>
             </h1>
-
+            <br></br>
             <p>
               Mejora la precisión de tus diagnósticos de manera<br></br>totalmente  
               <span class="hero__gratuitatxt"> gratuita</span>
             </p>
-
+            <br></br>
             <div class="hero__buttons">
                 <button  onClick={() => navigate('/login')} type="submit" class="cyanBtn" >Comienza ahora</button>
                 <button type="submit" class="transparantBtn">¿Por qué IARA?</button>
@@ -69,30 +69,30 @@ const HomePage = () => {
       </section>
       <section class="cards">
         <div id = "card1" class="levitate">
-            <img src={velocidad_de_analisis} alt="velocidad_de_analisis"></img>
+            <img src={velocidad_de_analisis} alt="velocidad_de_analisis"></img><br></br>
             <h2>
                 Velocidad de<br></br>análisis
-            </h2>
+            </h2><br></br>
             <p>
                 Resultados en cuestión de segundos
             </p>
         </div>
 
         <div id = "card2" class="levitate">
-            <img src={precision_computarizada} alt="precision_computarizada"></img>
+            <img src={precision_computarizada} alt="precision_computarizada"></img><br></br>
             <h2>
                 Precisión<br></br>computarizada
-            </h2>
+            </h2><br></br>
             <p>
                 Inteligencia Artificial y Big Data combinados
             </p>
         </div>
 
         <div id = "card3" class="levitate">
-            <img src= {herramienta_complementaria} alt="herramienta_complementaria"></img>
+            <img src= {herramienta_complementaria} alt="herramienta_complementaria"></img><br></br>
             <h2>
                 Herramienta<br></br>complementaria
-            </h2>
+            </h2><br></br>
             <p>
                 Ayuda para el especilista, no es un diagnóstico.<br></br>
                 Funciona, a su vez, como un sistema de registro<br></br>
