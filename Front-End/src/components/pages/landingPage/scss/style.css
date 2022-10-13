@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
@@ -7,7 +6,6 @@ html {
   margin: 0;
   padding: 0;
   background-color: #151313;
-  font-family: 'Montserrat', sans-serif;
 }
 
 html body::-webkit-scrollbar {
@@ -172,7 +170,7 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   color: #FFF;
   border: 2px solid #FFF;
   border-radius: 10px;
-  background-image: url('./images/btnWaterEffect.svg');
+  background-image: url("../images/btnWaterEffect.svg");
   background-repeat: repeat-x;
   background-position: 0 -100%;
   -webkit-transition: 0.5s ease;

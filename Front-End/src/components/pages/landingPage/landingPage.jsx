@@ -2,7 +2,7 @@ import React from 'react'
 import Header from '../landingPage/header/Header'
 import Body from '../landingPage/body/Body'
 import Model from '../landingPage/3dmodel/model'
-import './style.css'
+import './scss/style.css'
 
 
 //Images
