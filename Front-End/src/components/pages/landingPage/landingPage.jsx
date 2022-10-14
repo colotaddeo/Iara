@@ -18,14 +18,14 @@ import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
 
-  const navigate = useNavigate() 
+  const navigate = useNavigate()
 
   return (
     <div>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"></link>
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"></link>
       
-      <header class="header">
+      <header id="navbar" class="header">
         <nav class="flex flex-jc-sb flex ai-c">
 
           <div class="header__links flex flex-ai-c wrapper">

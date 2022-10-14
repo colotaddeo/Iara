@@ -4,9 +4,10 @@ html {
     margin: 0;
     padding: 0;
     background-color: $black;
+    scroll-behavior:smooth;
     //Scrollbar
     body::-webkit-scrollbar {
-        width: 10px; 
+        width: 8px; 
       }
       
       body::-webkit-scrollbar-track {
@@ -17,6 +18,7 @@ html {
         background-color: $cyan;    /* color of the scroll thumb */
         border-radius: 20px;       /* roundness of the scroll thumb */
       }
+      
 }
 
 *,*::before, *::after {
