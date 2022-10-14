@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useAxiosPrivate from '../hooks/useAxiosPrivate'
 import { useNavigate, useLocation } from "react-router-dom";
+import './RecentPacients.css'
 const RecentPacients= () => {
   const [recentUsers, setRecentUsers] = useState();
   const axiosPrivate = useAxiosPrivate();
@@ -20,7 +21,6 @@ const RecentPacients= () => {
           signal: controller.signal,
         });
 
-        console.log(response.data);
         estaMontado && setRecentUsers(response.data);
       } catch (err) {
         if(err.code === 'ERR_CANCELED')
@@ -37,7 +37,6 @@ const RecentPacients= () => {
     };
 
     getRecentUsers();
-    
 
     return () => {
       estaMontado = false;
@@ -48,18 +47,24 @@ const RecentPacients= () => {
 
   return (
     <>
-    <article className="home__container">
-      <h2>Paciente recientes</h2>
       {recentUsers?.length ? (
-        <ul>
-          {recentUsers.map((recentUser) => (
-            <li key={recentUser.id}> {recentUser.dni} </li>
-          ))}
-        </ul>
-      ) : (
+        <table>
+      <thead>
+      <tr>
+        <th>DNI</th>
+        <th>Ultima Modificacion</th>
+      </tr>
+      </thead>
+        {recentUsers.map((recentUser) => (
+            <tr key={recentUser.id}>
+            <td> {recentUser.dni} </td>
+            <td> {recentUser.updatedOn} </td>
+            </tr>
+            ))}
+    </table>
+            ) : (
         <p>No hay pacientes subidos aún</p>
       )}
-    </article>
     
     {/* <Link to="/signUp">Anda al registro pibe (es para testear lo puede borrar)</Link> */}
     </>
