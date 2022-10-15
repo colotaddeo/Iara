@@ -54,7 +54,7 @@ const RecentPacients= () => {
         {recentUsers.map((recentUser) => (
             <tr key={recentUser.id}>
             <td> {recentUser.dni} </td>
-            <td> {recentUser.updatedOn} </td>
+            <td> {recentUser.createdAt} </td>
             </tr>
             ))}
     </table>

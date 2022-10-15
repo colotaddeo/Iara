@@ -5,7 +5,7 @@ import { useImages } from "../hooks/useImages";
 import { useNavigate } from "react-router-dom";
 
 const AllPacients = () => {
-  const { createPatient } = useImages();
+  const { createImage } = useImages();
   const navigate = useNavigate();
   return (
     <div>
@@ -24,7 +24,7 @@ const AllPacients = () => {
         */
         onSubmit={(values, actions) => {
             console.log(values);
-            createPatient(values);
+            createImage(values);
         }}
       >
         {({ handleChange, handleSubmit, setFieldValue }) => (

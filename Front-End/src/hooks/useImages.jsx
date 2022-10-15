@@ -12,6 +12,7 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 export const useImages = () => {
   const [images, setImage] = useState([]);
+  const [patient, setPatient] = useState([])
   const navigate = useNavigate()
 
   const axiosPrivate = useAxiosPrivate();
@@ -39,7 +40,7 @@ export const useImages = () => {
     }
   };
 
-  const createPatient = async (Info) => {
+  const createImage = async (Info) => {
     try {
       const form = new FormData();
 
@@ -70,11 +71,26 @@ export const useImages = () => {
     }
   };
 
+  const createPatient = async (Info) => {
+    try {
+      const response =  await axiosPrivate.post(`/patient/upload`, Info);
+
+      console.log(response.data);
+
+      setPatient([... patient, response.data])
+
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return {
     images,
+    createPatient,
     loadImages,
     deleteImage,
-    createPatient,
+    createImage,
     getImage,
   };
 };

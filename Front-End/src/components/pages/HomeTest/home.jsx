@@ -5,7 +5,7 @@ import user from '../../../assets/3 User.png'
 import Settings from '../../../assets/SettingsIcon.png';
 import './home.css'
 import RecentPacients from '../../RecentPacients'
-import AllPacients from '../../AllPacients';
+import AddPatient from '../../AddPatient';
 import { useImages } from '../../../hooks/useImages';
 import PatientsInfo from '../../PatientsInfo';
 
@@ -39,7 +39,7 @@ function Home() {
                 <div>
                     <h2>Pacientes recientes</h2>
                     {/* cambiar componente RecentPacientes */}
-                    {recientes ? <RecentPacients /> : <AllPacients />}
+                    {recientes ? <RecentPacients /> : <AddPatient />}
                 </div>
             </div>
         </div>
