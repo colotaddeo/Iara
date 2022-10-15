@@ -8,7 +8,6 @@ import NotFound from "./components/pages/notFoundPage/NotFound";
 import Home from "./components/pages/HomeTest/home";
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Layout from "./components/layout";
 
 function App() {
 

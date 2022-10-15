@@ -11,6 +11,7 @@ import AllPacients from '../../AllPacients';
 function Home() {
     const [active, setActive] = useState(false);
     const [recientes, setRecientes] = useState(true);
+
     return(
         <div className="main_container">
             <div className={"side_bar" + (active ? ' closed' : '')}>
