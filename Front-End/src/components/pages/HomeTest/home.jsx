@@ -6,7 +6,8 @@ import Settings from '../../../assets/SettingsIcon.png';
 import './home.css'
 import RecentPacients from '../../RecentPacients'
 import AllPacients from '../../AllPacients';
-
+import { useImages } from '../../../hooks/useImages';
+import PatientsInfo from '../../PatientsInfo';
 
 function Home() {
     const [active, setActive] = useState(false);

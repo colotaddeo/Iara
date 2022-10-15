@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // /*import {
 //   getImagesRequest,
 //   createImageRequest,
@@ -11,6 +12,7 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 export const useImages = () => {
   const [images, setImage] = useState([]);
+  const navigate = useNavigate()
 
   const axiosPrivate = useAxiosPrivate();
 
@@ -20,6 +22,7 @@ export const useImages = () => {
       setImage(response.data);
     } catch (error) {
       console.log(error);
+      navigate('/login')
     }
   };
 
@@ -47,6 +50,7 @@ export const useImages = () => {
         headers: { "Content-Type": "multipart/form-data" }
       });
       console.log(postRequest);
+      //setImage([...images, postRequest.data]);
       setImage([...images, postRequest.data]);
 
     } catch (error) {
