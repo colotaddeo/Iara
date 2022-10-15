@@ -1,0 +1,28 @@
+.header {
+
+    border-bottom: 3px #EBEBEB;
+    background-color: $lightBlack;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    
+    nav {
+        padding: 10px 30px;
+    }
+
+    &__links {
+        a {
+            font-size: $header-links;
+            color: $white;
+
+            &:not(:last-child){
+                margin-right: 80px;
+            }
+        }
+    }
+
+    &__cta {
+        font-size: $header-links;
+        color: $white;
+    }
+}

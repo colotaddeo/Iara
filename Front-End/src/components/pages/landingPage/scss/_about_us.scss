@@ -1,0 +1,107 @@
+.about {
+    padding-top: 145px;
+
+    //Text card dividing section
+    &__team_card {
+        background: linear-gradient(to right, $darkCyan, $cyan);
+        height: 226px;
+        width: 578px;
+        left: -23px;
+        top: 2422px;
+        border-radius: 0px 18px 18px 0px;
+        padding: 10px 30px 10px 30px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 72px;
+            color: $white;
+
+            flex: none;
+            order: 0;
+            flex-grow: 0;
+        }
+    }
+
+    //All cards
+    &__image_cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        gap: 32px;
+
+        a:hover {
+            transition-duration: 0.5s;
+            img {
+                opacity: 65%;
+            }
+            cursor: pointer;
+            border: 1px solid $darkCyan;
+        }
+    }
+
+    //Instagram Effect
+    &__instagram_content {
+       position: absolute;
+       opacity: 1;
+       transition: .5s ease;
+       background: transparent;
+    }
+
+    //Name on card
+    &__name {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 20px;
+        color: $white;
+    }
+
+    //"HTML tag" with role
+    &__nameTag {
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: $white;
+    }
+
+    //Each individual card
+    &__single_card {
+        display: flex;
+        box-sizing: border-box;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        width: 305px;
+        height: 490px;
+
+        background: #000000;
+        border-radius: 11px;
+
+        h4 {
+            text-align: center;
+        }
+    }
+
+    //Different padding for each rows
+    &__top_row {
+        padding-top: 213px;
+    }
+
+    &__bottom_row {
+        padding-top: 37px;
+    }
+
+}
