@@ -5,8 +5,9 @@ import { useImages } from "../hooks/useImages";
 import { useNavigate } from "react-router-dom";
 
 
+
 function AddPatient() {
-    const { createImage } = useImages();
+    const { createPatient } = useImages();
     const navigate = useNavigate();
     return (
       <div>
@@ -23,7 +24,7 @@ function AddPatient() {
           */
           onSubmit={(values, actions) => {
               console.log(values);
-              createImage(values);
+              createPatient(values);
           }}
         >
           {({ handleChange, handleSubmit }) => (
@@ -40,7 +41,7 @@ function AddPatient() {
                 onChange={handleChange}
               ></textarea>
               {/* <ErrorMessage name="sintomas"/> */}
-              <button type="submit">Guardar</button>
+              <button type="submit" >Continuar</button>
             </Form>
           )}
         </Formik>

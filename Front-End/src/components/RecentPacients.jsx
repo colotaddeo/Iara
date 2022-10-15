@@ -61,6 +61,7 @@ const RecentPacients= () => {
             ) : (
         <p>No hay pacientes subidos aún</p>
       )}
+      <button onClick={() => navigate('/login')}>Agregar paciente</button>
     </>
   );
 };

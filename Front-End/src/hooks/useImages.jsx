@@ -76,7 +76,7 @@ export const useImages = () => {
       const response =  await axiosPrivate.post(`/patient/upload`, Info);
 
       console.log(response.data);
-
+      console.log(response)
       setPatient([... patient, response.data])
 
       return response.data;
