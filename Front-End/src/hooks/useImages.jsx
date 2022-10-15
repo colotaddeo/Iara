@@ -1,0 +1,76 @@
+import { useState } from "react";
+// /*import {
+//   getImagesRequest,
+//   createImageRequest,
+//   deleteImageRequest,
+//   getImageRequest,
+// } from "../api/axios.useful.functions";
+// */
+
+import useAxiosPrivate from "./useAxiosPrivate";
+
+export const useImages = () => {
+  const [images, setImage] = useState([]);
+
+  const axiosPrivate = useAxiosPrivate();
+
+  const loadImages = async (id_paciente) => {
+    try {
+      const response = await axiosPrivate.get(`/images/${id_paciente}`);
+      setImage(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteImage = async (id_paciente, id) => {
+    try {
+      const response = await axiosPrivate.delete(
+        `/images/${id_paciente}/${id}`
+      );
+      setImage(images.filter((image) => image.id !== id));
+
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const createPatient = async (Info) => {
+    try {
+      const form = new FormData();
+
+      for (let key in Info) {
+        form.append(key, Info[key]);
+      }
+      const postRequest = await axiosPrivate.post(`/patient/upload`, form, {
+        headers: { "Content-Type": "multipart/form-data" }
+      });
+      console.log(postRequest);
+      setImage([...images, postRequest.data]);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getImage = async (id_paciente, id) => {
+    try {
+      const response = await getImageRequest(id_paciente, id);
+
+      console.log(response.data);
+
+      return response.data;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  return {
+    images,
+    loadImages,
+    deleteImage,
+    createPatient,
+    getImage,
+  };
+};

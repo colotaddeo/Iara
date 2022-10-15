@@ -5,6 +5,7 @@ import user from '../../../assets/3 User.png'
 import Settings from '../../../assets/SettingsIcon.png';
 import './home.css'
 import RecentPacients from '../../RecentPacients'
+import AllPacients from '../../AllPacients';
 
 
 function Home() {
@@ -36,7 +37,7 @@ function Home() {
                 <div>
                     <h2>Pacientes recientes</h2>
                     {/* cambiar componente RecentPacientes */}
-                    {recientes ? <RecentPacients /> : console.log("golA")}
+                    {recientes ? <RecentPacients /> : <AllPacients />}
                 </div>
             </div>
         </div>

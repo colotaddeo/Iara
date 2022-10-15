@@ -7,7 +7,6 @@ const RecentPacients= () => {
   const [recentUsers, setRecentUsers] = useState();
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
-  const location = useLocation();
   
 
 
@@ -27,10 +26,7 @@ const RecentPacients= () => {
         console.error(err);
         else{
           console.error(err);
-          //navigate('/login', { state: { from: location }, replace: true });
-          //navigate('/login')
-          //navigate('/login');//Agarra la ruta de donde viene el usuario y lo va enviar al login. 
-          //Pero en el historial del buscador va a reemplazarlo con la ruta de donde viene asi cuando se loguea sabemos que va directamente a la home
+          navigate('/login')
         }
         
       }
@@ -65,8 +61,6 @@ const RecentPacients= () => {
             ) : (
         <p>No hay pacientes subidos aún</p>
       )}
-    
-    {/* <Link to="/signUp">Anda al registro pibe (es para testear lo puede borrar)</Link> */}
     </>
   );
 };
