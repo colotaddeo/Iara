@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import * as Yup from "yup";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useImages } from "../hooks/useImages";
 import { useNavigate } from "react-router-dom";
 
-const AllPacients = () => {
+const AddRadiography = () => {
   const { createImage } = useImages();
   const navigate = useNavigate();
   return (
     <div>
       <Formik
         initialValues={{
-          DNI: "",
           sintomas: "",
           seguimiento: "",
           file: null,
@@ -29,9 +28,6 @@ const AllPacients = () => {
       >
         {({ handleChange, handleSubmit, setFieldValue }) => (
           <Form onSubmit={handleSubmit}>
-            <label>dni</label>
-            <Field name="DNI" placeholder="dni"></Field>
-            {/* <ErrorMessage name="dni"/> */}
 
             <input
               type="file"
@@ -66,4 +62,4 @@ const AllPacients = () => {
   );
 };
 
-export default AllPacients;
+export default AddRadiography;
