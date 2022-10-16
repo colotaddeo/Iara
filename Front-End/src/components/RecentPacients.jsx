@@ -24,6 +24,9 @@ const RecentPacients= () => {
       } catch (err) {
         if(err.code === 'ERR_CANCELED')
         console.error(err);
+        else if(err.code === 'ERR_NETWORK'){
+          console.error(err)
+        }
         else{
           console.error(err);
           navigate('/login')
