@@ -31,7 +31,15 @@ function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/logIn" element={<LogInPage />} />
             <Route path="/signUp" element={<SignUp />} />
-            <Route path="/Home" element={<Home />} />
+
+              <Route path="/Home" element={<Home />} />
+              {/* <Route path="/Settings" element={<Configuracion />} />
+              <Route path="/AddPatient" element={<AgregarPaciente />} />
+              <Route path="/AddRadiography" element={<AgregarRadiografia />} />
+              <Route path="/FichaMedicayAntecedentes" element={<DatosPaciente />} />
+              <Route path="/AddRadiography" element={<AgregarRadiografia />} /> */}
+              
+              
             <Route path="*" element={<NotFound />} />
           {/*</Route>*/}
 
