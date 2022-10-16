@@ -1,0 +1,37 @@
+.comenzar_sec {
+    overflow: hidden;
+    position: relative;
+    height: 650px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+    &__bg {
+        opacity: 0.25;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+    }
+    &__content {
+        position: relative;
+       
+        h2 {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 78px;  
+        }
+
+        button {
+            width: 363px;
+            height: 62px;
+            font-size: 30px;
+        }
+    }
+}

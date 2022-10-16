@@ -4,7 +4,7 @@
     background-color: $lightBlack;
     width: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 2;
     
     nav {
         padding: 10px 30px;
@@ -14,10 +14,11 @@
         a {
             font-size: $header-links;
             color: $white;
+        }
 
-            &:not(:last-child){
-                margin-right: 80px;
-            }
+        img {
+            display: flex;
+            align-content: center;
         }
     }
 
@@ -25,4 +26,33 @@
         font-size: $header-links;
         color: $white;
     }
+}
+
+.wrapper ul{
+    display: flex;
+    list-style: none;
+}
+
+.wrapper ul li a{
+    text-decoration: none;
+    position: relative;
+    margin: 0 60px;
+}
+
+.wrapper ul li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    bottom: -9px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s linear;
+}
+
+.wrapper ul li a:hover:after{
+    transform-origin: bottom left;
+    transform: scaleX(1);
 }
