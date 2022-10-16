@@ -4,7 +4,7 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #151313;
+  background-color: #161526;
   scroll-behavior: smooth;
 }
 html body::-webkit-scrollbar {
@@ -33,35 +33,6 @@ body {
 
 a {
   text-decoration: none;
-}
-
-.wrapper ul {
-  display: flex;
-  list-style: none;
-}
-
-.wrapper ul li a {
-  text-decoration: none;
-  position: relative;
-  margin: 0 80px;
-}
-
-.wrapper ul li a:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 3px;
-  background-color: #fff;
-  bottom: -9px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: bottom right;
-  transition: transform 0.3s linear;
-}
-
-.wrapper ul li a:hover:after {
-  transform-origin: bottom left;
-  transform: scaleX(1);
 }
 
 .flex {
@@ -156,7 +127,7 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   background-color: #1A1A1A;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 }
 .header nav {
   padding: 10px 30px;
@@ -165,12 +136,42 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   font-size: 1.5rem;
   color: #FFF;
 }
-.header__links a:not(:last-child) {
-  margin-right: 80px;
+.header__links img {
+  display: flex;
+  align-content: center;
 }
 .header__cta {
   font-size: 1.5rem;
   color: #FFF;
+}
+
+.wrapper ul {
+  display: flex;
+  list-style: none;
+}
+
+.wrapper ul li a {
+  text-decoration: none;
+  position: relative;
+  margin: 0 60px;
+}
+
+.wrapper ul li a:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: #fff;
+  bottom: -9px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s linear;
+}
+
+.wrapper ul li a:hover:after {
+  transform-origin: bottom left;
+  transform: scaleX(1);
 }
 
 .hero {
@@ -181,10 +182,12 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
 .hero__image {
   padding-right: 5.625rem;
   padding-top: 14.6875rem;
+  padding-bottom: 250px;
 }
 .hero__text {
   flex-direction: column;
   padding-left: 12.8125rem;
+  padding-bottom: 100px;
 }
 .hero__text h1 {
   margin: 0;
@@ -197,13 +200,13 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   color: #FFF;
 }
 .hero__text button {
-  width: 231px;
-  height: 40px;
+  width: 363px;
+  height: 62px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 28px;
 }
 .hero__text p {
   font-family: "Montserrat";
@@ -229,25 +232,40 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
 }
 .hero__gratuitatxt {
   font-style: italic;
 }
 
 .cards {
+  background-color: #13173E;
+  padding: 170px 180px;
+}
+.cards__img {
+  position: absolute;
+  z-index: 0;
+}
+.cards__items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-content: center;
+  gap: 205px;
+}
+.cards__top_row, .cards__bottom_row {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  padding-top: 100px;
+  align-items: center;
+  gap: 61px;
+  z-index: 1;
 }
-.cards div {
+.cards__top_row div, .cards__bottom_row div {
   display: flex;
   justify-content: start;
   flex-direction: column;
   align-items: center;
 }
-.cards h2 {
+.cards__top_row h2, .cards__bottom_row h2 {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 600;
@@ -257,7 +275,7 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   color: #FFF;
   cursor: default;
 }
-.cards p {
+.cards__top_row p, .cards__bottom_row p {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
@@ -268,15 +286,43 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   cursor: default;
 }
 
-.full_image {
-  padding-top: 63px;
-  max-width: 100%;
-  max-height: 100vh;
-  margin: auto;
+.comenzar_sec {
+  overflow: hidden;
+  position: relative;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.comenzar_sec__bg {
+  opacity: 0.25;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.comenzar_sec__content {
+  position: relative;
+}
+.comenzar_sec__content h2 {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 78px;
+}
+.comenzar_sec__content button {
+  width: 363px;
+  height: 62px;
+  font-size: 30px;
 }
 
 .about {
   padding-top: 145px;
+  padding-bottom: 115px;
 }
 .about__team_card {
   background: linear-gradient(to right, #01ADB4, #00858b);
@@ -354,8 +400,22 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   text-align: center;
 }
 .about__top_row {
-  padding-top: 213px;
+  padding-top: 115px;
 }
 .about__bottom_row {
   padding-top: 37px;
+}
+
+.landing_footer {
+  background-color: #CBCBCB;
+}
+.landing_footer__logos {
+  padding: 75px 120px;
+}
+.landing_footer__logos ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }/*# sourceMappingURL=style.css.map */

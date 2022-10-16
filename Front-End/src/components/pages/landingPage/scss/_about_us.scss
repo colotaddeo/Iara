@@ -1,6 +1,6 @@
 .about {
     padding-top: 145px;
-
+    padding-bottom: 115px;
     //Text card dividing section
     &__team_card {
         background: linear-gradient(to right, $darkCyan, $cyan);
@@ -97,7 +97,7 @@
 
     //Different padding for each rows
     &__top_row {
-        padding-top: 213px;
+        padding-top: 115px;
     }
 
     &__bottom_row {

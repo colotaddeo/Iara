@@ -10,10 +10,15 @@ import logoIara from './images/logoTxt.svg'
 import landingImage from './images/landingImage.svg'
 import herramienta_complementaria from './images/herramienta_complementaria.svg'
 import instagram_logo from './images/instagram_logo.svg'
-import man_with_rx from './images/man_with_rx.svg'
+import man_with_rx from './images/man_with_rx.jpg'
 import marie_curie from './images/marie_test_about.svg'
 import precision_computarizada from './images/precision_computarizada.svg'
 import velocidad_de_analisis from './images/velocidad_de_analisis.svg'
+import de_uso_gratuito from './images/de_uso_gratuito.svg'
+import por_que_iara_circle from './images/por_que_iara_circle.svg'
+import logo_ort from './images/logo_ort.svg'
+import logo_muniz from './images/logo_muniz.svg'
+import logo_maimonides from './images/logo_maimonides.svg'
 import { useNavigate } from 'react-router-dom' 
 
 const HomePage = () => {
@@ -34,9 +39,10 @@ const HomePage = () => {
             </a>
 
             <ul>
-              <li><a href="#">Inicio</a></li>
-              <li><a href="#about_id">Acerca de nosotros</a></li>
-              <li><a href="#">Contacto</a></li>
+              <li className='nav_links'><a href="#hero">Inicio</a></li>
+              <li className='nav_links'><a href="#por_que_iara_cards">¿Por qué IARA?</a></li>
+              <li className='nav_links'><a href="#about_us">Acerca de nosotros</a></li>
+              <li className='nav_links'><a href="#footer">Contacto</a></li>
             </ul>
           </div>
 
@@ -45,14 +51,14 @@ const HomePage = () => {
           </div>
         </nav>
       </header>
-      <section class="hero">
+      <section id="hero"class="hero">
         <div class="hero__image flex flex-jc-r">
             <img src={landingImage} alt="landingImage"/>
         </div>
 
         <div class="hero__text flex flex-ai-l flex flex-jc-c">
             <h1>
-                Mejora tus diagnósticos<br/>utilizando
+                Un paso mas hacia el<br/>futuro con
                 <span class="hero__IARAtxt"> IARA</span>
             </h1>
             <br></br>
@@ -62,48 +68,64 @@ const HomePage = () => {
             </p>
             <br></br>
             <div class="hero__buttons">
-                <button  onClick={() => navigate('/login')} type="submit" class="cyanBtn" >Comienza ahora</button>
-                <button type="submit" class="transparantBtn">¿Por qué IARA?</button>
+                <button  onClick={() => navigate('/login')} type="submit" class="transparantBtn" >Comienza ahora</button>
             </div>
         </div>
       </section>
-      <section class="cards">
-        <div id = "card1" class="levitate">
-            <img src={velocidad_de_analisis} alt="velocidad_de_analisis"></img><br></br>
-            <h2>
-                Velocidad de<br></br>análisis
-            </h2><br></br>
-            <p>
-                Resultados en cuestión de segundos
-            </p>
+      <section id="por_que_iara_cards"className="cards">
+        <div className="cards__img">
+          <img src={por_que_iara_circle} alt="por_que_iara_circle"/>
         </div>
+        <div className="cards__items">
+          <div className="cards__top_row">
+            <div id = "card1" class="levitate">
+              <img src={precision_computarizada} alt="precision_computarizada"></img><br></br>
+              <h2>
+                  Precisión<br></br>computarizada
+              </h2><br></br>
+              <p>
+                Combinamos Inteligencia Artificial con Big<br></br>
+                Data para optimizar el resultado
+              </p>
+            </div>
 
-        <div id = "card2" class="levitate">
-            <img src={precision_computarizada} alt="precision_computarizada"></img><br></br>
-            <h2>
-                Precisión<br></br>computarizada
-            </h2><br></br>
-            <p>
-                Inteligencia Artificial y Big Data combinados
-            </p>
-        </div>
-
-        <div id = "card3" class="levitate">
-            <img src= {herramienta_complementaria} alt="herramienta_complementaria"></img><br></br>
-            <h2>
+            <div id = "card2" class="levitate">
+              <img src={velocidad_de_analisis} alt="velocidad_de_analisis"></img><br></br>
+              <h2>
+                 Velocidad de<br></br>análisis
+              </h2><br></br>
+              <p>
+                Tu resultado en cuestión de segundos. Lo que<br></br>
+                antes era un día, ahora es un minuto
+              </p>
+            </div>
+          </div>
+          <div className="cards__bottom_row">
+            <div id = "card3" class="levitate">
+              <img src= {de_uso_gratuito} alt="de_uso_gratuito"></img><br></br>
+              <h2>  
+                De uso gratuito
+              </h2><br></br>
+              <p>
+                Nuestros servicios estan abiertos al personal<br></br>
+                médico de manera libre y gratuita
+              </p>
+            </div>
+            <div id = "card4" class="levitate">
+              <img src= {herramienta_complementaria} alt="herramienta_complementaria"></img><br></br>
+              <h2>
                 Herramienta<br></br>complementaria
-            </h2><br></br>
-            <p>
+              </h2><br></br>
+              <p>
                 Ayuda para el especilista, no es un diagnóstico.<br></br>
-                Funciona, a su vez, como un sistema de registro<br></br>
-                de pacientes en donde el especialista podrá<br></br>
-                hacer un seguimiento para optimizar el<br></br>
-                tratamiento
-            </p>
+                Por esta razón restringimos el servicio a<br></br>
+                personal médico, evitando auto-evaluaciones
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-      <img src={man_with_rx} alt="man_with_rx" class="full_image"></img>
-      <section id = "about_id" class="about">
+      <section id = "about_us" class="about">
         <div class="about__team_card">
             <a>Conocé al<br></br>equipo de IARA</a>
         </div>
@@ -175,9 +197,25 @@ const HomePage = () => {
             </a>
         </div>
       </section>
+      <section id="comenzar"className='comenzar_sec'>
+        <img className="comenzar_sec__bg" src={man_with_rx} alt="man_with_rx"></img>
+        <div className="comenzar_sec__content">
+          <h2>¿Listo para comenzar?</h2><br></br>
+          <button  onClick={() => navigate('/login')} type="submit" class="transparantBtn" >
+            Comenzar
+          </button>
+        </div>
+      </section>
+      <footer id="footer" className='landing_footer'>
+        <div className="landing_footer__logos">
+          <ul>
+            <li><img src={logo_maimonides} alt="logo_maimonides" /></li>
+            <li><img src={logo_ort} alt="logo_ort" /></li>
+            <li><img src={logo_muniz} alt="logo_muniz" /></li>
+          </ul>
+        </div>
+      </footer>
     </div>
-
-    
   )
 }
 export default HomePage

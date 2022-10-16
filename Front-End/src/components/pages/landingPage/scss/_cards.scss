@@ -1,35 +1,51 @@
 .cards {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding-top: 100px;
+    background-color: $background-color-cards;
+    padding: 170px 180px;
 
-    div {
+    &__img{
+        position: absolute;
+        z-index: 0;
+    }
+    &__items{
         display: flex;
-        justify-content: start;
         flex-direction: column;
+        align-items:flex-end;
+        align-content: center;
+        gap: 205px;
+    }
+    &__top_row, &__bottom_row {
+        display: flex;
+        flex-direction: row;
         align-items: center;
-    }
-
-    h2 {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 600;
-        font-size: 32px;
-        line-height: 39px;
-        text-align: center;
-        color: $white;
-        cursor: default;
-    }
-
-    p {
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 24px;
-        text-align: center;
-        color: $white;
-        cursor: default;
+        gap: 61px;
+        z-index: 1;
+        div {
+            display: flex;
+            justify-content: start;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        h2 {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 32px;
+            line-height: 39px;
+            text-align: center;
+            color: $white;
+            cursor: default;
+        }
+    
+        p {
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            text-align: center;
+            color: $white;
+            cursor: default;
+        }
     }
 }

@@ -1,0 +1,14 @@
+.landing_footer {
+    background-color: $background-color-footer;
+
+    &__logos {
+        padding: 75px 120px;
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+}
