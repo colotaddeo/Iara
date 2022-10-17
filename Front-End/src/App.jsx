@@ -9,12 +9,14 @@ import NotFound from "./components/pages/notFoundPage/NotFound";
 import Home from "./components/pages/HomeTest/home";
 import AddPatient from "./components/AddPatient";
 import AddRadiography from "./components/AddRadiography";
+import Settings from "./components/Settings";
+import AllPatients from "./AllPatients";
+import RecentPacients from "./components/RecentPacients";
 
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function App() {
-
   const IaraTheme = createTheme({
     palette: {
       mode: "dark",
@@ -32,20 +34,20 @@ function App() {
       <ThemeProvider theme={IaraTheme}>
         <Routes>
           {/*<Route path="/" element={<Layout />} >*/}
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/logIn" element={<LogInPage />} />
-            <Route path="/signUp" element={<SignUp />} />
-
-              {/* <Route path="/Home" element={<Home />} />
-              <Route path="/Settings" element={<Configuracion />} /> */}
-              <Route path="/AddPatient" element={<AddPatient/>} />
-              <Route path="/AddRadiography" element={<AddRadiography />} />
-              {/* <Route path="/FichaMedicayAntecedentes" element={<DatosPaciente />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/logIn" element={<LogInPage />} />
+          <Route path="/signUp" element={<SignUp />} />
+          
+          <Route path="/Home" element={<RecentPacients />} />
+          <Route path="/AllPatients" element={<AllPatients />} />
+          <Route path="/Settings" element={<Settings />} /> 
+          <Route path="/AddPatient" element={<AddPatient />} />
+          <Route path="/AddRadiography" element={<AddRadiography />} />
+          {/* <Route path="/FichaMedicayAntecedentes" element={<DatosPaciente />} />
               <Route path="/AddRadiography" element={<AgregarRadiografia />} />
                */}
-              
-            <Route path="*" element={<NotFound />} />
 
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </ThemeProvider>
     </>

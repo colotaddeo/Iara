@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useAxiosPrivate from '../hooks/useAxiosPrivate'
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
-import './RecentPacients.css'
-const RecentPacients= () => {
+import "./RecentPacients.css";
+import Navbar from "./Navbar";
+const RecentPacients = () => {
   const [recentUsers, setRecentUsers] = useState();
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
-  
-
 
   useEffect(() => {
     let estaMontado = true;
@@ -22,16 +21,13 @@ const RecentPacients= () => {
 
         estaMontado && setRecentUsers(response.data);
       } catch (err) {
-        if(err.code === 'ERR_CANCELED')
-        console.error(err);
-        else if(err.code === 'ERR_NETWORK'){
-          console.error(err)
-        }
-        else{
+        if (err.code === "ERR_CANCELED") console.error(err);
+        else if (err.code === "ERR_NETWORK") {
           console.error(err);
-          navigate('/login')
+        } else {
+          console.error(err);
+          navigate("/login");
         }
-        
       }
     };
 
@@ -43,30 +39,33 @@ const RecentPacients= () => {
     };
   }, []);
 
-
   return (
-    <>
+    <div>
+      <Navbar />
+      <h2>Pacientes recientes</h2>
       {recentUsers?.length ? (
         <table>
-      <thead>
-      <tr>
-        <th>DNI</th>
-        <th>Ultima Modificacion</th>
-      </tr>
-      </thead>
-        {recentUsers.map((recentUser) => (
-            <tr key={recentUser.id}>
-            <td> {recentUser.dni} </td>
-            <td> {recentUser.createdAt} </td>
+          <thead>
+            <tr>
+              <th>DNI</th>
+              <th>Ultima Modificacion</th>
             </tr>
-            ))}
-    </table>
-            ) : (
+          </thead>
+          {recentUsers.map((recentUser) => (
+            <tr key={recentUser.id}>
+              <td> {recentUser.dni} </td>
+              <td> {recentUser.createdAt} </td>
+            </tr>
+          ))}
+        </table>
+      ) : (
         <p>No hay pacientes subidos aún</p>
       )}
-      <button onClick={() => navigate('/login')}>Ver todos los pacientes</button>
-    </>
+      <button onClick={() => navigate("/AllPatients")}>
+        Ver todos los pacientes
+      </button>
+    </div>
   );
 };
 
-export default RecentPacients
+export default RecentPacients;

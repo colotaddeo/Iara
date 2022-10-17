@@ -12,7 +12,7 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 export const useImages = () => {
   const [images, setImage] = useState([]);
-  const [patient, setPatient] = useState([])
+  const [patients, setPatient] = useState([])
   const navigate = useNavigate()
 
   const axiosPrivate = useAxiosPrivate();
@@ -77,7 +77,7 @@ export const useImages = () => {
 
       console.log(response.data);
       console.log(response)
-      setPatient([... patient, response.data])
+      setPatient([... patients, response.data])
 
       return response.data;
     } catch (error) {
@@ -85,9 +85,21 @@ export const useImages = () => {
     }
   };
 
+  const loadPatients = async () => {
+    try {
+      const response =  await axiosPrivate.get(`/patient`);
+      console.log(response)
+      setPatient(response.data)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return {
     images,
+    patients,
     createPatient,
+    loadPatients,
     loadImages,
     deleteImage,
     createImage,
