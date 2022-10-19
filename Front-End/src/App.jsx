@@ -12,7 +12,6 @@ import AddRadiography from "./components/AddRadiography";
 import Settings from "./components/Settings";
 import AllPatients from "./AllPatients";
 import RecentPacients from "./components/RecentPacients";
-
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
@@ -37,15 +36,11 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/logIn" element={<LogInPage />} />
           <Route path="/signUp" element={<SignUp />} />
-          
+
           <Route path="/Home" element={<RecentPacients />} />
           <Route path="/AllPatients" element={<AllPatients />} />
-          <Route path="/Settings" element={<Settings />} /> 
-          <Route path="/AddPatient" element={<AddPatient />} />
-          <Route path="/AddRadiography" element={<AddRadiography />} />
-          {/* <Route path="/FichaMedicayAntecedentes" element={<DatosPaciente />} />
-              <Route path="/AddRadiography" element={<AgregarRadiografia />} />
-               */}
+          <Route path="/Settings" element={<Settings />} />
+          <Route path="/AddRadiography/:id" element={<AddRadiography />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -1,60 +1,80 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useImages } from "../hooks/useImages";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const AddRadiography = () => {
-  const { createImage } = useImages();
+  const { loadImages, images, deleteImage, uploadImage  } = useImages();
   const navigate = useNavigate();
-  return (
-    <div>
-      <Formik
+  const { id } = useParams();
+
+
+  useEffect(() => {
+    loadImages(id);
+    console.log(images)
+  }, []);
+
+  if (images.length === 0)
+    return (
+      <div>
+        <Navbar />
+        <h1>Todavía no hay imagenes subidas </h1>
+        <Formik
         initialValues={{
-          sintomas: "",
-          seguimiento: "",
           file: null,
         }}
-        /*validationSchema={Yup.object({
-            dni: Yup.number().required("El dni es requerido"),
-            sintomas: Yup.string().required("Los sintomas son requeridos"),
-            seguimiento: Yup.string().required("El seguimiento es requerido"),
-        })}
-        */
         onSubmit={(values, actions) => {
-            console.log(values);
-            createImage(values);
+          console.log(values);
+          uploadImage(id, values);
         }}
       >
         {({ handleChange, handleSubmit, setFieldValue }) => (
           <Form onSubmit={handleSubmit}>
-
             <input
               type="file"
               name="file"
               onChange={(e) => setFieldValue("file", e.target.files[0])}
             />
 
-            <label>sintomas</label>
-            <textarea
-              name="sintomas"
-              rows="3"
-              placeholder="escribe los sintomas"
-              onChange={handleChange}
-            ></textarea>
-            {/* <ErrorMessage name="sintomas"/> */}
+            <button type="submit">Subir</button>
+          </Form>
+        )}
+      </Formik>
+      </div>
+    );
+  return (
+    <div>
+      <Navbar />
+      {images.map((image) => (
+        <div key={image.id}>
+          <h1>Primera predicción: {image.prediccion_cnn}</h1>
+          <h1>Segunda predicción: {image.prediccion_transformers}</h1>
+          <h1>Promedio de las predicciones: {image.prediccion_promedio}</h1>
+          <img src={image.ruta} alt="Imagen con tuberculosis" />
+          <button onClick={() => deleteImage(id, image.id)}>Delete</button>
+        </div>
+      ))}
+      <p>Esto es tan solo una predicción que lo ayudará a realizar un diagnóstico más acertado. Por favor a la hora de hacer el informe final del paciente tenga en cuenta los antecedentes y los síntomas</p>
+      <Formik
+        initialValues={{
+          file: null,
+        }}
+        onSubmit={(values, actions) => {
+          console.log(values);
+          uploadImage(id, values);
+        }}
+      >
+        {({ handleChange, handleSubmit, setFieldValue }) => (
+          <Form onSubmit={handleSubmit}>
+            <input
+              type="file"
+              name="file"
+              onChange={(e) => setFieldValue("file", e.target.files[0])}
+            />
 
-            <label>seguimiento</label>
-            <textarea
-              name="seguimiento"
-              rows="3"
-              placeholder="escribe el seguimiento"
-              onChange={handleChange}
-            ></textarea>
-
-            {/* <ErrorMessage name="seguimiento"/> */}
-
-            <button type="submit">Guardar</button>
+            <button type="submit">Subir</button>
           </Form>
         )}
       </Formik>

@@ -27,6 +27,7 @@ function AddPatient() {
         onSubmit={(values, actions) => {
           console.log(values);
           createPatient(values);
+          navigate('/AddRadiography')
         }}
       >
         {({ handleSubmit }) => (
