@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./RecentPacients.css";
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
@@ -66,8 +68,9 @@ const RecentPacients = () => {
           </thead>
           {recentUsers.map((recentUser) => (
             <tr key={recentUser.id}>
-              <td> {recentUser.dni} </td>
-              <td> {recentUser.createdAt} </td>
+              <td><a href={"/AddRadiography/" + recentUser.id }>{recentUser.DNI}</a></td>
+              <td><a href={"/AddRadiography/" + recentUser.id }>{recentUser.createdAt} </a></td>
+              <DeleteIcon onClick={() => deletePatient(recentUser.id)} className="btn_delete" >Delete</DeleteIcon>
             </tr>
           ))}
         </table>
