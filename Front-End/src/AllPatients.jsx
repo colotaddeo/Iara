@@ -1,29 +1,42 @@
 import React from "react";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useImages } from "./hooks/useImages";
+
 const AllPatients = () => {
+  const [active, setActive] = useState(false)
   //const { loadPatients, patients, createPatient, deletePatient } = useImages();
   const navigate = useNavigate();
   const { loadPatients, deletePatient, patients, createPatient } = useImages()
-
   useEffect(() => {
     loadPatients();
   }, []);
   console.log(patients);
   if (patients.length === 0)
     return (
-      <div>
-        <Navbar />
+      <div className="main_container">
+      <Navbar active={active} current="Pacientes"/>
+      <div className="primary_container">
+        <div
+          className="banner"
+          onClick={(e) => {
+            setActive(!active);
+          }}
+        >
+          <h1>Bienvenido Dr. Rizzo</h1>
+          <p>Nuestra mision es ayudarte</p>
+        </div>
         <h1>Todavía no hay paciente subidos</h1>
+        </div>
       </div>
     );
   return (
-    <div>
-      <Navbar />
+    <div className="main_container">
+      <Navbar active={active} current="Pacientes"/>
+      <div className="primary_container">
       <h2>Todos los pacientes</h2>
       <table>
         <thead>
@@ -51,7 +64,7 @@ const AllPatients = () => {
           console.log(values);
           createPatient(values);
         }}
-      >
+        >
         {({ handleChange, handleSubmit, setFieldValue }) => (
           <Form onSubmit={handleSubmit}>
             <label>DNI</label>
@@ -61,6 +74,7 @@ const AllPatients = () => {
           </Form>
         )}
       </Formik>
+        </div>
     </div>
   );
 };

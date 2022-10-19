@@ -6,6 +6,7 @@ import "./RecentPacients.css";
 import Navbar from "./Navbar";
 const RecentPacients = () => {
   const [recentUsers, setRecentUsers] = useState();
+  const [active, setActive] = useState(false);
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
 
@@ -40,8 +41,19 @@ const RecentPacients = () => {
   }, []);
 
   return (
-    <div>
-      <Navbar />
+    <div className="main_container">
+      <Navbar active={active} current="Recientes"/>
+      <div className="primary_container">
+        <div
+          className="banner"
+          onClick={(e) => {
+            setActive(!active);
+          }}
+        >
+          <h1>Bienvenido Dr. Rizzo</h1>
+          <p>Nuestra mision es ayudarte</p>
+        </div>
+        <div className="pacientes_box">
       <h2>Pacientes recientes</h2>
       {recentUsers?.length ? (
         <table>
@@ -60,10 +72,12 @@ const RecentPacients = () => {
         </table>
       ) : (
         <p>No hay pacientes subidos aún</p>
-      )}
+        )}
       <button onClick={() => navigate("/AllPatients")}>
         Ver todos los pacientes
       </button>
+          </div>
+        </div>
     </div>
   );
 };

@@ -7,10 +7,8 @@ import Settings from "../assets/SettingsIcon.png";
 import "../components/pages/HomeTest/home.css";
 import { Link } from "react-router-dom";
 
-function Navbar() {
-  const [active, setActive] = useState(false);
+function  Navbar({active, current}) {
   return (
-    <div className="main_container">
       <div className={"side_bar" + (active ? " closed" : "")}>
         <div className="logo_container">
           <h1>
@@ -22,29 +20,17 @@ function Navbar() {
                      <a href="#" ><img src={user} alt="user" /> Pacientes</a>
                      <a href="/configuracion"><img src={Settings} alt="Configuración" /> Configuración</a> */}
 
-          <Link to="/Home">
+          <Link to="/Home" className={current == "Recientes" ? "current" : ""}>
             <img src={clock} alt="clock" /> Recientes
           </Link>
-          <Link to="/AllPatients">
+          <Link to="/AllPatients" className={current == "Pacientes" ? "current" : ""}>
             <img src={user} alt="user" /> Pacientes
           </Link>
-          <Link to="/Settings">
+          <Link to="/Settings" className={current == "Configuracion" ? "current" : ""}>
             <img src={Settings} alt="Configuración" /> Configuración
           </Link>
         </div>
       </div>
-      <div className="primary_container">
-        <div
-          className="banner"
-          onClick={(e) => {
-            setActive(!active);
-          }}
-        >
-          <h1>Bienvenido Dr. Rizzo</h1>
-          <p>Nuestra mision es ayudarte</p>
-        </div>
-      </div>
-    </div>
   );
 }
 

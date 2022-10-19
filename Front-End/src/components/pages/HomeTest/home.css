@@ -34,8 +34,14 @@
     width: 90%;
     white-space: nowrap;
     transition: .2s all ease;
+    border: 1px;
+    border-style: solid;
+    border-color: #1a1a1a;
 }
 .side_bar_links>a:hover {
+    border-color: #01adb4;
+}
+.current {
     background-color: #01adb4;
 }
 
@@ -52,7 +58,7 @@
     justify-content: center;
     flex-direction: column;
     height: 20vh;
-    background: url("../../../assets/banner.png");
+    background: url("../../../assets/Graphic Side.svg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
