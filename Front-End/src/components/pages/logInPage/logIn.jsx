@@ -98,7 +98,7 @@ const LogIn = () => {
               <Field
 
                 sx={{
-                  minWidth: 0.92,
+                  minWidth: 1,
                   my: 2
                 }}
 
@@ -118,7 +118,7 @@ const LogIn = () => {
               <Field
 
                 sx={{
-                  minWidth: 0.92,
+                  minWidth: 1,
                   my:2
                 }}
 
@@ -139,7 +139,7 @@ const LogIn = () => {
               <Button
                 sx={{
                   display: 'block',
-                  minWidth:0.92
+                  minWidth: 1
                 }}
                 variant="contained"
                 type="submit"

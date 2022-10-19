@@ -87,7 +87,7 @@ const signUp = () => {
   // };
 
   return (
-    <div className="all-container">
+    <div className="all-container" >
       <div className="imagen">
         <img src={Imagen} alt="IMagen ilustrativa" />
       </div>
@@ -107,6 +107,13 @@ const signUp = () => {
         >
           {({ errors, isValid, touched, dirty }) => (
             <Form>
+              <div className="nombre_apellido" sx={{
+                w: 1,
+                display: "flex",
+                justifyContent: 'space-between',
+                flexGrow: 1,
+                flexWrap: 'nowrap'
+                }}>
               <Field
                 sx={{
                   mb: 2,
@@ -122,15 +129,16 @@ const signUp = () => {
                 helperText={Boolean(touched.firstName) && errors.firstName}
                 className="input__signup"
               />
-
+              
+              
               <Field
                 sx={{
-                  mx: 2,
+                  ml: 2,
                 }}
                 id="lastName"
-                name="lastName"
-                type="text"
-                as={TextField}
+                 name="lastName"
+                 type="text"
+                  as={TextField}
                 variant="outlined"
                 color="primary"
                 label="Apellido"
@@ -138,11 +146,13 @@ const signUp = () => {
                 error={Boolean(errors.lastName) && Boolean(touched.lastName)}
                 helperText={Boolean(touched.lastName) && errors.lastName}
                 className="input__signup"
-              />
+               />
+               </div>
+              
 
               <Field
                 sx={{
-                  minWidth: 0.92,
+                  minWidth: 1,
                   my: 2,
                 }}
                 id="email"
@@ -159,7 +169,7 @@ const signUp = () => {
 
               <Field
                 sx={{
-                  minWidth: 0.92,
+                  minWidth: 1,
                   my: 2,
                 }}
                 id="password"
@@ -200,7 +210,7 @@ const signUp = () => {
 
               <Field
                 sx={{
-                  minWidth: 0.92,
+                  minWidth: 1,
                   my: 2,
                 }}
                 id="confirmPassword"
@@ -219,52 +229,54 @@ const signUp = () => {
                 }
                 className="input__signup"
               />
-
+               <div className="nombre_apellido">
               <FormControl
                 sx={{
                   my: 2,
                   minWidth: 0.45,
                 }}
               >
-                <InputLabel id="hospital">Hospital Asociado</InputLabel>
-                <Select
-                  id="hospital"
-                  label="Hospital Asociado"
-                  onChange={handleChangehospital}
-                  value={hospital}
-                  autoWidth
-                  error={
-                    Boolean(errors.hospitalEmail) &&
-                    Boolean(touched.hospitalEmail)
-                  }
-                  //helperText={Boolean(touched.hospitalEmail) && errors.hospitalEmail}
-                >
-                  <MenuItem value="muñiz">Muñiz</MenuItem>
-                  <MenuItem value="umai">umai</MenuItem>
-                  <MenuItem value="{30}">Thirty</MenuItem>
-                </Select>
-              </FormControl>
-              <Field
-                sx={{
-                  mx: 2,
-                  my: 2,
-                }}
-                id="doctorId"
-                name="doctorId"
-                type="text"
-                as={TextField}
-                variant="outlined"
-                color="primary"
-                label="Matrícula"
-                error={Boolean(errors.doctorId) && Boolean(touched.doctorId)}
-                helperText={Boolean(touched.doctorId) && errors.doctorId}
-                className="input__signup"
-              />
+
+                  <InputLabel id="hospital">Hospital Asociado</InputLabel>
+                  <Select
+                    id="hospital"
+                    label="Hospital Asociado"
+                    onChange={handleChangehospital}
+                    value={hospital}
+                    autoWidth
+                    error={
+                      Boolean(errors.hospitalEmail) &&
+                      Boolean(touched.hospitalEmail)
+                    }
+                    //helperText={Boolean(touched.hospitalEmail) && errors.hospitalEmail}
+                  >
+                    <MenuItem value="muñiz">Muñiz</MenuItem>
+                    <MenuItem value="umai">umai</MenuItem>
+                    <MenuItem value="{30}">Thirty</MenuItem>
+                  </Select>
+                </FormControl>
+                <Field
+                  sx={{
+                    ml: 2,
+                    my: 2,
+                  }}
+                  id="doctorId"
+                  name="doctorId"
+                  type="text"
+                  as={TextField}
+                  variant="outlined"
+                  color="primary"
+                  label="Matrícula"
+                  error={Boolean(errors.doctorId) && Boolean(touched.doctorId)}
+                  helperText={Boolean(touched.doctorId) && errors.doctorId}
+                  className="input__signup"
+                />
+              </div>
 
               <Button
                 sx={{
                   display: "block",
-                  minWidth: 0.92,
+                  minWidth: 1,
                 }}
                 variant="contained"
                 type="submit"

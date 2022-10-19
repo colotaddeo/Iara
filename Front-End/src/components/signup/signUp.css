@@ -38,56 +38,27 @@
 /* Form */
 
 .form { 
-  /* Margen para centrar un toque*/
-  margin-top: 100px;
-  margin-left: 70px;
-  /* Margen para centrar un toque*/
-}
+  margin: 20px 30px;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: nowrap;
+} 
+
+
 .form h2 {
   font-size: 60px;
   margin-bottom: 20px;
   color: white;
+  
 }
 
-.login-form {
-  position: relative;
-  background-color: #2b2b2b;
-  margin-bottom: 66px;
+.nombre_apellido{
+  display: flex;
+  justify-content: space-around;
 }
 
-.form-input {
-  font-size: 16px;
-  padding: 36px 10px 10px 5px;
-  display: block;
-  width: 670px;
-  border: none;
-  border-bottom: 2px solid white;
-  background: transparent;
-
-    /* texto q escribe el usuario */
-    color: white;
-    font-family: "DM Sans", 'sans-serif';
-    font-size: 30px;
-    /* texto q escribe el usuario */
-
-}
-/* animacion del placeholder */
-.form-input::placeholder{
-    color: white;
-    font-family: "DM Sans", 'sans-serif';
-    font-size: 30px;
-}
-
-.form-input:focus {
-  outline: none;
-}
-
-.form-input:focus::placeholder{
-    transform: translateY(-35px);
-    transition: 0.2s ease all;
-    font-size: 14px;
-    color: #01adb4;
-}
 /* animacion del placeholder */
 .bar {
   position: relative;
