@@ -25,6 +25,17 @@ export const useImages = () => {
     }
   };
 
+  
+  const loadRecentPatients = async () => {
+    try {
+      const response =  await axiosPrivate.get(`/patient/uploadedRecently`);
+      console.log(response)
+      setPatient(response.data)
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const createPatient = async (Info) => {
     try {
       const response = await axiosPrivate.post(`/patient/upload`, Info);
@@ -119,6 +130,7 @@ export const useImages = () => {
     deletePatient,
     getPatient,
     deleteImage,
-    uploadImage
+    uploadImage,
+    loadRecentPatients
   };
 };

@@ -1,20 +1,22 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./RecentPacients.css";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useImages } from "../hooks/useImages";
+
 
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
-  const [recentUsers, setRecentUsers] = useState();
+  const { deletePatient, loadRecentPatients, patients } = useImages()
+  //const [recentUsers, setRecentUsers] = useState();
   const [active, setActive] = useState(false);
-  const axiosPrivate = useAxiosPrivate();
+  //const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
 
   useEffect(() => {
-    let estaMontado = true;
+    /*let estaMontado = true;
     const controller = new AbortController(); //Para cancelar la request
 
     const getRecentUsers = async () => {
@@ -41,6 +43,8 @@ const RecentPacients = () => {
       estaMontado = false;
       controller.abort();
     };
+    */
+   loadRecentPatients()
   }, []);
 
   return (
@@ -58,7 +62,7 @@ const RecentPacients = () => {
         </div>
         <div className="pacientes_box">
       <h2>Pacientes recientes</h2>
-      {recentUsers?.length ? (
+      {patients?.length ? (
         <table>
           <thead>
             <tr>
@@ -66,11 +70,11 @@ const RecentPacients = () => {
               <th>Ultima Modificacion</th>
             </tr>
           </thead>
-          {recentUsers.map((recentUser) => (
-            <tr key={recentUser.id}>
-              <td><a href={"/AddRadiography/" + recentUser.id }>{recentUser.DNI}</a></td>
-              <td><a href={"/AddRadiography/" + recentUser.id }>{recentUser.createdAt} </a></td>
-              <DeleteIcon onClick={() => deletePatient(recentUser.id)} className="btn_delete" >Delete</DeleteIcon>
+          {patients.map((patient) => (
+            <tr key={patient.id}>
+              <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
+              <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
+              <DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon>
             </tr>
           ))}
         </table>
