@@ -4,6 +4,8 @@ import Body from '../landingPage/body/Body'
 import Model from '../landingPage/3dmodel/model'
 import './scss/style.css'
 
+//Framer Motion
+import { motion } from "framer-motion";
 
 //Images
 import logoIara from './images/logoTxt.svg'
@@ -52,9 +54,9 @@ const HomePage = () => {
         </nav>
       </header>
       <section id="hero"class="hero">
-        <div class="hero__image flex flex-jc-r">
+        <motion.div drag="z"  className="hero__image flex flex-jc-r">
             <img src={landingImage} alt="landingImage"/>
-        </div>
+        </motion.div>
 
         <div class="hero__text flex flex-ai-l flex flex-jc-c">
             <h1>
@@ -62,10 +64,10 @@ const HomePage = () => {
                 <span class="hero__IARAtxt"> IARA</span>
             </h1>
             <br></br>
-            <p>
+            <motion.p whileHover={{scale: 1.1, x: 40}}>
               Mejora la precisión de tus diagnósticos de manera<br></br>totalmente  
               <span class="hero__gratuitatxt"> gratuita</span>
-            </p>
+            </motion.p>
             <br></br>
             <div class="hero__buttons">
                 <button  onClick={() => navigate('/login')} type="submit" class="transparantBtn" >Comienza ahora</button>
