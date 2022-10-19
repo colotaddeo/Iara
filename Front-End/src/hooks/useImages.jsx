@@ -80,6 +80,8 @@ export const useImages = () => {
 
       console.log(response.data);
 
+      setPatient(response.data)
+
       return response.data;
     } catch (error) {
       console.error(error);

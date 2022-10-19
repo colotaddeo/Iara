@@ -1,0 +1,8 @@
+.main_container{
+    max-height: 100vh;
+}
+.tablawrapper{
+    overflow-y: scroll;
+    height: 80vh;
+    width: fit-content;
+}

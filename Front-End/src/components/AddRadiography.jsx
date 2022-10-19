@@ -4,23 +4,34 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useImages } from "../hooks/useImages";
 import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const AddRadiography = () => {
-  const { loadImages, images, deleteImage, uploadImage  } = useImages();
+  const { loadImages, images, deleteImage, uploadImage, getPatient, patients } = useImages();
   const navigate = useNavigate();
   const { id } = useParams();
-
+  const [active, setActive] = useState(false)
 
   useEffect(() => {
     loadImages(id);
-    console.log(images)
+    getPatient(id);
   }, []);
 
   if (images.length === 0)
     return (
-      <div>
-        <Navbar />
-        <h1>Todavía no hay imagenes subidas </h1>
+      <div className="main_container">
+      <Navbar active={active} current="Pacientes"/>
+        <div className="primary_container">
+      <div
+          className="banner"
+          onClick={(e) => {
+            setActive(!active);
+          }}
+        >
+          <h1>Bienvenido Dr. Rizzo</h1>
+          <p>Nuestra mision es ayudarte</p>
+        </div>
+        <h1>Todavía no hay imagenes subidas</h1>
         <Formik
         initialValues={{
           file: null,
@@ -43,17 +54,32 @@ const AddRadiography = () => {
         )}
       </Formik>
       </div>
+      </div>
     );
   return (
-    <div>
-      <Navbar />
-      {images.map((image) => (
+    <div className="main_container">
+      <Navbar active={active} current="Pacientes"/>
+      <div className="primary_container">
+      <div
+          className="banner"
+          onClick={(e) => {
+            setActive(!active);
+          }}
+        >
+          <h1>Bienvenido Dr. Rizzo</h1>
+          <p>Nuestra mision es ayudarte</p>
+        </div>
+        <div>
+          <h1> Paciente: {patients.DNI} </h1>
+        </div>
+        <br />
+      {images?.map((image) => (
         <div key={image.id}>
-          <h1>Primera predicción: {image.prediccion_cnn}</h1>
-          <h1>Segunda predicción: {image.prediccion_transformers}</h1>
-          <h1>Promedio de las predicciones: {image.prediccion_promedio}</h1>
+          <h3>Primera predicción: {image.prediccion_cnn}</h3>
+          <h3>Segunda predicción: {image.prediccion_transformers}</h3>
+          <h3>Promedio de las predicciones: {image.prediccion_promedio}</h3>
           <img src={image.ruta} alt="Imagen con tuberculosis" />
-          <button onClick={() => deleteImage(id, image.id)}>Delete</button>
+          <DeleteIcon onClick={() => deleteImage(id, image.id)} className="btn_delete">Delete</DeleteIcon>
         </div>
       ))}
       <p>Esto es tan solo una predicción que lo ayudará a realizar un diagnóstico más acertado. Por favor a la hora de hacer el informe final del paciente tenga en cuenta los antecedentes y los síntomas</p>
@@ -78,6 +104,7 @@ const AddRadiography = () => {
           </Form>
         )}
       </Formik>
+    </div>
     </div>
   );
 };

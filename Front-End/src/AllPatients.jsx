@@ -5,6 +5,9 @@ import Navbar from "./components/Navbar";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useImages } from "./hooks/useImages";
+import DeleteIcon from '@mui/icons-material/Delete';
+import './components/AllPatients.css';
+
 
 const AllPatients = () => {
   const [active, setActive] = useState(false)
@@ -37,8 +40,19 @@ const AllPatients = () => {
     <div className="main_container">
       <Navbar active={active} current="Pacientes"/>
       <div className="primary_container">
+      <div
+          className="banner"
+          onClick={(e) => {
+            setActive(!active);
+          }}
+        >
+          <h1>Bienvenido Dr. Rizzo</h1>
+          <p>Nuestra mision es ayudarte</p>
+        </div>
       <h2>Todos los pacientes</h2>
-      <table>
+      <div className="tablaWrapper">
+
+      <table className="tabla">
         <thead>
           <tr>
             <th>DNI</th>
@@ -47,10 +61,11 @@ const AllPatients = () => {
         </thead>
         {patients.map((patient) => (
           <tr key={patient.id}>
-            <td onClick={() => navigate(`/AddRadiography/${patient.id}`)}> {patient.DNI} </td>
-            <td onClick={() => navigate(`/AddRadiography/${patient.id}`)}> {patient.createdAt} </td>
-            <button onClick={() => deletePatient(patient.id)}>Delete</button>
+            <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
+            <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
+            <DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" >Delete</DeleteIcon>
           </tr>
+
         ))}
       </table>
       <Formik
@@ -74,6 +89,8 @@ const AllPatients = () => {
           </Form>
         )}
       </Formik>
+
+      </div>
         </div>
     </div>
   );

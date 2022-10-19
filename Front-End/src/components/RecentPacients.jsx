@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import { useNavigate, useLocation } from "react-router-dom";
 import "./RecentPacients.css";
+
 import Navbar from "./Navbar";
 const RecentPacients = () => {
   const [recentUsers, setRecentUsers] = useState();
