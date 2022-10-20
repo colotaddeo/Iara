@@ -1,8 +1,22 @@
 .main_container{
     max-height: 100vh;
+    overflow: hidden;
 }
-.tablawrapper{
-    overflow-y: scroll;
-    height: 80vh;
+.tablaWrapper{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.table-wrapper {
+    max-height: 73vh;
     width: fit-content;
+    overflow-y: scroll;
+}
+.formik_wrapper {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 20vh;
 }

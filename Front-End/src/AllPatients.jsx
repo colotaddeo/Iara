@@ -51,7 +51,7 @@ const AllPatients = () => {
         </div>
       <h2>Todos los pacientes</h2>
       <div className="tablaWrapper">
-
+        <div className="table-wrapper">
       <table className="tabla">
         <thead>
           <tr>
@@ -63,11 +63,13 @@ const AllPatients = () => {
           <tr key={patient.id}>
             <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
             <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
-            <DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" >Delete</DeleteIcon>
+            <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" >Delete</DeleteIcon></td>
           </tr>
 
-        ))}
+))}
       </table>
+      </div>
+      <div className="formik_wrapper">
       <Formik
         initialValues={{
           DNI: "",
@@ -89,6 +91,7 @@ const AllPatients = () => {
           </Form>
         )}
       </Formik>
+        </div>
 
       </div>
         </div>
