@@ -7,6 +7,7 @@ import { useState } from "react";
 // } from "../api/axios.useful.functions";
 // */
 import { useNavigate } from "react-router-dom";
+import axios from "../api/axios";
 import useAxiosPrivate from "./useAxiosPrivate";
 
 export const useImages = () => {
@@ -79,6 +80,17 @@ export const useImages = () => {
       console.error(error);
     }
   };
+
+  const getPatientsBySearch = async (info) => {
+    try {
+      const response = await axiosPrivate.get('/patient/search', info);
+
+      console.log(response.data)
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   const uploadImage = async (id_paciente, imagen) => {
     try {
@@ -156,6 +168,7 @@ export const useImages = () => {
   return {
     images,
     patients,
+    setPatient,
     loadPatients,
     loadImages,
     createPatient,
@@ -163,6 +176,7 @@ export const useImages = () => {
     getPatient,
     deleteImage,
     uploadImage,
-    loadRecentPatients
+    loadRecentPatients,
+    getPatientsBySearch
   };
 };

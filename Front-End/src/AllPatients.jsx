@@ -1,22 +1,33 @@
 import React from "react";
 import { useEffect, useContext, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useImages } from "./hooks/useImages";
 import DeleteIcon from '@mui/icons-material/Delete';
 import './components/AllPatients.css';
+import SearchIcon from '@mui/icons-material/Search';
 
 
 const AllPatients = () => {
   const [active, setActive] = useState(false)
-  //const { loadPatients, patients, createPatient, deletePatient } = useImages();
   const navigate = useNavigate();
-  const { loadPatients, deletePatient, patients, createPatient } = useImages()
+  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch } = useImages()
   useEffect(() => {
     loadPatients();
   }, []);
+
+  /*const [search, setSearch] = useState('');
+
+  const SearchPatient = () => {
+    if(search.trim()){
+      console.log(search)
+      getPatientsBySearch(search)
+    }
+  }
+  */
+
   console.log(patients);
   if (patients.length === 0)
     return (
@@ -50,6 +61,8 @@ const AllPatients = () => {
           <p>Nuestra mision es ayudarte</p>
         </div>
       <h2>Todos los pacientes</h2>
+      {/* <input type="text" onChange={(e) => setSearch(e.target.value)}/> */}
+      {/* <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon> */}
       <div className="tablaWrapper">
         <div className="table-wrapper">
       <table className="tabla">
