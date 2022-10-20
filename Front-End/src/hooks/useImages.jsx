@@ -6,13 +6,13 @@ import { useState } from "react";
 //   getImageRequest,
 // } from "../api/axios.useful.functions";
 // */
-
+import { useNavigate } from "react-router-dom";
 import useAxiosPrivate from "./useAxiosPrivate";
 
 export const useImages = () => {
   const [images, setImage] = useState([]);
   const [patients, setPatient] = useState([])
-
+  const navigate = useNavigate()
   const axiosPrivate = useAxiosPrivate();
 
   const loadPatients = async () => {
@@ -21,6 +21,10 @@ export const useImages = () => {
       console.log(response)
       setPatient(response.data)
     } catch (error) {
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
       console.error(error);
     }
   };
@@ -32,6 +36,10 @@ export const useImages = () => {
       console.log(response)
       setPatient(response.data)
     } catch (error) {
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
       console.error(error);
     }
   };
@@ -46,6 +54,10 @@ export const useImages = () => {
 
       return response.data;
     } catch (error) {
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
       console.error(error);
     }
   };
@@ -60,7 +72,11 @@ export const useImages = () => {
 
       console.log(response);
     } catch (error) {
-      console.log(error);
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
     }
   };
 
@@ -79,6 +95,10 @@ export const useImages = () => {
       console.log(images)
 
     } catch (error) {
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
       console.error(error);
     }
   };
@@ -95,6 +115,10 @@ export const useImages = () => {
 
       return response.data;
     } catch (error) {
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
       console.error(error);
     }
   };
@@ -105,7 +129,11 @@ export const useImages = () => {
       console.log(response)
       setImage(response.data);
     } catch (error) {
-      console.log(error);
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
     }
   };
 
@@ -117,7 +145,11 @@ export const useImages = () => {
 
       console.log(response);
     } catch (error) {
-      console.log(error);
+      if(error.code === "ERR_BAD_REQUEST") {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
     }
   };
 

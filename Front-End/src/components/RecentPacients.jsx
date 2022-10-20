@@ -10,41 +10,11 @@ import { useImages } from "../hooks/useImages";
 import Navbar from "./Navbar";
 const RecentPacients = () => {
   const { deletePatient, loadRecentPatients, patients } = useImages()
-  //const [recentUsers, setRecentUsers] = useState();
   const [active, setActive] = useState(false);
-  //const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
 
   useEffect(() => {
-    /*let estaMontado = true;
-    const controller = new AbortController(); //Para cancelar la request
-
-    const getRecentUsers = async () => {
-      try {
-        const response = await axiosPrivate.get("/patient/uploadedRecently", {
-          signal: controller.signal,
-        });
-
-        estaMontado && setRecentUsers(response.data);
-      } catch (err) {
-        if (err.code === "ERR_CANCELED") console.error(err);
-        else if (err.code === "ERR_NETWORK") {
-          console.error(err);
-        } else {
-          console.error(err);
-          navigate("/login");
-        }
-      }
-    };
-
-    getRecentUsers();
-
-    return () => {
-      estaMontado = false;
-      controller.abort();
-    };
-    */
-   loadRecentPatients()
+   loadRecentPatients();
   }, []);
 
   return (
