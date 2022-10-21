@@ -51,7 +51,7 @@ const RecentPacients = () => {
       ) : (
         <p>No hay pacientes subidos aún</p>
         )}
-      <button onClick={() => navigate("/AllPatients")}>
+      <button className="cyanBtn" onClick={() => navigate("/AllPatients")}>
         Ver todos los pacientes
       </button>
           </div>
