@@ -21,9 +21,14 @@ const AllPatients = () => {
   const [search, setSearch] = useState('');
 
   const SearchPatient = () => {
-    if(search.trim()){
-      console.log(search)
-      getPatientsBySearch(search)
+    if(search.length === 0){
+      loadPatients();
+    }
+    else{
+      if(search.trim()){
+        console.log(search)
+        getPatientsBySearch(search)
+      }
     }
   }
 
@@ -35,7 +40,7 @@ const AllPatients = () => {
   
 
   console.log(patients);
-  if (patients.length === 0)
+  if (patients.length === -1)
     return (
       <div className="main_container">
       <Navbar active={active} current="Pacientes"/>
