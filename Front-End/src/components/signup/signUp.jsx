@@ -108,16 +108,10 @@ const signUp = () => {
           {({ errors, isValid, touched, dirty }) => (
             <Form>
               <div className="nombre_apellido" sx={{
-                w: 1,
-                display: "flex",
-                justifyContent: 'space-between',
-                flexGrow: 1,
-                flexWrap: 'nowrap'
+                w: '100%',
+                mb: 2,
                 }}>
               <Field
-                sx={{
-                  mb: 2,
-                }}
                 id="firstName"
                 name="firstName"
                 type="text"
@@ -134,6 +128,7 @@ const signUp = () => {
               <Field
                 sx={{
                   ml: 2,
+                  mb: 2,
                 }}
                 id="lastName"
                  name="lastName"

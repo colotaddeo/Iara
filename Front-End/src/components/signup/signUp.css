@@ -7,16 +7,20 @@
   font-family: sans-serif;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;;
+  overflow: hidden;
 }
 /* Imagen */
 
 .imagen img{
   filter:opacity(50%);
-  height: 100vh;
-  width: 70vw;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 
+}
+
+.imagen{
+  flex-shrink: 1;
 }
 
 .title{
@@ -31,11 +35,6 @@
   margin-left: 0;
 
 }
-
- 
-/* Imagen */
-
-/* Form */
 
 .form { 
   margin: 20px 30px;
@@ -59,86 +58,21 @@
   justify-content: space-around;
 }
 
-/* animacion del placeholder */
-.bar {
-  position: relative;
-  display: block;
-  width: 670px;
-  margin-top: 20px;
-}
-/* subrayado on hover (color sage)*/
-.bar:before,
-.bar:after {
-  content: "";
-  height: 3px;
-  width: 0px;
-
-  /* posicion en y del subrayado */
-  bottom: 20px;
-  /* posicion en y del subrayado */
-
-  position: absolute;
-  background: #01adb4;
-  transition: 0.2s ease all;  
-
-}
-/* subrayado on hover (color sage)*/
-
-.bar:before {
-  left: 50%;
+.input__signup{
+  width: 100%;
+  margin: 10px;
 }
 
-.bar:after {
-  right: 50%;
-}
-
-.form-input:focus ~ .bar:before, .form-input:focus ~ .bar:after {
-  width: 50%;
-}
-
-/* DROPDOWN */
-
-.dropdown-container select {
-
-  width: 200px;
-  height: 50px;
-  font-size: 25px;
-  border:none;
-  color: white;
-  outline: none;
-    
-}
-.dropdown-container select:focus{
-  border: 3px solid #01adb4;
-}
-
-/* DROPDOWN */
-
-/* CONFIRMAR */
-
-
-.button-container .confirm{
-  padding: 5px 270px 5px 270px;
-  background-color: #01adb4;
-  font-size: 30px;
-  display: block;
-}
-.button-container .login-button{
-  background: none;
-  font-size:medium;
-  margin-left: 9vw;
-}
-
-.button-container .login-button span{
-  color: #01adb4;
-}
-
-/* CONFIRMAR */
-/* Form */
-input{
-  margin: 40px;
-}
 .MuiInputLabel-outlined{
   color: #01adb4;
+}
+
+@media screen and (max-width:1400px) and (max-height:800px){
+  .imagen{
+    width: 80vw;
+  }
+  .form h2{
+    font-size: 50px;
+  }
 }
 
