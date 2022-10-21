@@ -18,7 +18,7 @@ const AllPatients = () => {
     loadPatients();
   }, []);
 
-  /*const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('');
 
   const SearchPatient = () => {
     if(search.trim()){
@@ -26,7 +26,13 @@ const AllPatients = () => {
       getPatientsBySearch(search)
     }
   }
-  */
+
+  const SearchPatientNotExactly = () => {
+    if(search.trim()){
+      console.log(search)
+    }
+  }
+  
 
   console.log(patients);
   if (patients.length === 0)
@@ -60,52 +66,58 @@ const AllPatients = () => {
           <h1>Bienvenido Dr. Rizzo</h1>
           <p>Nuestra mision es ayudarte</p>
         </div>
-      <h2>Todos los pacientes</h2>
-      {/* <input type="text" onChange={(e) => setSearch(e.target.value)}/> */}
-      {/* <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon> */}
-      <div className="tablaWrapper">
-        <div className="table-wrapper">
-      <table className="tabla">
-        <thead>
-          <tr>
-            <th>DNI</th>
-            <th>Ultima Modificacion</th>
-          </tr>
-        </thead>
-        {patients.map((patient) => (
-          <tr key={patient.id}>
-            <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
-            <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
-            <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" >Delete</DeleteIcon></td>
-          </tr>
-
-))}
-      </table>
-      </div>
-      <div className="formik_wrapper">
-      <Formik
-        initialValues={{
-          DNI: "",
-        }}
-        validationSchema={Yup.object({
-          DNI: Yup.number().required("El dni es requerido"),
-        })}
-        onSubmit={(values, actions) => {
-          console.log(values);
-          createPatient(values);
-        }}
-        >
-        {({ handleChange, handleSubmit, setFieldValue }) => (
-          <Form onSubmit={handleSubmit}>
-            <label>DNI</label>
-            <Field name="DNI" placeholder="dni"></Field>
-            <ErrorMessage name="DNI" />
-            <button type="submit">Guardar</button>
-          </Form>
-        )}
-      </Formik>
+      <div className="hero_container">
+      <h2>Pacientes</h2>
+      <div className="hero_elements">
+        <div className="hero_searchbar">
+          <input className="hero_searchbar_text" onKeyUp={SearchPatient} type="text" onChange={(e) => setSearch(e.target.value)}/> 
+          <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon>
         </div>
+        <div className="tablaWrapper">
+          <div className="table-wrapper">
+        <table className="tabla">
+          <thead>
+            <tr>
+              <th>DNI</th>
+              <th>Ultima Modificacion</th>
+              <th></th>
+            </tr>
+          </thead>
+          {patients.map((patient) => (
+            <tr key={patient.id}>
+              <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
+              <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
+              <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" >Delete</DeleteIcon></td>
+            </tr>
 
+  ))}
+        </table>
+        </div>
+        <div className="formik_wrapper">
+        <Formik
+          initialValues={{
+            DNI: "",
+          }}
+          validationSchema={Yup.object({
+            DNI: Yup.number().required("El dni es requerido"),
+          })}
+          onSubmit={(values, actions) => {
+            console.log(values);
+            createPatient(values);
+          }}
+          >
+          {({ handleChange, handleSubmit }) => (
+            <Form onSubmit={handleSubmit}>
+              <label>DNI</label>
+              <Field name="DNI" placeholder="dni"></Field>
+              <ErrorMessage name="DNI" />
+              <button className="cyanBtn" type="submit">Guardar</button>
+            </Form>
+          )}
+        </Formik>
+        </div>
+          </div>
+        </div>
       </div>
         </div>
     </div>

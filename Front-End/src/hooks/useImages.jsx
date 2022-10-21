@@ -12,7 +12,8 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 export const useImages = () => {
   const [images, setImage] = useState([]);
-  const [patients, setPatient] = useState([])
+  const [patients, setPatient] = useState([])  
+
   const navigate = useNavigate()
   const axiosPrivate = useAxiosPrivate();
 
@@ -83,9 +84,24 @@ export const useImages = () => {
 
   const getPatientsBySearch = async (info) => {
     try {
-      const response = await axiosPrivate.get('/patient/search', info);
+      const response = await axiosPrivate.get(`/patient/search?DNI=${info}`);
 
       console.log(response.data)
+
+      setPatient(response.data)
+
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const getPatientsBySearchNotExactly = async (info) => {
+    try {
+      const response = await axiosPrivate.get(`/patient/searchNotExactly?DNI=${info}`);
+
+      console.log(response.data)
+
+      setPatient(response.data)
 
     } catch (error) {
       console.error(error)
@@ -177,6 +193,7 @@ export const useImages = () => {
     deleteImage,
     uploadImage,
     loadRecentPatients,
-    getPatientsBySearch
+    getPatientsBySearch,
+    getPatientsBySearchNotExactly
   };
 };

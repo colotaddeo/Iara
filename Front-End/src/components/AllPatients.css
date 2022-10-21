@@ -1,7 +1,35 @@
 .main_container{
     max-height: 100vh;
     overflow: hidden;
+    background-color: #1A1A1A;
 }
+
+.hero_container {
+    padding: 37px;
+}
+
+.hero_elements {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: start;
+}
+
+.hero_searchbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: right;
+    outline: none;
+}
+
+.hero_searchbar_text {
+    margin: 0;
+    margin-right: 10px;
+
+    background-color: #2b2b2b;
+    border-radius: 5px;
+    outline: none;
+}
+
 .tablaWrapper{
     display: flex;
     flex-direction: row;
@@ -14,9 +42,13 @@
     overflow-y: scroll;
 }
 .formik_wrapper {
-    padding: 20px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     height: 20vh;
+    justify-content: center;
+}
+
+.tabla {
+    text-align: left;
 }
