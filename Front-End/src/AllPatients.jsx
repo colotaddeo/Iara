@@ -70,7 +70,7 @@ const AllPatients = () => {
       <h2>Pacientes</h2>
       <div className="hero_elements">
         <div className="hero_searchbar">
-          <input className="hero_searchbar_text" onKeyUp={SearchPatient} type="text" onChange={(e) => setSearch(e.target.value)}/> 
+          <input className="hero_searchbar_text" placeholder="Buscar dni..." onKeyUp={SearchPatient} type="text" onChange={(e) => setSearch(e.target.value)}/> 
           <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon>
         </div>
         <div className="tablaWrapper">

@@ -28,6 +28,13 @@
     background-color: #2b2b2b;
     border-radius: 5px;
     outline: none;
+    color: white;
+    width: 503px;
+    height: 58px;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'DM Sans';
+    font-style: normal;
 }
 
 .tablaWrapper{
