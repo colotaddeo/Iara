@@ -7,19 +7,19 @@ import { TextField, Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import { styled } from "@mui/system";
 import * as Yup from "yup";
-import axios from "axios";
+import axios from "../../api/axios";
+import Select from "../Select";
 
 const signUp = () => {
 
-  const [hospital, sethospital] = useState("");
+  // const [hospital, sethospital] = useState("");
 
-  const handleChangehospital = (event) => {
-    sethospital(event.target.value);
-    console.log(event.target.value);
-  };
+  // const handleChangehospital = (event) => {
+  //   sethospital(event.target.value);
+  //   console.log(event.target.value);
+  // };
 
 
   const valoresIniciales = {
@@ -28,7 +28,6 @@ const signUp = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    hospitalEmail: hospital,
     doctorId: "",
   };
 
@@ -63,28 +62,10 @@ const signUp = () => {
   });
 
   const fetchAxios = async (valoresIniciales) => {
-    const response = await axios.post("http://localhost:4000/user/signup", {
-      body: JSON.stringify(valoresIniciales),
-      headers: { "Content-Type": "application/json" },
-    });
+    const response = await axios.post("/user/signup", valoresIniciales);
 
     console.log(response);
   };
-
-  // const handleChange = (prop) => (event) => {
-  //   setValues({ ...valoresIniciales, [prop]: event.target.valoresIniciales });
-  // };
-
-  // const handleClickShowPassword = () => {
-  //   setValues({
-  //     ...valoresIniciales,
-  //     showPassword: !valoresIniciales.showPassword,
-  //   });
-  // };
-
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
 
   return (
     <div className="all-container" >
@@ -179,30 +160,6 @@ const signUp = () => {
                 helperText={Boolean(touched.password) && errors.password}
                 className="input__signup"
               />
-
-              {/* <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                type={valoresIniciales.showPassword ? 'text' : 'password'}
-                value={valoresIniciales .password}
-                onChange={handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {valoresIniciales.showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Password"
-              />
-            </FormControl> */}
-
               <Field
                 sx={{
                   minWidth: 1,
@@ -225,31 +182,15 @@ const signUp = () => {
                 className="input__signup"
               />
                <div className="nombre_apellido">
-              <FormControl
+               <FormControl
                 sx={{
                   my: 2,
                   minWidth: 0.45,
                 }}
               >
+                <Select name="HospitalEmail" label="Hospital correspondiente" />
 
-                  <InputLabel id="hospital">Hospital Asociado</InputLabel>
-                  <Select
-                    id="hospital"
-                    label="Hospital Asociado"
-                    onChange={handleChangehospital}
-                    value={hospital}
-                    autoWidth
-                    error={
-                      Boolean(errors.hospitalEmail) &&
-                      Boolean(touched.hospitalEmail)
-                    }
-                    //helperText={Boolean(touched.hospitalEmail) && errors.hospitalEmail}
-                  >
-                    <MenuItem value="muñiz">Muñiz</MenuItem>
-                    <MenuItem value="umai">umai</MenuItem>
-                    <MenuItem value="{30}">Thirty</MenuItem>
-                  </Select>
-                </FormControl>
+                </FormControl> 
                 <Field
                   sx={{
                     ml: 2,

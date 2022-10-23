@@ -9,12 +9,13 @@ import { useImages } from "../hooks/useImages";
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
-  const { deletePatient, loadRecentPatients, patients } = useImages()
+  const { deletePatient, loadRecentPatients, patients, getUserInfo, doctors } = useImages()
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
    loadRecentPatients();
+   getUserInfo();
   }, []);
 
   return (
@@ -27,8 +28,13 @@ const RecentPacients = () => {
             setActive(!active);
           }}
         >
-          <h1>Bienvenido Dr. Rizzo</h1>
-          <p>Nuestra mision es ayudarte</p>
+          {doctors.map((doctor) => (
+            <div key={doctor.id}>
+              <h1>Bienvenido/a {doctor.nombre}</h1>
+              <p>Nuestra mision es ayudarte</p>
+            </div>
+          ))}
+
         </div>
         <div className="pacientes_box">
       <h2>Pacientes recientes</h2>
@@ -46,7 +52,7 @@ const RecentPacients = () => {
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon>
             </tr>
-          ))}
+          ))};
         </table>
       ) : (
         <p>No hay pacientes subidos aún</p>
