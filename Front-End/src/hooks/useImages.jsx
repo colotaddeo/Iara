@@ -96,7 +96,7 @@ export const useImages = () => {
     }
   }
 
-  const getUserInfo = async (info) => {
+  const getUserInfo = async () => {
     try {
       const response = await axiosPrivate.get(`/user/userInfo`);
 

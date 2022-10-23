@@ -8,14 +8,16 @@ import { useImages } from "./hooks/useImages";
 import DeleteIcon from '@mui/icons-material/Delete';
 import './components/AllPatients.css';
 import SearchIcon from '@mui/icons-material/Search';
+import EditIcon from '@mui/icons-material/Edit';
 
 
 const AllPatients = () => {
   const [active, setActive] = useState(false)
   const navigate = useNavigate();
-  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch } = useImages()
+  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors } = useImages()
   useEffect(() => {
     loadPatients();
+    getUserInfo();
   }, []);
 
   const [search, setSearch] = useState('');
@@ -51,8 +53,12 @@ const AllPatients = () => {
             setActive(!active);
           }}
         >
-          <h1>Bienvenido Dr. Rizzo</h1>
-          <p>Nuestra mision es ayudarte</p>
+          {doctors.map((doctor) => (
+            <div key={doctor.id}>
+              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+              <p>Nuestra mision es ayudarte</p>
+            </div>
+          ))}
         </div>
         <h1>Todavía no hay paciente subidos</h1>
         </div>
@@ -68,8 +74,12 @@ const AllPatients = () => {
             setActive(!active);
           }}
         >
-          <h1>Bienvenido Dr. Rizzo</h1>
-          <p>Nuestra mision es ayudarte</p>
+          {doctors.map((doctor) => (
+            <div key={doctor.id}>
+              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+              <p>Nuestra mision es ayudarte</p>
+            </div>
+          ))}
         </div>
       <div className="hero_container">
       <h2>Pacientes</h2>
@@ -84,7 +94,8 @@ const AllPatients = () => {
           <thead>
             <tr>
               <th>DNI</th>
-              <th>Ultima Modificacion</th>
+              <th>Fecha de creación</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -92,7 +103,8 @@ const AllPatients = () => {
             <tr key={patient.id}>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
-              <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" >Delete</DeleteIcon></td>
+              <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>
+              <td> <EditIcon></EditIcon> </td>
             </tr>
 
   ))}

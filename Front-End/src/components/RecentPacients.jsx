@@ -30,7 +30,7 @@ const RecentPacients = () => {
         >
           {doctors.map((doctor) => (
             <div key={doctor.id}>
-              <h1>Bienvenido/a {doctor.nombre}</h1>
+              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
               <p>Nuestra mision es ayudarte</p>
             </div>
           ))}
@@ -43,7 +43,8 @@ const RecentPacients = () => {
           <thead>
             <tr>
               <th>DNI</th>
-              <th>Ultima Modificacion</th>
+              <th>Fecha de creación</th>
+              <th></th>
             </tr>
           </thead>
           {patients.map((patient) => (
@@ -52,7 +53,7 @@ const RecentPacients = () => {
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon>
             </tr>
-          ))};
+          ))}
         </table>
       ) : (
         <p>No hay pacientes subidos aún</p>
