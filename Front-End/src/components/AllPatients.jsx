@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useContext, useState } from "react";
 import { useNavigate, Link, Navigate } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import Navbar from "./Navbar";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { useImages } from "./hooks/useImages";
+import { useImages } from "../hooks/useImages";
 import DeleteIcon from '@mui/icons-material/Delete';
 import './components/AllPatients.css';
 import SearchIcon from '@mui/icons-material/Search';

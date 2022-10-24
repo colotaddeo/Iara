@@ -6,6 +6,7 @@ import LandingPage from "./components/pages/landingPage/landingPage";
 import LogInPage from "./components/pages/logInPage/logIn";
 import SignUp from "./components/signup/signUp";
 import NotFound from "./components/pages/notFoundPage/NotFound";
+import Forgot_password from "./components/ForgotPassword";
 import Home from "./components/pages/HomeTest/home";
 import AddPatient from "./components/AddPatient";
 import AddRadiography from "./components/AddRadiography";
@@ -36,6 +37,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/logIn" element={<LogInPage />} />
           <Route path="/signUp" element={<SignUp />} />
+          <Route path="/forgotPassword" element={<Forgot_password />} />
 
           <Route path="/Home" element={<RecentPacients />} />
           <Route path="/AllPatients" element={<AllPatients />} />

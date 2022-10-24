@@ -102,6 +102,23 @@
    height: 100%;
 }
 
+.form-login h4 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    align-items: center;
+    cursor: default;
+    color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.login__subtext_cyan {
+    font-style: italic;
+    color: #01ADB4;
+}
 
 @media screen and (max-width:900px) {
     #imagen__login{

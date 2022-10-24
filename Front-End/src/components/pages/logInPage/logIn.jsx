@@ -136,6 +136,10 @@ const LogIn = () => {
 
               />
 
+              <h4>
+                <Link className='login__subtext_cyan' to="/forgotPassword">¿Olvidaste tu contraseña?</Link>
+              </h4>
+
               <Button
                 sx={{
                   display: 'block',
@@ -148,7 +152,11 @@ const LogIn = () => {
               >
                 Continuar
               </Button>
-              
+
+              <h4 className='flex flex-jc-r'>
+                ¿Aún no tienes cuenta?&nbsp;
+                <span><Link className='login__subtext_cyan' to="/signup">Registrate</Link></span>
+              </h4>
             </Form>
           )}
         </Formik>
