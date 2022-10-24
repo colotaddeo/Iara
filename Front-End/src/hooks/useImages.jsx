@@ -14,7 +14,6 @@ export const useImages = () => {
   const [images, setImage] = useState([]);
   const [patients, setPatient] = useState([]) 
   const [doctors, setDoctor] = useState([]) 
-  const [currentId, setCurrentId] = useState(null)
 
   const navigate = useNavigate()
   const axiosPrivate = useAxiosPrivate();
@@ -66,22 +65,22 @@ export const useImages = () => {
     }
   };
   
-  const updatePatient = async (id, Info) => {
-    try {
-      const response = await axiosPrivate.post(`/patient/${id}`, Info);
+  // const updatePatient = async (id, Info) => {
+  //   try {
+  //     const response = await axiosPrivate.post(`/patient/${id}`, Info);
 
-      console.log(response.data);
+  //     console.log(response.data);
 
-      setPatient(patients.find((patient) => patient.id === id));
+  //     setPatient(patients.find((patient) => patient.id === id));
 
-    } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
-        navigate('/login') 
-        console.error(error);
-      }
-      console.error(error);
-    }
-  };
+  //   } catch (error) {
+  //     if(error.code === "ERR_BAD_REQUEST") {
+  //       navigate('/login') 
+  //       console.error(error);
+  //     }
+  //     console.error(error);
+  //   }
+  // };
   
 
   const deletePatient = async (id) => {
@@ -121,18 +120,6 @@ export const useImages = () => {
       console.log(response.data)
 
       setDoctor(response.data)
-
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  const getPatientId = async (id) => {
-    try {
-      const response = await axiosPrivate.get(`/patient/${id}`);
-
-      setCurrentId(id)
-      console.log(id)
 
     } catch (error) {
       console.error(error)
@@ -216,9 +203,6 @@ export const useImages = () => {
     images,
     patients,
     doctors,
-    currentId,
-    getPatientId,
-    updatePatient,
     setPatient,
     loadPatients,
     loadImages,

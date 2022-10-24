@@ -8,13 +8,12 @@ import { useImages } from "../hooks/useImages";
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../components/AllPatients.css';
 import SearchIcon from '@mui/icons-material/Search';
-import EditIcon from '@mui/icons-material/Edit';
 
 
 const AllPatients = () => {
   const [active, setActive] = useState(false)
   const navigate = useNavigate();
-  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors, updatePatient, getPatientId, currentId } = useImages()
+  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors } = useImages()
   useEffect(() => {
     loadPatients();
     getUserInfo();
@@ -89,7 +88,6 @@ const AllPatients = () => {
               <th>DNI</th>
               <th>Fecha de creación</th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
           {patients.map((patient) => (
@@ -97,7 +95,6 @@ const AllPatients = () => {
               <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>
-              <td><EditIcon onClick={() => getPatientId(patient.id)}></EditIcon> </td>
             </tr>
 
   ))}
@@ -113,11 +110,7 @@ const AllPatients = () => {
           })}
           onSubmit={(values, actions) => {
             console.log(values);
-            if (currentId) {
-              updatePatient(currentId, values)
-            } else {
               createPatient(values);
-            }
           }}
           >
           {({ handleChange, handleSubmit }) => (
