@@ -24,7 +24,7 @@ export const useImages = () => {
       console.log(response)
       setPatient(response.data)
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -39,7 +39,7 @@ export const useImages = () => {
       console.log(response)
       setPatient(response.data)
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -57,7 +57,7 @@ export const useImages = () => {
 
       return response.data;
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -74,7 +74,7 @@ export const useImages = () => {
   //     setPatient(patients.find((patient) => patient.id === id));
 
   //   } catch (error) {
-  //     if(error.code === "ERR_BAD_REQUEST") {
+  //     if(error.response === "ERR_BAD_REQUEST") {
   //       navigate('/login') 
   //       console.error(error);
   //     }
@@ -92,7 +92,7 @@ export const useImages = () => {
 
       console.log(response);
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -109,7 +109,11 @@ export const useImages = () => {
       setPatient(response.data)
 
     } catch (error) {
-      console.error(error)
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
     }
   }
 
@@ -122,7 +126,11 @@ export const useImages = () => {
       setDoctor(response.data)
 
     } catch (error) {
-      console.error(error)
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
     }
   }
 
@@ -141,7 +149,7 @@ export const useImages = () => {
       console.log(images)
 
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -161,7 +169,7 @@ export const useImages = () => {
 
       return response.data;
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -175,7 +183,7 @@ export const useImages = () => {
       console.log(response)
       setImage(response.data);
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
@@ -191,7 +199,7 @@ export const useImages = () => {
 
       console.log(response);
     } catch (error) {
-      if(error.code === "ERR_BAD_REQUEST") {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
       }
