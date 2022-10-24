@@ -10,26 +10,27 @@
 
 .hero_elements {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     align-items: start;
+    justify-content: left;
+    gap: 20%;
 }
 
 .hero_searchbar {
-    display: flex;
-    align-items: flex-start;
-    justify-content: right;
-    outline: none;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .hero_searchbar_text {
     margin: 0;
-    margin-right: 10px;
+    padding-left: 10px;
 
     background-color: #2b2b2b;
     border-radius: 5px;
+    border: none;
     outline: none;
     color: white;
-    width: 503px;
+    width: 450px;
     height: 58px;
     font-weight: 400;
     font-size: 30px;
@@ -48,14 +49,39 @@
     width: fit-content;
     overflow-y: scroll;
 }
-.formik_wrapper {
+
+.hero_input_button{
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    height: 20vh;
-    justify-content: center;
+    justify-content: right;
+    align-items: left;
 }
 
-.tabla {
-    text-align: left;
+.hero_input_button button:hover {
+    opacity: 85%;
+}
+
+.formik_wrapper Form {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.hero_add_dni_field {
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    padding-left: 10px;
+
+    background-color: #2b2b2b;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: white;
+    width: 450px;
+    height: 58px;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: 'DM Sans';
+    font-style: normal;
 }

@@ -74,11 +74,12 @@ const AllPatients = () => {
           ))}
         </div>
       <div className="hero_container">
-      <h2>Pacientes</h2>
       <div className="hero_elements">
+        <div className="hero_table_search">
+        <h2>Todos los pacientes</h2>
         <div className="hero_searchbar">
-          <input className="hero_searchbar_text" placeholder="Buscar dni..." onKeyUp={SearchPatient} type="text" onChange={(e) => setSearch(e.target.value)}/> 
-          <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon>
+          <input className="hero_searchbar_text" placeholder="Buscar documento..." onKeyUp={SearchPatient} type="text" onChange={(e) => setSearch(e.target.value)}/> 
+          {/* <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon> */}
         </div>
         <div className="tablaWrapper">
           <div className="table-wrapper">
@@ -100,29 +101,33 @@ const AllPatients = () => {
   ))}
         </table>
         </div>
-        <div className="formik_wrapper">
-        <Formik
-          initialValues={{
-            DNI: "",
-          }}
-          validationSchema={Yup.object({
-            DNI: Yup.number().required("El dni es requerido"),
-          })}
-          onSubmit={(values, actions) => {
-            console.log(values);
-              createPatient(values);
-          }}
-          >
-          {({ handleChange, handleSubmit }) => (
-            <Form onSubmit={handleSubmit}>
-              <label>DNI</label>
-              <Field name="DNI" placeholder="dni"></Field>
-              <ErrorMessage name="DNI" />
-              <button className="cyanBtn" type="submit">Guardar</button>
-            </Form>
-          )}
-        </Formik>
         </div>
+        </div>
+
+        <div className="hero_input_button">
+        <h2>Crear paciente</h2>
+          <div className="formik_wrapper">
+          <Formik
+            initialValues={{
+              DNI: "",
+            }}
+            validationSchema={Yup.object({
+              // DNI: Yup.number().required("El dni es requerido"),
+            })}
+            onSubmit={(values, actions) => {
+              console.log(values);
+                createPatient(values);
+            }}
+            >
+            {({ handleChange, handleSubmit }) => (
+              <Form onSubmit={handleSubmit}>
+                <Field className="hero_add_dni_field" name="DNI" placeholder="DNI..."></Field>
+                <ErrorMessage name="DNI" />
+                <button className="cyanBtn" type="submit">Agregar</button>
+              </Form>
+            )}
+          </Formik>
+          </div>
           </div>
         </div>
       </div>

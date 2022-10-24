@@ -85,16 +85,16 @@ button, .button {
     font-weight: 400;
     font-size: 24px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    -webkit-transition-duraion: 0.5s;
-    transition-duration: 0.5s;
-    -webkit-transition-property: box-shadow, transform;
-    transition-property: box-shadow, transform;
+//     -webkit-transition-duraion: 0.5s;
+//     transition-duration: 0.5s;
+//     -webkit-transition-property: box-shadow, transform;
+//     transition-property: box-shadow, transform;
 
-    &:hover, &:focus, &active {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        -webkit-transform: scale(1.1);
-        transform: scale(1.1);
-    }
+//     &:hover, &:focus, &active {
+//         box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+//         -webkit-transform: scale(1.1);
+//         transform: scale(1.1);
+//     }
 }
 
 .cyanBtn {

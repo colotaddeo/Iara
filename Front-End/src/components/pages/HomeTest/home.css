@@ -17,7 +17,7 @@
     width: 15vw;
     display: flex;
     flex-direction: column;
-    background-color: #1a1a1a;
+    background-color: #252525;
     transition: .2s all ease;
 }
 .logo_container {
@@ -46,7 +46,7 @@
     transition: .2s all ease;
     border: 1px;
     border-style: solid;
-    border-color: #1a1a1a;
+    border-color: #252525;
 }
 .side_bar_links>a:hover {
     border-color: #01adb4;

@@ -73,13 +73,6 @@ button, .button {
   font-weight: 400;
   font-size: 24px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  -webkit-transition-duraion: 0.5s;
-  transition-duration: 0.5s;
-  transition-property: box-shadow, transform;
-}
-button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttonactive {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  transform: scale(1.1);
 }
 
 .cyanBtn {
