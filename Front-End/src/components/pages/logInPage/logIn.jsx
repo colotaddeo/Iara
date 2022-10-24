@@ -12,7 +12,8 @@ import useAuth from '../../../hooks/useAuth';
 
 const LogIn = () => {
 
-  const { setAuth } = useAuth()
+  const { setAuth } = useAuth();
+  const { setCredentials } = useState(false);
 
   const navigate = useNavigate();
   /*const location = useLocation();
@@ -67,6 +68,9 @@ const LogIn = () => {
       //navigate(from, { replace: true })
       navigate('/Home')
     } catch (error) {
+      if(error.code === "ERR_BAD_REQUEST"){
+        
+      }
       console.error(error)
     }
   }
