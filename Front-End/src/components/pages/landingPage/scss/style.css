@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 html {
   font-size: 100%;
@@ -150,6 +151,20 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   list-style: none;
 }
 
+.nav_links {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  text-align: center;
+}
+
+/*
+
+Media querie tamaño máximo 480 width (desktop).
+Media querie tamaño máximo 1040 with (desktop).
+Media querie en adelante (desktop).
+
+*/
 .wrapper ul li a {
   text-decoration: none;
   position: relative;
@@ -174,6 +189,12 @@ button:hover, button:focus, buttonactive, .button:hover, .button:focus, .buttona
   transform: scaleX(1);
 }
 
+@media screen and (max-width: 1600px) {
+  .wrapper ul li a {
+    font-size: 20px;
+    margin: 0 40px;
+  }
+}
 .hero {
   display: flex;
   flex-direction: row-reverse;
