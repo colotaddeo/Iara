@@ -5,7 +5,6 @@ import user from '../../../assets/3 User.png'
 import Settings from '../../../assets/SettingsIcon.png';
 import './home.css'
 import RecentPacients from '../../RecentPacients'
-import AllPatients from '../../../AllPatients';
 import { useImages } from '../../../hooks/useImages';
 import PatientsInfo from '../../PatientsInfo';
 import { Link } from 'react-router-dom';

@@ -11,7 +11,7 @@ import Home from "./components/pages/HomeTest/home";
 import AddPatient from "./components/AddPatient";
 import AddRadiography from "./components/AddRadiography";
 import Settings from "./components/Settings";
-import AllPatients from "./AllPatients";
+import AllPatients from './components/AllPatients';
 import RecentPacients from "./components/RecentPacients";
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";

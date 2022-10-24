@@ -6,7 +6,7 @@ import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useImages } from "../hooks/useImages";
 import DeleteIcon from '@mui/icons-material/Delete';
-import './components/AllPatients.css';
+import '../components/AllPatients.css';
 import SearchIcon from '@mui/icons-material/Search';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -14,7 +14,7 @@ import EditIcon from '@mui/icons-material/Edit';
 const AllPatients = () => {
   const [active, setActive] = useState(false)
   const navigate = useNavigate();
-  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors } = useImages()
+  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors, updatePatient, getPatientId, currentId } = useImages()
   useEffect(() => {
     loadPatients();
     getUserInfo();
@@ -33,13 +33,6 @@ const AllPatients = () => {
       }
     }
   }
-
-  const SearchPatientNotExactly = () => {
-    if(search.trim()){
-      console.log(search)
-    }
-  }
-  
 
   console.log(patients);
   if (patients.length === -1)
@@ -104,7 +97,7 @@ const AllPatients = () => {
               <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>
-              <td> <EditIcon></EditIcon> </td>
+              <td><EditIcon onClick={() => getPatientId(patient.id)}></EditIcon> </td>
             </tr>
 
   ))}
@@ -120,7 +113,11 @@ const AllPatients = () => {
           })}
           onSubmit={(values, actions) => {
             console.log(values);
-            createPatient(values);
+            if (currentId) {
+              updatePatient(currentId, values)
+            } else {
+              createPatient(values);
+            }
           }}
           >
           {({ handleChange, handleSubmit }) => (
