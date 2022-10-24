@@ -89,17 +89,18 @@ const AddRadiography = () => {
         {images?.map((image)=> {
           i += 1;
           return (
-            <>
+            <div className="radiografias">
             <img src={image.ruta} id={i} onClick={(e)=> {
               setIndex(e.target.id-1)
               console.log(e.target.id-1)
-            }} alt="side images" width={100}/>
+            }} alt="side images" width={75}/>
             <h1>{i}</h1>
-            </>
+            </div>
           )
         })}
-        <div className="radiografias">
-      
+        
+        
+        <div>
         <div key={images[index].id} className="image_wrapper" onClick={() => getImageById(id, images[index].id)}>
           <h3>Primera predicción: {images[index].prediccion_cnn}</h3>
           <h3>Segunda predicción: {images[index].prediccion_transformers}</h3>
