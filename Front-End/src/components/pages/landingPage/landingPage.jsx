@@ -47,7 +47,7 @@ const HomePage = () => {
           </div>
 
           <div class="nav__button">
-            <button type="submit" class="cyanBtn">Ir a Mi Escritorio</button>
+            <button type="submit" class="cyanBtn">Iniciar Sesión</button>
           </div>
         </nav>
       </header>

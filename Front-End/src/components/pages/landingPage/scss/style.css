@@ -187,6 +187,12 @@ Media querie en adelante (desktop).
     font-size: 20px;
     margin: 0 40px;
   }
+  header .nav__button {
+    width: 220px;
+  }
+  header img {
+    width: 150px;
+  }
 }
 .hero {
   display: flex;
@@ -253,29 +259,41 @@ Media querie en adelante (desktop).
 
 .cards {
   background-color: #13173E;
-  padding: 170px 180px;
+  padding: 170px 150px 100px;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
 }
 .cards__img {
-  position: absolute;
   z-index: 0;
+  position: absolute;
+  align-self: center;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+.cards__img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 .cards__items {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  align-content: center;
-  gap: 205px;
+  gap: 180px;
+  padding-left: 400px;
 }
 .cards__top_row, .cards__bottom_row {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 61px;
+  gap: 100px;
   z-index: 1;
 }
 .cards__top_row div, .cards__bottom_row div {
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   flex-direction: column;
   align-items: center;
 }
@@ -300,6 +318,65 @@ Media querie en adelante (desktop).
   cursor: default;
 }
 
+@media screen and (max-width: 1600px) and (min-width: 1101px) {
+  .cards {
+    padding-top: 110px;
+  }
+  .cards__img {
+    width: 480px;
+    height: 480px;
+  }
+  .cards__items {
+    gap: 50px;
+    padding-left: 300px;
+  }
+  .cards__top_row h2, .cards__bottom_row h2 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .cards__top_row p, .cards__bottom_row p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media screen and (max-width: 1800px) and (min-width: 1601px) {
+  .cards__img {
+    width: 650px;
+    height: 650px;
+  }
+  .cards__items {
+    gap: 90px;
+  }
+  .cards__top_row h2, .cards__bottom_row h2 {
+    font-size: 27px;
+    line-height: 32px;
+  }
+  .cards__top_row p, .cards__bottom_row p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .cards {
+    padding-top: 110px;
+  }
+  .cards__img {
+    width: 500px;
+    height: 500px;
+  }
+  .cards__items {
+    gap: 50px;
+    padding: 0;
+  }
+  .cards__top_row h2, .cards__bottom_row h2 {
+    font-size: 25px;
+    line-height: 30px;
+  }
+  .cards__top_row p, .cards__bottom_row p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
 .comenzar_sec {
   overflow: hidden;
   position: relative;
