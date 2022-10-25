@@ -13,7 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 const AllPatients = () => {
   const [active, setActive] = useState(false)
   const navigate = useNavigate();
-  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors } = useImages()
+  const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors, loadImages, images } = useImages()
   useEffect(() => {
     loadPatients();
     getUserInfo();
@@ -92,13 +92,12 @@ const AllPatients = () => {
             </tr>
           </thead>
           {patients.map((patient) => (
-            <tr key={patient.id}>
+            <tr key={patient.id} onMouseOver={() => loadImages(patient.id)}>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>
             </tr>
-
-  ))}
+          ))}
         </table>
         </div>
         </div>
