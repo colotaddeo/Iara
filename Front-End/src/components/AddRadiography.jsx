@@ -32,7 +32,7 @@ const AddRadiography = () => {
           }}
         >
           {doctors.map((doctor) => (
-            <div key={doctor.id}>
+            <div>
               <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
               <p>Nuestra mision es ayudarte</p>
             </div>
@@ -89,7 +89,7 @@ const AddRadiography = () => {
         {images?.map((image)=> {
           i += 1;
           return (
-            <div>
+            <div key={image.id} >
             <img src={image.ruta} id={i} onClick={(e)=> {
               setIndex(e.target.id-1)
               console.log(e.target.id-1)
@@ -124,7 +124,7 @@ const AddRadiography = () => {
         )}
       </Formik>
 
-      <div key={images[index].id} className="image_wrapper" onClick={() => getImageById(id, images[index].id)}>
+      <div key={images[index].id} className="image_wrapper" >
         <div className="image_wrapper_items">
         <div className="image_wrapper_predictions">
           <h3>Predicción 1: <br/> 
