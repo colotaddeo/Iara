@@ -85,30 +85,21 @@ const AddRadiography = () => {
           <h1> Paciente: {patients.DNI} </h1>
         </div>
         <div className="hero__upload_rx_container">
-      <div className="hero__radiografias_container">
+        <div className="radiografias">
         {images?.map((image)=> {
           i += 1;
           return (
-            <div className="radiografias">
+            <div>
             <img src={image.ruta} id={i} onClick={(e)=> {
               setIndex(e.target.id-1)
               console.log(e.target.id-1)
-            }} alt="side images" width={75}/>
-            <h1>{i}</h1>
+            }} alt="side images" width={200}/>
             </div>
           )
         })}
-        
-        
-        <div>
-        <div key={images[index].id} className="image_wrapper" onClick={() => getImageById(id, images[index].id)}>
-          <h3>Primera predicción: {images[index].prediccion_cnn}</h3>
-          <h3>Segunda predicción: {images[index].prediccion_transformers}</h3>
-          <h3>Promedio de las predicciones: {images[index].prediccion_promedio}</h3>
-          <img src={images[index].ruta} alt="Imagen con tuberculosis" />
-          <DeleteIcon onClick={() => deleteImage(id, images[index].id)} className="btn_delete">Delete</DeleteIcon>
         </div>
-      </div>
+        <div className="hero__radiografias_container">
+
       </div>
       <div className="hero__upload_container">
       <Formik
@@ -132,6 +123,24 @@ const AddRadiography = () => {
           </Form>
         )}
       </Formik>
+
+      <div key={images[index].id} className="image_wrapper" onClick={() => getImageById(id, images[index].id)}>
+        <div className="image_wrapper_items">
+        <div className="image_wrapper_predictions">
+          <h3>Predicción 1: <br/> 
+            <span className="image_wrapper_pred_num"> {images[index].prediccion_cnn} </span>
+          </h3>
+          <h3>Predicción 2: <br/> 
+            <span className="image_wrapper_pred_num"> {images[index].prediccion_transformers} </span>
+          </h3>
+          <h3 className="iara_cyan">Porcentaje final: <br/> 
+            <span className="image_wrapper_pred_num"> {images[index].prediccion_promedio} </span>
+          </h3>
+          </div>
+          <DeleteIcon onClick={() => deleteImage(id, images[index].id)} className="btn_delete">Delete</DeleteIcon>
+        </div>
+          <img src={images[index].ruta} alt="Imagen con tuberculosis" />
+        </div>
       </div>
     </div>
     </div>

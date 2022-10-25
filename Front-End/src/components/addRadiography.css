@@ -4,8 +4,43 @@
     overflow-y: scroll;
 }
 .image_wrapper{
-    background-color: grey;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
 
+.image_wrapper_items DeleteIcon {
+    
+}
+
+.image_wrapper_predictions {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left: 20px;
+    padding-top: 20px;
+    gap: 30px;
+}
+
+.image_wrapper_pred_num {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+
+    padding-top: 10px;
+}
+
+.iara_cyan {
+    color: #01ABB4;
+}
+
+.hero__radiografias_container {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
 }
 
 .hero__upload_rx_container p{
@@ -18,7 +53,7 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .footer__uploadRX {
