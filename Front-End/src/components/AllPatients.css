@@ -6,6 +6,7 @@
 
 .hero_container {
     padding: 37px;
+    height: 80vh;
 }
 
 .hero_elements {
@@ -14,6 +15,12 @@
     align-items: start;
     justify-content: left;
     gap: 20%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero_table_search {
+    height: 100%;
 }
 
 .hero_searchbar {
@@ -42,12 +49,31 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.tablaWrapper::-webkit-scrollbar {
+    width: 8px; 
+}
+      
+.tablaWrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+      
+.tablaWrapper::-webkit-scrollbar-thumb {
+    background-color: #00858b;
+    border-radius: 20px;
 }
 
 .table-wrapper {
     max-height: 73vh;
     width: fit-content;
-    overflow: scroll;
+    width: 100%;
+}
+
+.tabla {
+    width: 100%;
 }
 
 .hero_input_button{
