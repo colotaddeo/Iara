@@ -47,7 +47,7 @@
 .table-wrapper {
     max-height: 73vh;
     width: fit-content;
-    overflow-y: scroll;
+    overflow: scroll;
 }
 
 .hero_input_button{
