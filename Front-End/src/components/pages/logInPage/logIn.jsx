@@ -13,7 +13,6 @@ import useAuth from '../../../hooks/useAuth';
 const LogIn = () => {
 
   const { setAuth } = useAuth();
-  const { setCredentials } = useState(false);
 
   const navigate = useNavigate();
   /*const location = useLocation();
@@ -51,7 +50,6 @@ const LogIn = () => {
     .then(response => console.log(response))
   }
   */
-  
 
   const useAxios = async (valoresIniciales) => {
     try {
