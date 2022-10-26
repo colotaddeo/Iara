@@ -9,7 +9,7 @@ import { useImages } from "../hooks/useImages";
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
-  const { deletePatient, loadRecentPatients, patients, getUserInfo, doctors } = useImages()
+  const { deletePatient, loadRecentPatients, patients, getUserInfo, doctors, loadImages } = useImages()
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
@@ -48,7 +48,7 @@ const RecentPacients = () => {
             </tr>
           </thead>
           {patients.map((patient) => (
-            <tr key={patient.id}>
+            <tr key={patient.id} onMouseOver={() => console.log("Imagenes ")}>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon>

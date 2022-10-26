@@ -92,7 +92,7 @@ const AllPatients = () => {
             </tr>
           </thead>
           {patients.map((patient) => (
-            <tr key={patient.id} onMouseOver={() => loadImages(patient.id)}>
+            <tr key={patient.id} >
               <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
               <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
               <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>

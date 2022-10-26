@@ -90,98 +90,106 @@ const AddRadiography = () => {
           ))}
         </div>
         <div className="hero_container">
-          <div>
-            <h1> Paciente: {patients.DNI} </h1>
-          </div>
           <div className="hero__upload_rx_container">
-            <div className="radiografias">
-              {images?.map((image) => {
-                i += 1;
-                return (
-                  <div key={image.id}>
-                    <img
-                      src={image.ruta}
-                      id={i}
-                      onClick={(e) => {
-                        setIndex(e.target.id - 1);
-                        console.log(e.target.id - 1);
-                      }}
-                      alt="side images"
-                      width={300}
-                    />
-                  </div>
-                );
-              })}
+            <div className="all_radiografias">
+              <div className="container_patient_title">
+                <h1> Lista de radiografías </h1>
+              </div>
+              <div className="radiografias">
+                {images?.map((image) => {
+                  i += 1;
+                  return (
+                    <div key={image.id}>
+                      <img
+                        src={image.ruta}
+                        id={i}
+                        onClick={(e) => {
+                          setIndex(e.target.id - 1);
+                          console.log(e.target.id - 1);
+                        }}
+                        alt="side images"
+                        width={300}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <div className="hero__radiografias_container"></div>
-            <div className="hero__upload_container">
-              <Formik
-                initialValues={{
-                  file: null,
-                }}
-                onSubmit={(values, actions) => {
-                  console.log(values);
-                  uploadImage(id, values);
-                }}
-              >
-                {({ handleChange, handleSubmit, setFieldValue }) => (
-                  <Form onSubmit={handleSubmit}>
-                    <input
-                      type="file"
-                      name="file"
-                      onChange={(e) => setFieldValue("file", e.target.files[0])}
-                    />
+            <div className="hero_container_left">
+              <div className="container_patient_title">
+                <h1> Paciente: {patients.DNI} </h1>
+              </div>
+              <div className="hero__upload_container">
+                <Formik
+                  initialValues={{
+                    file: null,
+                  }}
+                  onSubmit={(values, actions) => {
+                    console.log(values);
+                    uploadImage(id, values);
+                  }}
+                >
+                  {({ handleChange, handleSubmit, setFieldValue }) => (
+                    <Form className="file_upload_form" onSubmit={handleSubmit}>
+                      <div className="file_upload">
+                        <input
+                          className="file_upload_input"
+                          type="file"
+                          name="file"
+                          onChange={(e) => setFieldValue("file", e.target.files[0])}
+                        />
+                      </div>
 
-                    <button className="transparantBtn" type="submit">
-                      Subir
-                    </button>
-                  </Form>
-                )}
-              </Formik>
+                      <button className="cyanBtn" type="submit">
+                        Subir radiografia
+                      </button>
+                    </Form>
+                  )}
+                </Formik>
 
-              <div key={images[index]?.id} className="image_wrapper">
-                <div className="image_wrapper_items">
-                  <div className="image_wrapper_predictions">
-                    <h3>
-                      Predicción 1: <br />
-                      <span className="image_wrapper_pred_num">
-                        {images[index]?.prediccion_cnn}
-                      </span>
-                    </h3>
-                    <h3>
-                      Predicción 2: <br />
-                      <span className="image_wrapper_pred_num">
-                        {images[index]?.prediccion_transformers}
-                      </span>
-                    </h3>
-                    <h3 className="iara_cyan">
-                      Porcentaje final: <br />
-                      <span className="image_wrapper_pred_num">
-                        {images[index]?.prediccion_promedio}
-                      </span>
-                    </h3>
+                <div key={images[index]?.id} className="image_wrapper">
+                  <div className="image_wrapper_items">
+                    <div className="image_wrapper_predictions">
+                      <h3>
+                        Predicción 1: <br />
+                        <span className="image_wrapper_pred_num">
+                          {images[index]?.prediccion_cnn}
+                        </span>
+                      </h3>
+                      <h3>
+                        Predicción 2: <br />
+                        <span className="image_wrapper_pred_num">
+                          {images[index]?.prediccion_transformers}
+                        </span>
+                      </h3>
+                      <h3 className="iara_cyan">
+                        Porcentaje final: <br />
+                        <span className="image_wrapper_pred_num">
+                          {images[index]?.prediccion_promedio}
+                        </span>
+                      </h3>
+                    </div>
+                    <DeleteIcon
+                      onClick={() => deleteImage(id, images[index].id)}
+                      className="btn_delete"
+                    >
+                      Delete
+                    </DeleteIcon>
                   </div>
-                  <DeleteIcon
-                    onClick={() => deleteImage(id, images[index].id)}
-                    className="btn_delete"
-                  >
-                    Delete
-                  </DeleteIcon>
+                  <div className="image_wrapper_image">
+                    <img src={images[index]?.ruta} alt="Imagen con tuberculosis" width={400}/>
+                  </div>
                 </div>
-                <img src={images[index]?.ruta} alt="Imagen con tuberculosis" width={400}/>
+                <footer className="footer__uploadRX">
+                  <p>
+                    Recuerda que esto NO es un diagnóstico, es solo una herramienta que <br />
+                    esperamos sirva para diagnosticar.
+                  </p>
+                </footer>
               </div>
             </div>
           </div>
         </div>
-        <footer className="footer__uploadRX">
-          <p>
-            Esto es tan solo una predicción que lo ayudará a realizar un
-            diagnóstico más acertado.
-            <br />
-            Por favor a la hora de hacer el informe final del paciente tenga en
-            cuenta los antecedentes y los síntomas
-          </p>
-        </footer>
       </div>
     </div>
   );
