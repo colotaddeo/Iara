@@ -134,7 +134,7 @@ export const useImages = () => {
     }
   }
 
-  const uploadImage = async (id_paciente, imagen) => {
+  const uploadImage = async (id_paciente, imagen, setIndex) => {
     try {
       const form = new FormData();
 
@@ -146,6 +146,7 @@ export const useImages = () => {
       });
       console.log(postRequest);
       setImage([...images, postRequest.data]);
+      setIndex(images.length)
       console.log(images)
 
     } catch (error) {
@@ -191,6 +192,21 @@ export const useImages = () => {
     }
   };
 
+  const getImageById = async (id_paciente) => {
+    try {
+      const response = await axiosPrivate.get(`/recentImage/${id_paciente}`);
+      console.log(response)
+      setImage([response.data]);
+    } catch (error) {
+      setImage([]);
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
+    }
+  };
+
   const deleteImage = async (id_paciente, id) => {
     try {
       const response = await axiosPrivate.delete(`/images/${id_paciente}/${id}`);
@@ -217,6 +233,7 @@ export const useImages = () => {
     createPatient,
     deletePatient,
     getPatient,
+    getImageById,
     deleteImage,
     uploadImage,
     loadRecentPatients,

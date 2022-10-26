@@ -57,6 +57,9 @@ const AddRadiography = () => {
             onSubmit={(values, actions) => {
               console.log(values);
               uploadImage(id, values);
+              setIndex(images.length)
+              console.log(images.length)
+              console.log("images", images)
             }}
           >
             {({ handleChange, handleSubmit, setFieldValue }) => (
@@ -133,7 +136,7 @@ const AddRadiography = () => {
                   }}
                   onSubmit={(values, actions) => {
                     console.log(values);
-                    uploadImage(id, values);
+                    uploadImage(id, values, setIndex);
                   }}
                 >
                   {({ handleChange, handleSubmit, setFieldValue }) => (
@@ -177,7 +180,7 @@ const AddRadiography = () => {
                       </h3>
                     </div>
                     <DeleteIcon
-                      onClick={() => deleteImage(id, images[index].id)}
+                      onClick={() => {deleteImage(id, images[index].id); if(index != 0) setIndex(index-1)}}
                       className="btn_delete"
                     >
                       Delete
