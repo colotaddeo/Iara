@@ -17,6 +17,7 @@ table, tr, td {
 
 tr {
     background: #252525;
+    box-sizing: border-box;
 }
 
 tr:nth-child(even){

@@ -8,6 +8,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import "./addRadiography.css";
 
 const AddRadiography = () => {
+  const [active_rx, setActive_rx] = useState("");
+
   const {
     loadImages,
     images,
@@ -99,7 +101,12 @@ const AddRadiography = () => {
                 {images?.map((image) => {
                   i += 1;
                   return (
-                    <div key={image.id}>
+                    <div 
+                      className={["hero_upload_rx_preview", active_rx].join(" ")} 
+                      key={image.id}
+                      id="rx_id"
+                      onClick={() => setActive_rx("active-rx")}
+                      >
                       <img
                         src={image.ruta}
                         id={i}

@@ -76,7 +76,6 @@
 .image_wrapper_predictions {
     display: flex;
     flex-direction: column;
-    align-items: left;
     gap: 50px;
 }
 
@@ -126,6 +125,21 @@
     flex-direction: column;
     align-content: center;
     border-radius: 15px;
+}
+
+/* RX Previews */
+.hero_upload_rx_preview img{
+    box-sizing: border-box;
+    border: 2px solid transparent;
+}
+
+.hero_upload_rx_preview img:hover{
+    border: 2px solid #01ABB4;
+    cursor: pointer;
+}
+
+.hero_upload_rx_preview .active-rx img {
+    border: 2px solid #01ABB4;
 }
 
 .container_patient_title {
