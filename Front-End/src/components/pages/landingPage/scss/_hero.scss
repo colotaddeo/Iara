@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    width: 100vw;
 
     &__image {
         padding-right: 5.625rem; //90px

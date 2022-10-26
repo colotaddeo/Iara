@@ -198,6 +198,7 @@ Media querie en adelante (desktop).
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
+  width: 100vw;
 }
 .hero__image {
   padding-right: 5.625rem;
@@ -414,6 +415,7 @@ Media querie en adelante (desktop).
 .about {
   padding-top: 145px;
   padding-bottom: 115px;
+  width: 100vw;
 }
 .about__team_card {
   background: linear-gradient(to right, #01ADB4, #00858b);
@@ -434,9 +436,6 @@ Media querie en adelante (desktop).
   font-size: 48px;
   line-height: 72px;
   color: #FFF;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 }
 .about__image_cards {
   display: flex;
@@ -444,14 +443,8 @@ Media querie en adelante (desktop).
   justify-content: center;
   align-content: center;
   gap: 32px;
-}
-.about__image_cards a:hover {
-  transition-duration: 0.5s;
-  cursor: pointer;
-  border: 1px solid #01ADB4;
-}
-.about__image_cards a:hover img {
-  opacity: 65%;
+  flex-wrap: wrap;
+  padding-top: 115px;
 }
 .about__instagram_content {
   position: absolute;
@@ -482,19 +475,21 @@ Media querie en adelante (desktop).
   align-items: center;
   justify-content: center;
   gap: 5px;
-  width: 305px;
+  width: auto;
   height: 490px;
   background: #000000;
   border-radius: 11px;
 }
+.about__single_card a:hover {
+  cursor: pointer;
+  transition: 0.5s all ease;
+  outline: solid 2px #01ADB4;
+}
+.about__single_card a:hover .about__member_photo {
+  opacity: 0.6;
+}
 .about__single_card h4 {
   text-align: center;
-}
-.about__top_row {
-  padding-top: 115px;
-}
-.about__bottom_row {
-  padding-top: 37px;
 }
 
 .landing_footer {

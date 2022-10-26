@@ -129,7 +129,7 @@ const HomePage = () => {
         <div class="about__team_card">
             <a>Conocé al<br></br>equipo de IARA</a>
         </div>
-        <div class="about__image_cards about__top_row">
+        <div class="about__image_cards">
             <a href="https://www.instagram.com/facuvazquezz._/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
                   <img src={marie_curie} alt="marie_test_about"></img>
@@ -165,8 +165,6 @@ const HomePage = () => {
               <h4 class="about__name">Julieta Kovalivker<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
-        </div>
-        <div class="about__image_cards about__bottom_row">
             <a href="https://www.instagram.com/luisaugustoembon/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
                 <img src={marie_curie} alt="marie_test_about"></img>
