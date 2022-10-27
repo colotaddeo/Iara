@@ -30,7 +30,7 @@ const AddRadiography = () => {
     getPatient(id);
     getUserInfo();
   }, []);
-  console.log(images)
+  console.log(images);
   if (images.length === 0)
     return (
       <div className="main_container">
@@ -57,9 +57,9 @@ const AddRadiography = () => {
             onSubmit={(values, actions) => {
               console.log(values);
               uploadImage(id, values);
-              setIndex(images.length)
-              console.log(images.length)
-              console.log("images", images)
+              setIndex(images.length);
+              console.log(images.length);
+              console.log("images", images);
             }}
           >
             {({ handleChange, handleSubmit, setFieldValue }) => (
@@ -80,6 +80,7 @@ const AddRadiography = () => {
   return (
     <div className="main_container">
       <Navbar active={active} current="Pacientes" />
+
       <div className="primary_container">
         <div
           className="banner"
@@ -104,12 +105,14 @@ const AddRadiography = () => {
                 {images?.map((image) => {
                   i += 1;
                   return (
-                    <div 
-                      className={["hero_upload_rx_preview", active_rx].join(" ")} 
+                    <div
+                      className={["hero_upload_rx_preview", active_rx].join(
+                        " "
+                      )}
                       key={image.id}
                       id="rx_id"
                       onClick={() => setActive_rx("active-rx")}
-                      >
+                    >
                       <img
                         src={image.ruta}
                         id={i}
@@ -146,7 +149,9 @@ const AddRadiography = () => {
                           className="file_upload_input"
                           type="file"
                           name="file"
-                          onChange={(e) => setFieldValue("file", e.target.files[0])}
+                          onChange={(e) =>
+                            setFieldValue("file", e.target.files[0])
+                          }
                         />
                       </div>
 
@@ -180,19 +185,27 @@ const AddRadiography = () => {
                       </h3>
                     </div>
                     <DeleteIcon
-                      onClick={() => {deleteImage(id, images[index].id); if(index != 0) setIndex(index-1)}}
+                      onClick={() => {
+                        deleteImage(id, images[index].id);
+                        if (index != 0) setIndex(index - 1);
+                      }}
                       className="btn_delete"
                     >
                       Delete
                     </DeleteIcon>
                   </div>
                   <div className="image_wrapper_image">
-                    <img src={images[index]?.ruta} alt="Imagen con tuberculosis" width={400}/>
+                    <img
+                      src={images[index]?.ruta}
+                      alt="Imagen con tuberculosis"
+                      width={400}
+                    />
                   </div>
                 </div>
                 <footer className="footer__uploadRX">
                   <p>
-                    Recuerda que esto NO es un diagnóstico, es solo una herramienta que <br />
+                    Recuerda que esto NO es un diagnóstico, es solo una
+                    herramienta que <br />
                     esperamos sirva para diagnosticar.
                   </p>
                 </footer>
