@@ -5,10 +5,10 @@ import Navbar from "./Navbar";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useImages } from "../hooks/useImages";
-import DeleteIcon from '@mui/icons-material/Delete';
-import '../components/AllPatients.css';
-import SearchIcon from '@mui/icons-material/Search';
-
+import DeleteIcon from "@mui/icons-material/Delete";
+import "../components/AllPatients.css";
+import SearchIcon from "@mui/icons-material/Search";
+import PersonOffIcon from "@mui/icons-material/PersonOff";
 
 const AllPatients = () => {
   const [active, setActive] = useState(false)
@@ -21,48 +21,115 @@ const AllPatients = () => {
     getUserInfo();
   }, []);
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   const SearchPatient = () => {
-    if(search.length === 0){
+    if (search.length === 0) {
       loadPatients();
-    }
-    else{
-      if(search.trim()){
-        console.log(search)
-        getPatientsBySearch(search)
+    } else {
+      if (search.trim()) {
+        console.log(search);
+        getPatientsBySearch(search);
       }
     }
-  }
+  };
 
   console.log(patients);
-  if (patients.length === -1)
+  // if (patients.length === -1)
+  //   return (
+  //     <div className="main_container">
+  //       <Navbar active={active} current="Pacientes" />
+  //       <div className="primary_container">
+  //         <div
+  //           className="banner"
+  //           onClick={(e) => {
+  //             setActive(!active);
+  //           }}
+  //         >
+  //           {doctors.map((doctor) => (
+  //             <div key={doctor.id}>
+  //               <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+  //               <p>Nuestra mision es ayudarte</p>
+  //             </div>
+  //           ))}
+  //         </div>
+  //         <h1>Todavía no hay paciente subidos</h1>
+  //       </div>
+  //     </div>
+  //   );
+
+  if (patients.length === 0)
     return (
       <div className="main_container">
-      <Navbar active={active} current="Pacientes"/>
-      <div className="primary_container">
-        <div
-          className="banner"
-          onClick={(e) => {
-            setActive(!active);
-          }}
-        >
-          {doctors.map((doctor) => (
-            <div key={doctor.id}>
-              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
-              <p>Nuestra mision es ayudarte</p>
+        <Navbar active={active} current="Pacientes" />
+        <div className="primary_container">
+          <div
+            className="banner"
+            onClick={(e) => {
+              setActive(!active);
+            }}
+          >
+            {doctors.map((doctor) => (
+              <div key={doctor.id}>
+                <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+                <p>Nuestra mision es ayudarte</p>
+              </div>
+            ))}
+          </div>
+          <div className="hero_container">
+            <div className="hero_elements">
+              <h2>Todos los pacientes</h2>
+              <div>
+                <PersonOffIcon></PersonOffIcon>
+                <h3>Aún no hay pacientes registrados, puedes registrarlos</h3>
+              </div>
+              <div className="hero_input_button">
+                <h2>Crear paciente</h2>
+                <div className="formik_wrapper">
+                  <Formik
+                    initialValues={{
+                      DNI: "",
+                    }}
+                    validationSchema={Yup.object({
+                      // DNI: Yup.number().required("El dni es requerido"),
+                    })}
+                    onSubmit={(values, actions) => {
+                      console.log(values);
+                      createPatient(values);
+                    }}
+                  >
+                    {({ handleChange, handleSubmit }) => (
+                      <Form onSubmit={handleSubmit}>
+                        <Field
+                          className="hero_add_dni_field"
+                          name="DNI"
+                          placeholder="DNI..."
+                        ></Field>
+                        <ErrorMessage name="DNI" />
+                        <button className="cyanBtn" type="submit">
+                          Agregar
+                        </button>
+                      </Form>
+                    )}
+                  </Formik>
+                  <p>
+                    Para registrar un nuevo paciente, ingresa su DNI. No
+                    solicitamos mas información sensible para no comprometer su
+                    integridad.
+                  </p>
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-        <h1>Todavía no hay paciente subidos</h1>
+          </div>
         </div>
       </div>
     );
+
   return (
     <div className="main_container">
-      <Navbar active={active} current="Pacientes"/>
+      <Navbar active={active} current="Pacientes" />
       <div className="primary_container">
-      <div
+        <div
           className="banner"
           onClick={(e) => {
             setActive(!active);

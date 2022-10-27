@@ -14,7 +14,7 @@ export const useImages = () => {
   const [images, setImage] = useState([]);
   const [patients, setPatient] = useState([]) 
   const [doctors, setDoctor] = useState([]) 
-  const [id, SetId] = useState("")
+  const [patientId, setPatientId] = useState("")
 
   const navigate = useNavigate()
   const axiosPrivate = useAxiosPrivate();
@@ -227,8 +227,10 @@ export const useImages = () => {
       const response = await axiosPrivate.get(`/recentImage/${id_paciente}`);
       console.log(response)
       setImage([response.data]);
+      setPatientId(id_paciente)
     } catch (error) {
       setImage([]);
+      setPatientId(id_paciente)
       if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
@@ -257,6 +259,7 @@ export const useImages = () => {
     images,
     patients,
     doctors,
+    patientId,
     setPatient,
     loadPatients,
     loadImages,
