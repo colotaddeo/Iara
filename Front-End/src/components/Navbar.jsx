@@ -38,16 +38,20 @@ function Navbar({ active, current }) {
         >
           <img src={Settings} alt="Configuración" /> Configuración
         </Link>
-        {doctors.map((doctor) => (
-          <div key={doctor.id}>
-            <h3>
-              <PersonIcon></PersonIcon>
-              {doctor.nombre} {doctor.apellido}
-            </h3>
-          {doctor.email == "PolloHospital@est.edu.ar" ? <h5>Hospital Pollo</h5>: <h5>Hospital Arroz</h5>}
-          </div>
-        ))}
       </div>
+      <div className="side_bar_user">
+          {doctors.map((doctor) => (
+            <div className='side_bar_user_container' key={doctor.id}>
+              <PersonIcon></PersonIcon>
+              <div className="side_bar_user_info">
+                <h3>
+                  {doctor.nombre} {doctor.apellido}
+                </h3>
+              {doctor.email == "PolloHospital@est.edu.ar" ? <h5>Hospital Pollo</h5>: <h5>Hospital Arroz</h5>}
+              </div>
+            </div>
+          ))}
+        </div>
     </div>
   );
 }

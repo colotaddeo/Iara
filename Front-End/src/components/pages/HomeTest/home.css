@@ -20,6 +20,31 @@
     background-color: #252525;
     transition: .2s all ease;
 }
+
+.side_bar_user {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 110px;
+    margin-left: 35px;
+}
+
+.side_bar_user:hover {
+    cursor: pointer;
+}
+
+.side_bar_user_container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.side_bar_user_info {
+    display: flex;
+    flex-direction: column;
+}
+
 .logo_container {
     height: 20vh;
     display: flex;

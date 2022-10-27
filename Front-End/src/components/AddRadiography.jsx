@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import * as Yup from "yup";
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import { useImages } from "../hooks/useImages";
@@ -30,6 +30,9 @@ const AddRadiography = () => {
     getPatient(id);
     getUserInfo();
   }, []);
+
+  const filename_ref = useRef("");
+
   console.log(images);
   if (images.length === 0)
     return (
@@ -146,15 +149,18 @@ const AddRadiography = () => {
                     <Form className="file_upload_form" onSubmit={handleSubmit}>
                       <div className="file_upload">
                         <input
-                          className="file_upload_input"
+                          className="file_upload_input files"
                           type="file"
                           name="file"
+                          ref={ filename_ref }
                           onChange={(e) =>
                             setFieldValue("file", e.target.files[0])
                           }
                         />
+                        <div onClick={() => filename_ref.current.click()} className="input-text">
+                          <span>{ filename_ref.current.value === "" ? "Seleccionar archivo" : filename_ref.current.value }</span>
+                        </div>
                       </div>
-
                       <button className="cyanBtn" type="submit">
                         Subir radiografia
                       </button>
