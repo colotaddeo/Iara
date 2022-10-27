@@ -47,7 +47,7 @@ const HomePage = () => {
           </div>
 
           <div class="nav__button">
-            <button type="submit" class="cyanBtn">Iniciar Sesión</button>
+            <button onClick={() => navigate('/login')} type="submit" class="cyanBtn">Iniciar Sesión</button>
           </div>
         </nav>
       </header>

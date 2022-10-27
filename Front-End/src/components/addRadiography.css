@@ -1,8 +1,8 @@
 .radiografias {
-    max-height: 56vh;
-    max-width: 25vw;
+    max-height: 47.5%;
+    width: 16vw;
     overflow-y: scroll;
-    margin-top: 35px;
+    margin-top: 15px;
 }
 
 .radiografias::-webkit-scrollbar {
@@ -10,7 +10,7 @@
 }
       
 .radiografias::-webkit-scrollbar-track {
-    background: transparent;
+    background: #343434;
 }
       
 .radiografias::-webkit-scrollbar-thumb {
@@ -158,5 +158,5 @@
 }
 
 .container_patient_title {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }

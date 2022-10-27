@@ -12,6 +12,8 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const AllPatients = () => {
   const [active, setActive] = useState(false)
+  const [selectedRx, setSelected] = useState('')
+
   const navigate = useNavigate();
   const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors, loadImages, getImageById, images } = useImages()
   useEffect(() => {
@@ -92,9 +94,12 @@ const AllPatients = () => {
             </tr>
           </thead>
           {patients.map((patient) => (
-            <tr key={patient.id} onMouseOver={() => getImageById(patient.id)}>
-              <td><a href={"/AddRadiography/" + patient.id }>{patient.DNI}</a></td>
-              <td><a href={"/AddRadiography/" + patient.id }>{patient.createdAt} </a></td>
+            <tr key={patient.id} onClick={() => {
+                  setSelected(patient.id);
+                  getImageById(patient.id)
+                }}>
+              <td><a>{patient.DNI}</a></td>
+              <td><a>{patient.createdAt} </a></td>
               <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>
             </tr>
           ))}
@@ -142,7 +147,7 @@ const AllPatients = () => {
                   </div>
                 ))}
               </div>
-              <button className="cyanBtn">Ver más</button>
+              <button onClick={() => navigate('/AddRadiography/' + selectedRx)} className="cyanBtn">Ver más</button>
             </div>
           ) : (
             <h1>No hay documentos subidos aún</h1>
