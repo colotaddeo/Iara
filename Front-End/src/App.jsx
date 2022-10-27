@@ -15,6 +15,7 @@ import AllPatients from './components/AllPatients';
 import RecentPacients from "./components/RecentPacients";
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import UpdatePassword from "./components/updatePassword";
 
 function App() {
   const IaraTheme = createTheme({
@@ -38,6 +39,7 @@ function App() {
           <Route path="/logIn" element={<LogInPage />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/forgotPassword" element={<Forgot_password />} />
+          <Route path="/updatePassword" element={<UpdatePassword />} />
 
           <Route path="/Home" element={<RecentPacients />} />
           <Route path="/AllPatients" element={<AllPatients />} />

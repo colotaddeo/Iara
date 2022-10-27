@@ -14,6 +14,7 @@ export const useImages = () => {
   const [images, setImage] = useState([]);
   const [patients, setPatient] = useState([]) 
   const [doctors, setDoctor] = useState([]) 
+  const [id, SetId] = useState("")
 
   const navigate = useNavigate()
   const axiosPrivate = useAxiosPrivate();
@@ -134,6 +135,35 @@ export const useImages = () => {
     }
   }
 
+  const forgotPassword = async (email, id) => {
+    try {
+      const response = await axiosPrivate.post(`/user/forgotPassword`, email);
+
+      console.log(response.data)
+      
+    } catch (error) {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
+    }
+  }
+  const updatePassword = async (passwords) => {
+    try {
+      const response = await axiosPrivate.post(`/user/updatePassword`, passwords);
+
+      console.log(response.data)
+
+    } catch (error) {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
+    }
+  }
+
   const uploadImage = async (id_paciente, imagen, setIndex) => {
     try {
       const form = new FormData();
@@ -238,6 +268,8 @@ export const useImages = () => {
     uploadImage,
     loadRecentPatients,
     getPatientsBySearch,
-    getUserInfo
+    getUserInfo, 
+    forgotPassword,
+    updatePassword
   };
 };
