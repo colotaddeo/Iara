@@ -13,6 +13,7 @@ import PersonOffIcon from "@mui/icons-material/PersonOff";
 const AllPatients = () => {
   const [active, setActive] = useState(false)
   const [selectedRx, setSelected] = useState('')
+  const [selectedDni, setDni] = useState(null)
 
   const navigate = useNavigate();
   const { loadPatients, deletePatient, patients, createPatient, getPatientsBySearch, getUserInfo, doctors, loadImages, getImageById, images } = useImages()
@@ -163,7 +164,8 @@ const AllPatients = () => {
           {patients.map((patient) => (
             <tr key={patient.id} onClick={() => {
                   setSelected(patient.id);
-                  getImageById(patient.id)
+                  setDni(patient.DNI);
+                  getImageById(patient.id);
                 }}>
               <td><a>{patient.DNI}</a></td>
               <td><a>{patient.createdAt} </a></td>
@@ -206,7 +208,7 @@ const AllPatients = () => {
                   <div key={image.id} >
                     <img src={image.ruta} alt="Imagen con tuberculosis" width={250} />
                     <div className="ultima_prediccion_titles">
-                      <h2>DNI: </h2>
+                      <h2>DNI: <span> { selectedDni } </span></h2>
                       <h2>Ultima predicción 1: <span> {image.prediccion_cnn} </span></h2>
                       <h2>Ultima predicción 2: <span> {image.prediccion_transformers} </span></h2>
                       <h2 className="iara_cyan">Promedio: <span> {image.prediccion_promedio} </span></h2>
@@ -217,7 +219,10 @@ const AllPatients = () => {
               <button onClick={() => navigate('/AddRadiography/' + selectedRx)} className="cyanBtn">Ver más</button>
             </div>
           ) : (
-            <h1>No hay documentos subidos aún</h1>
+            <div>
+              <h1>No hay documentos subidos aún</h1>
+              <button onClick={() => navigate('/AddRadiography/' + selectedRx)} className="cyanBtn">Subir una radiografia</button>
+            </div>
           )}
           </div>
         </div>
