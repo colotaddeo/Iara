@@ -5,10 +5,8 @@
     //Text card dividing section
     &__team_card {
         background: linear-gradient(to right, $darkCyan, $cyan);
-        height: 226px;
-        width: 578px;
-        left: -23px;
-        top: 2422px;
+        height: 220px;
+        width: 550px;
         border-radius: 0px 18px 18px 0px;
         padding: 10px 30px 10px 30px;
         display: flex;
@@ -37,14 +35,6 @@
         flex-wrap: wrap;
         padding-top: 115px;
 
-    }
-
-    //Instagram Effect
-    &__instagram_content {
-       position: absolute;
-       opacity: 1;
-       transition: .5s ease;
-       background: transparent;
     }
 
     //Name on card

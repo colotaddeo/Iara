@@ -419,10 +419,8 @@ Media querie en adelante (desktop).
 }
 .about__team_card {
   background: linear-gradient(to right, #01ADB4, #00858b);
-  height: 226px;
-  width: 578px;
-  left: -23px;
-  top: 2422px;
+  height: 220px;
+  width: 550px;
   border-radius: 0px 18px 18px 0px;
   padding: 10px 30px 10px 30px;
   display: flex;
@@ -445,12 +443,6 @@ Media querie en adelante (desktop).
   gap: 32px;
   flex-wrap: wrap;
   padding-top: 115px;
-}
-.about__instagram_content {
-  position: absolute;
-  opacity: 1;
-  transition: 0.5s ease;
-  background: transparent;
 }
 .about__name {
   font-family: "Montserrat";
