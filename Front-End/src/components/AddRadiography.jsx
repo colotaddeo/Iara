@@ -102,7 +102,7 @@ const AddRadiography = () => {
           <div className="hero__upload_rx_container">
             <div className="all_radiografias">
               <div className="container_patient_title">
-                <h1> Lista de radiografías </h1>
+                <h1> Historial </h1>
               </div>
               <div className="radiografias">
                 {images?.map((image) => {
@@ -217,7 +217,7 @@ const AddRadiography = () => {
                 </footer>
               </div>
             </div>
-          </div>
+           </div>
         </div>
       </div>
     </div>

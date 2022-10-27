@@ -28,6 +28,7 @@
     align-items: center;
     margin-top: 110px;
     margin-left: 35px;
+    white-space: nowrap;
 }
 
 .side_bar_user:hover {

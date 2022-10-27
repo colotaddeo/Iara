@@ -144,11 +144,12 @@
 /* RX Previews */
 .hero_upload_rx_preview img{
     box-sizing: border-box;
-    border: 2px solid transparent;
+    border: 8px solid #252525;
+    border-radius: 5px;
 }
 
 .hero_upload_rx_preview img:hover{
-    border: 2px solid #01ABB4;
+    border: 8px solid #01ABB4;
     cursor: pointer;
 }
 

@@ -63,9 +63,8 @@ const RecentPacients = () => {
           )}
 
           {images?.length ? (
-            <div>
-              <h1>Imagenes recientes</h1>
-
+            <div className="hero_preview_image_wrapper">
+              <div className="hero_ultima_prediccion">
               {images.map((image) => (
                 <div key={image.id} >
                   <h1>{image.prediccion_cnn}</h1>
@@ -74,6 +73,7 @@ const RecentPacients = () => {
                   <img src={image.ruta} alt="Imagen con tuberculosis" width={400} />
                 </div>
               ))}
+              </div>
 
             </div>
           ) : (
