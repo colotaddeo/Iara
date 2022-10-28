@@ -111,7 +111,7 @@ const RecentPacients = () => {
                   <img
                     src={image.ruta}
                     alt="Imagen con tuberculosis"
-                    width={50}
+                    width={250}
                   />
                   <button
                     className="cyanBtn"
