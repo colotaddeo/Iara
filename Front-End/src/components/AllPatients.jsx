@@ -203,7 +203,7 @@ const AllPatients = () => {
                         <td><DeleteIcon onClick={() => {
                           setOpenModel(true);
                           setPatientId(patient.id)
-                        }} className="btn_delete" ></DeleteIcon></td> 
+                        }} className="btn_delete" ></DeleteIcon></td>
                       </tr>
                     ))}
                   </table>
@@ -213,7 +213,15 @@ const AllPatients = () => {
 
             <div className="hero_input_button">
               <h1>Crear paciente</h1>
-              {openModel && <DeletePopUp closePopUp={setOpenModel} patientId= {patientId} />}
+              {/* {openModel && <DeletePopUp closePopUp={setOpenModel} patientId= {patientId} />} */}
+              {openModel && <div>
+                <h1>Estás a punto de borrar un paciente incluyendo todo su historial de radiografías y predicciones. Esta acción es IRREVERSIBLE</h1>
+                <button onClick={() => setOpenModel(false) } className="cyanBtn">Cancelar operación</button>
+                <button onClick={() => {
+                  deletePatient(patientId)
+                  setOpenModel(false);
+                }} className="cyanBtn">Continuar</button>
+              </div>}
               <div className="formik_wrapper">
                 <Formik
                   initialValues={{
