@@ -164,6 +164,21 @@ export const useImages = () => {
       console.error(error);
     }
   }
+  const logout = async () => {
+    try {
+      const response = await axiosPrivate.delete(`/user/logout`);
+
+      console.log(response.data)
+      navigate("/login")
+
+    } catch (error) {
+      if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
+        navigate('/login') 
+        console.error(error);
+      }
+      console.error(error);
+    }
+  }
 
   const uploadImage = async (id_paciente, imagen, setIndex) => {
     try {
@@ -274,6 +289,7 @@ export const useImages = () => {
     getPatientsBySearch,
     getUserInfo, 
     forgotPassword,
-    updatePassword
+    updatePassword,
+    logout
   };
 };

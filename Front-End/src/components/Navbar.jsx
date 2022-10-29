@@ -9,7 +9,8 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useImages } from "../hooks/useImages";
 
 function Navbar({ active, current }) {
-  const { doctors, getUserInfo } = useImages();
+  const { doctors, getUserInfo, logout } = useImages();
+  const [openModel, setOpenModel] = useState(false);
 
   useEffect(() => {
     getUserInfo();
@@ -43,18 +44,34 @@ function Navbar({ active, current }) {
         </Link>
       </div>
       <div className="side_bar_user">
-          {doctors.map((doctor) => (
-            <div className='side_bar_user_container' key={doctor.id}>
-              <PersonIcon></PersonIcon>
-              <div className="side_bar_user_info">
-                <h3>
-                  {doctor.nombre} {doctor.apellido}
-                </h3>
-              {doctor.email == "PolloHospital@est.edu.ar" ? <h5>Hospital Pollo</h5>: <h5>Hospital Arroz</h5>}
-              </div>
+        {doctors.map((doctor) => (
+          <div
+            className="side_bar_user_container"
+            key={doctor.id}
+            onMouseOver={() => setOpenModel(true)}
+            onMouseOut={() => setOpenModel(false)}
+          >
+            <PersonIcon></PersonIcon>
+            <div className="side_bar_user_info">
+              <h3>
+                {doctor.nombre} {doctor.apellido}
+              </h3>
+              {doctor.email == "PolloHospital@est.edu.ar" ? (
+                <h5>Hospital Pollo</h5>
+              ) : (
+                <h5>Hospital Arroz</h5>
+              )}
             </div>
-          ))}
-        </div>
+            {openModel && (
+              <div>
+                <button onClick={() => logout()} className="cyanBtn">
+                  Cerrar sesión
+                </button>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
