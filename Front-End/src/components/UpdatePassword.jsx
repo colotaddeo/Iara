@@ -1,10 +1,15 @@
 import { Form, Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useImages } from "../hooks/useImages";
+import { useParams, useNavigate } from "react-router-dom";
 
 function UpdatePassword() {
 
     const { updatePassword } = useImages()
+    const params = useParams();
+    const navigate = useNavigate()
+
+    console.log(params.id)
 
     return (
         <div>
@@ -20,7 +25,7 @@ function UpdatePassword() {
                 })}
                 onSubmit={(values, actions) => {
                     console.log(values);
-                    updatePassword(values);
+                    updatePassword(params.id, values);
                 }}
             >
                 {({ handleChange, handleSubmit }) => (

@@ -24,7 +24,7 @@ const AddRadiography = () => {
   const { id } = useParams();
   const [active, setActive] = useState(false);
   const [index, setIndex] = useState(0);
-  const [openModel, setOpenModel] = useState(false)
+  const [openModel, setOpenModel] = useState(false);
   let i = 0;
   useEffect(() => {
     loadImages(id);
@@ -33,7 +33,6 @@ const AddRadiography = () => {
   }, []);
 
   const filename_ref = useRef("");
-
 
   console.log(images);
   if (images.length === 0)
@@ -54,7 +53,9 @@ const AddRadiography = () => {
               </div>
             ))}
           </div>
-          <h1>Todavía no hay imagenes subidas</h1>
+          <div className="container_patient_title">
+            <h1> Paciente: {patients.DNI} </h1>
+          </div>
           <Formik
             initialValues={{
               file: null,
@@ -159,8 +160,15 @@ const AddRadiography = () => {
                             setFieldValue("file", e.target.files[0])
                           }
                         />
-                        <div onClick={() => filename_ref.current.click()} className="input-text">
-                          <span>{filename_ref.current.value === "" ? "Seleccionar archivo" : filename_ref.current.value}</span>
+                        <div
+                          onClick={() => filename_ref.current.click()}
+                          className="input-text"
+                        >
+                          <span>
+                            {filename_ref.current.value === ""
+                              ? "Seleccionar archivo"
+                              : filename_ref.current.value}
+                          </span>
                         </div>
                       </div>
                       <button className="cyanBtn" type="submit">
@@ -192,25 +200,23 @@ const AddRadiography = () => {
                         </span>
                       </h3>
                     </div>
-                     <DeleteIcon
-                      onClick={() => {
-                        deleteImage(id, images[index].id);
-                        if (index != 0) setIndex(index - 1);
-                      }}
-                      className="btn_delete"
-                    >
-                      Delete
-                    </DeleteIcon> 
                     {/* <DeleteIcon
                       onClick={() => {
                         deleteImage(id, images[index].id);
                         if (index != 0) setIndex(index - 1);
-                        setOpenModel(true)
                       }}
                       className="btn_delete"
                     >
                       Delete
                     </DeleteIcon> */}
+                    <DeleteIcon
+                      onClick={() => {
+                        setOpenModel(true);
+                      }}
+                      className="btn_delete"
+                    >
+                      Delete
+                    </DeleteIcon>
                   </div>
                   <div className="image_wrapper_image">
                     <img
@@ -220,15 +226,31 @@ const AddRadiography = () => {
                     />
                   </div>
                   <div>
-                    {openModel && <div>
-                      <h1>Estás a punto de borrar un paciente incluyendo todo su historial de radiografías y predicciones. Esta acción es IRREVERSIBLE</h1>
-                      <button onClick={() => setOpenModel(false)} className="cyanBtn">Cancelar operación</button>
-                      <button onClick={() => {
-                        deleteImage(id, images[index].id)
-                        setOpenModel(false);
-                        if (index != 0) setIndex(index - 1);
-                      }} className="cyanBtn">Continuar</button>
-                    </div>}
+                    {openModel && (
+                      <div>
+                        <h1>
+                          Estás a punto de borrar un paciente incluyendo todo su
+                          historial de radiografías y predicciones. Esta acción
+                          es IRREVERSIBLE
+                        </h1>
+                        <button
+                          onClick={() => setOpenModel(false)}
+                          className="cyanBtn"
+                        >
+                          Cancelar operación
+                        </button>
+                        <button
+                          onClick={() => {
+                            deleteImage(id, images[index].id);
+                            setOpenModel(false);
+                            if (index != 0) setIndex(index - 1);
+                          }}
+                          className="cyanBtn"
+                        >
+                          Continuar
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
                 <footer className="footer__uploadRX">

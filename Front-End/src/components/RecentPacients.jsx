@@ -16,10 +16,13 @@ const RecentPacients = () => {
     doctors,
     getImageById,
     images,
-    patientId,
+    pId
   } = useImages();
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
+
+  const [openModel, setOpenModel] = useState(false)
+  const [patientId, setPatientId] = useState("")
 
   useEffect(() => {
     loadRecentPatients();
@@ -93,13 +96,22 @@ const RecentPacients = () => {
                   </td>
                   <DeleteIcon
                     onClick={() => {
-                      deletePatient(patient.id);
+                      setOpenModel(true);
+                      setPatientId(patient.id)
                     }}
                     className="btn_delete"
                   ></DeleteIcon>
                 </tr>
               ))}
             </table>
+            {openModel && <div>
+                <h1>Estás a punto de borrar un paciente incluyendo todo su historial de radiografías y predicciones. Esta acción es IRREVERSIBLE</h1>
+                <button onClick={() => setOpenModel(false) } className="cyanBtn">Cancelar operación</button>
+                <button onClick={() => {
+                  deletePatient(patientId)
+                  setOpenModel(false);
+                }} className="cyanBtn">Continuar</button>
+              </div>}
           {images?.length ? (
             <div className="hero_preview_image_wrapper">
               <div className="hero_ultima_prediccion">
@@ -115,7 +127,7 @@ const RecentPacients = () => {
                   />
                   <button
                     className="cyanBtn"
-                    onClick={() => navigate(`/AddRadiography/${patientId}`)}
+                    onClick={() => navigate(`/AddRadiography/${pId}`)}
                   >
                     Ver mas
                   </button>
@@ -127,7 +139,7 @@ const RecentPacients = () => {
           ) : (
             <div>
               <h3>No hay documentos subidos aún</h3>
-              <Link to={`/AddRadiography/${patientId}`}>
+              <Link to={`/AddRadiography/${pId}`}>
                 Suba una imagen aquí
               </Link>
             </div>

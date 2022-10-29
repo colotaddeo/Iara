@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./signUp.css";
 import Imagen from "../.././assets/Doctora1.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { Formik, Form, Field } from "formik";
 import { TextField, Button } from "@mui/material";
 import InputLabel from "@mui/material/InputLabel";
@@ -11,6 +11,7 @@ import { styled } from "@mui/system";
 import * as Yup from "yup";
 import axios from "../../api/axios";
 import Select from "../Select";
+import { useNavigate } from "react-router-dom";
 
 const signUp = () => {
 
@@ -64,8 +65,12 @@ const signUp = () => {
   const fetchAxios = async (valoresIniciales) => {
     const response = await axios.post("/user/signup", valoresIniciales);
 
+    navigate("/login")
+
     console.log(response);
   };
+
+  const navigate = useNavigate()
 
   return (
     <div className="all-container" >
@@ -84,6 +89,7 @@ const signUp = () => {
             alert("Los datos han sido enviados exitosamente");
             console.log(valoresIniciales);
             formikHelpers.resetForm();
+            navigate('/login')
           }}
         >
           {({ errors, isValid, touched, dirty }) => (

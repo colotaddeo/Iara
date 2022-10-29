@@ -39,7 +39,7 @@ function App() {
           <Route path="/logIn" element={<LogInPage />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/forgotPassword" element={<Forgot_password />} />
-          <Route path="/updatePassword" element={<UpdatePassword />} />
+          <Route path="/updatePassword/:id" element={<UpdatePassword />} />
 
           <Route path="/Home" element={<RecentPacients />} />
           <Route path="/AllPatients" element={<AllPatients />} />

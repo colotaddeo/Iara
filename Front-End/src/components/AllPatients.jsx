@@ -15,9 +15,6 @@ const AllPatients = () => {
   const [active, setActive] = useState(false);
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
-  const [popUp, setPopUp] = useState({
-    isloading: false,
-  });
 
   const navigate = useNavigate();
   const {
@@ -28,7 +25,6 @@ const AllPatients = () => {
     getPatientsBySearch,
     getUserInfo,
     doctors,
-    loadImages,
     getImageById,
     images,
   } = useImages();

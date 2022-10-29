@@ -14,7 +14,7 @@ export const useImages = () => {
   const [images, setImage] = useState([]);
   const [patients, setPatient] = useState([]) 
   const [doctors, setDoctor] = useState([]) 
-  const [patientId, setPatientId] = useState("")
+  const [pId, setPId] = useState("")
 
   const navigate = useNavigate()
   const axiosPrivate = useAxiosPrivate();
@@ -149,11 +149,12 @@ export const useImages = () => {
       console.error(error);
     }
   }
-  const updatePassword = async (passwords) => {
+  const updatePassword = async (id_usuario, passwords) => {
     try {
-      const response = await axiosPrivate.post(`/user/updatePassword`, passwords);
+      const response = await axiosPrivate.put(`/user/updatePassword/${id_usuario}`, passwords);
 
       console.log(response.data)
+      navigate("/login")
 
     } catch (error) {
       if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
@@ -227,10 +228,10 @@ export const useImages = () => {
       const response = await axiosPrivate.get(`/recentImage/${id_paciente}`);
       console.log(response)
       setImage([response.data]);
-      setPatientId(id_paciente)
+      setPId(id_paciente)
     } catch (error) {
       setImage([]);
-      setPatientId(id_paciente)
+      setPId(id_paciente)
       if(error.request.responseURL === "http://localhost:4000/user/refreshToken" && error.response.status === 403) {
         navigate('/login') 
         console.error(error);
@@ -259,7 +260,7 @@ export const useImages = () => {
     images,
     patients,
     doctors,
-    patientId,
+    pId,
     setPatient,
     loadPatients,
     loadImages,
