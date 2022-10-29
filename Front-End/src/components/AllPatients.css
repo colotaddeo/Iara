@@ -85,6 +85,7 @@
 }
 
 .hero_input_button button:hover {
+    transition: 0.25s;
     opacity: 85%;
 }
 
@@ -127,13 +128,13 @@
 }
 
 .hero_preview_image_wrapper button {
-    width: 20vw;
+    width: 22.5vw;
 }
 
 .hero_ultima_prediccion {
     background-color: #323232;
-    width: 20vw;
-    padding: 20px;
+    width: 22.5vw;
+    padding: 23px;
     border-radius: 15px;
     text-align: center;
 
@@ -158,4 +159,75 @@
 
 .ultima_prediccion_titles span {
     font-weight: 100;
+}
+
+.no_rx_found {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.no_rx_found button {
+    width: 17.5vw;
+}
+
+.blandBtn {
+    background: #01ADB4;
+    border: 0;
+    border-radius: 3px;
+}
+
+.blandTransparantBtn {
+    background: transparent;
+    color: white;
+    border: 2px solid #01ADB4;
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+.blandTransparantBtn:hover {
+    opacity: 100%;
+    transition: 0.5s;
+    background-color: #01ADB4;
+}
+
+/* DeltePopUp */
+
+.deletePopUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+
+    background-color: #343434;
+    border-radius: 20px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.deletePopUp p {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 39px;
+    text-align: center;
+}
+
+.deletePopUp_buttons {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.deletePopUp button {
+    width: 17.5vw;
 }

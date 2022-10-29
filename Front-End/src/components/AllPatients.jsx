@@ -10,6 +10,7 @@ import "../components/AllPatients.css";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOffIcon from "@mui/icons-material/PersonOff";
 import DeletePopUp from "./DeletePopUp";
+import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
 
 const AllPatients = () => {
   const [active, setActive] = useState(false);
@@ -211,12 +212,20 @@ const AllPatients = () => {
               <h1>Crear paciente</h1>
               {/* {openModel && <DeletePopUp closePopUp={setOpenModel} patientId= {patientId} />} */}
               {openModel && <div>
-                <h1>Estás a punto de borrar un paciente incluyendo todo su historial de radiografías y predicciones. Esta acción es IRREVERSIBLE</h1>
-                <button onClick={() => setOpenModel(false) } className="cyanBtn">Cancelar operación</button>
-                <button onClick={() => {
-                  deletePatient(patientId)
-                  setOpenModel(false);
-                }} className="cyanBtn">Continuar</button>
+                <div className="deletePopUp">
+                  <img src={DeleteWarning} alt="DeleteWarning" />
+                  <p>Estás a punto de borrar un paciente incluyendo todo <br />
+                    su historial de radiografías y predicciones. Esta acción <br />
+                    es <span className="iara_cyan"> IRREVERSIBLE</span></p>
+                  
+                  <div className="deletePopUp_buttons">
+                    <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
+                    <button onClick={() => {
+                      deletePatient(patientId)
+                      setOpenModel(false);
+                    }} className="blandBtn">Continuar</button>
+                  </div>
+                </div>
               </div>}
               <div className="formik_wrapper">
                 <Formik
@@ -277,17 +286,17 @@ const AllPatients = () => {
                   </div>
                   <button
                     onClick={() => navigate("/AddRadiography/" + selectedRx)}
-                    className="cyanBtn"
+                    className="blandTransparantBtn"
                   >
                     Ver más
                   </button>
                 </div>
               ) : (
-                <div>
-                  <h1>No hay documentos subidos aún</h1>
+                <div className="no_rx_found">
+                  <h2>Este paciente aún no contiene ningún documento: </h2>
                   <button
                     onClick={() => navigate("/AddRadiography/" + selectedRx)}
-                    className="cyanBtn"
+                    className="transparantBtn"
                   >
                     Subir una radiografia
                   </button>

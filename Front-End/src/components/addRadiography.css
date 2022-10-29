@@ -35,6 +35,14 @@
     z-index: 1;
 }
 
+.file_upload_form button {
+    height: 6vh;
+}
+
+.file_upload_form button:hover {
+    opacity: 85%;
+}
+
 .file_upload .input-text {
     position: relative;
     width: 19.7vw;
