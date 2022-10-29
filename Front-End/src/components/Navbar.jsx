@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import logo from "../assets/logo-login.png";
+import logo from "./pages/landingPage/images/logoTxt.svg";
 import clock from "../assets/clock.png";
 import user from "../assets/3 User.png";
 import Settings from "../assets/SettingsIcon.png";
@@ -19,7 +19,10 @@ function Navbar({ active, current }) {
     <div className={"side_bar" + (active ? " closed" : "")}>
       <div className="logo_container">
         <h1>
-          <img src={logo} alt="logo" /> IARA
+          <img 
+            src={logo} 
+            alt="logo"
+            width={150} />
         </h1>
       </div>
       <div className="side_bar_links">
