@@ -1,7 +1,11 @@
 import { useImages } from "../hooks/useImages"
+import "../components/AllPatients.css"
 
-function DeletePopUp() {
+function DeletePopUp({setOpenModel, patientId, DeleteWarning}) {
     const { deletePatient } = useImages()
+    const refreshPage = ()=>{
+      window.location.reload();
+   }
   return (
     <div>
     <div className="deletePopUp">
@@ -14,7 +18,8 @@ function DeletePopUp() {
         <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
         <button onClick={() => {
           deletePatient(patientId)
-          setOpenModel(false);
+          setOpenModel(false)
+          refreshPage()
         }} className="blandBtn">Continuar</button>
       </div>
     </div>

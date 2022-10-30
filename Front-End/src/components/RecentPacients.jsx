@@ -5,6 +5,8 @@ import "./RecentPacients.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useImages } from "../hooks/useImages";
 import PersonOffIcon from '@mui/icons-material/PersonOff';
+import DeletePopUp from "./DeletePopUp";
+import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
@@ -31,7 +33,7 @@ const RecentPacients = () => {
     getUserInfo();
   }, []);
 
-  if (patients.length === 0)
+  if (patients.length === -1)
 
   return (
     <div className="main_container">
@@ -96,6 +98,7 @@ const RecentPacients = () => {
                         setDni(patient.DNI);
                         getImageById(patient.id)
                       }}
+                      onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
                     >
                       <td>
                         <a>{patient.DNI}</a>
@@ -116,14 +119,12 @@ const RecentPacients = () => {
                 <button className="blandBtn" onClick={() => navigate("/AllPatients")}>
                   Ver listado de todos los pacientes
                 </button>
-                {openModel && <div>
-                    <h1>Estás a punto de borrar un paciente incluyendo todo su historial de radiografías y predicciones. Esta acción es IRREVERSIBLE</h1>
-                    <button onClick={() => setOpenModel(false) } className="cyanBtn">Cancelar operación</button>
-                    <button onClick={() => {
-                      deletePatient(patientId)
-                      setOpenModel(false);
-                    }} className="cyanBtn">Continuar</button>
-                  </div>}
+                {openModel &&
+                <DeletePopUp 
+                  setOpenModel={setOpenModel} 
+                  patientId= {patientId} 
+                  DeleteWarning={DeleteWarning}
+                />} 
                 </div>
             {images?.length ? (
               <div className="hero_preview_image_wrapper hero_recent_preview">

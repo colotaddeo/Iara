@@ -1,6 +1,6 @@
 .radiografias {
     max-height: 63vh;
-    width: 16vw;
+    width: 100%;
     overflow-y: scroll;
     margin-top: 15px;
 }
@@ -154,7 +154,7 @@
     box-sizing: border-box;
     border: 8px solid #252525;
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-right: 1vw;
 }
 
 .hero_upload_rx_preview img:last-child{

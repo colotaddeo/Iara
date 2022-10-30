@@ -36,12 +36,12 @@ function Navbar({ active, current }) {
         >
           <img src={user} alt="user" /> Pacientes
         </Link>
-        <Link
+        {/* <Link
           to="/Settings"
           className={current == "Configuracion" ? "current" : ""}
         >
           <img src={Settings} alt="Configuración" /> Configuración
-        </Link>
+        </Link> */}
       </div>
       <div 
         className="user_hover_logout"
@@ -70,9 +70,9 @@ function Navbar({ active, current }) {
                   {doctor.nombre} {doctor.apellido}
                 </h3>
                 {doctor.email == "PolloHospital@est.edu.ar" ? (
-                  <h5>Hospital Pollo</h5>
+                  <h5>Hospital Umai</h5>
                 ) : (
-                  <h5>Hospital Arroz</h5>
+                  <h5>Hospital Muñiz</h5>
                 )}
               </div>
             </div>
