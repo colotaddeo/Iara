@@ -1,16 +1,24 @@
 import { useImages } from "../hooks/useImages"
 
-function DeletePopUp({closePopUp, patientId}) {
+function DeletePopUp() {
     const { deletePatient } = useImages()
   return (
     <div>
-        <h1>Estás a punto de borrar un paciente incluyendo todo su historial de radiografías y predicciones. Esta acción es IRREVERSIBLE</h1>
-        <button onClick={() => closePopUp(false)}>Cancelar operación</button>
+    <div className="deletePopUp">
+      <img src={DeleteWarning} alt="DeleteWarning" />
+      <p>Estás a punto de borrar un paciente incluyendo todo <br />
+        su historial de radiografías y predicciones. Esta acción <br />
+        es <span className="iara_cyan"> IRREVERSIBLE</span></p>
+      
+      <div className="deletePopUp_buttons">
+        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
         <button onClick={() => {
-            deletePatient(patientId)
-            closePopUp(false);
-        }}>Continuar</button>
+          deletePatient(patientId)
+          setOpenModel(false);
+        }} className="blandBtn">Continuar</button>
+      </div>
     </div>
+  </div>
   )
 }
 

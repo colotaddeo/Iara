@@ -189,6 +189,7 @@ const AllPatients = () => {
                           setDni(patient.DNI);
                           getImageById(patient.id);
                         }}
+                        onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
                       >
                         <td>
                           <a>{patient.DNI}</a>
@@ -211,7 +212,8 @@ const AllPatients = () => {
             <div className="hero_input_button">
               <h1>Crear paciente</h1>
               {/* {openModel && <DeletePopUp closePopUp={setOpenModel} patientId= {patientId} />} */}
-              {openModel && <div>
+              {openModel && 
+              <div>
                 <div className="deletePopUp">
                   <img src={DeleteWarning} alt="DeleteWarning" />
                   <p>Estás a punto de borrar un paciente incluyendo todo <br />
@@ -248,7 +250,7 @@ const AllPatients = () => {
                         placeholder="Ingrese el DNI del paciente..."
                       ></Field>
                       <ErrorMessage name="DNI" />
-                      <button className="cyanBtn" type="submit">
+                      <button className="blandBtn" type="submit">
                         + Agregar paciente
                       </button>
                     </Form>
@@ -296,7 +298,7 @@ const AllPatients = () => {
                   <h2>Este paciente aún no contiene ningún documento: </h2>
                   <button
                     onClick={() => navigate("/AddRadiography/" + selectedRx)}
-                    className="transparantBtn"
+                    className="blandTransparantBtn"
                   >
                     Subir una radiografia
                   </button>

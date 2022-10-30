@@ -50,3 +50,22 @@ th:hover {
 .pacientes_box {
     padding: 20px;
 }
+
+.hero_recentTable {
+    width: 35vw;
+}
+
+.hero_recentTable table{
+    width: 100%;
+    margin-top: 2vh;
+    align-items: center;
+}
+
+.hero_recentTable button {
+    width: 100%;
+    margin-top: 2vh;
+}
+
+.hero_recent_preview {
+    margin-top: 6vh;
+}

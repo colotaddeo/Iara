@@ -43,34 +43,41 @@ function Navbar({ active, current }) {
           <img src={Settings} alt="Configuración" /> Configuración
         </Link>
       </div>
-      <div className="side_bar_user">
-        {doctors.map((doctor) => (
-          <div
-            className="side_bar_user_container"
-            key={doctor.id}
-            onMouseOver={() => setOpenModel(true)}
-            onMouseOut={() => setOpenModel(false)}
-          >
-            <PersonIcon></PersonIcon>
-            <div className="side_bar_user_info">
-              <h3>
-                {doctor.nombre} {doctor.apellido}
-              </h3>
-              {doctor.email == "PolloHospital@est.edu.ar" ? (
-                <h5>Hospital Pollo</h5>
-              ) : (
-                <h5>Hospital Arroz</h5>
-              )}
-            </div>
-            {openModel && (
-              <div>
-                <button onClick={() => logout()} className="cyanBtn">
-                  Cerrar sesión
-                </button>
-              </div>
-            )}
+      <div 
+        className="user_hover_logout"
+        onMouseOver={() => setOpenModel(true)}
+        onMouseOut={() => setOpenModel(false)}
+        >
+        {openModel && (
+          <div className="logout_BtnBubble">
+            <button onClick={() => logout()} className="speach_btn btnArrow">
+              Cerrar sesión
+            </button>
           </div>
-        ))}
+        )}
+
+        <div className="side_bar_user">
+          {doctors.map((doctor) => (
+            <div
+              className="side_bar_user_container"
+              key={doctor.id}
+              onMouseOver={() => setOpenModel(true)}
+              onMouseOut={() => setOpenModel(false)}
+            >
+              <PersonIcon></PersonIcon>
+              <div className="side_bar_user_info">
+                <h3>
+                  {doctor.nombre} {doctor.apellido}
+                </h3>
+                {doctor.email == "PolloHospital@est.edu.ar" ? (
+                  <h5>Hospital Pollo</h5>
+                ) : (
+                  <h5>Hospital Arroz</h5>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -128,3 +128,35 @@
 .btn_search{
     cursor: pointer;
 }
+
+/* Cerrar sesión */
+
+.speach_btn{
+    margin-top: 5vh;
+    margin-left: 35px;
+
+    width: 10vw;
+
+    background-color: #1A1A1A;
+    border: 2px solid #1A1A1A;
+    border-radius: 5px;
+    position: absolute;     
+
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 175%;
+}
+
+.btnArrow:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid #1A1A1A;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #1A1A1A;
+    border-bottom: 10px solid transparent;
+    left: 19px;
+    bottom: -19px;
+  }
