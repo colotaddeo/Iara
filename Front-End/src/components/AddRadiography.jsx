@@ -6,6 +6,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./addRadiography.css";
+import DeleteRXPopUp from "./DeleteRXPopUp";
+import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
 
 const AddRadiography = () => {
   const [active_rx, setActive_rx] = useState("");
@@ -226,31 +228,14 @@ const AddRadiography = () => {
                     />
                   </div>
                   <div>
-                    {openModel && (
-                      <div>
-                        <h1>
-                          Estás a punto de borrar un paciente incluyendo todo su
-                          historial de radiografías y predicciones. Esta acción
-                          es IRREVERSIBLE
-                        </h1>
-                        <button
-                          onClick={() => setOpenModel(false)}
-                          className="cyanBtn"
-                        >
-                          Cancelar operación
-                        </button>
-                        <button
-                          onClick={() => {
-                            deleteImage(id, images[index].id);
-                            setOpenModel(false);
-                            if (index != 0) setIndex(index - 1);
-                          }}
-                          className="cyanBtn"
-                        >
-                          Continuar
-                        </button>
-                      </div>
-                    )}
+                    {openModel && 
+                    <DeleteRXPopUp
+                      setOpenModel={setOpenModel} 
+                      rxId={id}
+                      imageId={images[index].id}
+                      DeleteWarning={DeleteWarning} 
+                    />
+                    }
                   </div>
                 </div>
                 <footer className="footer__uploadRX">

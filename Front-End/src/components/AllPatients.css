@@ -194,12 +194,24 @@
 
 /* DeltePopUp */
 
+.deletePopUp:hover {
+    top: 47.5%;
+    left: 50%;
+    transition: 0.5s;
+}
+
+.max-opacity {
+    opacity: 0.5;
+}
+
 .deletePopUp {
+    transition: 0.5s;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 50%;
+    z-index: 2;
 
     background-color: #343434;
     border-radius: 20px;

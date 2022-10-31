@@ -211,12 +211,6 @@ const AllPatients = () => {
 
             <div className="hero_input_button">
               <h1>Crear paciente</h1>
-              {openModel && 
-              <DeletePopUp 
-                setOpenModel={setOpenModel} 
-                patientId= {patientId}
-                DeleteWarning={DeleteWarning} 
-              />}
               <div className="formik_wrapper">
                 <Formik
                   initialValues={{
@@ -296,6 +290,12 @@ const AllPatients = () => {
           </div>
         </div>
       </div>
+      {openModel && 
+        <DeletePopUp
+          setOpenModel={setOpenModel} 
+          patientId= {patientId}
+          DeleteWarning={DeleteWarning} 
+        />}
     </div>
   );
 };
