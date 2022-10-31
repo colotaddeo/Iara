@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    justify-content: space-between;
+    justify-content: left;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -99,6 +99,7 @@
     display: flex;
     flex-direction: column;
     gap: 60px;
+    margin-left: 2vw;
 }
 
 .image_wrapper_pred_num {
@@ -129,7 +130,8 @@
     margin-top: 20px;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-around;
+    justify-content: left;
+    gap: 15vw;
 }
 
 .footer__uploadRX p{
@@ -143,6 +145,8 @@
 .hero__upload_container {
     background-color: #343434;
     padding: 29px;
+    width: max-content;
+    height: max-content;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -153,6 +157,7 @@
 .hero_upload_rx_preview img{
     box-sizing: border-box;
     border: 8px solid #252525;
+    transition: 0.25s ease;
     border-radius: 5px;
     margin-right: 1vw;
 }
@@ -163,6 +168,7 @@
 
 .hero_upload_rx_preview img:hover{
     border: 8px solid #01ABB4;
+    transition: 0.25s ease;
     cursor: pointer;
 }
 
