@@ -11,6 +11,7 @@
       
 .radiografias::-webkit-scrollbar-track {
     background: #343434;
+    border-radius: 20px;
 }
       
 .radiografias::-webkit-scrollbar-thumb {
@@ -127,7 +128,6 @@
 }
 
 .hero__upload_rx_container {
-    margin-top: 20px;
     display: flex;
     flex-direction: row-reverse;
     justify-content: left;
@@ -178,4 +178,33 @@
 
 .container_patient_title {
     margin-bottom: 15px;
+}
+
+/* On empty */
+
+.hero_empty_p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27.5px;
+    line-height: 43px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hero_empty_icon {
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+.hero__upload_container_empty {
+    height: 64.6vh;
+}
+
+.hero__upload_container p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

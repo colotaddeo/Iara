@@ -50,38 +50,64 @@ const AddRadiography = () => {
           >
             {doctors.map((doctor) => (
               <div>
-                <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+                <h1>Hola Dr/a. {doctor.apellido}</h1>
                 <p>Nuestra mision es ayudarte</p>
               </div>
             ))}
           </div>
-          <div className="container_patient_title">
-            <h1> Paciente: {patients.DNI} </h1>
+          <div className="hero_container">
+            <div className="container_patient_title">
+              <h1> Paciente: {patients.DNI} </h1>
+            </div>
+            
+            <div className="hero__upload_container hero__upload_container_empty ">
+              <Formik
+                initialValues={{
+                  file: null,
+                }}
+                onSubmit={(values, actions) => {
+                  console.log(values);
+                  uploadImage(id, values);
+                  setIndex(images.length);
+                  console.log(images.length);
+                  console.log("images", images);
+                }}
+              >
+                {({ handleChange, handleSubmit, setFieldValue }) => (
+                  <Form className="file_upload_form" onSubmit={handleSubmit}>
+                    <div className="file_upload">
+                      <input
+                        className="file_upload_input files"
+                        type="file"
+                        name="file"
+                        ref={filename_ref}
+                        onChange={(e) =>
+                          setFieldValue("file", e.target.files[0])
+                        }
+                      />
+                      <div
+                        onClick={() => filename_ref.current.click()}
+                        className="input-text"
+                      >
+                        <span>
+                          {filename_ref.current.value === ""
+                            ? "Seleccionar archivo"
+                            : filename_ref.current.value}
+                        </span>
+                      </div>
+                    </div>
+                    <button className="cyanBtn" type="submit">
+                      Subir radiografia
+                    </button>
+                </Form>
+                )}
+              </Formik>
+              <p className="hero_empty_p">
+                No hay imágenes registradas, <br />
+                si las hubiesen aparecerían aquí
+              </p>
+            </div>
           </div>
-          <Formik
-            initialValues={{
-              file: null,
-            }}
-            onSubmit={(values, actions) => {
-              console.log(values);
-              uploadImage(id, values);
-              setIndex(images.length);
-              console.log(images.length);
-              console.log("images", images);
-            }}
-          >
-            {({ handleChange, handleSubmit, setFieldValue }) => (
-              <Form onSubmit={handleSubmit}>
-                <input
-                  type="file"
-                  name="file"
-                  onChange={(e) => setFieldValue("file", e.target.files[0])}
-                />
-
-                <button type="submit">Subir</button>
-              </Form>
-            )}
-          </Formik>
         </div>
       </div>
     );
@@ -98,7 +124,7 @@ const AddRadiography = () => {
         >
           {doctors.map((doctor) => (
             <div key={doctor.id}>
-              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+              <h1>Hola Dr/a. {doctor.apellido}</h1>
               <p>Nuestra mision es ayudarte</p>
             </div>
           ))}

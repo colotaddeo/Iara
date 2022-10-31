@@ -75,7 +75,6 @@
 
 .tabla {
     width: 100%;
-    align-content: center;
 }
 
 .hero_input_button{
@@ -244,4 +243,22 @@
 
 .deletePopUp button {
     width: 17.5vw;
+}
+
+.hero_empty_searchbar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero_empty_info {
+    background-color: #323232;
+    border-radius: 5px;
+    padding: 10px;
+    width: 37.4vw;
+}
+
+.hero_empty_info p {
+    text-align: justify;
 }

@@ -8,7 +8,7 @@ import { useImages } from "../hooks/useImages";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "../components/AllPatients.css";
 import SearchIcon from "@mui/icons-material/Search";
-import PersonOffIcon from "@mui/icons-material/PersonOff";
+import PersonOffIcon from "./pages/landingPage/images/empty_user_icon.svg";
 import DeletePopUp from "./DeletePopUp";
 import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
 
@@ -93,13 +93,22 @@ const AllPatients = () => {
           </div>
           <div className="hero_container">
             <div className="hero_elements">
-              <h2>Todos los pacientes</h2>
-              <div>
-                <PersonOffIcon></PersonOffIcon>
-                <h3>Aún no hay pacientes registrados, puedes registrarlos</h3>
+              <div className="hero_table_search">
+              <h1>Pacientes</h1>
+              <div className="hero_empty_searchbar">
+                <div className="hero_empty_icon">
+                  <img src={PersonOffIcon}
+                    width={150}>
+                  </img>
+                </div>
+                <p className="hero_empty_p">
+                  No hay pacientes registrados, si <br />
+                  los hubiese aparecerían aquí
+                </p>
               </div>
-              <div className="hero_input_button">
-                <h2>Crear paciente</h2>
+            </div>
+              <div className="hero_input_button"> 
+              <h1>Crear paciente</h1>
                 <div className="formik_wrapper">
                   <Formik
                     initialValues={{
@@ -118,20 +127,23 @@ const AllPatients = () => {
                         <Field
                           className="hero_add_dni_field"
                           name="DNI"
-                          placeholder="DNI..."
+                          placeholder="DNI del paciente..."
                         ></Field>
                         <ErrorMessage name="DNI" />
-                        <button className="cyanBtn" type="submit">
-                          Agregar
+                        <button className="blandBtn" type="submit">
+                          + Agregar paciente
                         </button>
                       </Form>
                     )}
                   </Formik>
-                  <p>
-                    Para registrar un nuevo paciente, ingresa su DNI. No
-                    solicitamos mas información sensible para no comprometer su
-                    integridad.
-                  </p>
+                  <div className="hero_empty_info">
+                    <p className="hero_empty_p">
+                      Para registrar un nuevo paciente,
+                      ingresa su DNI. No
+                      solicitamos mas información sensible para no comprometer su
+                      integridad.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
