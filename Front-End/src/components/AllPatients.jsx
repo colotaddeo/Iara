@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useContext, useState } from "react";
 import { useNavigate, Link, Navigate } from "react-router-dom";
 import Navbar from "./Navbar";
-import { Form, Formik, Field, ErrorMessage } from "formik";
+import { Form, Formik, Field, ErrorMessage, isEmptyArray } from "formik";
 import * as Yup from "yup";
 import { useImages } from "../hooks/useImages";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -73,7 +73,7 @@ const AllPatients = () => {
   //     </div>
   //   );
 
-  if (patients.length === -1)
+  if (patients.length === 0)  {
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
@@ -139,7 +139,7 @@ const AllPatients = () => {
         </div>
       </div>
     );
-
+  }
   return (
     <div className="main_container">
       <Navbar active={active} current="Pacientes" />

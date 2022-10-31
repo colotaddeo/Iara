@@ -81,51 +81,55 @@ const RecentPacients = () => {
         <div className="hero_container">
             <div className="hero_elements">
               <div className="hero_recentTable">
-                <h1>Recientes</h1>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>DNI</th>
-                      <th>Fecha de creación</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  {patients.map((patient) => (
-                    <tr 
-                      key={patient.id} 
-                      onClick={() => {
-                        setSelected(patient.id);
-                        setDni(patient.DNI);
-                        getImageById(patient.id)
-                      }}
-                      onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
-                    >
-                      <td>
-                        <a>{patient.DNI}</a>
-                      </td>
-                      <td>
-                        <a>{patient.createdAt} </a>
-                      </td>
-                      <DeleteIcon
+                <div className="table-wrapper">
+                  <h1>Recientes</h1>
+                  <table className="tabla">
+                    <thead>
+                      <tr>
+                        <th>DNI</th>
+                        <th>Fecha de creación</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    {patients.map((patient) => (
+                      <tr 
+                        key={patient.id} 
                         onClick={() => {
-                          setOpenModel(true);
-                          setPatientId(patient.id)
+                          setSelected(patient.id);
+                          setDni(patient.DNI);
+                          getImageById(patient.id)
                         }}
-                        className="btn_delete"
-                      ></DeleteIcon>
-                    </tr>
-                  ))}
-                </table>
-                <button className="blandBtn" onClick={() => navigate("/AllPatients")}>
-                  Ver listado de todos los pacientes
-                </button>
-                {openModel &&
-                <DeletePopUp 
-                  setOpenModel={setOpenModel} 
-                  patientId= {patientId} 
-                  DeleteWarning={DeleteWarning}
-                />} 
+                        onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
+                      >
+                        <td>
+                          <a>{patient.DNI}</a>
+                        </td>
+                        <td>
+                          <a>{patient.createdAt} </a>
+                        </td>
+                        <td>
+                        <DeleteIcon
+                          onClick={() => {
+                            setOpenModel(true);
+                            setPatientId(patient.id)
+                          }}
+                          className="btn_delete"
+                        ></DeleteIcon>
+                        </td>
+                      </tr>
+                    ))}
+                  </table>
+                  <button className="blandBtn" onClick={() => navigate("/AllPatients")}>
+                    Ver listado de todos los pacientes
+                  </button>
+                  {openModel &&
+                  <DeletePopUp 
+                    setOpenModel={setOpenModel} 
+                    patientId= {patientId} 
+                    DeleteWarning={DeleteWarning}
+                  />} 
                 </div>
+              </div>
             {images?.length ? (
               <div className="hero_preview_image_wrapper hero_recent_preview">
                 <div className="hero_ultima_prediccion">

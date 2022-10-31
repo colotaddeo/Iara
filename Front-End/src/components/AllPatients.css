@@ -20,7 +20,7 @@
 }
 
 .hero_table_search {
-    height: 100%;
+    height: 80%;
     width: 35vw;
 }
 
@@ -75,6 +75,7 @@
 
 .tabla {
     width: 100%;
+    align-content: center;
 }
 
 .hero_input_button{
@@ -133,11 +134,11 @@
 
 .hero_ultima_prediccion {
     background-color: #323232;
-    width: 22.5vw;
-    padding: 23px;
+    width: 23vw;
+    padding: 14px 23px 14px 23px;
     border-radius: 15px;
     text-align: center;
-
+    height: max-content;
 }
 
 .ultima_prediccion_titles {
@@ -195,7 +196,7 @@
 /* DeltePopUp */
 
 .deletePopUp:hover {
-    top: 47.5%;
+    top: 48.5%;
     left: 50%;
     transition: 0.5s;
 }
@@ -217,6 +218,7 @@
     border-radius: 20px;
     padding-top: 5vh;
     padding-bottom: 5vh;
+    box-shadow:2px 3px 5px #252525;
 
     display: flex;
     flex-direction: column;
