@@ -20,6 +20,7 @@ import logo_ort from './images/logo_ort.svg'
 import logo_muniz from './images/logo_muniz.svg'
 import logo_maimonides from './images/logo_maimonides.svg'
 import { useNavigate } from 'react-router-dom' 
+import elipse from './images/Ellipse.svg'
 
 const HomePage = () => {
 
@@ -127,12 +128,20 @@ const HomePage = () => {
       </section>
       <section id = "nueva_era" class="era">
         <div class="era__text">
-          <h2 class="era__text_blanco">Una nueva era de</h2>
-          <br />
-          <h2 class="era__text_azul">medicina avanzada</h2>
-          <br />
-          <p>IARA es una herramienta para el médico especialista encargado de diagnosticar a una persona. 
-Gracias a su gran desarrollo en materia de Inteligencia Artificial, logra una predicción certera casi inmediata para brindar una segunda opinión que podría salvar la vida de una persona.</p>
+          <div className="era__titulo">
+            <h2>Una nueva era de
+            <br />  
+            <span class="era__azul">medicina avanzada</span></h2>
+            <br />
+          </div>
+          <p>IARA es una herramienta para el médico especialista encargado
+          <br></br>de diagnosticar a una persona. <br></br>
+          Gracias a su gran desarrollo en materia de <span class="color__cyan">Inteligencia Artificial</span>, <br></br>
+          logra una predicción certera casi inmediata para brindar una <br></br>
+          segunda opinión que podría salvar la vida de una persona.</p>
+        </div>
+        <div class="era__image">
+          <img src={elipse} alt="elipse_nueva_era"/>
         </div>
       </section>
       <section id = "about_us" class="about">

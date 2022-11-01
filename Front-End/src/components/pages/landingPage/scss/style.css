@@ -105,6 +105,13 @@ button, .button {
   transform: scale(1.1);
 }
 
+.color__darkcyan {
+  color: #01ADB4;
+}
+.color__cyan {
+  color: #00F5FF;
+}
+
 @media (max-width: 63.9375em) {
   .hide-for-mobile {
     display: none;
@@ -530,4 +537,20 @@ Media querie en adelante (desktop).
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+}
+
+.era {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.era__text h2 {
+  font-size: 60px;
+  line-height: 60px;
+}
+.era__azul {
+  color: #01ADB4;
+  margin-left: 70px;
 }/*# sourceMappingURL=style.css.map */

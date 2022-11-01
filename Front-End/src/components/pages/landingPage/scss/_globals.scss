@@ -129,6 +129,15 @@ button, .button {
         -webkit-transform: scale(1.1);
         transform: scale(1.1);
     }
+    
+}
+.color{
+    &__darkcyan{
+        color: $darkCyan;
+    }
+    &__cyan{
+        color: #00F5FF;
+    }
 }
 
 //visibility

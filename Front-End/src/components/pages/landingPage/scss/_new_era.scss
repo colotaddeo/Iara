@@ -1,0 +1,19 @@
+.era{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    &__text{
+        h2{
+            font-size: 60px;
+            line-height: 60px;
+        }
+        
+    }
+    &__azul{
+        color: #01ADB4;
+        margin-left: 70px;
+    }
+}
