@@ -6,7 +6,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "./Navbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./addRadiography.css";
-import DeleteRXPopUp from "./DeleteRXPopUp";
 import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
 
 const AddRadiography = () => {
@@ -254,13 +253,24 @@ const AddRadiography = () => {
                     />
                   </div>
                   <div>
-                    {openModel && 
-                    <DeleteRXPopUp
-                      setOpenModel={setOpenModel} 
-                      rxId={id}
-                      imageId={images[index].id}
-                      DeleteWarning={DeleteWarning} 
-                    />
+                    {openModel &&
+                    <div>
+                    <div className="deletePopUp">
+                      <img src={DeleteWarning} alt="DeleteWarning" />
+                      <p>
+                          Estas a punto de eliminar una radiografía del historial<br />
+                          de un paciente. Esta acción es <span className="iara_cyan"> IRREVERSIBLE</span>
+                      </p>
+                      
+                      <div className="deletePopUp_buttons">
+                        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
+                        <button onClick={() => {
+                          deleteImage(id, images[index].id);
+                          setOpenModel(false);
+                        }} className="blandBtn">Continuar</button>
+                      </div>
+                    </div>
+                  </div>
                     }
                   </div>
                 </div>

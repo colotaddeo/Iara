@@ -134,11 +134,14 @@
     gap: 15vw;
 }
 
-.footer__uploadRX p{
+.footer__uploadRX {
     display: flex;
-    align-content:flex-start;
-    text-align: left;
+    align-content: flex-start;
     justify-content: left;
+}
+
+.footer__uploadRX p{
+    text-align: left;
     font-style: italic;
 }
 
