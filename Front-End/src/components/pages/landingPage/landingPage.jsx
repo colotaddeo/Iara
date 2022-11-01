@@ -125,6 +125,16 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <section id = "nueva_era" class="era">
+        <div class="era__text">
+          <h2 class="era__text_blanco">Una nueva era de</h2>
+          <br />
+          <h2 class="era__text_azul">medicina avanzada</h2>
+          <br />
+          <p>IARA es una herramienta para el médico especialista encargado de diagnosticar a una persona. 
+Gracias a su gran desarrollo en materia de Inteligencia Artificial, logra una predicción certera casi inmediata para brindar una segunda opinión que podría salvar la vida de una persona.</p>
+        </div>
+      </section>
       <section id = "about_us" class="about">
         <div class="about__team_card">
             <a>Conocé al<br></br>equipo de IARA</a>
