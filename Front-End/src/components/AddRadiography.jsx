@@ -255,6 +255,7 @@ const AddRadiography = () => {
                   <div>
                     {openModel &&
                     <div>
+                    <div className="blur-backdrop"></div>
                     <div className="deletePopUp">
                       <img src={DeleteWarning} alt="DeleteWarning" />
                       <p>
