@@ -17,6 +17,8 @@ const AllPatients = () => {
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
 
+  const patientsLoaded = false;
+
   const navigate = useNavigate();
   const {
     loadPatients,
@@ -72,8 +74,9 @@ const AllPatients = () => {
   //       </div>
   //     </div>
   //   );
-
-  if (patients.length === 0)  {
+  
+  console.log(patientsLoaded)
+  if (patients.length === 0 && patientsLoaded === true)  {
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
