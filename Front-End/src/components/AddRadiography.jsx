@@ -266,6 +266,7 @@ const AddRadiography = () => {
                         <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
                         <button onClick={() => {
                           deleteImage(id, images[index].id);
+                          if (index != 0) setIndex(index - 1);
                           setOpenModel(false);
                         }} className="blandBtn">Continuar</button>
                       </div>
