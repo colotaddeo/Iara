@@ -194,10 +194,16 @@
 
 /* DeltePopUp */
 
-.deletePopUp:hover {
-    top: 48.5%;
+.deletePopUp:initial {
+    top: 20%;
     left: 50%;
-    transition: 0.5s;
+    transition: 0.2s;
+}
+
+.deletePopUp::after {
+    top: 50%;
+    left: 50%;
+    transition: 0.2s;
 }
 
 .max-opacity {
@@ -205,7 +211,7 @@
 }
 
 .deletePopUp {
-    transition: 0.5s;
+    transition: 0.2s;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -243,6 +249,15 @@
 
 .deletePopUp button {
     width: 17.5vw;
+}
+
+.blur-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    backdrop-filter: blur(1.7px);
 }
 
 .hero_empty_searchbar {

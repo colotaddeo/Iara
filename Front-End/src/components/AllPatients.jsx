@@ -17,7 +17,7 @@ const AllPatients = () => {
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
 
-  const patientsLoaded = false;
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
   const {
@@ -32,7 +32,11 @@ const AllPatients = () => {
     images,
   } = useImages();
   useEffect(() => {
-    loadPatients();
+    setLoading(true);
+    loadPatients()
+      .then(() => {
+        setLoading(false);
+      })
     getUserInfo();
   }, []);
 
@@ -41,8 +45,12 @@ const AllPatients = () => {
   const [patientId, setPatientId] = useState("")
 
   const SearchPatient = () => {
+    setLoading(true);
     if (search.length === 0) {
-      loadPatients();
+      loadPatients()
+        .then(() => {
+          setLoading(false);
+        })
     } else {
       if (search.trim()) {
         console.log(search);
@@ -51,32 +59,30 @@ const AllPatients = () => {
     }
   };
 
-  console.log(patients);
-  // if (patients.length === -1)
-  //   return (
-  //     <div className="main_container">
-  //       <Navbar active={active} current="Pacientes" />
-  //       <div className="primary_container">
-  //         <div
-  //           className="banner"
-  //           onClick={(e) => {
-  //             setActive(!active);
-  //           }}
-  //         >
-  //           {doctors.map((doctor) => (
-  //             <div key={doctor.id}>
-  //               <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
-  //               <p>Nuestra mision es ayudarte</p>
-  //             </div>
-  //           ))}
-  //         </div>
-  //         <h1>Todavía no hay paciente subidos</h1>
-  //       </div>
-  //     </div>
-  //   );
-  
-  console.log(patientsLoaded)
-  if (patients.length === 0 && patientsLoaded === true)  {
+  if(loading){
+    return (
+      <div className="main_container">
+        <Navbar active={active} current="Pacientes" />
+        <div className="primary_container">
+          <div
+            className="banner"
+            onClick={(e) => {
+              setActive(!active);
+            }}
+          >
+            {doctors.map((doctor) => (
+              <div key={doctor.id}>
+                <h1>Hola Dr/a. {doctor.apellido}</h1>
+                <p>Nuestra mision es ayudarte</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>  
+    )
+  }
+
+  if (patients.length === 0) {
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
@@ -97,21 +103,21 @@ const AllPatients = () => {
           <div className="hero_container">
             <div className="hero_elements">
               <div className="hero_table_search">
-              <h1>Pacientes</h1>
-              <div className="hero_empty_searchbar">
-                <div className="hero_empty_icon">
-                  <img src={PersonOffIcon}
-                    width={150}>
-                  </img>
+                <h1>Pacientes</h1>
+                <div className="hero_empty_searchbar">
+                  <div className="hero_empty_icon">
+                    <img src={PersonOffIcon}
+                      width={150}>
+                    </img>
+                  </div>
+                  <p className="hero_empty_p">
+                    No hay pacientes registrados, si <br />
+                    los hubiese aparecerían aquí
+                  </p>
                 </div>
-                <p className="hero_empty_p">
-                  No hay pacientes registrados, si <br />
-                  los hubiese aparecerían aquí
-                </p>
               </div>
-            </div>
-              <div className="hero_input_button"> 
-              <h1>Crear paciente</h1>
+              <div className="hero_input_button">
+                <h1>Crear paciente</h1>
                 <div className="formik_wrapper">
                   <Formik
                     initialValues={{
@@ -305,11 +311,11 @@ const AllPatients = () => {
           </div>
         </div>
       </div>
-      {openModel && 
+      {openModel &&
         <DeletePopUp
-          setOpenModel={setOpenModel} 
-          patientId= {patientId}
-          DeleteWarning={DeleteWarning} 
+          setOpenModel={setOpenModel}
+          patientId={patientId}
+          DeleteWarning={DeleteWarning}
         />}
     </div>
   );

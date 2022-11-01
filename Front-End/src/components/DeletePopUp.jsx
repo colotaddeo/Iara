@@ -8,6 +8,7 @@ function DeletePopUp({setOpenModel, patientId, DeleteWarning}) {
    }
   return (
     <div>
+    <div className="blur-backdrop"></div>
     <div className="deletePopUp">
       <img src={DeleteWarning} alt="DeleteWarning" />
       <p>Estás a punto de borrar un paciente incluyendo todo <br />
