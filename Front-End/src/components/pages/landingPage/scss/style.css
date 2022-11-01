@@ -198,24 +198,29 @@ Media querie en adelante (desktop).
 .hero {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: space-around;
   width: 100vw;
+  height: 120vh;
+  align-items: center;
 }
 .hero__image {
-  padding-right: 5.625rem;
-  padding-top: 14.6875rem;
-  padding-bottom: 250px;
+  height: 700px;
+  width: 600px;
+}
+.hero__imageimg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
 }
 .hero__text {
   flex-direction: column;
-  padding-left: 12.8125rem;
   padding-bottom: 100px;
 }
 .hero__text h1 {
   margin: 0;
   font-family: "Montserrat";
   font-style: normal;
-  font-weight: 700;
   font-size: 64px;
   line-height: 78px;
   cursor: default;
@@ -257,6 +262,33 @@ Media querie en adelante (desktop).
 }
 .hero__gratuitatxt {
   font-style: italic;
+}
+@media screen and (max-width: 1600px) {
+  .hero__image {
+    width: 450px;
+    height: 525px;
+  }
+  .hero__text h1 {
+    font-size: 45px;
+    line-height: 50px;
+  }
+  .hero__text p {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .hero__text button {
+    width: 280px;
+    height: 50px;
+    font-size: 20px;
+  }
+  .hero__IARAtxt {
+    font-size: 45px;
+    line-height: 50px;
+  }
+  .hero__buttons {
+    padding-top: 5px;
+    gap: 10px;
+  }
 }
 
 .cards {
@@ -472,13 +504,14 @@ Media querie en adelante (desktop).
   height: 490px;
   background: #000000;
   border-radius: 11px;
+  outline: none;
 }
-.about__single_card a:hover {
+.about__single_card:hover {
   cursor: pointer;
-  transition: 0.5s all ease;
-  outline: solid 2px #01ADB4;
+  transition: 0.5s all;
+  outline: solid 1px #01adb4;
 }
-.about__single_card a:hover .about__member_photo {
+.about__single_card:hover .about__member_photo {
   opacity: 0.6;
 }
 .about__single_card h4 {

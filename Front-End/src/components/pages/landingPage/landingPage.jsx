@@ -52,7 +52,7 @@ const HomePage = () => {
         </nav>
       </header>
       <section id="hero"class="hero">
-        <div class="hero__image flex flex-jc-r">
+        <div class="hero__image flex">
             <img src={landingImage} alt="landingImage"/>
         </div>
 

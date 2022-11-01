@@ -1,24 +1,29 @@
 .hero {
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100vw;
+    height: 120vh;
+    align-items: center;
 
     &__image {
-        padding-right: 5.625rem; //90px
-        padding-top: 14.6875rem; //235px
-        padding-bottom: 250px;
+        height: 700px;
+        width: 600px;
+        &img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
     }
 
     &__text {
         flex-direction: column;
-        padding-left: 12.8125rem; //205px
         padding-bottom: 100px;
         h1 {
             margin: 0;
             font-family: 'Montserrat';
             font-style: normal;
-            font-weight: 700;
+            
             font-size: 64px;
             line-height: 78px;
             cursor: default;
@@ -71,4 +76,35 @@
     &__gratuitatxt {
         font-style: italic;
     }  
+
+    @media screen and (max-width: 1600px) {
+        &__image{
+            width: 450px;
+            height: 525px;
+        }
+
+        &__text{
+            h1{
+                font-size: 45px;
+                line-height: 50px;
+            } 
+            p{
+                font-size: 16px;
+                line-height: 20px;
+            }
+            button {
+                width: 280px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+        &__IARAtxt {
+            font-size: 45px;
+            line-height: 50px;
+        }
+        &__buttons {
+            padding-top: 5px;
+            gap: 10px;
+        }
+    }
 }

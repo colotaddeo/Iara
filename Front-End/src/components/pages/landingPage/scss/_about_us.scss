@@ -69,11 +69,12 @@
         height: 490px;
         background: #000000;
         border-radius: 11px;
+        outline: none;
 
-        a:hover {
+        &:hover {
             cursor: pointer;
-            transition: .5s all ease;
-            outline: solid 2px $darkCyan;
+            transition: .5s all;
+            outline: solid 1px #01adb4;
         
             .about__member_photo {
                 opacity: .6;
