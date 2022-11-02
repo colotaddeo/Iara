@@ -223,7 +223,7 @@
     border-radius: 20px;
     padding-top: 5vh;
     padding-bottom: 5vh;
-    box-shadow:2px 3px 5px #252525;
+    box-shadow:2px 3px 5px #1b1b1b;
 
     display: flex;
     flex-direction: column;
@@ -257,7 +257,9 @@
     left: 0;
     height: 100vh;
     width: 100vw;
-    backdrop-filter: blur(1.7px);
+    background-color: black;
+    opacity: 30%;
+    /* backdrop-filter: opacity(20%); */
 }
 
 .hero_empty_searchbar {
