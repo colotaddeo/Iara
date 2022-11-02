@@ -7,9 +7,11 @@ import './scss/style.css'
 
 //Images
 import logoIara from './images/logoTxt.svg'
-import landingImage from './images/landingImage.svg'
+import landingImage from './images/landing_image.svg'
 import herramienta_complementaria from './images/herramienta_complementaria.svg'
 import instagram_logo from './images/instagram_logo.svg'
+import mail_logo from './images/mail_logo.svg'
+import twitter_logo from './images/twitter_logo.svg'
 import man_with_rx from './images/man_with_rx.jpg'
 import marie_curie from './images/marie_test_about.svg'
 import precision_computarizada from './images/precision_computarizada.svg'
@@ -20,7 +22,7 @@ import logo_ort from './images/logo_ort.svg'
 import logo_muniz from './images/logo_muniz.svg'
 import logo_maimonides from './images/logo_maimonides.svg'
 import { useNavigate } from 'react-router-dom' 
-import elipse from './images/Ellipse.svg'
+import elipse from './images/landingImage.svg'
 
 const HomePage = () => {
 
@@ -231,6 +233,21 @@ const HomePage = () => {
             <li><img src={logo_muniz} alt="logo_muniz" /></li>
           </ul>
         </div>
+        <section className="under_footer">
+
+          <div className="under_footer__links">
+            <a href="" className="link_footer">Términos y condiciones</a > <span className="link_footer"> | </span> <a href="" className="link_footer" >Políticas de privacidad</a>
+            <br />
+            <span>Copyright © IARA 2022. All Rights Reserved.</span>
+          </div>
+          <div className="under_footer__social">
+            <ul>
+              <li><img src={instagram_logo} alt="instagram_logo" /></li>
+              <li><img src={mail_logo} alt="mail_logo" /></li>
+              <li><img src={twitter_logo} alt="twitter_logo" /></li>
+            </ul>
+          </div>
+        </section>
       </footer>
     </div>
   )
