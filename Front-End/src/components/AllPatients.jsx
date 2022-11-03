@@ -95,7 +95,7 @@ const AllPatients = () => {
           >
             {doctors.map((doctor) => (
               <div key={doctor.id}>
-                <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+                <h1>Hola Dr/a. {doctor.apellido}</h1>
                 <p>Nuestra mision es ayudarte</p>
               </div>
             ))}

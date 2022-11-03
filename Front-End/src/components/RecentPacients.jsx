@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import "./RecentPacients.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useImages } from "../hooks/useImages";
-import PersonOffIcon from '@mui/icons-material/PersonOff';
+import PersonOffIcon from "./pages/landingPage/images/empty_user_icon.svg";
 import DeletePopUp from "./DeletePopUp";
 import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
 
@@ -27,40 +27,76 @@ const RecentPacients = () => {
   const [patientId, setPatientId] = useState("")
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    loadRecentPatients();
+    setLoading(true);
+    loadRecentPatients()
+      .then(() => {
+        setLoading(false);
+      })
     getUserInfo();
   }, []);
 
-  if (patients.length === -1)
-
-  return (
-    <div className="main_container">
-      <Navbar active={active} current="Recientes" />
-      <div className="primary_container">
-        <div
-          className="banner"
-          onClick={(e) => {
-            setActive(!active);
-          }}
-        >
-          {doctors.map((doctor) => (
-            <div key={doctor.id}>
-              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
-              <p>Nuestra mision es ayudarte</p>
-            </div>
-          ))}
+  if(loading){
+    return (
+      <div className="main_container">
+        <Navbar active={active} current="Pacientes" />
+        <div className="primary_container">
+          <div
+            className="banner"
+            onClick={(e) => {
+              setActive(!active);
+            }}
+          >
+            {doctors.map((doctor) => (
+              <div key={doctor.id}>
+                <h1>Hola Dr/a. {doctor.apellido}</h1>
+                <p>Nuestra mision es ayudarte</p>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="pacientes_box">
-          <h1>Aún no hay pacientes recientes</h1>
-          <PersonOffIcon></PersonOffIcon>
-          <h3>Aún no hay pacientes registrados, puedes registrarlos <Link to={"/AllPatients"}>aquí</Link></h3>
+      </div>  
+    )
+  }
+
+  if (patients.length === 0){
+    return (
+      <div className="main_container">
+        <Navbar active={active} current="Recientes" />
+        <div className="primary_container">
+          <div
+            className="banner"
+            onClick={(e) => {
+              setActive(!active);
+            }}
+          >
+            {doctors.map((doctor) => (
+              <div key={doctor.id}>
+                <h1>Hola Dr/a. {doctor.apellido}</h1>
+                <p>Nuestra mision es ayudarte</p>
+              </div>
+            ))}
+          </div>
+          <div className="hero_container">
+            <h1>Recientes</h1>
+            <div className="hero_recent_empty">
+              <div className="hero_empty_icon">
+                <img src={PersonOffIcon}
+                  width={150}>
+                </img>
+              </div>
+              <p className="hero_empty_p">
+                Aún no hay pacientes registrados, <br />
+                puedes registrarlos <span className="hero_empty_p_cyan" onClick={() => navigate("/AllPatients/")}>aquí</span>
+                </p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  );
-
+    );
+  }
   return (
     <div className="main_container">
       <Navbar active={active} current="Recientes" />

@@ -70,3 +70,15 @@ th:hover {
 .hero_recent_preview {
     margin-top: 6vh;
 }
+
+.hero_recent_empty {
+    margin-top: 10vh;
+}
+
+.hero_empty_p_cyan {
+    color: #01ADB4;
+}
+
+.hero_empty_p_cyan:hover {
+    cursor: pointer;
+}
