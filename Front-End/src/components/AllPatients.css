@@ -162,6 +162,11 @@
 }
 
 .no_rx_found {
+    background-color: #323232;
+    border-radius: 15px;
+    height: 50vh;
+    width: 23vw;
+    padding: 80px 23px 14px 23px;
     display: flex;
     flex-direction: column;
     gap: 10px;

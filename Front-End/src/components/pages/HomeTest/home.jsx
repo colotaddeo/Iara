@@ -34,7 +34,7 @@ function Home() {
     //             <div className='banner' onClick={(e)=> {
     //                 setActive(!active)
     //             }}>
-    //                 <h1>Bienvenido Dr. Rizzo</h1>
+    //                 <h1>Hola Dr. Rizzo</h1>
     //                 <p>Nuestra mision es ayudarte</p>
     //             </div>
     //             <div>

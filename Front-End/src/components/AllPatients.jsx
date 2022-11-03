@@ -10,7 +10,8 @@ import "../components/AllPatients.css";
 import SearchIcon from "@mui/icons-material/Search";
 import PersonOffIcon from "./pages/landingPage/images/empty_user_icon.svg";
 import DeletePopUp from "./DeletePopUp";
-import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
+import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg";
+import NoneFoundWarning from "../assets/Warning_yellow.svg";
 
 const AllPatients = () => {
   const [active, setActive] = useState(false);
@@ -173,7 +174,7 @@ const AllPatients = () => {
         >
           {doctors.map((doctor) => (
             <div key={doctor.id}>
-              <h1>Bienvenido/a Dr/a. {doctor.apellido}</h1>
+              <h1>Hola Dr/a. {doctor.apellido}</h1>
               <p>Nuestra mision es ayudarte</p>
             </div>
           ))}
@@ -297,14 +298,28 @@ const AllPatients = () => {
                   </button>
                 </div>
               ) : (
-                <div className="no_rx_found">
-                  <h2>Este paciente aún no contiene ningún documento: </h2>
-                  <button
-                    onClick={() => navigate("/AddRadiography/" + selectedRx)}
-                    className="blandTransparantBtn"
-                  >
-                    Subir una radiografia
-                  </button>
+                <div className="hero_preview_image_wrapper">
+                  <div className="no_rx_found">
+                    <img src={NoneFoundWarning} alt="No patients Image" />
+                    <h1 className="hero_empty_p">DNI: <span className="iara_cyan">{selectedDni}</span></h1>
+                    <p className="hero_empty_p">
+                      Este paciente no tiene<br />
+                      radiografías para mostrar,<br />
+                      puedes subir una&nbsp;
+                      <span 
+                      className="hero_empty_p_cyan" 
+                      onClick={() => navigate("/AddRadiography/" + selectedRx)}>
+                        aquí
+                      </span>
+                    </p>
+                    
+                    {/* <button
+                      onClick={() => navigate("/AddRadiography/" + selectedRx)}
+                      className="blandTransparantBtn"
+                    >
+                      Subir una radiografia
+                    </button> */}
+                  </div>
                 </div>
               )}
             </div>

@@ -82,3 +82,7 @@ th:hover {
 .hero_empty_p_cyan:hover {
     cursor: pointer;
 }
+
+.recent_no_rx_found {
+    margin-top: 6vh;
+}

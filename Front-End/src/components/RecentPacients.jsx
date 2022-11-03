@@ -7,6 +7,7 @@ import { useImages } from "../hooks/useImages";
 import PersonOffIcon from "./pages/landingPage/images/empty_user_icon.svg";
 import DeletePopUp from "./DeletePopUp";
 import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
+import NoneFoundWarning from "../assets/Warning_yellow.svg";
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
@@ -203,14 +204,21 @@ const RecentPacients = () => {
                   </button>
                 </div>
               ) : (
-                <div className="no_rx_found hero_recent_preview">
-                  <h2>Este paciente aún no contiene ningún documento: </h2>
-                  <button
-                    onClick={() => navigate("/AddRadiography/" + selectedRx)}
-                    className="blandTransparantBtn"
-                  >
-                    Subir una radiografia
-                  </button>
+                <div className="hero_preview_image_wrapper recent_no_rx_found">
+                  <div className="no_rx_found">
+                    <img src={NoneFoundWarning} alt="No patients Image" />
+                    <h1 className="hero_empty_p">DNI: <span className="iara_cyan">{selectedDni}</span></h1>
+                    <p className="hero_empty_p">
+                      Este paciente no tiene<br />
+                      radiografías para mostrar,<br />
+                      puedes subir una&nbsp;
+                      <span 
+                      className="hero_empty_p_cyan" 
+                      onClick={() => navigate("/AddRadiography/" + selectedRx)}>
+                        aquí
+                      </span>
+                    </p>
+                  </div>
                 </div>
               )}
           </div>
