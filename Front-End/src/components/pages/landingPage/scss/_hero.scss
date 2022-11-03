@@ -78,11 +78,6 @@
     }  
 
     @media screen and (max-width: 1600px) {
-        &__image{
-            width: 500px;
-            height: 550px;
-        }
-
         &__text{
             h1{
                 font-size: 45px;
@@ -106,5 +101,12 @@
             padding-top: 5px;
             gap: 10px;
         }
+    }
+    @media screen and (min-width: 1601) {
+        &__image{
+            height: 1000px;
+            width: 1000px;
+            padding-right: 100px;
+        } 
     }
 }

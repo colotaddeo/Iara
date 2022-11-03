@@ -22,7 +22,7 @@ import logo_ort from './images/logo_ort.svg'
 import logo_muniz from './images/logo_muniz.svg'
 import logo_maimonides from './images/logo_maimonides.svg'
 import { useNavigate } from 'react-router-dom' 
-import elipse from './images/landingImage.svg'
+import elipse from './images/Ellipse.svg'
 
 const HomePage = () => {
 
