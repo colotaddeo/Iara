@@ -26,6 +26,8 @@ const AddRadiography = () => {
   const [active, setActive] = useState(false);
   const [index, setIndex] = useState(0);
   const [openModel, setOpenModel] = useState(false);
+  const [openloading, setOpenloading] = useState(false);
+  
   let i = 0;
   useEffect(() => {
     loadImages(id);
@@ -68,6 +70,7 @@ const AddRadiography = () => {
                   console.log(values);
                   uploadImage(id, values);
                   setIndex(images.length);
+                  setOpenloading(true);
                   console.log(images.length);
                   console.log("images", images);
                 }}
@@ -173,6 +176,7 @@ const AddRadiography = () => {
                   onSubmit={(values, actions) => {
                     console.log(values);
                     uploadImage(id, values, setIndex);
+                    setOpenloading(true)
                   }}
                 >
                   {({ handleChange, handleSubmit, setFieldValue }) => (
@@ -205,7 +209,10 @@ const AddRadiography = () => {
                   )}
                 </Formik>
 
-                <div key={images[index]?.id} className="image_wrapper">
+                {openloading && <h1>HOLA</h1>}
+
+
+                <div key={images[index]?.id} className="image_wrapper" setOpenloading={false}>
                   <div className="image_wrapper_items">
                     <div className="image_wrapper_predictions">
                       <h3>
