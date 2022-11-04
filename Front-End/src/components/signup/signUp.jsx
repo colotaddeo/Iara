@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./signUp.css";
 import Imagen from "../.././assets/Doctora1.png";
 import { Link, Navigate } from "react-router-dom";
@@ -14,7 +14,6 @@ import Select from "../Select";
 import { useNavigate } from "react-router-dom";
 
 const signUp = () => {
-
   // const [hospital, sethospital] = useState("");
 
   // const handleChangehospital = (event) => {
@@ -22,6 +21,8 @@ const signUp = () => {
   //   console.log(event.target.value);
   // };
 
+  const errRef = useRef();
+  const [errMsg, setErrMsg] = useState("");
 
   const valoresIniciales = {
     firstName: "",
@@ -63,23 +64,33 @@ const signUp = () => {
   });
 
   const fetchAxios = async (valoresIniciales) => {
-    const response = await axios.post("/user/signup", valoresIniciales);
+    try {
+      const response = await axios.post("/user/signup", valoresIniciales);
 
-    navigate("/login")
+      navigate("/login");
 
-    console.log(response);
+      console.log(response);
+    } catch (err) {
+      if (err.response.status === 409) {
+        setErrMsg("El usuario ya existe");
+      }else {
+        setErrMsg("El servidor no ha podido responder");
+      }
+      errRef.current.focus();
+    }
   };
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <div className="all-container" >
+    <div className="all-container">
       <div className="imagen">
         <img src={Imagen} alt="IMagen ilustrativa" />
       </div>
 
       <div className="form">
         <h2>Registro</h2>
+        <p ref={errRef}>{errMsg}</p>
 
         <Formik
           initialValues={valoresIniciales}
@@ -89,48 +100,51 @@ const signUp = () => {
             alert("Los datos han sido enviados exitosamente");
             console.log(valoresIniciales);
             formikHelpers.resetForm();
-            navigate('/login')
+            navigate("/login");
           }}
         >
           {({ errors, isValid, touched, dirty }) => (
             <Form>
-              <div className="nombre_apellido" sx={{
-                w: '100%',
-                mb: 2,
-                }}>
-              <Field
-                id="firstName"
-                name="firstName"
-                type="text"
-                as={TextField}
-                variant="outlined"
-                color="primary"
-                label="Nombre"
-                error={Boolean(errors.firstName) && Boolean(touched.firstName)}
-                helperText={Boolean(touched.firstName) && errors.firstName}
-                className="input__signup"
-              />
-              
-              
-              <Field
+              <div
+                className="nombre_apellido"
                 sx={{
-                  ml: 2,
+                  w: "100%",
                   mb: 2,
                 }}
-                id="lastName"
-                 name="lastName"
-                 type="text"
+              >
+                <Field
+                  id="firstName"
+                  name="firstName"
+                  type="text"
                   as={TextField}
-                variant="outlined"
-                color="primary"
-                label="Apellido"
-                size="normal"
-                error={Boolean(errors.lastName) && Boolean(touched.lastName)}
-                helperText={Boolean(touched.lastName) && errors.lastName}
-                className="input__signup"
-               />
-               </div>
-              
+                  variant="outlined"
+                  color="primary"
+                  label="Nombre"
+                  error={
+                    Boolean(errors.firstName) && Boolean(touched.firstName)
+                  }
+                  helperText={Boolean(touched.firstName) && errors.firstName}
+                  className="input__signup"
+                />
+
+                <Field
+                  sx={{
+                    ml: 2,
+                    mb: 2,
+                  }}
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  as={TextField}
+                  variant="outlined"
+                  color="primary"
+                  label="Apellido"
+                  size="normal"
+                  error={Boolean(errors.lastName) && Boolean(touched.lastName)}
+                  helperText={Boolean(touched.lastName) && errors.lastName}
+                  className="input__signup"
+                />
+              </div>
 
               <Field
                 sx={{
@@ -187,16 +201,18 @@ const signUp = () => {
                 }
                 className="input__signup"
               />
-               <div className="nombre_apellido">
-               <FormControl
-                sx={{
-                  my: 2,
-                  minWidth: 0.45,
-                }}
-              >
-                <Select name="HospitalEmail" label="Hospital correspondiente" />
-
-                </FormControl> 
+              <div className="nombre_apellido">
+                <FormControl
+                  sx={{
+                    my: 2,
+                    minWidth: 0.45,
+                  }}
+                >
+                  <Select
+                    name="HospitalEmail"
+                    label="Hospital correspondiente"
+                  />
+                </FormControl>
                 <Field
                   sx={{
                     ml: 2,
@@ -231,11 +247,12 @@ const signUp = () => {
           )}
         </Formik>
 
-        <div className="button-container" className='flex flex-jc-r's>
-        <h4>¿Ya tenes cuenta?&nbsp;
-          <Link to="/login"  >
-            <span className='login__subtext_cyan'>Ingresá</span>
-          </Link>
+        <div className="button-container" className="flex flex-jc-r" s>
+          <h4>
+            ¿Ya tenes cuenta?&nbsp;
+            <Link to="/login">
+              <span className="login__subtext_cyan">Ingresá</span>
+            </Link>
           </h4>
         </div>
       </div>

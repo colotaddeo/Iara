@@ -6,8 +6,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useImages } from "../hooks/useImages";
 import PersonOffIcon from "./pages/landingPage/images/empty_user_icon.svg";
 import DeletePopUp from "./DeletePopUp";
-import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
-import NoneFoundWarning from "../assets/Warning_yellow.svg";
+import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg";
+import Previsualizacion from "./Previsualizacion";
 
 import Navbar from "./Navbar";
 const RecentPacients = () => {
@@ -19,27 +19,27 @@ const RecentPacients = () => {
     doctors,
     getImageById,
     images,
-    pId
+    pId,
   } = useImages();
   const [active, setActive] = useState(false);
   const navigate = useNavigate();
 
-  const [openModel, setOpenModel] = useState(false)
-  const [patientId, setPatientId] = useState("")
+  const [openModel, setOpenModel] = useState(false);
+  const [patientId, setPatientId] = useState("");
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [clicked, setClicked] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-    loadRecentPatients()
-      .then(() => {
-        setLoading(false);
-      })
+    loadRecentPatients().then(() => {
+      setLoading(false);
+    });
     getUserInfo();
   }, []);
 
-  if(loading){
+  if (loading) {
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
@@ -58,11 +58,11 @@ const RecentPacients = () => {
             ))}
           </div>
         </div>
-      </div>  
-    )
+      </div>
+    );
   }
 
-  if (patients.length === 0){
+  if (patients.length === 0) {
     return (
       <div className="main_container">
         <Navbar active={active} current="Recientes" />
@@ -84,14 +84,18 @@ const RecentPacients = () => {
             <h1>Recientes</h1>
             <div className="hero_recent_empty">
               <div className="hero_empty_icon">
-                <img src={PersonOffIcon}
-                  width={150}>
-                </img>
+                <img src={PersonOffIcon} width={150}></img>
               </div>
               <p className="hero_empty_p">
                 Aún no hay pacientes registrados, <br />
-                puedes registrarlos <span className="hero_empty_p_cyan" onClick={() => navigate("/AllPatients/")}>aquí</span>
-                </p>
+                puedes registrarlos{" "}
+                <span
+                  className="hero_empty_p_cyan"
+                  onClick={() => navigate("/AllPatients/")}
+                >
+                  aquí
+                </span>
+              </p>
             </div>
           </div>
         </div>
@@ -116,58 +120,67 @@ const RecentPacients = () => {
           ))}
         </div>
         <div className="hero_container">
-            <div className="hero_elements">
-              <div className="hero_recentTable">
-                <div className="table-wrapper">
-                  <h1>Recientes</h1>
-                  <table className="tabla">
-                    <thead>
-                      <tr>
-                        <th>DNI</th>
-                        <th>Fecha de creación</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                    {patients.map((patient) => (
-                      <tr 
-                        key={patient.id} 
-                        onClick={() => {
-                          setSelected(patient.id);
-                          setDni(patient.DNI);
-                          getImageById(patient.id)
-                        }}
-                        onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
-                      >
-                        <td>
-                          <a>{patient.DNI}</a>
-                        </td>
-                        <td>
-                          <a>{patient.createdAt} </a>
-                        </td>
-                        <td>
+          <div className="hero_elements">
+            <div className="hero_recentTable">
+              <div className="table-wrapper">
+                <h1>Recientes</h1>
+                <table className="tabla">
+                  <thead>
+                    <tr>
+                      <th>DNI</th>
+                      <th>Fecha de creación</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  {patients.map((patient) => (
+                    <tr
+                      key={patient.id}
+                      onClick={() => {
+                        setSelected(patient.id);
+                        setDni(patient.DNI);
+                        getImageById(patient.id);
+                        setClicked(true)
+
+                      }}
+                      onDoubleClick={() =>
+                        navigate("/AddRadiography/" + selectedRx)
+                      }
+                    >
+                      <td>
+                        <a>{patient.DNI}</a>
+                      </td>
+                      <td>
+                        <a>{patient.createdAt} </a>
+                      </td>
+                      <td>
                         <DeleteIcon
                           onClick={() => {
                             setOpenModel(true);
-                            setPatientId(patient.id)
+                            setPatientId(patient.id);
                           }}
                           className="btn_delete"
                         ></DeleteIcon>
-                        </td>
-                      </tr>
-                    ))}
-                  </table>
-                  <button className="blandBtn" onClick={() => navigate("/AllPatients")}>
-                    Ver listado de todos los pacientes
-                  </button>
-                  {openModel &&
-                  <DeletePopUp 
-                    setOpenModel={setOpenModel} 
-                    patientId= {patientId} 
+                      </td>
+                    </tr>
+                  ))}
+                </table>
+                <button
+                  className="blandBtn"
+                  onClick={() => navigate("/AllPatients")}
+                >
+                  Ver listado de todos los pacientes
+                </button>
+                {openModel && (
+                  <DeletePopUp
+                    setOpenModel={setOpenModel}
+                    patientId={patientId}
                     DeleteWarning={DeleteWarning}
-                  />} 
-                </div>
+                  />
+                )}
               </div>
-            {images?.length ? (
+            </div>
+            {clicked && <Previsualizacion selectedDni={selectedDni} images={images} patientId={selectedRx} /> }
+            {/* {images?.length ? (
               <div className="hero_preview_image_wrapper hero_recent_preview">
                 <div className="hero_ultima_prediccion">
                 {images.map((image) => (
@@ -220,7 +233,7 @@ const RecentPacients = () => {
                     </p>
                   </div>
                 </div>
-              )}
+              )} */}
           </div>
         </div>
       </div>

@@ -12,11 +12,14 @@ import PersonOffIcon from "./pages/landingPage/images/empty_user_icon.svg";
 import DeletePopUp from "./DeletePopUp";
 import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg";
 import NoneFoundWarning from "../assets/Warning_yellow.svg";
+import Previsualizacion from "./Previsualizacion";
 
 const AllPatients = () => {
   const [active, setActive] = useState(false);
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
+  const [clicked, setClicked] = useState(false);
+
 
   const [loading, setLoading] = useState(true);
 
@@ -210,6 +213,7 @@ const AllPatients = () => {
                           setSelected(patient.id);
                           setDni(patient.DNI);
                           getImageById(patient.id);
+                          setClicked(true)
                         }}
                         onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
                       >
@@ -261,7 +265,8 @@ const AllPatients = () => {
                   )}
                 </Formik>
               </div>
-              {images?.length ? (
+              {clicked && <Previsualizacion selectedDni={selectedDni} images={images} patientId={selectedRx} /> }
+              {/* {images?.length ? (
                 <div className="hero_preview_image_wrapper">
                   <div className="hero_ultima_prediccion">
                     {images.map((image) => (
@@ -313,15 +318,15 @@ const AllPatients = () => {
                       </span>
                     </p>
                     
-                    {/* <button
+                     <button
                       onClick={() => navigate("/AddRadiography/" + selectedRx)}
                       className="blandTransparantBtn"
                     >
                       Subir una radiografia
-                    </button> */}
+                    </button> 
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>

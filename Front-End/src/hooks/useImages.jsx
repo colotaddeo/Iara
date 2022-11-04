@@ -54,7 +54,8 @@ export const useImages = () => {
 
       console.log(response.data);
       console.log(response);
-      setPatient([...patients, response.data]);
+      // setPatient([...patients, response.data]);
+      setPatient([response.data, ...patients])
 
       return response.data;
     } catch (error) {
