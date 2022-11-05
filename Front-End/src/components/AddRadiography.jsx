@@ -7,6 +7,7 @@ import Navbar from "./Navbar";
 import DeleteIcon from "@mui/icons-material/Delete";
 import "./addRadiography.css";
 import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg"
+import LoadingIcon from "../assets/loading-icon.gif"
 
 const AddRadiography = () => {
   const [active_rx, setActive_rx] = useState("");
@@ -27,6 +28,7 @@ const AddRadiography = () => {
   const [index, setIndex] = useState(0);
   const [openModel, setOpenModel] = useState(false);
   const [openloading, setOpenloading] = useState(false);
+  const [imgLength, setImgLength] = useState([]);
   
   let i = 0;
   useEffect(() => {
@@ -38,6 +40,7 @@ const AddRadiography = () => {
   const filename_ref = useRef("");
 
   console.log(images);
+
   if (images.length === 0)
     return (
       <div className="main_container">
@@ -176,7 +179,8 @@ const AddRadiography = () => {
                   onSubmit={(values, actions) => {
                     console.log(values);
                     uploadImage(id, values, setIndex);
-                    setOpenloading(true)
+                    setOpenloading(true);
+                    setImgLength(images.length);
                   }}
                 >
                   {({ handleChange, handleSubmit, setFieldValue }) => (
@@ -208,8 +212,20 @@ const AddRadiography = () => {
                     </Form>
                   )}
                 </Formik>
-
-                {openloading && <h1>HOLA</h1>}
+                
+                {
+                  openloading && images.length === imgLength && 
+                  <div>
+                    <div className="blur-backdrop"></div>
+                    <div>
+                      <img 
+                        className="upload-loading-icon" 
+                        src={LoadingIcon} 
+                        alt="loading"
+                        width={200}/>
+                    </div>
+                  </div>
+                }
 
 
                 <div key={images[index]?.id} className="image_wrapper" setOpenloading={false}>

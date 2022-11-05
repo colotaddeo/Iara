@@ -67,7 +67,7 @@ const LogIn = () => {
       navigate("/Home");
     } catch (err) {
       if (err.response.status === 404) {
-        setErrMsg("El usuario no existe");
+        setErrMsg("El email no es válido");
       }else if (err.response.status === 401){
         setErrMsg("La contraseña no es válida");
       }
