@@ -74,6 +74,7 @@ const AddRadiography = () => {
                   uploadImage(id, values);
                   setIndex(images.length);
                   setOpenloading(true);
+                  setImgLength(images.length);
                   console.log(images.length);
                   console.log("images", images);
                 }}
@@ -107,6 +108,21 @@ const AddRadiography = () => {
                 </Form>
                 )}
               </Formik>
+
+              {
+                  openloading && images.length === imgLength && 
+                  <div>
+                    <div className="blur-backdrop"></div>
+                    <div>
+                      <img 
+                        className="upload-loading-icon" 
+                        src={LoadingIcon} 
+                        alt="loading"
+                        width={200}/>
+                    </div>
+                  </div>
+                }
+
               <p className="hero_empty_p">
                 No hay imágenes registradas, <br />
                 si las hubiesen aparecerían aquí
