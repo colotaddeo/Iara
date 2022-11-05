@@ -82,7 +82,7 @@ const LogIn = () => {
     <div className="login-container">
       <div className="form-login">
         <h2 className="titulo__login">Inicio de sesión</h2>
-        <p ref={errRef}>{errMsg}</p>
+        <p className="login_error" ref={errRef}>{errMsg}</p>
         <Formik
           validationSchema={validationSchema}
           initialValues={valoresIniciales}

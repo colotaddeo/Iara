@@ -119,6 +119,11 @@
     color: #01ADB4;
 }
 
+.login_error {
+    color: red;
+    font-style: italic;
+}
+
 @media screen and (max-width:900px) {
     #imagen__login{
         width: 45vw;
