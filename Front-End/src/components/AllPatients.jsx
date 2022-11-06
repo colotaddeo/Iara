@@ -44,7 +44,7 @@ const AllPatients = () => {
     getUserInfo();
   }, []);
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("SOMOSNUEVE");
   const [openModel, setOpenModel] = useState(false)
   const [patientId, setPatientId] = useState("")
 
@@ -63,7 +63,7 @@ const AllPatients = () => {
     }
   };
 
-  if(loading){
+  if(loading && search === "SOMOSNUEVE"){
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
@@ -86,7 +86,7 @@ const AllPatients = () => {
     )
   }
 
-  if (patients.length === 0) {
+  if (patients.length === 0 && search === "SOMOSNUEVE") {
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
@@ -194,7 +194,6 @@ const AllPatients = () => {
                   type="text"
                   onChange={(e) => setSearch(e.target.value)}
                 />
-                {/* <SearchIcon className="btn_search" onClick={SearchPatient}></SearchIcon> */}
               </div>
               <div className="tablaWrapper">
                 <div className="table-wrapper">

@@ -244,7 +244,7 @@ const AddRadiography = () => {
                 }
 
 
-                <div key={images[index]?.id} className="image_wrapper" setOpenloading={false}>
+                <div key={images[index]?.id} className="image_wrapper">
                   <div className="image_wrapper_items">
                     <div className="image_wrapper_predictions">
                       <h3>
@@ -266,18 +266,10 @@ const AddRadiography = () => {
                         </span>
                       </h3>
                     </div>
-                    {/* <DeleteIcon
-                      onClick={() => {
-                        deleteImage(id, images[index].id);
-                        if (index != 0) setIndex(index - 1);
-                      }}
-                      className="btn_delete"
-                    >
-                      Delete
-                    </DeleteIcon> */}
                     <DeleteIcon
                       onClick={() => {
                         setOpenModel(true);
+                        setOpenloading(false);
                       }}
                       className="btn_delete"
                     >
