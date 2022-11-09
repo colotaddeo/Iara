@@ -13,7 +13,6 @@ import instagram_logo from './images/instagram_logo.svg'
 import mail_logo from './images/mail_logo.svg'
 import twitter_logo from './images/twitter_logo.svg'
 import man_with_rx from './images/man_with_rx.jpg'
-import marie_curie from './images/marie_test_about.svg'
 import precision_computarizada from './images/precision_computarizada.svg'
 import velocidad_de_analisis from './images/velocidad_de_analisis.svg'
 import de_uso_gratuito from './images/de_uso_gratuito.svg'
@@ -23,6 +22,17 @@ import logo_muniz from './images/logo_muniz.svg'
 import logo_maimonides from './images/logo_maimonides.svg'
 import { useNavigate } from 'react-router-dom' 
 import elipse from './images/Ellipse.svg'
+
+//Our landing pictures
+import juli_image from './images/juli.jpg'
+import facu_image from './images/facu.jpg'
+import caro_image from './images/caro.jpg'
+import luis_image from './images/luis.jpg'
+import dani_image from './images/dani.jpg'
+import choue_image from './images/choue.jpg'
+import benza_image from './images/benza.jpg'
+import taddeo_image from './images/taddeo.jpg'
+import vin_image from './images/vin.jpg'
 
 const HomePage = () => {
 
@@ -153,63 +163,63 @@ const HomePage = () => {
         <div class="about__image_cards">
             <a href="https://www.instagram.com/facuvazquezz._/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                  <img src={marie_curie} alt="marie_test_about"></img>
+                  <img src={facu_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Facundo Vazquez<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/vpalonsky/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={vin_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Vincenzo Palonsky<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/dwu0501/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={dani_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Daniel Wu<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/gonbenzaquen/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={benza_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Gonzalo Benzaquen<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/julikova_/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={juli_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Julieta Kovalivker<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/luisaugustoembon/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={luis_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Luis Embon<br></br>
               <span class="about__nameTag">&#60;Back-End developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/nicotaddeo_/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={taddeo_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Nicolás Taddeo<br></br>
               <span class="about__nameTag">&#60;Front-End developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/andres.chouela/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={choue_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Andrés Chouela<br></br>
               <span class="about__nameTag">&#60;Front-End developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/caro.orbuch/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={caro_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Carola Orbuch<br></br>
               <span class="about__nameTag">&#60;UX/UI designer/&#62;</span></h4>

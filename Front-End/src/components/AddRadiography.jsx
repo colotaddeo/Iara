@@ -291,7 +291,7 @@ const AddRadiography = () => {
                       <img src={DeleteWarning} alt="DeleteWarning" />
                       <p>
                         Estas a punto de eliminar una radiografía del historial<br />
-                        de un paciente. Esta acción es <span className="iara_cyan"> IRREVERSIBLE</span>
+                        de un paciente. Esta acción es Irreversible
                       </p>
                       
                       <div className="deletePopUp_buttons">
