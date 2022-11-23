@@ -1,321 +1,263 @@
-import React, {useState} from 'react'
-import './signUp.css'
-import Imagen from '../.././assets/Doctora1.png'
-import {Link} from 'react-router-dom';
-import {Formik, Form, Field} from 'formik';
-import { TextField, Button} from "@mui/material";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { styled } from '@mui/system';
-import * as Yup from 'yup'
-import axios from 'axios';
+import React, { useState, useEffect, useRef } from "react";
+import "./signUp.css";
+import Imagen from "../.././assets/Doctora1.png";
+import { Link, Navigate } from "react-router-dom";
+import { Formik, Form, Field } from "formik";
+import { TextField, Button } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import { styled } from "@mui/system";
+import * as Yup from "yup";
+import axios from "../../api/axios";
+import Select from "../Select";
+import { useNavigate } from "react-router-dom";
 
-
-const valoresIniciales = {
-  nombre: '',
-  apellido:'',
-  email: '',
-  contraseña: '',
-  confirmarContraseña: '',
-  hospital: '-1',
-}
 const signUp = () => {
-  
+  // const [hospital, sethospital] = useState("");
 
-  const validationSchema =  Yup.object({
-
-    nombre: Yup.string()
-      .required('Campo obligatorio')
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!'),
-
-    apellido: Yup.string()
-      .required('Campo obligatorio')
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!'),
-
-    email: Yup.string()
-      .required('Campo obligatorio')
-      .email('Email inválido'),
-
-    contraseña: Yup.string()
-      .required('Campo obligatorio')
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!'),
-
-    confirmarContraseña: Yup.string()
-      .required('Campo obligatorio')
-      .oneOf([Yup.ref("contraseña")], "Las contraseñas no coinciden"),
-
-    hospital: Yup.string()
-      .required('Campo obligatorio'),
-
-    matricula: Yup.string()
-      .required('Campo obligatorio')
-      .min(2, 'Too Short!')
-      .max(50, 'Too Long!')
-  })
-
-  const fetchAxios = (valoresIniciales) => {
-
-
-    axios.post("http://localhost:4000/user/signin",{
-
-      body: JSON.stringify(valoresIniciales),
-      headers: {"Content-Type" : "application/json" }
-
-    })
-
-    .catch(error => console.log("Error", error))
-    .then(response => console.log(response))
-  }
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...valoresIniciales, [prop]: event.target.valoresIniciales });
-  };
-
-  // const handleClickShowPassword = () => {
-  //   setValues({
-  //     ...valoresIniciales,
-  //     showPassword: !valoresIniciales.showPassword,
-  //   });
+  // const handleChangehospital = (event) => {
+  //   sethospital(event.target.value);
+  //   console.log(event.target.value);
   // };
 
-  // const handleMouseDownPassword = (event) => {
-  //   event.preventDefault();
-  // };
+  const errRef = useRef();
+  const [errMsg, setErrMsg] = useState("");
 
-  const [hospital, sethospital] = React.useState('');
-
-  const handleChangehospital = (event) => {
-    sethospital(event.target.value);
+  const valoresIniciales = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    doctorId: "",
   };
 
+  const validationSchema = Yup.object({
+    firstName: Yup.string()
+      .required("Campo obligatorio")
+      .min(2, "Too Short!")
+      .max(50, "Too Long!"),
+
+    lastName: Yup.string()
+      .required("Campo obligatorio")
+      .min(2, "Too Short!")
+      .max(50, "Too Long!"),
+
+    email: Yup.string().required("Campo obligatorio").email("Email inválido"),
+
+    password: Yup.string()
+      .required("Campo obligatorio")
+      .min(2, "Too Short!")
+      .max(50, "Too Long!"),
+
+    confirmPassword: Yup.string()
+      .required("Campo obligatorio")
+      .oneOf([Yup.ref("password")], "Las passwords no coinciden"),
+
+    //HospitalEmail: Yup.string().required("Campo obligatorio"),
+
+    doctorId: Yup.string()
+      .required("Campo obligatorio")
+      .min(2, "Too Short!")
+      .max(50, "Too Long!"),
+  });
+
+  const fetchAxios = async (valoresIniciales) => {
+    try {
+      const response = await axios.post("/user/signup", valoresIniciales);
+
+      navigate("/login");
+
+      console.log(response);
+    } catch (err) {
+      if (err.response.status === 409) {
+        setErrMsg("El usuario ya existe");
+      }else {
+        setErrMsg("El servidor no ha podido responder");
+      }
+      errRef.current.focus();
+    }
+  };
+
+  const navigate = useNavigate();
 
   return (
     <div className="all-container">
-
-      <div className='imagen'>
-
+      <div className="imagen">
         <img src={Imagen} alt="IMagen ilustrativa" />
-
       </div>
 
       <div className="form">
-        
         <h2>Registro</h2>
+        <p ref={errRef}>{errMsg}</p>
 
-        <Formik 
-
+        <Formik
           initialValues={valoresIniciales}
           validationSchema={validationSchema}
           onSubmit={(valoresIniciales) => {
-
-            fetchAxios(valoresIniciales); 
-            alert('Los datos han sido enviados exitosamente');
-            console.log(valoresIniciales.json);
+            fetchAxios(valoresIniciales);
+            alert("Los datos han sido enviados exitosamente");
+            console.log(valoresIniciales);
             formikHelpers.resetForm();
-
-
+            navigate("/login");
           }}
-
         >
           {({ errors, isValid, touched, dirty }) => (
+            <Form>
+              <div
+                className="nombre_apellido"
+                sx={{
+                  w: "100%",
+                  mb: 2,
+                }}
+              >
+                <Field
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  as={TextField}
+                  variant="outlined"
+                  color="primary"
+                  label="Nombre"
+                  error={
+                    Boolean(errors.firstName) && Boolean(touched.firstName)
+                  }
+                  helperText={Boolean(touched.firstName) && errors.firstName}
+                  className="input__signup"
+                />
 
-          <Form>
-            
-            <Field
-              
-              sx={{
-                mb:2,
-              }}
+                <Field
+                  sx={{
+                    ml: 2,
+                    mb: 2,
+                  }}
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  as={TextField}
+                  variant="outlined"
+                  color="primary"
+                  label="Apellido"
+                  size="normal"
+                  error={Boolean(errors.lastName) && Boolean(touched.lastName)}
+                  helperText={Boolean(touched.lastName) && errors.lastName}
+                  className="input__signup"
+                />
+              </div>
 
-              id="nombre"
-              name="nombre"
-              type="text"
-              as={TextField}
-              variant="outlined"
-              color="primary"
-              label="Nombre"
-              error={Boolean(errors.nombre) && Boolean(touched.nombre)}
-              helperText={Boolean(touched.nombre) && errors.nombre}
-              className="input__signup"
-              
-            />
-
-            <Field
-              
-              sx={{
-                mx:2
-              }}
-
-              id="apellido"
-              name="apellido"
-              type="text"
-              as={TextField}
-              variant="outlined"
-              color="primary"
-              label="Apellido"
-              size="normal"
-              error={Boolean(errors.apellido) && Boolean(touched.apellido)}
-              helperText={Boolean(touched.apellido) && errors.apellido}
-              className="input__signup"
-            />
-
-            <Field
-
-              sx={{
-                minWidth: 0.92,
-                my: 2
-              }}
-
-              id="email"
-              name="email"
-              type="email"
-              className="input__signup"
-              as={TextField}
-              variant="outlined"
-              color="primary"
-              label="Email"
-
-              error={Boolean(errors.email) && Boolean(touched.email)}
-              helperText={Boolean(touched.email) && errors.email}
-            />
-
-            <Field
-
-              sx={{
-                minWidth: 0.92,
-                my:2
-              }}
-
-              id="contraseña"
-              name="contraseña"
-              type="password"
-              as={TextField}
-              variant="outlined"
-              color="primary"
-              label="Contraseña"
-              size="normal"
-              error={Boolean(errors.contraseña) && Boolean(touched.contraseña)}
-              helperText={Boolean(touched.contraseña) && errors.contraseña}
-              className="input__signup"
-
-            />
-
-            
-            {/* <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-              <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                type={valoresIniciales.showPassword ? 'text' : 'password'}
-                value={valoresIniciales .password}
-                onChange={handleChange('password')}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label="toggle password visibility"
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      edge="end"
-                    >
-                      {valoresIniciales.showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Password"
-              />
-            </FormControl> */}
-
-            <Field
-
-              sx={{
-                minWidth: 0.92,
-                my: 2
-              }}
-
-              id="confirmarContraseña"
-              name="confirmarContraseña"
-              type="password"
-              as={TextField}
-              variant="outlined"
-              color="primary"
-              label="Confirmar contraseña"
-              error={Boolean(errors.confirmarContraseña) && Boolean(touched.confirmarContraseña)}
-              helperText={Boolean(touched.confirmarContraseña) && errors.confirmarContraseña}
-              className="input__signup"
-              
-            />
-
-            <FormControl 
-            
-              sx={{ 
-                my: 2, 
-                minWidth: 0.45
-              }}>
-              <InputLabel id="hospital">Hospital Asociado</InputLabel>
-              <Select
-                id="hospital"
-                value= {hospital}
-                label="Hospital Asociado"
-                autoWidth
-                onChange={handleChangehospital}
+              <Field
+                sx={{
+                  minWidth: 1,
+                  my: 2,
+                }}
+                id="email"
+                name="email"
+                type="email"
+                className="input__signup"
+                as={TextField}
+                variant="outlined"
+                color="primary"
+                label="Email"
                 error={Boolean(errors.email) && Boolean(touched.email)}
                 helperText={Boolean(touched.email) && errors.email}
+              />
+
+              <Field
+                sx={{
+                  minWidth: 1,
+                  my: 2,
+                }}
+                id="password"
+                name="password"
+                type="password"
+                as={TextField}
+                variant="outlined"
+                color="primary"
+                label="Contraseña"
+                size="normal"
+                error={Boolean(errors.password) && Boolean(touched.password)}
+                helperText={Boolean(touched.password) && errors.password}
+                className="input__signup"
+              />
+              <Field
+                sx={{
+                  minWidth: 1,
+                  my: 2,
+                }}
+                id="confirmPassword"
+                name="confirmPassword"
+                type="password"
+                as={TextField}
+                variant="outlined"
+                color="primary"
+                label="Confirmar contraseña"
+                error={
+                  Boolean(errors.confirmPassword) &&
+                  Boolean(touched.confirmPassword)
+                }
+                helperText={
+                  Boolean(touched.confirmPassword) && errors.confirmPassword
+                }
+                className="input__signup"
+              />
+              <div className="nombre_apellido">
+                <FormControl
+                  sx={{
+                    my: 2,
+                    minWidth: 0.45,
+                  }}
+                >
+                  <Select
+                    name="HospitalEmail"
+                    label="Hospital correspondiente"
+                  />
+                </FormControl>
+                <Field
+                  sx={{
+                    ml: 2,
+                    my: 2,
+                  }}
+                  id="doctorId"
+                  name="doctorId"
+                  type="text"
+                  as={TextField}
+                  variant="outlined"
+                  color="primary"
+                  label="Matrícula"
+                  error={Boolean(errors.doctorId) && Boolean(touched.doctorId)}
+                  helperText={Boolean(touched.doctorId) && errors.doctorId}
+                  className="input__signup"
+                />
+              </div>
+
+              <Button
+                sx={{
+                  display: "block",
+                  minWidth: 1,
+                }}
+                variant="contained"
+                type="submit"
+                size="large"
+                disabled={!dirty || !isValid}
               >
-                <MenuItem value="muñiz">Muñiz</MenuItem>
-                <MenuItem value="umai">umai</MenuItem>
-                <MenuItem value="{30}">Thirty</MenuItem>
-              </Select>
-            </FormControl>
-
-            <Field
-
-              sx={{
-                mx:2,
-                my:2
-              }}
-
-              id="matricula"
-              name="matricula"
-              type="text"
-              as={TextField}
-              variant="outlined"
-              color="primary"
-              label="Matrícula"
-              error={Boolean(errors.contraseña) && Boolean(touched.contraseña)}
-              helperText={Boolean(touched.contraseña) && errors.contraseña}
-              className="input__signup"
-
-            />
-
-            <Button
-              sx={{
-                display: 'block',
-                minWidth:0.92
-              }}
-              variant="contained"
-              type="submit"
-              size="large"
-              disabled={!dirty || !isValid}
-            >
-              Continuar
-            </Button>
-            
-          </Form>
+                Continuar
+              </Button>
+            </Form>
           )}
-
         </Formik>
 
-        <div className='button-container'>
-        <Link to= '/login' className='login-button'>¿Ya tenes cuenta? <span>Ingresá</span></Link>
+        <div className="button-container" className="flex flex-jc-r" s>
+          <h4>
+            ¿Ya tenes cuenta?&nbsp;
+            <Link to="/login">
+              <span className="login__subtext_cyan">Ingresá</span>
+            </Link>
+          </h4>
         </div>
-
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default signUp
+export default signUp;

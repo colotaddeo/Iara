@@ -7,11 +7,12 @@ import './scss/style.css'
 
 //Images
 import logoIara from './images/logoTxt.svg'
-import landingImage from './images/landingImage.svg'
+import landingImage from './images/landing_image.svg'
 import herramienta_complementaria from './images/herramienta_complementaria.svg'
 import instagram_logo from './images/instagram_logo.svg'
+import mail_logo from './images/mail_logo.svg'
+import twitter_logo from './images/twitter_logo.svg'
 import man_with_rx from './images/man_with_rx.jpg'
-import marie_curie from './images/marie_test_about.svg'
 import precision_computarizada from './images/precision_computarizada.svg'
 import velocidad_de_analisis from './images/velocidad_de_analisis.svg'
 import de_uso_gratuito from './images/de_uso_gratuito.svg'
@@ -20,6 +21,18 @@ import logo_ort from './images/logo_ort.svg'
 import logo_muniz from './images/logo_muniz.svg'
 import logo_maimonides from './images/logo_maimonides.svg'
 import { useNavigate } from 'react-router-dom' 
+import elipse from './images/Ellipse.svg'
+
+//Our landing pictures
+import juli_image from './images/juli.jpg'
+import facu_image from './images/facu.jpg'
+import caro_image from './images/caro.jpg'
+import luis_image from './images/luis.jpg'
+import dani_image from './images/dani.jpg'
+import choue_image from './images/choue.jpg'
+import benza_image from './images/benza.jpg'
+import taddeo_image from './images/taddeo.jpg'
+import vin_image from './images/vin.jpg'
 
 const HomePage = () => {
 
@@ -47,12 +60,12 @@ const HomePage = () => {
           </div>
 
           <div class="nav__button">
-            <button type="submit" class="cyanBtn">Ir a Mi Escritorio</button>
+            <button onClick={() => navigate('/login')} type="submit" class="cyanBtn">Iniciar Sesión</button>
           </div>
         </nav>
       </header>
       <section id="hero"class="hero">
-        <div class="hero__image flex flex-jc-r">
+        <div class="hero__image flex">
             <img src={landingImage} alt="landingImage"/>
         </div>
 
@@ -125,72 +138,88 @@ const HomePage = () => {
           </div>
         </div>
       </section>
+      <section id = "nueva_era" class="era">
+        <div class="era__text">
+          <div className="era__titulo">
+            <h2>Una nueva era de
+            <br />  
+            <span class="era__azul">medicina avanzada</span></h2>
+            <br />
+          </div>
+          <p>IARA es una herramienta para el médico especialista encargado
+          <br></br>de diagnosticar a una persona. <br></br>
+          Gracias a su gran desarrollo en materia de <span class="color__cyan">Inteligencia Artificial</span>, <br></br>
+          logra una predicción certera casi inmediata para brindar una <br></br>
+          segunda opinión que podría salvar la vida de una persona.</p>
+        </div>
+        <div class="era__image">
+          <img src={elipse} alt="elipse_nueva_era"/>
+        </div>
+      </section>
       <section id = "about_us" class="about">
         <div class="about__team_card">
             <a>Conocé al<br></br>equipo de IARA</a>
         </div>
-        <div class="about__image_cards about__top_row">
+        <div class="about__image_cards">
             <a href="https://www.instagram.com/facuvazquezz._/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                  <img src={marie_curie} alt="marie_test_about"></img>
+                  <img src={facu_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Facundo Vazquez<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/vpalonsky/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={vin_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Vincenzo Palonsky<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/dwu0501/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={dani_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Daniel Wu<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/gonbenzaquen/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={benza_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Gonzalo Benzaquen<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/julikova_/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={juli_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Julieta Kovalivker<br></br>
               <span class="about__nameTag">&#60;IA developer/&#62;</span></h4>
             </a>
-        </div>
-        <div class="about__image_cards about__bottom_row">
             <a href="https://www.instagram.com/luisaugustoembon/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={luis_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Luis Embon<br></br>
               <span class="about__nameTag">&#60;Back-End developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/nicotaddeo_/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={taddeo_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Nicolás Taddeo<br></br>
               <span class="about__nameTag">&#60;Front-End developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/andres.chouela/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={choue_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Andrés Chouela<br></br>
               <span class="about__nameTag">&#60;Front-End developer/&#62;</span></h4>
             </a>
             <a href="https://www.instagram.com/caro.orbuch/" target="_blank" class="about__single_card">
               <div class="about__member_photo">
-                <img src={marie_curie} alt="marie_test_about"></img>
+                <img src={caro_image} width={300} alt="marie_test_about"></img>
               </div>
               <h4 class="about__name">Carola Orbuch<br></br>
               <span class="about__nameTag">&#60;UX/UI designer/&#62;</span></h4>
@@ -214,6 +243,21 @@ const HomePage = () => {
             <li><img src={logo_muniz} alt="logo_muniz" /></li>
           </ul>
         </div>
+        <section className="under_footer">
+
+          <div className="under_footer__links">
+            <a href="" className="link_footer">Términos y condiciones</a > <span className="link_footer"> | </span> <a href="" className="link_footer" >Políticas de privacidad</a>
+            <br />
+            <span>Copyright © IARA 2022. All Rights Reserved.</span>
+          </div>
+          <div className="under_footer__social">
+            <ul>
+              <li><img src={instagram_logo} alt="instagram_logo" /></li>
+              <li><img src={mail_logo} alt="mail_logo" /></li>
+              <li><img src={twitter_logo} alt="twitter_logo" /></li>
+            </ul>
+          </div>
+        </section>
       </footer>
     </div>
   )

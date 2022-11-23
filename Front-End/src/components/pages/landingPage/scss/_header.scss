@@ -33,6 +33,23 @@
     list-style: none;
 }
 
+.nav_links{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+}
+
+//Media queries para escalara la font-size, el logo (img), CTA, 
+
+/*
+
+Media querie tamaño máximo 480 width (desktop).
+Media querie tamaño máximo 1040 with (desktop).
+Media querie en adelante (desktop).
+
+*/
+
 .wrapper ul li a{
     text-decoration: none;
     position: relative;
@@ -55,4 +72,16 @@
 .wrapper ul li a:hover:after{
     transform-origin: bottom left;
     transform: scaleX(1);
+}
+@media screen and (max-width: 1600px){
+    .wrapper ul li a{
+        font-size: 20px;
+        margin: 0 40px;
+    }
+    header .nav__button{
+        width: 220px;
+    }
+    header img{
+        width: 150px;
+    }
 }

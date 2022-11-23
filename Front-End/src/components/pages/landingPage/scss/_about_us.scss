@@ -1,19 +1,18 @@
 .about {
     padding-top: 145px;
     padding-bottom: 115px;
+    width: 100vw;
     //Text card dividing section
     &__team_card {
         background: linear-gradient(to right, $darkCyan, $cyan);
-        height: 226px;
-        width: 578px;
-        left: -23px;
-        top: 2422px;
+        height: 220px;
+        width: 550px;
         border-radius: 0px 18px 18px 0px;
         padding: 10px 30px 10px 30px;
-
         display: flex;
         align-items: center;
         justify-content: center;
+        
 
         a {
             font-family: 'Montserrat';
@@ -22,10 +21,7 @@
             font-size: 48px;
             line-height: 72px;
             color: $white;
-
-            flex: none;
-            order: 0;
-            flex-grow: 0;
+            
         }
     }
 
@@ -36,23 +32,9 @@
         justify-content: center;
         align-content: center;
         gap: 32px;
+        flex-wrap: wrap;
+        padding-top: 115px;
 
-        a:hover {
-            transition-duration: 0.5s;
-            img {
-                opacity: 65%;
-            }
-            cursor: pointer;
-            border: 1px solid $darkCyan;
-        }
-    }
-
-    //Instagram Effect
-    &__instagram_content {
-       position: absolute;
-       opacity: 1;
-       transition: .5s ease;
-       background: transparent;
     }
 
     //Name on card
@@ -83,25 +65,24 @@
         align-items: center;
         justify-content: center;
         gap: 5px;
-
-        width: 305px;
+        width: auto;
         height: 490px;
-
         background: #000000;
         border-radius: 11px;
+        outline: none;
+
+        &:hover {
+            cursor: pointer;
+            transition: .5s all;
+            outline: solid 1px #01adb4;
+        
+            .about__member_photo {
+                opacity: .6;
+            }
+        }
 
         h4 {
             text-align: center;
         }
     }
-
-    //Different padding for each rows
-    &__top_row {
-        padding-top: 115px;
-    }
-
-    &__bottom_row {
-        padding-top: 37px;
-    }
-
 }

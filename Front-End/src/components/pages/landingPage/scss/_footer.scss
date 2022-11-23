@@ -1,6 +1,5 @@
 .landing_footer {
-    background-color: $background-color-footer;
-
+    width: 100vw;
     &__logos {
         padding: 75px 120px;
         ul{
@@ -11,4 +10,53 @@
             justify-content: space-around;
         }
     }
+
 }
+.under_footer{
+    display: flex;
+    width: 100vw;
+    height: 20vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 200px ;
+    &__links{
+        line-height: 40px;
+        a{
+            text-decoration: underline;
+        }
+        span{
+            font-size: 20px;
+        }
+    }
+
+    .link_footer{
+        color: #1A01B4;
+        font-size: 20px;
+        
+    }
+    &__social{
+        width: 250px;
+        ul{
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+
+            img{
+                width: 50px;
+            }
+        }
+    }
+
+    @media screen and (max-width:1600px){
+        padding: 0 150px;
+        .link_footer{
+            font-size: 16px;
+        }
+        span{
+            font-size: 16px;
+        }
+    }
+}
+

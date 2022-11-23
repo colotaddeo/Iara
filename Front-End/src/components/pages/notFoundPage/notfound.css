@@ -1,0 +1,23 @@
+.not-found{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.not-found__h1{
+    text-align: center;
+    
+}
+
+.not-found__h1 h1{
+    color: #01ADB4;
+    font-size: 60px;
+    margin-bottom: 10px;
+    font-family: 'Montserrat';
+}
+
+.not-found__h1 p{
+    font-size: 20px;
+    margin-top: 10px;
+}

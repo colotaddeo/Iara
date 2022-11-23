@@ -1,0 +1,221 @@
+.radiografias {
+    max-height: 63vh;
+    width: 100%;
+    overflow-y: scroll;
+    margin-top: 15px;
+}
+
+.radiografias::-webkit-scrollbar {
+    width: 8px; 
+}
+      
+.radiografias::-webkit-scrollbar-track {
+    background: #343434;
+    border-radius: 20px;
+}
+      
+.radiografias::-webkit-scrollbar-thumb {
+    background-color: #00858b;
+    border-radius: 20px;
+}
+
+.file_upload_form {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 0.5vw;
+}
+
+.file_upload {
+    position: relative;
+    display: inline-block;
+}
+
+.file_upload span {
+    position: relative;
+    z-index: 1;
+}
+
+.file_upload_form button {
+    height: 6vh;
+}
+
+.file_upload_form button:hover {
+    opacity: 85%;
+}
+
+.file_upload .input-text {
+    position: relative;
+    width: 19.7vw;
+    height: 60px;
+    background-color: #252525;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    /* content: 'Seleccionar archivo'; */
+    font-size: 18px;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+.file_upload input[type="file"] {
+    position: relative;
+    display: none;
+    width: 20vw;
+    height: 6vh;
+    display: inline-block;
+    z-index: 2;
+}
+
+.file_upload input.files {
+    display: none;
+}
+
+.file_upload .input-text:hover {
+    background-color: #292929;
+    cursor: pointer;
+}
+
+.image_wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.image_wrapper_items {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+}
+
+.image_wrapper_predictions {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    margin-left: 2vw;
+}
+
+.image_wrapper_pred_num {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 52px;
+}
+
+.iara_cyan {
+    color: #01ABB4;
+}
+
+.hero__radiografias_container {
+    display:flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+
+.hero__upload_rx_container p{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.hero__upload_rx_container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+    gap: 15vw;
+}
+
+.footer__uploadRX {
+    display: flex;
+    align-content: flex-start;
+    justify-content: left;
+}
+
+.footer__uploadRX p{
+    text-align: left;
+    font-style: italic;
+}
+
+.hero__upload_container {
+    background-color: #343434;
+    padding: 29px;
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-radius: 15px;
+}
+
+/* RX Previews */
+.hero_upload_rx_preview img{
+    box-sizing: border-box;
+    border: 8px solid #252525;
+    transition: 0.25s ease;
+    border-radius: 5px;
+    margin-right: 1vw;
+}
+
+.hero_upload_rx_preview img:last-child{
+    margin-bottom: 0;
+}
+
+.hero_upload_rx_preview img:hover{
+    border: 8px solid #01ABB4;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.hero_upload_rx_preview .active-rx img {
+    border: 2px solid #01ABB4;
+}
+
+.container_patient_title {
+    margin-bottom: 15px;
+}
+
+/* On empty */
+
+.hero_empty_p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 27.5px;
+    line-height: 43px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.hero_empty_icon {
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+}
+
+.hero__upload_container_empty {
+    height: 64.6vh;
+}
+
+.hero__upload_container p {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-loading-icon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}

@@ -28,7 +28,7 @@ const useAxiosPrivate = () => {
                 //Accedemos a la request que mandamos y que nos tiró un error
                 const prevRequest = error?.config;
 
-                //Si lo que respondió el servido fue un error 403 y si la request enviada no existe
+                //Si lo que respondió el servidor fue un error 403 y si la request enviada no existe
                 if (error?.response?.status === 403 && !prevRequest?.sent) {
                     prevRequest.sent = true;
                     //Enviamos un request a nuestro endpoint que nos da un nuevo token
