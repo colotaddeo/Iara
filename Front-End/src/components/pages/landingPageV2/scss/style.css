@@ -12,7 +12,6 @@
 }
 
 body {
-  background-color: rgb(10, 10, 109);
   height: 70vh;
 }
 
@@ -42,4 +41,9 @@ body {
   font-family: "DM Sans";
   font-style: normal;
   font-size: 24px;
+}
+
+.landBody {
+  padding-top: 20vh;
+  padding-left: 9.75vw;
 }/*# sourceMappingURL=style.css.map */

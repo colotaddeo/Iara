@@ -2,6 +2,7 @@ import React from "react";
 
 //import components
 import LandingNav from "./landingComponents/LandingNav";
+import MainBody from "./landingComponents/MainBody"
 import './scss/style.css';
 
 const Landing = () => {
@@ -9,8 +10,7 @@ const Landing = () => {
     return (
         <>
             <LandingNav></LandingNav>
-            <br />
-            <p>This is body</p>
+            <MainBody></MainBody>
         </>
     );
 };

@@ -16,6 +16,7 @@
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.8",
     "@mui/styled-engine-sc": "^5.10.6",
+    "@splinetool/react-spline": "^2.2.3",
     "axios": "^0.27.2",
     "formik": "^2.2.9",
     "framer-motion": "^7.6.12",
