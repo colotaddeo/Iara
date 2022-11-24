@@ -1,0 +1,45 @@
+.land_clearBtn {
+  background: transparent;
+  color: #0B9EA7;
+  border: 3px solid #0B9EA7;
+  border-radius: 15px;
+  transition: 0.25s;
+}
+.land_clearBtn:hover {
+  background-color: #0B9EA7;
+  color: white;
+  transition: 0.25s;
+}
+
+body {
+  background-color: rgb(10, 10, 109);
+  height: 70vh;
+}
+
+.landingNav {
+  background-color: #161526;
+  padding-top: 3vh;
+  padding-bottom: 3vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.landingNav__right {
+  display: flex;
+  gap: 6vw;
+}
+.landingNav__options {
+  display: flex;
+  gap: 6vw;
+  align-items: center;
+}
+.landingNav__links {
+  display: inline;
+  list-style: none;
+}
+.landingNav__links a {
+  color: white;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-size: 24px;
+}/*# sourceMappingURL=style.css.map */

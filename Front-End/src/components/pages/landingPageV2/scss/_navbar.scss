@@ -1,0 +1,30 @@
+.landingNav {
+    background-color: #161526;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &__right{
+        display: flex;
+        gap: 6vw;
+    }
+
+    &__options {
+        display: flex;
+        gap: 6vw;
+        align-items: center;
+    }
+
+    &__links {
+        display: inline;
+        list-style: none;
+        a {
+            color: white;
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-size: 24px;
+        }
+    }
+}

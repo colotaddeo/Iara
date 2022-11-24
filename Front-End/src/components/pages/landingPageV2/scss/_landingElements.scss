@@ -1,0 +1,17 @@
+.land_clearBtn {
+    background: transparent;
+    color: $landingButton;
+    border: 3px solid $landingButton;
+    border-radius: 15px;
+    transition: 0.25s;
+
+    &:hover {
+        background-color: $landingButton;
+        color: white;
+        transition: 0.25s;
+    }
+}
+body{
+    background-color: rgb(10, 10, 109);
+    height: 70vh;
+}

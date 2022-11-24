@@ -271,10 +271,6 @@ Media querie en adelante (desktop).
   font-style: italic;
 }
 @media screen and (max-width: 1600px) {
-  .hero__image {
-    width: 500px;
-    height: 550px;
-  }
   .hero__text h1 {
     font-size: 45px;
     line-height: 50px;
@@ -295,6 +291,13 @@ Media querie en adelante (desktop).
   .hero__buttons {
     padding-top: 5px;
     gap: 10px;
+  }
+}
+@media screen and (min-width: 1601) {
+  .hero__image {
+    height: 1000px;
+    width: 1000px;
+    padding-right: 100px;
   }
 }
 
