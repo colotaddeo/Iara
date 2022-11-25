@@ -1,6 +1,21 @@
 import React from "react";
+import { useRef } from "react";
+import Spline from '@splinetool/react-spline';
 
 const MainBody = () => {
+    const lung = useRef();
+
+    function onLoad(spline) {
+      const obj = spline.findObjectById('aefd2ae6-c6c5-4709-9e01-5400590d01a4');
+  
+      lung.current = obj;
+    }
+
+    function moveObj() {
+        console.log(lung.current);
+        // move the object in 3D space
+        lung.current.position.x += 20;
+      }
 
     return (
         <>
@@ -11,11 +26,11 @@ const MainBody = () => {
                         <span>with </span> <span>IARA</span>
                     </h1>
                     <h3>Improve diagnostics completely free of charge</h3>
-                    <button className="land_clearBtn">Start Now</button>
+                    <button className="land_clearBtn" onClick={moveObj}>Start Now</button>
                 </div>
 
                 <div className="landBody__right">
-                    
+                    <Spline scene="https://prod.spline.design/BBzPL2OzksiWYTLi/scene.splinecode" onLoad={onLoad} />
                 </div>
             </div>
         </>
