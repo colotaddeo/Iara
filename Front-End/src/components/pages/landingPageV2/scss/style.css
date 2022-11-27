@@ -16,9 +16,11 @@ body {
 }
 
 .landingNav {
+  top: 0;
   position: fixed;
   z-index: 2;
   width: 100%;
+  transition: top 0.7s;
   background-color: #161526;
   padding-top: 3vh;
   padding-bottom: 3vh;
@@ -144,4 +146,46 @@ body {
   font-weight: 400;
   font-size: 20px;
   color: #FFFFFF;
+}
+
+.team__cards {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100vw;
+  -moz-column-gap: 6vw;
+       column-gap: 6vw;
+  row-gap: 1vh;
+}
+.team__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.team__card_img {
+  display: grid;
+  position: relative;
+}
+.team__card_img_top {
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 1;
+}
+.team__card_img_bot {
+  align-self: flex-end;
+  grid-column: 1;
+  grid-row: 1;
+  padding-bottom: 1px;
+}
+.team__card_text h3 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 31px;
+  color: #0B9EA7;
 }/*# sourceMappingURL=style.css.map */

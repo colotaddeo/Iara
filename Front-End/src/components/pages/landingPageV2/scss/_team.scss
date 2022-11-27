@@ -1,0 +1,52 @@
+.team {
+
+    &__cards{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        width: 100vw;
+        column-gap: 6vw;
+        row-gap: 1vh;
+    }
+
+    &__card{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &_img{
+            display: grid;
+            position: relative;
+
+            &_top {
+                grid-column: 1;
+                grid-row: 1;
+                z-index: 1;
+            }
+            &_bot {
+                align-self: flex-end;
+                grid-column: 1;
+                grid-row: 1;
+
+                padding-bottom: 1px; //Fix odd line (?)
+            }
+        }
+
+        &_text {
+            h3 {
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 24px;
+                line-height: 31px;
+    
+                color: $landingButton;
+            }
+        }
+    }
+}

@@ -18,10 +18,12 @@ const title = {
     show:{
         opacity:1,
         y:0,
-        transition:'easeInOut',
-        duration: 10
+        transition:{
+            ease:'easeInOut',
+            duration: .75
+        }
     }
-}
+};
 
 const Features = () => {
 

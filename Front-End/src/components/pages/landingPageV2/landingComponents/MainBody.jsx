@@ -30,7 +30,7 @@ const MainBody = () => {
                 </div>
 
                 <div className="landBody__right">
-                    <Spline scene="https://prod.spline.design/BBzPL2OzksiWYTLi/scene.splinecode" onLoad={onLoad} />
+                    {/* <Spline scene="https://prod.spline.design/BBzPL2OzksiWYTLi/scene.splinecode" onLoad={onLoad} /> */}
                 </div>
             </div>
         </>
