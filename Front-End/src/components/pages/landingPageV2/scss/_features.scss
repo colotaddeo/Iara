@@ -1,0 +1,82 @@
+.features {
+    &__title{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 2vh;
+
+        h1 {
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 65px;
+        }
+        h3 {
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 24px;
+            color: #AEAEAE;
+            width: 27vw;
+        }
+    }
+
+    &__cards {
+        margin-top: 10vh;
+        width: 100%;
+        height: 1200px;
+        background-image: url("../images/landing_wave_design.svg");
+        background-repeat: no-repeat, no-repeat;
+        background-position: right, left; 
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 7vw;
+
+        &_card {
+            height: 45vh;
+            width: 22.5vw;
+            border-radius: 17px;
+
+            background: linear-gradient($landingButton 50%, $landingButton, $landingBackground, $landingBackground 50%);
+            background-color: $landingBackground;
+            background-size: 100% 17.5%;
+            background-repeat: no-repeat, no-repeat;
+
+            transition: background 1s;
+
+            &:hover {
+                background-size: 100% 200%;
+                cursor: pointer;
+            }
+
+            padding-top: 6vh;
+            padding-left: 1vw;
+            padding-right: 1vw;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            text-align: center;
+
+            gap: 2vh;
+
+            h1 {
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 700;
+                font-size: 32px;
+            }
+            h3 {
+                font-family: 'DM Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

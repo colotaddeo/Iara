@@ -1,7 +1,13 @@
 .landingNav {
-    background-color: #161526;
+
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+
+    background-color: $landingBackground;
     padding-top: 3vh;
     padding-bottom: 3vh;
+
     display: flex;
     justify-content: space-around;
     align-items: center;

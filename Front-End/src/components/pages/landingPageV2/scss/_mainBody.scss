@@ -1,8 +1,33 @@
 .landBody {
-    padding-top: 20vh;
+    padding-top: 35vh;
     padding-left: 9.75vw;
     padding-right: 9.75vw;
+    padding-bottom: 40vh;
 
     display: flex;
     justify-content: space-between;
+
+    &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    &__title {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 65px;
+
+        &_cyan {
+            color: #01ADB4;
+        }
+    }
+
+    &__subtitle {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 29px;
+    }
 }
