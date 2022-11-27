@@ -67,6 +67,7 @@ body {
 }
 .landBody__title_cyan {
   color: #01ADB4;
+  letter-spacing: 3px;
 }
 .landBody__subtitle {
   font-family: "DM Sans";
@@ -117,7 +118,7 @@ body {
   background-color: #161526;
   background-size: 100% 17.5%;
   background-repeat: no-repeat, no-repeat;
-  transition: background 1s;
+  transition: background 0.75s;
   padding-top: 6vh;
   padding-left: 1vw;
   padding-right: 1vw;

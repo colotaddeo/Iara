@@ -14,12 +14,12 @@ const container = {
 };
 
 const title = {
-    hidden:{opacity:0, y:80},
+    hidden:{opacity:0, y:100},
     show:{
         opacity:1,
         y:0,
         transition:'easeInOut',
-        duration: 4
+        duration: 10
     }
 }
 
