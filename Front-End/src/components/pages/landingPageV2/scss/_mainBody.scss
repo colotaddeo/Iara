@@ -26,9 +26,65 @@
     }
 
     &__subtitle {
+        display: inherit;
+
         font-family: 'DM Sans';
         font-style: normal;
         font-weight: 400;
         font-size: 29px;
+    }
+
+    &__carrousel {
+        margin: 0;
+        font-weight: 700;
+
+        display: flex;
+        flex-direction: column;
+
+        height: 2.4rem;
+        overflow: hidden;
+
+        &_line {
+
+            &:first-child{
+                animation: anim 20s infinite;
+            }
+        }
+    }
+}
+
+@keyframes anim {
+    0%,
+    8%{
+        margin-top: 0;
+    }
+
+    16%,
+    24%{
+        margin-top: -2.3rem;
+    }
+
+    33%,
+    41%{
+        margin-top: -4.7rem;
+    }
+
+    50%,
+    58%{
+        margin-top: -7.1rem;
+    }
+
+    66%,
+    74%{
+        margin-top: -4.7rem;
+    }
+
+    82%,
+    90%{
+        margin-top: -2.3rem;
+    }
+
+    100%{
+        margin-top: 0;
     }
 }

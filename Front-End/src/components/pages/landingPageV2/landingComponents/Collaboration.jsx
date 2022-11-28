@@ -49,10 +49,19 @@ const Collaboration = () => {
                     Without them, it wouldn't have been possible.
                 </h3>
             </motion.div>
-            <motion.div className="colab__logos" variants={item}>
-                <img src={logo_tic} alt="TIC logo" />
-                <img src={logo_ort} alt="ORT logo" />
-                <img src={logo_umai} alt="UMAI logo" />
+
+            <motion.div className="colab__logos">
+                <motion.div variants={item}>
+                    <img src={logo_tic} alt="TIC logo" />
+                </motion.div>
+
+               <motion.div variants={item}>
+                    <img src={logo_ort} alt="ORT logo" />
+               </motion.div>
+
+               <motion.div variants={item}>
+                    <img src={logo_umai} alt="UMAI logo"/>
+                </motion.div>
             </motion.div>
 
         </motion.div>

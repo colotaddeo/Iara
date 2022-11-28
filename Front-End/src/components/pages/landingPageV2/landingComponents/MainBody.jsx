@@ -25,7 +25,15 @@ const MainBody = () => {
                         <span>Enter a new techological era</span> <br />
                         <span>with </span> <span className="landBody__title_cyan">IARA</span>
                     </h1>
-                    <h3 className="landBody__subtitle">Improve diagnostics completely free of charge</h3>
+                    <h3 className="landBody__subtitle">
+                        Improve diagnostics&nbsp;
+                        <div className="landBody__carrousel">
+                            <span className="landBody__carrousel_line"> completely free of charge</span>
+                            <span className="landBody__carrousel_line"> with just a click</span>
+                            <span className="landBody__carrousel_line"> through artificial inteligence</span>
+                            <span className="landBody__carrousel_line"> and step into the future</span>
+                        </div>
+                    </h3>
                     <button className="land_clearBtn" onClick={moveObj}>Start Now</button>
                 </div>
 

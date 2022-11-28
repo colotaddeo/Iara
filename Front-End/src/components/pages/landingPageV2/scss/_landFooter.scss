@@ -1,0 +1,33 @@
+.footer {
+    background-color: $landingFooter;
+    height: 60vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    h2 {
+        font-family: 'DM Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 39px;
+    }
+
+    .footer__about {
+        display: flex;
+        align-items: flex-start;
+        gap: 10vw;
+    }
+
+    &__logo {
+        display: flex;
+        gap: 5vw;
+    }
+
+    &__line{
+        width: 2px;
+        height: 40vh;
+        background-color: #3C3C53;
+    }
+}
