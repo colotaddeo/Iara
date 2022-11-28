@@ -12,22 +12,22 @@ const TeamMembers = [
     {
         image: team_palonsky,
         name: "Vincenzo Palonsky",
-        role: "IA Developer"
+        role: "AI Developer"
     },
     {
         image: team_wu,
         name: "Daniel Wu",
-        role: "IA Developer"
+        role: "AI Developer"
     },
     {
         image: team_vazquez,
         name: "Facundo Vázquez",
-        role: "IA Developer"
+        role: "AI Developer"
     },
     {
         image: team_kovalivker,
         name: "Julieta Kovalivker",
-        role: "IA Developer"
+        role: "AI Developer"
     },
     {
         image: team_orbuch,
@@ -42,7 +42,7 @@ const TeamMembers = [
     {
         image: team_benzaquen,
         name: "Gonzalo Benzaquen",
-        role: "IA & Front-End Developer"
+        role: "AI & Front-End Developer"
     },
     {
         image: team_embon,
