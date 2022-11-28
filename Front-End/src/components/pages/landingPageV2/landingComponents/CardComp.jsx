@@ -11,7 +11,7 @@ const item = {
             duration: .5
         }
     }
-}
+};
 
 const LandingCard = ({title}) => {
 

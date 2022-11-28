@@ -55,9 +55,9 @@ const LandingNav = () => {
                 </motion.div>
                 <div className="landingNav__right">
                     <ul className="landingNav__options">
-                        <motion.li variants={header} className='landingNav__links'><a href="#">Home</a></motion.li>
+                        <motion.li variants={header} className='landingNav__links'><a href="#home">Home</a></motion.li>
                         <motion.li variants={header} className='landingNav__links'><a href="#">Why Iara?</a></motion.li>
-                        <motion.li variants={header} className='landingNav__links'><a href="#">About us</a></motion.li>
+                        <motion.li variants={header} className='landingNav__links'><a href="#team">About us</a></motion.li>
                         <motion.li variants={header} className='landingNav__links'><a href="#">Get in touch</a></motion.li>
                     </ul>
                     <motion.div variants={header}>

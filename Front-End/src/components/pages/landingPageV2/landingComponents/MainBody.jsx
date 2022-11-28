@@ -19,7 +19,7 @@ const MainBody = () => {
 
     return (
         <>
-            <div className="landBody">
+            <div id="home" className="landBody">
                 <div className="landBody__left">
                     <h1 className="landBody__title">
                         <span>Enter a new techological era</span> <br />

@@ -9,7 +9,7 @@ const item = {
         y:0,
         transition:{
             ease:'easeInOut',
-            duration: .2
+            duration: .3
         }
     }
 }
