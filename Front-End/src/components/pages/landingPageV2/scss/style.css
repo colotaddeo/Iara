@@ -81,10 +81,8 @@ body {
   font-size: 65px;
 }
 .landBody__title_cyan {
-  background: linear-gradient(270deg, #01ADB4 13.71%, #00555A 176.79%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #01ADB4;
+  letter-spacing: 3px;
 }
 .landBody__subtitle {
   display: inherit;
