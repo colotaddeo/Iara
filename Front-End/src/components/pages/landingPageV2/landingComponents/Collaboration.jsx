@@ -41,7 +41,7 @@ const item = {
 const Collaboration = () => {
 
     return (
-        <motion.div variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
+        <motion.div className="colab" variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
             <motion.div className="features__title" variants={title}>
                 <h1>In collaboration with</h1>
                 <h3>

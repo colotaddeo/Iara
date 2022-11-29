@@ -81,8 +81,10 @@ body {
   font-size: 65px;
 }
 .landBody__title_cyan {
-  color: #01ADB4;
-  letter-spacing: 3px;
+  background: linear-gradient(270deg, #01ADB4 13.71%, #00555A 176.79%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .landBody__subtitle {
   display: inherit;
@@ -264,6 +266,9 @@ body {
   color: #0B9EA7;
 }
 
+.colab {
+  background: linear-gradient(to top, #262537 1%, #161526 20%);
+}
 .colab__logos {
   padding-top: 20vh;
   padding-bottom: 20vh;
