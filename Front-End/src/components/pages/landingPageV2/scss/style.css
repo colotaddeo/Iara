@@ -47,6 +47,19 @@ body {
   font-style: normal;
   font-size: 24px;
 }
+.landingNav__links a::after {
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #0B9EA7;
+  margin: auto;
+  display: block;
+  transition: width 0.2s linear;
+}
+.landingNav__links a:hover::after {
+  width: 100%;
+  transition: width 0.2s linear;
+}
 
 .landBody {
   padding-top: 35vh;
@@ -192,7 +205,7 @@ body {
 }
 .features__cards_card:hover {
   background-size: 100% 200%;
-  cursor: pointer;
+  cursor: default;
 }
 .features__cards_card h1 {
   font-family: "DM Sans";

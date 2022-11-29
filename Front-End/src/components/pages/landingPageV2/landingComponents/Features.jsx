@@ -28,7 +28,7 @@ const title = {
 const Features = () => {
 
     return (
-        <motion.div variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:false}}>
+        <motion.div variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
             <motion.div className="features__title" variants={title}>
                 <h1>App Features</h1>
                 <h3>

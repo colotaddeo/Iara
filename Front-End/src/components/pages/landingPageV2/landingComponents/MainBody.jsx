@@ -22,8 +22,8 @@ const MainBody = () => {
             <div id="home" className="landBody">
                 <div className="landBody__left">
                     <h1 className="landBody__title">
-                        <span>Enter a new techological era</span> <br />
-                        <span>with </span> <span className="landBody__title_cyan">IARA</span>
+                        <span>Enter a new technological </span> <br />
+                        <span>era with </span> <span className="landBody__title_cyan">IARA</span>
                     </h1>
                     <h3 className="landBody__subtitle">
                         Improve diagnostics&nbsp;

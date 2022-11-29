@@ -26,7 +26,7 @@ const title = {
 const Team = () => {
 
     return (
-        <motion.div id="team" variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:false}}>
+        <motion.div id="team" variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
             <motion.div className="features__title" variants={title}>
                 <h1>Meet our Amazing Team</h1>
                 <h3>We are a group of 16-17 year old students currently studying at ORT Argentina</h3>

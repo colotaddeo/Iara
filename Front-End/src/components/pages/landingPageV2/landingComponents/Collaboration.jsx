@@ -41,7 +41,7 @@ const item = {
 const Collaboration = () => {
 
     return (
-        <motion.div variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:false}}>
+        <motion.div variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
             <motion.div className="features__title" variants={title}>
                 <h1>In collaboration with</h1>
                 <h3>
@@ -60,7 +60,7 @@ const Collaboration = () => {
                </motion.div>
 
                <motion.div variants={item}>
-                    <img src={logo_umai} alt="UMAI logo"/>
+                    <img src={logo_umai}  alt="UMAI logo"/>
                 </motion.div>
             </motion.div>
 
