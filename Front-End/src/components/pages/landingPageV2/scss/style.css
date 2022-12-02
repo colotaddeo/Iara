@@ -265,7 +265,7 @@ body {
 }
 
 .colab {
-  background: linear-gradient(to top, #262537 1%, #161526 20%);
+  background: linear-gradient(to top, #262537 0.1%, #161526 15%);
 }
 .colab__logos {
   padding-top: 20vh;
