@@ -15,3 +15,16 @@ body{
     // background-color: rgb(10, 10, 109);
     height: 70vh;
 }
+
+// Visibility
+.hide-for-mobile {
+  @include breakpoint-down(medium) {
+    display: none;
+  }
+}
+
+.hide-for-desktop {
+  @include breakpoint-up(large) {
+    display: none;
+  }
+}
