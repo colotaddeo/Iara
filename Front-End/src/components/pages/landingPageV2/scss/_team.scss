@@ -1,4 +1,9 @@
 .team {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: radial-gradient(closest-side, $landingButton -300%, $landingBackground 100%);
 
     &__cards{
         display: flex;
@@ -7,10 +12,11 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        width: 100vw;
-        column-gap: 6vw;
+        column-gap: 7.75vw;
         row-gap: 1vh;
         padding-bottom: 30vh;
+        margin-right: 10vw;
+        margin-left: 10vw;
     }
 
     &__card{

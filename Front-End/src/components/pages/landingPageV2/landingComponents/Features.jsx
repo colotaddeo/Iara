@@ -28,7 +28,7 @@ const title = {
 const Features = () => {
 
     return (
-        <motion.div variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
+        <motion.div className="features" variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
             <motion.div className="features__title" variants={title}>
                 <h1>App Features</h1>
                 <h3>
@@ -39,15 +39,18 @@ const Features = () => {
 
             <motion.div className="features__cards">
                 <LandingCard 
-                    title="Precisión Computarizada" 
+                    title="Faster Analisis"
+                    content={"Thanks to multi-processing and optimized intelligences, IARA provides professionals their results in only a matter of seconds. Our focus on speed also allows patients to recieve medical feedback as quickly as possible."} 
                 />
 
                 <LandingCard 
-                    title="Velocidad de Análisis" 
+                    title="Faster Analisis"
+                    content={"Thanks to multi-processing and optimized intelligences, IARA provides professionals their results in only a matter of seconds. Our focus on speed also allows patients to recieve medical feedback as quickly as possible."} 
                 />
 
                 <LandingCard 
-                    title="Múltiples Inteligencias" 
+                    title="Account Based System"
+                    content={"By allowing our professionals to create an account within IARA, they count with the ability to keep a record of all their patients and their previous analyses. On top of that, a verification system is used so as to make sure all users are certified medical professionals."} 
                 />
             </motion.div>
         </motion.div >

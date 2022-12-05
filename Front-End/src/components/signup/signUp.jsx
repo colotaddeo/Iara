@@ -247,7 +247,7 @@ const signUp = () => {
           )}
         </Formik>
 
-        <div className="button-container" className="flex flex-jc-r" s>
+        <div className="button-container flex flex-jc-r">
           <h4>
             ¿Ya tenes cuenta?&nbsp;
             <Link to="/login">

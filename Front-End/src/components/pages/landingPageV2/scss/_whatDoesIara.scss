@@ -1,0 +1,30 @@
+.whatDo {
+    // background-image: url("../images/landing_city.svg");
+    // background-repeat: no-repeat, no-repeat;
+    // background-position: right, left; 
+    &__body {
+        margin: 10vw;
+        display: flex;
+        justify-content: space-between;
+
+        &_left {
+            width: 37vw;
+            // margin-left: 10vw;
+ 
+            text-align: left;
+            font-family: 'DM Sans';
+            font-style: normal;
+            font-weight: 700;
+        }
+    
+        h1 {
+            font-size: 90px;
+            line-height: 110%;
+            margin-bottom: 20px;
+        }
+        h3 {
+            font-size: 30px;
+            color: #AEAEAE;
+        }
+    }
+}

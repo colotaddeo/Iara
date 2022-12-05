@@ -151,6 +151,36 @@ body {
     margin-top: 0;
   }
 }
+.whatDo__body {
+  margin: 10vw;
+  display: flex;
+  justify-content: space-between;
+}
+.whatDo__body_left {
+  width: 37vw;
+  text-align: left;
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 700;
+}
+.whatDo__body h1 {
+  font-size: 90px;
+  line-height: 110%;
+  margin-bottom: 20px;
+}
+.whatDo__body h3 {
+  font-size: 30px;
+  color: #AEAEAE;
+}
+
+.features {
+  padding-top: 150px;
+  width: 100%;
+  height: 1100px;
+  background-image: url("../images/landing_wave_design.svg");
+  background-repeat: no-repeat, no-repeat;
+  background-position: right, left;
+}
 .features__title {
   display: flex;
   flex-direction: column;
@@ -175,11 +205,6 @@ body {
 }
 .features__cards {
   margin-top: 10vh;
-  width: 100%;
-  height: 1200px;
-  background-image: url("../images/landing_wave_design.svg");
-  background-repeat: no-repeat, no-repeat;
-  background-position: right, left;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -221,17 +246,24 @@ body {
   color: #FFFFFF;
 }
 
+.team {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(closest-side, #0B9EA7 -300%, #161526 100%);
+}
 .team__cards {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 100vw;
-  -moz-column-gap: 6vw;
-       column-gap: 6vw;
+  -moz-column-gap: 7.75vw;
+       column-gap: 7.75vw;
   row-gap: 1vh;
   padding-bottom: 30vh;
+  margin-right: 10vw;
+  margin-left: 10vw;
 }
 .team__card {
   display: flex;
@@ -264,9 +296,6 @@ body {
   color: #0B9EA7;
 }
 
-.colab {
-  background: linear-gradient(to top, #262537 0.1%, #161526 15%);
-}
 .colab__logos {
   padding-top: 20vh;
   padding-bottom: 20vh;
