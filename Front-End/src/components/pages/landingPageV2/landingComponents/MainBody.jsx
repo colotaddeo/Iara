@@ -24,7 +24,7 @@ const MainBody = () => {
                             <span className="landBody__carrousel_line"> and step into the future</span>
                         </div>
                     </h3>
-                    <button className="land_clearBtn" onClick={() => navigate('/login')}>Start Now</button>
+                    <button className="land_clearBtn">Start Now</button>
                 </div>
 
                 <div className="landBody__right">
