@@ -1,5 +1,6 @@
 import React from "react";
 import {motion} from "framer-motion";
+import { useNavigate } from 'react-router-dom' 
 
 //images
 import logo from "../images/Logo.svg";
@@ -47,6 +48,8 @@ window.onscroll = function() {
 
 const LandingNav = () => {
 
+    const navigate = useNavigate()
+
     return(
         <motion.div initial='initial' animate='animate'>
             <motion.header id="navbar" className="landingNav" variants={stagger}>
@@ -55,13 +58,13 @@ const LandingNav = () => {
                 </motion.div>
                 <div className="landingNav__right">
                     <ul className="landingNav__options">
-                        <motion.li variants={header} className='landingNav__links hide-for-mobile'><a href="#home">Home</a></motion.li>
-                        <motion.li variants={header} className='landingNav__links'><a href="#">Why Iara?</a></motion.li>
+                        <motion.li variants={header} className='landingNav__links'><a href="#home">Home</a></motion.li>
+                        <motion.li variants={header} className='landingNav__links'><a href="#why">Why Iara?</a></motion.li>
                         <motion.li variants={header} className='landingNav__links'><a href="#team">About us</a></motion.li>
-                        <motion.li variants={header} className='landingNav__links'><a href="#">Get in touch</a></motion.li>
+                        <motion.li variants={header} className='landingNav__links'><a href="#contact">Get in touch</a></motion.li>
                     </ul>
                     <motion.div variants={header}>
-                        <button className="land_clearBtn">Get Started</button>
+                        <button className="land_clearBtn" onClick={() => navigate('/login')}>Get Started</button>
                     </motion.div>
                 </div>
             </motion.header>

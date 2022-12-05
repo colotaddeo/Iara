@@ -68,7 +68,7 @@ const letter = {
 const WhatDoesIara = () => {
     
     return (
-        <motion.div className="whatDo" variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
+        <motion.div id="why" className="whatDo" variants={container} initial="hidden" exit="exit" whileInView="show" viewport={{once:true}}>
             <motion.div className="features__title" variants={title}>
                 <h1>What does IARA do?</h1>
                 <h3>

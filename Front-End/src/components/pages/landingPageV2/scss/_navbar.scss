@@ -32,7 +32,7 @@
             font-family: 'DM Sans';
             font-style: normal;
             font-size: 24px;
-
+            
             &::after{
                 content: '';
                 width: 0;
@@ -43,7 +43,7 @@
                 transition: width 0.2s linear;
             }
 
-            &:hover{
+            &:hover::after{
                 width: 100%;
                 transition: width 0.2s linear;
             }

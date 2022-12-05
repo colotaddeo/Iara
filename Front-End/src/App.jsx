@@ -38,7 +38,7 @@ function App() {
       <ThemeProvider theme={IaraTheme}>
         <Routes>
           {/*<Route path="/" element={<Layout />} >*/}
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPageV2 />} />
           <Route path="/logIn" element={<LogInPage />} />
           <Route path="/signUp" element={<SignUp />} />
           <Route path="/forgotPassword" element={<Forgot_password />} />

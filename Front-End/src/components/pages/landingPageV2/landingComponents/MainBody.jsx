@@ -1,8 +1,11 @@
 import React from "react";
 import Spline from '@splinetool/react-spline';
 import { motion } from "framer-motion";
+import { useNavigate } from 'react-router-dom' 
 
 const MainBody = () => {
+
+    const navigate = useNavigate();
 
     return (
         <>
@@ -21,7 +24,7 @@ const MainBody = () => {
                             <span className="landBody__carrousel_line"> and step into the future</span>
                         </div>
                     </h3>
-                    <button className="land_clearBtn">Start Now</button>
+                    <button className="land_clearBtn" onClick={() => navigate('/login')}>Start Now</button>
                 </div>
 
                 <div className="landBody__right">
