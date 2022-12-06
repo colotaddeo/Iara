@@ -32,7 +32,7 @@
     }
 
     &__cards {
-        margin-top: 10vh;
+        margin-top: 140px;
 
         display: flex;
         align-items: flex-start;
@@ -40,8 +40,8 @@
         gap: 7vw;
 
         &_card {
-            height: 45vh;
-            width: 22.5vw;
+            height: 465px;
+            width: 441px;
             border-radius: 17px;
 
             background: linear-gradient($landingButton 50%, $landingButton, $landingBackground, $landingBackground 50%);

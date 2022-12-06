@@ -11,10 +11,6 @@
   transition: 0.25s;
 }
 
-body {
-  height: 70vh;
-}
-
 html {
   font-size: 100%;
   box-sizing: border-box;
@@ -46,6 +42,7 @@ body {
   font-weight: 300;
   color: white;
   line-height: 1.3;
+  height: 70vh;
 }
 
 a {
@@ -72,11 +69,6 @@ a {
 }
 .flex-ai-l {
   align-items: left;
-}
-
-.nav__button {
-  display: flex;
-  align-content: center;
 }
 
 button, .button {
@@ -300,15 +292,15 @@ button, .button {
   width: 27vw;
 }
 .features__cards {
-  margin-top: 10vh;
+  margin-top: 140px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   gap: 7vw;
 }
 .features__cards_card {
-  height: 45vh;
-  width: 22.5vw;
+  height: 465px;
+  width: 441px;
   border-radius: 17px;
   background: linear-gradient(#0B9EA7 50%, #0B9EA7, #161526, #161526 50%);
   background-color: #161526;
