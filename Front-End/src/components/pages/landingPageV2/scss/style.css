@@ -15,16 +15,100 @@ body {
   height: 70vh;
 }
 
-@media (max-width: 63.9375em) {
-  .hide-for-mobile {
-    display: none;
-  }
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #161526;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+html body::-webkit-scrollbar {
+  width: 8px;
+}
+html body::-webkit-scrollbar-track {
+  background: transparent;
+}
+html body::-webkit-scrollbar-thumb {
+  background-color: #0B9EA7; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
 }
 
-@media (min-width: 64em) {
-  .hide-for-desktop {
-    display: none;
-  }
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: white;
+  line-height: 1.3;
+}
+
+a {
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-jc-r {
+  justify-content: right;
+}
+.flex-jc-l {
+  justify-content: right;
+}
+.flex-ai-c {
+  align-items: center;
+}
+.flex-ai-l {
+  align-items: left;
+}
+
+.nav__button {
+  display: flex;
+  align-content: center;
+}
+
+button, .button {
+  width: 259px;
+  height: 49px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cyanBtn {
+  background: linear-gradient(to right, #01ADB4, #00858b);
+  border: 0;
+  border-radius: 10px;
+}
+
+.transparantBtn {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  background-image: url("../images/btnWaterEffect.svg");
+  background-repeat: repeat-x;
+  background-position: 0 -100%;
+  transition: 0.5s ease;
+}
+.transparantBtn:hover {
+  background-position: center;
 }
 
 .landingNav {
@@ -68,7 +152,7 @@ body {
   display: block;
   transition: width 0.2s linear;
 }
-.landingNav__links a:hover {
+.landingNav__links a:hover::after {
   width: 100%;
   transition: width 0.2s linear;
 }
@@ -165,6 +249,7 @@ body {
 }
 .whatDo__body {
   margin: 10vw;
+  margin-bottom: 0;
   display: flex;
   justify-content: space-between;
 }
@@ -185,9 +270,9 @@ body {
 }
 
 .features {
-  padding-top: 150px;
+  padding-top: 300px;
+  padding-bottom: 300px;
   width: 100%;
-  height: 1100px;
   background-image: url("../images/landing_wave_design.svg");
   background-repeat: no-repeat, no-repeat;
   background-position: right, left;

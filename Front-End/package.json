@@ -25,6 +25,7 @@
     "react-animated-css": "^1.2.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
+    "sass": "^1.56.1",
     "styled-components": "^5.3.6",
     "three": "^0.144.0",
     "yup": "^0.32.11"

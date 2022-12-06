@@ -3,7 +3,8 @@ import {motion} from "framer-motion";
 import { useNavigate } from 'react-router-dom' 
 
 //images
-import logo from "../images/Logo.svg";
+import logo_large from "../images/logos/logo-large.svg";
+import logo_small from "../images/logos/logo-small.svg";
 
 //animations
 let easing = [0.6, -0.5, 0.01, 0.99];
@@ -54,7 +55,12 @@ const LandingNav = () => {
         <motion.div initial='initial' animate='animate'>
             <motion.header id="navbar" className="landingNav" variants={stagger}>
                 <motion.div variants={header}>
-                    <img src={logo} alt="logo" />
+                    <img 
+                        src={logo_small} 
+                        alt="logo" 
+                        srcSet={`${logo_small} 768w, ${logo_large} 1280w`}
+                        sizes="(max-width: 768px) 768px, 1280px" 
+                    />
                 </motion.div>
                 <div className="landingNav__right">
                     <ul className="landingNav__options">
