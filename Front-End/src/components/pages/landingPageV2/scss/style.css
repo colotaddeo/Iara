@@ -154,6 +154,11 @@ button, .button {
   width: 100%;
   transition: width 0.2s linear;
 }
+@media (max-width: 63.9375em) {
+  .landingNav__links {
+    display: none;
+  }
+}
 
 .landBody {
   padding-top: 35vh;
@@ -163,16 +168,32 @@ button, .button {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 1023px) {
+  .landBody {
+    justify-content: center;
+  }
+}
 .landBody__left {
   display: flex;
   flex-direction: column;
   gap: 2vh;
+  text-align: left;
+}
+@media (max-width: 1023px) {
+  .landBody__left {
+    text-align: center;
+  }
 }
 .landBody__title {
   font-family: "DM Sans";
   font-style: normal;
   font-weight: 700;
   font-size: 65px;
+}
+@media (max-width: 1023px) {
+  .landBody__title {
+    font-size: 40px;
+  }
 }
 .landBody__title_cyan {
   color: #01ADB4;
@@ -185,6 +206,11 @@ button, .button {
   font-weight: 400;
   font-size: 29px;
 }
+@media (max-width: 1023px) {
+  .landBody__subtitle {
+    font-size: 20px;
+  }
+}
 .landBody__carrousel {
   margin: 0;
   font-weight: 700;
@@ -192,6 +218,11 @@ button, .button {
   flex-direction: column;
   height: 2.4rem;
   overflow: hidden;
+}
+@media (max-width: 1023px) {
+  .landBody__carrousel {
+    text-align: left;
+  }
 }
 .landBody__carrousel_line:first-child {
   -webkit-animation: anim 20s infinite;

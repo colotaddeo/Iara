@@ -7,10 +7,19 @@
     display: flex;
     justify-content: space-between;
 
+    @media(max-width: 1023px){
+        justify-content: center;
+    }
+
     &__left {
         display: flex;
         flex-direction: column;
         gap: 2vh;
+        text-align: left;
+
+        @media(max-width: 1023px){
+            text-align: center;
+        }
     }
 
     &__title {
@@ -19,6 +28,10 @@
         font-weight: 700;
         font-size: 65px;
         
+        @media(max-width: 1023px){
+            font-size: 40px;
+        }
+
         // background: linear-gradient(90.11deg, #FFFFFF -323.42%, #010101 77.56%);
         // background: linear-gradient(90.11deg, #FFFFFF 323.42%, #010101 77.56%);
         
@@ -41,6 +54,10 @@
         font-style: normal;
         font-weight: 400;
         font-size: 29px;
+
+        @media(max-width: 1023px){
+            font-size: 20px;
+        }
     }
 
     &__carrousel {
@@ -52,6 +69,10 @@
 
         height: 2.4rem;
         overflow: hidden;
+
+        @media(max-width: 1023px){
+            text-align: left;
+        }
 
         &_line {
 

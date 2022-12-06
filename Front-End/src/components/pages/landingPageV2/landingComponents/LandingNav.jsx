@@ -58,8 +58,8 @@ const LandingNav = () => {
                     <img 
                         src={logo_small} 
                         alt="logo" 
-                        srcSet={`${logo_small} 768w, ${logo_large} 1280w`}
-                        sizes="(max-width: 768px) 768px, 1280px" 
+                        srcSet={`${logo_small} 1023w, ${logo_large} 1280w`}
+                        sizes="(max-width: 1023px) 1023px, 1280px" 
                     />
                 </motion.div>
                 <div className="landingNav__right">
@@ -69,7 +69,7 @@ const LandingNav = () => {
                         <motion.li variants={header} className='landingNav__links'><a href="#team">About us</a></motion.li>
                         <motion.li variants={header} className='landingNav__links'><a href="#contact">Get in touch</a></motion.li>
                     </ul>
-                    <motion.div variants={header}>
+                    <motion.div className="hide-for-mobile" variants={header}>
                         <button className="land_clearBtn">Get Started</button>
                     </motion.div>
                 </div>

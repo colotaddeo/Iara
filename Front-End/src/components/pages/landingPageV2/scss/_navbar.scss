@@ -48,5 +48,8 @@
                 transition: width 0.2s linear;
             }
         }
+        @media(max-width: 63.9375em){
+            display: none;
+          }
     }
 }

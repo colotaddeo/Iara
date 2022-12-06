@@ -24,7 +24,7 @@ const MainBody = () => {
                             <span className="landBody__carrousel_line"> and step into the future</span>
                         </div>
                     </h3>
-                    <button className="land_clearBtn">Start Now</button>
+                    <button className="land_clearBtn hide-for-mobile">Start Now</button>
                 </div>
 
                 <div className="landBody__right">
