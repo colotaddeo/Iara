@@ -60,7 +60,7 @@ const letter = {
         y:0,
         transition:{
             ease:'linear',
-            duration: .5
+            duration: .3
         }
     }
 };

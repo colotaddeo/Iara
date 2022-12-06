@@ -112,18 +112,6 @@ button, .button {
   color: #00F5FF;
 }
 
-@media (max-width: 63.9375em) {
-  .hide-for-mobile {
-    display: none;
-  }
-}
-
-@media (min-width: 64em) {
-  .hide-for-desktop {
-    display: none;
-  }
-}
-
 .header {
   border-bottom: 3px #EBEBEB;
   background-color: #1A1A1A;

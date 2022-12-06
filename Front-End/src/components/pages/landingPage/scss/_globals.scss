@@ -140,15 +140,15 @@ button, .button {
     }
 }
 
-//visibility
-.hide-for-mobile{
-    @include breakpoint-down(medium){
-        display: none;
-    }
-}
+// //visibility
+// .hide-for-mobile{
+//     @include breakpoint-down(medium){
+//         display: none;
+//     }
+// }
 
-.hide-for-desktop{
-    @include breakpoint-up(large){
-        display: none;
-    }
-}
+// .hide-for-desktop{
+//     @include breakpoint-up(large){
+//         display: none;
+//     }
+// }

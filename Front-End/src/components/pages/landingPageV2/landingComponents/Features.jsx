@@ -39,18 +39,18 @@ const Features = () => {
 
             <motion.div className="features__cards">
                 <LandingCard 
-                    title="Faster Analisis"
-                    content={"Thanks to multi-processing and optimized intelligences, IARA provides professionals their results in only a matter of seconds. Our focus on speed also allows patients to recieve medical feedback as quickly as possible."} 
+                    title="Multiple AI Models"
+                    content={"Our product was developed with four AI models in order to ensure a more accurate prediction. By analyzing the radiography through different steps and multiple AI models, our process determines a patient’s likelihood of having tuberculosis."} 
                 />
 
                 <LandingCard 
                     title="Faster Analisis"
-                    content={"Thanks to multi-processing and optimized intelligences, IARA provides professionals their results in only a matter of seconds. Our focus on speed also allows patients to recieve medical feedback as quickly as possible."} 
+                    content={"Nowadays, detecting tuberculosis is really hard for the human eye, many times the presence of said pathogen is overlooked. IARA provides professionals the results in only a matter of seconds, focusing on speed and accuracy at the same time."} 
                 />
 
                 <LandingCard 
-                    title="Account Based System"
-                    content={"By allowing our professionals to create an account within IARA, they count with the ability to keep a record of all their patients and their previous analyses. On top of that, a verification system is used so as to make sure all users are certified medical professionals."} 
+                    title="Organization System"
+                    content={"Not only is IARA a helpful tool for detecting tuberculosis, but also for organizing professionals in their daily tasks. Through a carefully developed system, IARA helps with keeping a record of patients, their corresponding radiographies and follow-up analysis."} 
                 />
             </motion.div>
         </motion.div >
