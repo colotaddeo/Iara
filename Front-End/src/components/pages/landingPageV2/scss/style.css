@@ -103,6 +103,12 @@ button, .button {
   background-position: center;
 }
 
+@media (max-width: 63.9375em) {
+  .hide-for-mobile {
+    display: none;
+  }
+}
+
 .landingNav {
   top: 0;
   position: fixed;

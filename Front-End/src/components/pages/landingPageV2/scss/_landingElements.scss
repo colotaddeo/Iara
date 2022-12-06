@@ -117,12 +117,12 @@ button, .button {
   }
 }
 
-// Visibility
-// .hide-for-mobile {
-//   @include breakpoint-down(medium) {
-//     display: none;
-//   }
-// }
+//Visibility
+.hide-for-mobile {
+  @media(max-width: 63.9375em){
+    display: none;
+  }
+}
 
 // .hide-for-desktop {
 //   @include breakpoint-up(large) {
