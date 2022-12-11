@@ -57,6 +57,7 @@ const LandingNav = () => {
                 <motion.div variants={header}>
                     <img 
                         src={logo_small} 
+                        width={65}
                         alt="logo" 
                         srcSet={`${logo_small} 1023w, ${logo_large} 1280w`}
                         sizes="(max-width: 1023px) 1023px, 1280px" 

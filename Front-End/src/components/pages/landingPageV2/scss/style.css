@@ -116,8 +116,8 @@ button, .button {
   width: 100%;
   transition: top 0.7s;
   background-color: #161526;
-  padding-top: 3vh;
-  padding-bottom: 3vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
