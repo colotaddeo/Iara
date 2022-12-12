@@ -18,6 +18,7 @@
         text-align: left;
 
         @media(max-width: 1023px){
+            width: 100%;
             text-align: center;
         }
     }
@@ -32,18 +33,9 @@
             font-size: 40px;
         }
 
-        // background: linear-gradient(90.11deg, #FFFFFF -323.42%, #010101 77.56%);
-        // background: linear-gradient(90.11deg, #FFFFFF 323.42%, #010101 77.56%);
-        
-        // -webkit-background-clip: text;
-        // -webkit-text-fill-color: transparent;
-        // background-clip: text;
-
         &_cyan {
             color: #01ADB4;
             letter-spacing: 3px;
-            // background: linear-gradient(270deg, #01ADB4 13.71%, #00555A 176.79%);
-            // background-clip: text;
         }
     }
 
@@ -57,6 +49,9 @@
 
         @media(max-width: 1023px){
             font-size: 20px;
+        }
+        @media(max-width: 63.9375em){
+            display: none;
         }
     }
 
@@ -73,9 +68,12 @@
         @media(max-width: 1023px){
             text-align: left;
         }
+        
+        @media(max-width: 63.9375em){
+            display: none;
+        }
 
         &_line {
-
             &:first-child{
                 animation: anim 20s infinite;
             }

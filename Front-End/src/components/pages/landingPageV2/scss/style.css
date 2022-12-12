@@ -122,6 +122,13 @@ button, .button {
   justify-content: space-around;
   align-items: center;
 }
+@media (max-width: 63.9375em) {
+  .landingNav {
+    justify-content: space-between;
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+}
 .landingNav__right {
   display: flex;
   gap: 6vw;
@@ -159,6 +166,29 @@ button, .button {
     display: none;
   }
 }
+.landingNav__hamburger {
+  display: block;
+  height: 23px;
+  width: 35px;
+  top: 17px;
+  left: 20px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.landingNav__hamburger-line {
+  display: block;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background: white;
+}
+@media (min-width: 63.9375em) {
+  .landingNav__hamburger {
+    display: none;
+  }
+}
 
 .landBody {
   padding-top: 35vh;
@@ -181,6 +211,7 @@ button, .button {
 }
 @media (max-width: 1023px) {
   .landBody__left {
+    width: 100%;
     text-align: center;
   }
 }
@@ -211,6 +242,11 @@ button, .button {
     font-size: 20px;
   }
 }
+@media (max-width: 63.9375em) {
+  .landBody__subtitle {
+    display: none;
+  }
+}
 .landBody__carrousel {
   margin: 0;
   font-weight: 700;
@@ -222,6 +258,11 @@ button, .button {
 @media (max-width: 1023px) {
   .landBody__carrousel {
     text-align: left;
+  }
+}
+@media (max-width: 63.9375em) {
+  .landBody__carrousel {
+    display: none;
   }
 }
 .landBody__carrousel_line:first-child {

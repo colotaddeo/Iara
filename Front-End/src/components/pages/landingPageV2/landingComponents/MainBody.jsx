@@ -27,9 +27,9 @@ const MainBody = () => {
                     <button className="land_clearBtn hide-for-mobile">Start Now</button>
                 </div>
 
-                <div className="landBody__right">
-                    {/* <Spline scene="https://prod.spline.design/BBzPL2OzksiWYTLi/scene.splinecode"/> */}
-                </div>
+                {/* <div className="landBody__right">
+                    <Spline scene="https://prod.spline.design/BBzPL2OzksiWYTLi/scene.splinecode"/>
+                </div> */}
             </div>
         </>
     )
