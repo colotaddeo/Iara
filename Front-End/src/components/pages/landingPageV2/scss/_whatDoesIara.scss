@@ -22,8 +22,8 @@
 
                 //Mobile
                 @media(max-width: 63.9375em){
-                    font-size: 65px;
-                    text-align: center;
+                    font-size: 40px;
+                    margin-top: 5vh;
                 }
             }
         }
@@ -31,6 +31,11 @@
         h3 {
             font-size: 30px;
             color: #AEAEAE;
+
+            //Mobile
+            @media(max-width: 63.9375em){
+                font-size: 20px;
+            }
         }
     }
 }

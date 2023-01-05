@@ -20,6 +20,13 @@
             font-style: normal;
             font-weight: 700;
             font-size: 65px;
+
+            //Mobile
+            @media(max-width: 63.9375em){
+                font-size: 40px;
+                width: 90vw;
+            }
+
         }
         h3 {
             font-family: 'DM Sans';
@@ -28,6 +35,12 @@
             font-size: 24px;
             color: #AEAEAE;
             width: 27vw;
+
+            //Mobile
+            @media(max-width: 63.9375em){
+                font-size: 20px;
+                width: 90vw;
+            }
         }
     }
 
@@ -53,8 +66,8 @@
 
             //Mobile
             @media(max-width: 63.9375em){
-                height: 400px;
-                width: 380px;
+                height: 380px;
+                width: 320px;
             }
 
             background: linear-gradient($landingButton 50%, $landingButton, $landingBackground, $landingBackground 50%);
@@ -72,8 +85,8 @@
             }
 
             padding-top: 6vh;
-            padding-left: 1vw;
-            padding-right: 1vw;
+            padding-left: 2vw;
+            padding-right: 2vw;
 
             display: flex;
             flex-direction: column;
@@ -94,6 +107,11 @@
                 font-weight: 400;
                 font-size: 20px;
                 color: #FFFFFF;
+
+                //Mobile
+                @media(max-width: 63.9375em){
+                    font-size: 18px;
+                }
             }
         }
     }

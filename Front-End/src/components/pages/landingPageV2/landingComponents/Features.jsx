@@ -45,7 +45,7 @@ const Features = () => {
 
                 <LandingCard 
                     title="Faster Analisis"
-                    content={"Nowadays, detecting tuberculosis is really hard for the human eye, many times the presence of said pathogen is overlooked. IARA provides professionals the results in only a matter of seconds, focusing on speed and accuracy at the same time."} 
+                    content={"Nowadays, detecting tuberculosis is extremely difficult for the human eye, many times the presence of said pathogen is overlooked. IARA provides professionals the results in only a matter of seconds, focusing on speed and accuracy at the same time."} 
                 />
 
                 <LandingCard 
