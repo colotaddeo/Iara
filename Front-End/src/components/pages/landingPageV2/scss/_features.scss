@@ -38,11 +38,24 @@
         align-items: flex-start;
         justify-content: center;
         gap: 7vw;
+        
+        //Mobile
+        @media(max-width: 63.9375em){
+            flex-direction: column;  
+            align-items: center;
+            gap: 8vh;
+        }
 
         &_card {
             height: 465px;
             width: 441px;
             border-radius: 17px;
+
+            //Mobile
+            @media(max-width: 63.9375em){
+                height: 400px;
+                width: 380px;
+            }
 
             background: linear-gradient($landingButton 50%, $landingButton, $landingBackground, $landingBackground 50%);
             background-color: $landingBackground;

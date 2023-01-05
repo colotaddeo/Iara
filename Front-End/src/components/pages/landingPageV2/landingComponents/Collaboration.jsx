@@ -52,15 +52,15 @@ const Collaboration = () => {
 
             <motion.div className="colab__logos">
                 <motion.div variants={item}>
-                    <img src={logo_tic} alt="TIC logo" />
+                    <img src={logo_tic} alt="TIC logo" className="responsive-image"/>
                 </motion.div>
 
                <motion.div variants={item}>
-                    <img src={logo_ort} alt="ORT logo" />
+                    <img src={logo_ort} alt="ORT logo" className="responsive-image"/>
                </motion.div>
 
                <motion.div variants={item}>
-                    <img src={logo_umai}  alt="UMAI logo"/>
+                    <img src={logo_umai}  alt="UMAI logo" className="responsive-image"/>
                 </motion.div>
             </motion.div>
 

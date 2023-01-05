@@ -103,6 +103,11 @@ button, .button {
   background-position: center;
 }
 
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
 @media (max-width: 63.9375em) {
   .hide-for-mobile {
     display: none;
@@ -113,7 +118,7 @@ button, .button {
   top: 0;
   position: fixed;
   z-index: 2;
-  width: 100%;
+  width: 100vw;
   transition: top 0.7s;
   background-color: #161526;
   padding-top: 2vh;
@@ -334,6 +339,12 @@ button, .button {
   line-height: 110%;
   margin-bottom: 20px;
 }
+@media (max-width: 63.9375em) {
+  .whatDo__body_left_title {
+    font-size: 65px;
+    text-align: center;
+  }
+}
 .whatDo__body h3 {
   font-size: 30px;
   color: #AEAEAE;
@@ -376,6 +387,13 @@ button, .button {
   justify-content: center;
   gap: 7vw;
 }
+@media (max-width: 63.9375em) {
+  .features__cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 8vh;
+  }
+}
 .features__cards_card {
   height: 465px;
   width: 441px;
@@ -393,6 +411,12 @@ button, .button {
   justify-content: flex-start;
   text-align: center;
   gap: 2vh;
+}
+@media (max-width: 63.9375em) {
+  .features__cards_card {
+    height: 400px;
+    width: 380px;
+  }
 }
 .features__cards_card:hover {
   background-size: 100% 200%;
@@ -472,6 +496,7 @@ button, .button {
 .footer {
   background-color: #131220;
   height: 60vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -482,18 +507,4 @@ button, .button {
   font-weight: 700;
   font-size: 25px;
   line-height: 39px;
-}
-.footer .footer__about {
-  display: flex;
-  align-items: flex-start;
-  gap: 10vw;
-}
-.footer__logo {
-  display: flex;
-  gap: 5vw;
-}
-.footer__line {
-  width: 2px;
-  height: 40vh;
-  background-color: #3C3C53;
 }/*# sourceMappingURL=style.css.map */

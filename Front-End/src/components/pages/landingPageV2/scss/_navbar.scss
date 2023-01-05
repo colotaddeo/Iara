@@ -2,7 +2,7 @@
     top: 0;
     position: fixed;
     z-index: 2;
-    width: 100%;
+    width: 100vw;
     transition: top 0.7s;
 
     background-color: $landingBackground;
@@ -13,6 +13,7 @@
     justify-content: space-around;
     align-items: center;
 
+    //Mobile
     @media(max-width: 63.9375em){
         justify-content: space-between;
         padding-left: 4vw;

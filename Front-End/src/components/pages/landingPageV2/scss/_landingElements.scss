@@ -118,6 +118,10 @@ button, .button {
   }
 }
 
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
 //Visibility
 .hide-for-mobile {
   @media(max-width: 63.9375em){

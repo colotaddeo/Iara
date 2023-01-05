@@ -19,6 +19,12 @@
                 font-size: 90px;
                 line-height: 110%;
                 margin-bottom: 20px;
+
+                //Mobile
+                @media(max-width: 63.9375em){
+                    font-size: 65px;
+                    text-align: center;
+                }
             }
         }
 
