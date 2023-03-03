@@ -102,7 +102,7 @@
 }
 
 .form-login h4 {
-    font-family: 'Montserrat';
+    font-family: 'DM Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -115,6 +115,7 @@
 }
 
 .login__subtext_cyan {
+    font-family: 'DM Sans';
     font-style: italic;
     color: #01ADB4;
 }

@@ -71,7 +71,7 @@ const LandingNav = () => {
                         <motion.li variants={header} className='landingNav__links'><a href="#contact">Get in touch</a></motion.li>
                     </ul>
                     <motion.div className="hide-for-mobile" variants={header}>
-                        <button className="land_clearBtn">Get Started</button>
+                        <button className="land_clearBtn" onClick={() => navigate('/login')}>Get Started</button>
                     </motion.div>
 
                     <div class="landingNav__hamburger">
