@@ -14,12 +14,13 @@ import DeleteWarning from "./pages/HomeTest/images/Warning_alert.svg";
 import NoneFoundWarning from "../assets/Warning_yellow.svg";
 import Previsualizacion from "./Previsualizacion";
 
+import DemoPatient from "./DemoPatient";
+
 const AllPatients = () => {
   const [active, setActive] = useState(false);
   const [selectedRx, setSelected] = useState("");
   const [selectedDni, setDni] = useState(null);
   const [clicked, setClicked] = useState(false);
-
 
   const [loading, setLoading] = useState(true);
 
@@ -27,9 +28,9 @@ const AllPatients = () => {
   const {
     loadPatients,
     deletePatient,
-    patients,
     createPatient,
     getPatientsBySearch,
+    patients,
     getUserInfo,
     doctors,
     getImageById,
@@ -86,7 +87,7 @@ const AllPatients = () => {
     )
   }
 
-  if (patients.length === 0 && search === "SOMOSNUEVE") {
+  if (patients.length === -1 && search === "SOMOSNUEVE") {
     return (
       <div className="main_container">
         <Navbar active={active} current="Pacientes" />
@@ -205,27 +206,27 @@ const AllPatients = () => {
                         <th></th>
                       </tr>
                     </thead>
-                    {patients.map((patient) => (
+                    {DemoPatient.map((dpatient) => (
                       <tr
-                        key={patient.id}
+                        key={dpatient.id}
                         onClick={() => {
-                          setSelected(patient.id);
-                          setDni(patient.DNI);
-                          getImageById(patient.id);
+                          setSelected(dpatient.id);
+                          setDni(dpatient.DNI);
+                          getImageById(dpatient.id);
                           setClicked(true)
                         }}
                         onDoubleClick={() => navigate("/AddRadiography/" + selectedRx)}
                       >
                         <td>
-                          <a>{patient.DNI}</a>
+                          <a>{dpatient.DNI}</a>
                         </td>
                         <td>
-                          <a>{patient.createdAt} </a>
+                          <a>{dpatient.createdAt} </a>
                         </td>
-                        {/* <td><DeleteIcon onClick={() => deletePatient(patient.id)} className="btn_delete" ></DeleteIcon></td>  */}
+                        {/* <td><DeleteIcon onClick={() => deletedPatient(dpatient.id)} className="btn_delete" ></DeleteIcon></td>  */}
                         <td><DeleteIcon onClick={() => {
                           setOpenModel(true);
-                          setPatientId(patient.id)
+                          setPatientId(dpatient.id)
                         }} className="btn_delete" ></DeleteIcon></td>
                       </tr>
                     ))}
