@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 
-import LandingPage from "./components/pages/landingPage/landingPage";
+//import LandingPage from "./components/pages/landingPage/landingPage";
 import LogInPage from "./components/pages/logInPage/logIn";
 import SignUp from "./components/signup/signUp";
 import NotFound from "./components/pages/notFoundPage/NotFound";
@@ -15,7 +15,7 @@ import AllPatients from './components/AllPatients';
 import RecentPacients from "./components/RecentPacients";
 import loginContext from "./Context";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import UpdatePassword from "./components/updatePassword";
+import UpdatePassword from "./components/UpdatePassword";
 
 //Test new landing
 import LandingPageV2 from "./components/pages/landingPageV2/Landing";

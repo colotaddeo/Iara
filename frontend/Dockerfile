@@ -1,7 +1,7 @@
-FROM node:17-alpine
+FROM node:17
 
 # Working dir
-WORKDIR /app
+WORKDIR /usr/src/app
 
 # Copy Package Json FIles
 COPY package*.json ./
