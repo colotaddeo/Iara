@@ -1,0 +1,583 @@
+{
+	"info": {
+		"_postman_id": "4189c17b-da8d-4239-9b56-9fbfa5c50839",
+		"name": "Proyecto tuberculosis",
+		"description": "Esta colección contiene dos carpetas. Una donde incluiremos y probaremos el funcionamiento de las rutas creadas con express. En la otra, encontraremos el funcionamiento de las rutas creadas con flask.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "API - Express",
+			"item": [
+				{
+					"name": "Images",
+					"item": [
+						{
+							"name": "Subir imagenes",
+							"id": "21e3876c-8f17-4731-b3df-4197c5f80220",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/D:/Testing-Miniapi/Back-End-Flask/ImageConverter/DCM Data/3.dcm"
+										}
+									]
+								},
+								"url": "http://localhost:4000/images/upload/39",
+								"description": "Esta ruta esta destinada a simular la subida de imágenes. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: [http://localhost:4000/images/upload](http://localhost:4000/images/upload)  \n\\* Request: Una imagen jpg o dicom  \n\\* Response: La ruta de la imagen, la predicción del modelo de cnn, la del de transformers y el promedio de ambas\n\nEjermplo:\n\n{ \"path\": \"C:\\\\\\\\Users\\\\\\\\47205114\\\\\\\\Documents\\\\\\\\GitHub\\\\\\\\Back-End\\\\\\\\Server-Node\\\\\\\\images\\\\\\\\15110018-0707-4624-9444-1653a2c5939d.png\",\n\n\"prediction_cnn\": \"2.99 %\",\n\n\"prediction_transformers\": \"4.21 %\",\n\n\"prediction_average\": \"3.6 %\" }"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener imagenes",
+							"id": "53be077a-4448-410b-ac78-9f2154b0a037",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/images/39",
+								"description": "Esta ruta esta destinada a simular la obtención de todas las imágenes de cada paciente. Contiene las siguientes características:\n\n\\* Método utilizado: GET  \n\\* URL: http://localhost:4000/images/:id  \n\\* Request: El id de un paciente  \n\\* Response: La ruta de la imagen, la predicción del modelo de cnn, la del de transformers y el promedio de ambas"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener una sola imagen",
+							"id": "23277bcd-1701-4378-a2f3-5b5b1b92165c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/images/39/42",
+								"description": "Esta ruta esta destinada a simular la obtención de una imagen de un paciente. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: http://localhost:4000/images/upload/:id/:id_paciente  \n\\* Request: El id de la imagen y el id del paciente correspondiente  \n\\* Response: La ruta de la imagen, la predicción del modelo de cnn, la del de transformers y el promedio de ambas"
+							},
+							"response": []
+						},
+						{
+							"name": "Editar imagen",
+							"id": "9c3150c0-2efb-4680-a694-3acb1735b8f3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"La imagen de Lui\",\r\n    \"description\": \"Diagnóstico de Luis\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/images/24/39"
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar imagen",
+							"id": "33a34408-466e-4814-b8c4-7b8dbd5aa765",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/images/39/117"
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar imagen",
+							"id": "fc7c8dc2-3a5a-406a-94b2-9c487610afb2",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": ""
+							},
+							"response": []
+						},
+						{
+							"name": "Enviar imagen",
+							"id": "fd010a11-936e-4ec6-9ae0-7238a4e17dc3",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"path\": \"images\\b1ad2afc-fe48-4d9a-b926-24352133893b.jpg\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/images/sendFile"
+							},
+							"response": []
+						},
+						{
+							"name": "Enviar ruta",
+							"id": "f3d382e9-fb36-47f9-80f7-31456419c662",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/D:/Testing-Miniapi/Back-End-Flask/ImageConverter/DCM Data/3.dcm"
+										}
+									]
+								},
+								"url": "http://localhost:4000/images/saveImageRoute"
+							},
+							"response": []
+						}
+					],
+					"id": "bd4427e6-0000-42c5-b92a-ea43a353e10a",
+					"description": "Esta carpeta está destinada a contener las rutas relacionadas con las imagenes."
+				},
+				{
+					"name": "Patient",
+					"item": [
+						{
+							"name": "Subir paciente",
+							"id": "ddef1a5c-59ea-4548-887c-e2a9175c41f4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTIsImlhdCI6MTY2NDk5NjkzOCwiZXhwIjoxNjY0OTk3MDU4fQ.qBNlM_WEItef498-sBSEWGzgko6M4fXdWOCm5zL36W0"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImlhdCI6MTY2MTI5Nzc5MCwiZXhwIjoxNjYxMjk3OTEwfQ.cXgs8kgJzSI8BuY2H5i7emxBo0rn29JZw1eVHgJ49cg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"DNI\": \"6566434\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/patient/upload"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener pacientes",
+							"id": "ac55c9ce-be14-40c3-9d03-fbe52fea680a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlBlcGVTYW5kQGdtYWlsLmNvbSIsImlkIjoxMSwiaWF0IjoxNjYxMTcyMjA5LCJleHAiOjE2NjExNzIyMzl9.anETTuvUtdO_lwNTxtWzsn3yCjkfX9qMMUFfKqbwxGM",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/patient"
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener un solo paciente",
+							"id": "08dd95eb-4993-44cb-9b8e-b8129417aaf9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlBlcGVTYW5kQGdtYWlsLmNvbSIsImlkIjoxMSwiaWF0IjoxNjYxMTcyMjQ5LCJleHAiOjE2NjExNzIyNzl9.pCQLO2RVYDxA-jaXJ8TRLXJn2JzuP2Xt2TEpAGNhDL4",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/patient/40"
+							},
+							"response": []
+						},
+						{
+							"name": "Editar paciente",
+							"id": "a2c8e7ef-ab11-4335-96da-e8410ab139c8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlBlcGVTYW5kQGdtYWlsLmNvbSIsImlkIjoxMSwiaWF0IjoxNjYxMTcyODQxLCJleHAiOjE2NjExNzI4NzF9.vQyN-9kSZOjcvat599Jd4mGDSGLD-cMS-D6CgD-caK8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"DNI\": \"21345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/patient/40"
+							},
+							"response": []
+						},
+						{
+							"name": "Eliminar paciente",
+							"id": "81c16ee5-f3a3-47cd-ab04-2866ce00ec0b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6IlBlcGVTYW5kQGdtYWlsLmNvbSIsImlkIjoxMSwiaWF0IjoxNjYxMTcyOTQ2LCJleHAiOjE2NjExNzI5NzZ9.EQEeyeLVwxF5TCxZ6RDxCTyFUdsNZnc3mk_0F6obzu4",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/patient/47"
+							},
+							"response": []
+						},
+						{
+							"name": "Buscar paciente",
+							"id": "fd981067-5ce3-4162-898d-8dc706a4eb49",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImlhdCI6MTY2MTM2MjA5MiwiZXhwIjoxNjYxMzYyMjEyfQ.prDLJKdNuOrUh0gIb-o2XQZpLHGh0wgJ_lgOE_oh1kA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/patient/search?DNI=44",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"patient",
+										"search"
+									],
+									"query": [
+										{
+											"key": "DNI",
+											"value": "44"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Obtener recientes",
+							"id": "a191c82e-f1eb-4561-877f-27c4cacb9357",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTIsImlhdCI6MTY2NDk5NzE3NSwiZXhwIjoxNjY0OTk3Mjk1fQ._fiNVGlOc4NqQqUw3vuykGomS0vdiFrKJnEi3jU3KOc"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "http://localhost:4000/patient/uploadedRecently"
+							},
+							"response": []
+						}
+					],
+					"id": "4cf3db6f-07b9-48dd-aa5e-1ba9bf5fe3f4",
+					"description": "Esta carpeta está destinada a contener las rutas relacionadas con los pacientes."
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "Registro",
+							"id": "1a90b7ce-e3c8-4bc5-8ba6-6da6771de811",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\" : \"Leo\", \r\n    \"lastName\": \"E\", \r\n    \"email\": \"rodrigo1sasasa@gmail.com\", \r\n    \"password\": \"LuissasaaSjksaASAsdsdsassasaaasasas\",\r\n    \"confirmPassword\": \"LuissasaaSjksaASAsdsdsassasaaasasas\",\r\n    \"doctorId\": \"443905\",\r\n    \"HospitalEmail\": \"47205114@est.ort.edu.ar\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/user/signup",
+								"description": "Esta ruta esta destinada a simular el registro de medicos. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: [http://localhost:4000/user/signup](http://localhost:4000/user/signup)  \n\\* Request: Nombre, apellido, email personal, contraseña, matrícula y hospital el cual trabaja  \n\\* Response: res.json({ message: \"Nos estamos contactando con el hospital el cual corresponde el usuario con el objetivo de verificar su integridad\" })"
+							},
+							"response": []
+						},
+						{
+							"name": "Inicio de sesión",
+							"id": "135fc837-e30a-421b-8ead-3b2dc200d62a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"rodrigo1@gmail.com\", \r\n    \"password\": \"LuissasaaSjksaASAsdsdsassasaaasasas\",\r\n    \"rol\": \"Usuario_Verificado\",\r\n    \"id_usuario\": 52\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/user/signin",
+								"description": "Esta ruta esta destinada a simular el inicio de sesión de médicos. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: [http://localhost:4000/user/signin](http://localhost:4000/user/signin)  \n\\* Request: Email y contraseña  \n\\* Response: Dos cookies que contienen el access token y el refresh token respectivamente. Esto sumado a un mensaje expresando que se ha logueado con éxito\n\nEjemplo:\n\nres.setHeader('Set-Cookie', \\[serializeAccessToken, serializeRefreshToken\\]).json({ message: \"El usuario se ha logueado con éxito\" })"
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh Token",
+							"id": "0bffb55e-2cf3-425a-a32d-d89ea1c61039",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": "http://localhost:4000/user/refreshToken",
+								"description": "Esta ruta está destinada a simular el pedido de un nuevo access token. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: [http://localhost:4000/user/refreshToken](http://localhost:4000/user/refreshToken)  \n\\* Request: Cookie que contiene el refresh token  \n\\* Response: Una nueva cookie que contiene un nuevo access token. Esto sumado a un mensaje de que la nueva cookie junto al access token han sido creados correctamente\n\nEjemplo:\n\nres.setHeader('Set-Cookie', serializeAccessToken).json({ message: \"El nuevo access token ha sido creado correctamente\" })"
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"id": "cb591820-57f1-4230-ad0e-f25e1cbfc4ba",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": "http://localhost:4000/user/logout",
+								"description": "Esta ruta está destinada a simular el deslogueo del usuario. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: [http://localhost:4000/user/logout](http://localhost:4000/user/logout)  \n\\* Request: Una cookie que contiene el access token y otra que contiene el refresh token  \n\\* Response: Dos cookies que expiren al momento de ser creadas. Esto sumado a un mensaje de que el usuario se ha registrado correctamente\n\nEjemplo:\n\nres.setHeader('Set-Cookie', \\[serializedAccessToken, serializedRefreshToken\\]).json({message: \"Se ha deslogueado correctamente\"})"
+							},
+							"response": []
+						},
+						{
+							"name": "¿Olvidaste tu contraseña?",
+							"id": "182e9864-96c3-4119-be09-2f2f95eb3561",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"benzagon22@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/user/forgotPassword",
+								"description": "Esta ruta esta destinada a simular el envío de un mail al usuario que no se acuerde su contraseña. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: [http://localhost:4000/user/forgotPassword](http://localhost:4000/user/forgotPassword)  \n\\* Request: Un email  \n\\* Response: Un mail al email ingresado y mensaje avisando que fue este fue enviado correctamente"
+							},
+							"response": []
+						},
+						{
+							"name": "Actualizar contraseña",
+							"id": "a150dae7-a913-4a62-997e-d76fec89941e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"HolaHola\",\r\n    \"id\": 28\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/user/updatePassword",
+								"description": "Esta ruta esta destinada a simular la creación de una nueva contraseña para aquellos usuarios que se la olvidaron. Contiene las siguientes características:\n\n\\* Método utilizado: POST  \n\\* URL: http://localhost:4000/user/updatePassword  \n\\* Request: Una nueva contraseña y el id del usuario  \n\\* Response: Un mensaje que la contraseña ha sido actualizada con éxito"
+							},
+							"response": []
+						},
+						{
+							"name": "Editar Usuario",
+							"id": "3a689ff5-6512-4735-8c5c-375450adb630",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
+					"id": "9b7e132e-bebb-4e83-8584-f4b96b0d2236",
+					"description": "Esta carpeta está destinada a contener las rutas relacionadas con los usuarios."
+				}
+			],
+			"id": "0898ed5c-986b-4cb3-af6a-8846573328af",
+			"description": "Esta carpeta contiene la API principal de la web."
+		},
+		{
+			"name": "API - Flask",
+			"item": [
+				{
+					"name": "Obtener predicción",
+					"id": "ca0a3ccd-0b20-49b6-a28c-e7420a03dec8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/D:/Imagenes/imagenCovid3.png"
+								}
+							]
+						},
+						"url": "http://localhost:8000/predict"
+					},
+					"response": []
+				},
+				{
+					"name": "Prueba Flask ia",
+					"id": "5fafeaf0-8290-4261-9e11-69a2d6c87ace",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8000"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/artistas/2/albumes ",
+					"id": "d4ddef5f-ef4c-4561-bb2e-7cb62df254e0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:3000/artistas/2/albumes "
+					},
+					"response": []
+				}
+			],
+			"id": "0d89df27-ab85-43c0-ab53-75c79aff413a"
+		}
+	]
+}
