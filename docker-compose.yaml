@@ -1,0 +1,11 @@
+version: "3"
+services:
+  frontend:
+    build: frontend
+    container_name: frontend_C
+    env_file: .env
+    ports:
+      - 8080:5173
+    restart: unless-stopped
+    # stdin_open: true
+    # tty: true
