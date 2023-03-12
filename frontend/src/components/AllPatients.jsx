@@ -76,8 +76,8 @@ const AllPatients = () => {
           >
             {doctors.map((doctor) => (
               <div key={doctor.id}>
-                <h1>Hola Dr/a. {doctor.apellido}</h1>
-                <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
               </div>
             ))}
           </div>
@@ -99,15 +99,15 @@ const AllPatients = () => {
           >
             {doctors.map((doctor) => (
               <div key={doctor.id}>
-                <h1>Hola Dr/a. {doctor.apellido}</h1>
-                <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
               </div>
             ))}
           </div>
           <div className="hero_container">
             <div className="hero_elements">
               <div className="hero_table_search">
-                <h1>Pacientes</h1>
+                <h1>Patients</h1>
                 <div className="hero_empty_searchbar">
                   <div className="hero_empty_icon">
                     <img src={PersonOffIcon}
@@ -115,13 +115,13 @@ const AllPatients = () => {
                     </img>
                   </div>
                   <p className="hero_empty_p">
-                    No hay pacientes registrados, si <br />
-                    los hubiese aparecerían aquí
+                    There are no registered <br />
+                    patients yet
                   </p>
                 </div>
               </div>
               <div className="hero_input_button">
-                <h1>Crear paciente</h1>
+                <h1>Register</h1>
                 <div className="formik_wrapper">
                   <Formik
                     initialValues={{
@@ -140,21 +140,20 @@ const AllPatients = () => {
                         <Field
                           className="hero_add_dni_field"
                           name="DNI"
-                          placeholder="DNI del paciente..."
+                          placeholder="Patient ID..."
                         ></Field>
                         <ErrorMessage name="DNI" />
                         <button className="blandBtn" type="submit">
-                          + Agregar paciente
+                          + Register patient
                         </button>
                       </Form>
                     )}
                   </Formik>
                   <div className="hero_empty_info">
                     <p className="hero_empty_p">
-                      Para registrar un nuevo paciente,
-                      ingresa su DNI. No
-                      solicitamos mas información sensible para no comprometer su
-                      integridad.
+                      To register a new patient enter their ID.
+                      We do not solicit anymore sensible information for
+                      security reasons.
                     </p>
                   </div>
                 </div>
@@ -177,19 +176,19 @@ const AllPatients = () => {
         >
           {doctors.map((doctor) => (
             <div key={doctor.id}>
-              <h1>Hola Dr/a. {doctor.apellido}</h1>
-              <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
             </div>
           ))}
         </div>
         <div className="hero_container">
           <div className="hero_elements">
             <div className="hero_table_search">
-              <h1>Pacientes</h1>
+              <h1>Patients</h1>
               <div className="hero_searchbar">
                 <input
                   className="hero_searchbar_text"
-                  placeholder="Buscar paciente..."
+                  placeholder="Search..."
                   onKeyUp={SearchPatient}
                   type="text"
                   onChange={(e) => setSearch(e.target.value)}
@@ -200,8 +199,8 @@ const AllPatients = () => {
                   <table className="tabla">
                     <thead>
                       <tr>
-                        <th>DNI</th>
-                        <th>Fecha de creación</th>
+                        <th>ID</th>
+                        <th>Creation date</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -235,7 +234,7 @@ const AllPatients = () => {
             </div>
 
             <div className="hero_input_button">
-              <h1>Crear paciente</h1>
+              <h1>Register patient</h1>
               <div className="formik_wrapper">
                 <Formik
                   initialValues={{
@@ -254,11 +253,11 @@ const AllPatients = () => {
                       <Field
                         className="hero_add_dni_field"
                         name="DNI"
-                        placeholder="Ingrese el DNI del paciente..."
+                        placeholder="Patient ID..."
                       ></Field>
                       <ErrorMessage name="DNI" />
                       <button className="blandBtn" type="submit">
-                        + Agregar paciente
+                        + Register patient
                       </button>
                     </Form>
                   )}

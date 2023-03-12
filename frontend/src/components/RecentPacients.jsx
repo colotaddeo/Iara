@@ -52,8 +52,8 @@ const RecentPacients = () => {
           >
             {doctors.map((doctor) => (
               <div key={doctor.id}>
-                <h1>Hola Dr/a. {doctor.apellido}</h1>
-                <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
               </div>
             ))}
           </div>
@@ -75,25 +75,25 @@ const RecentPacients = () => {
           >
             {doctors.map((doctor) => (
               <div key={doctor.id}>
-                <h1>Hola Dr/a. {doctor.apellido}</h1>
-                <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
               </div>
             ))}
           </div>
           <div className="hero_container">
-            <h1>Recientes</h1>
+            <h1>Recent</h1>
             <div className="hero_recent_empty">
               <div className="hero_empty_icon">
                 <img src={PersonOffIcon} width={150}></img>
               </div>
               <p className="hero_empty_p">
-                Aún no hay pacientes registrados, <br />
-                puedes registrarlos{" "}
+                There are no registered patients yet, <br />
+                register them{" "}
                 <span
                   className="hero_empty_p_cyan"
                   onClick={() => navigate("/AllPatients/")}
                 >
-                  aquí
+                  here
                 </span>
               </p>
             </div>
@@ -114,8 +114,8 @@ const RecentPacients = () => {
         >
           {doctors.map((doctor) => (
             <div key={doctor.id}>
-              <h1>Hola Dr/a. {doctor.apellido}</h1>
-              <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
             </div>
           ))}
         </div>
@@ -123,12 +123,12 @@ const RecentPacients = () => {
           <div className="hero_elements">
             <div className="hero_recentTable">
               <div className="table-wrapper">
-                <h1>Recientes</h1>
+                <h1>Recent</h1>
                 <table className="tabla">
                   <thead>
                     <tr>
-                      <th>DNI</th>
-                      <th>Fecha de creación</th>
+                      <th>ID</th>
+                      <th>Creation date</th>
                       <th></th>
                     </tr>
                   </thead>
@@ -168,7 +168,7 @@ const RecentPacients = () => {
                   className="blandBtn"
                   onClick={() => navigate("/AllPatients")}
                 >
-                  Ver listado de todos los pacientes
+                  View complete list of patients
                 </button>
                 {openModel && (
                   <DeletePopUp

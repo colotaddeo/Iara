@@ -54,14 +54,14 @@ const AddRadiography = () => {
           >
             {doctors.map((doctor) => (
               <div>
-                <h1>Hola Dr/a. {doctor.apellido}</h1>
-                <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
               </div>
             ))}
           </div>
           <div className="hero_container">
             <div className="container_patient_title">
-              <h1> Paciente: {patients.DNI} </h1>
+              <h1> Patient: {patients.DNI} </h1>
             </div>
             
             <div className="hero__upload_container hero__upload_container_empty ">
@@ -103,7 +103,7 @@ const AddRadiography = () => {
                       </div>
                     </div>
                     <button className="cyanBtn" type="submit">
-                      Subir radiografia
+                      Upload RX
                     </button>
                 </Form>
                 )}
@@ -124,8 +124,7 @@ const AddRadiography = () => {
                 }
 
               <p className="hero_empty_p">
-                No hay imágenes registradas, <br />
-                si las hubiesen aparecerían aquí
+                No registered images yet
               </p>
             </div>
           </div>
@@ -145,8 +144,8 @@ const AddRadiography = () => {
         >
           {doctors.map((doctor) => (
             <div key={doctor.id}>
-              <h1>Hola Dr/a. {doctor.apellido}</h1>
-              <p>Nuestra mision es ayudarte</p>
+                <h1>Hello Dr. {doctor.apellido}</h1>
+                <p>Our mission is to help you</p>
             </div>
           ))}
         </div>
@@ -154,7 +153,7 @@ const AddRadiography = () => {
           <div className="hero__upload_rx_container">
             <div className="all_radiografias">
               <div className="container_patient_title">
-                <h1> Historial </h1>
+                <h1> History </h1>
               </div>
               <div className="radiografias">
                 {images?.map((image) => {
@@ -185,7 +184,7 @@ const AddRadiography = () => {
             </div>
             <div className="hero_container_left">
               <div className="container_patient_title">
-                <h1> Paciente: {patients.DNI} </h1>
+                <h1> Patient: {patients.DNI} </h1>
               </div>
               <div className="hero__upload_container">
                 <Formik
@@ -223,7 +222,7 @@ const AddRadiography = () => {
                         </div>
                       </div>
                       <button className="cyanBtn" type="submit">
-                        Subir radiografia
+                        Upload RX
                       </button>
                     </Form>
                   )}
@@ -248,19 +247,19 @@ const AddRadiography = () => {
                   <div className="image_wrapper_items">
                     <div className="image_wrapper_predictions">
                       <h3>
-                        Predicción 1: <br />
+                        Prediction 1: <br />
                         <span className="image_wrapper_pred_num">
                           {images[index]?.prediccion_cnn}
                         </span>
                       </h3>
                       <h3>
-                        Predicción 2: <br />
+                        Prediction 2: <br />
                         <span className="image_wrapper_pred_num">
                           {images[index]?.prediccion_transformers}
                         </span>
                       </h3>
                       <h3 className="iara_cyan">
-                        Porcentaje final: <br />
+                        Final average: <br />
                         <span className="image_wrapper_pred_num">
                           {images[index]?.prediccion_promedio}
                         </span>
@@ -290,17 +289,17 @@ const AddRadiography = () => {
                     <div className="deletePopUp">
                       <img src={DeleteWarning} alt="DeleteWarning" />
                       <p>
-                        Estas a punto de eliminar una radiografía del historial<br />
-                        de un paciente. Esta acción es Irreversible
+                        Your are about to delete a radiography from<br />
+                        a patients history, this action is irreversible
                       </p>
                       
                       <div className="deletePopUp_buttons">
-                        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
+                        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancel operation</button>
                         <button onClick={() => {
                           deleteImage(id, images[index].id);
                           if (index != 0) setIndex(index - 1);
                           setOpenModel(false);
-                        }} className="blandBtn">Continuar</button>
+                        }} className="blandBtn">Continue</button>
                       </div>
                     </div>
                   </div>
@@ -309,9 +308,9 @@ const AddRadiography = () => {
                 </div>
                 <footer className="footer__uploadRX">
                   <p>
-                    Recuerda que esto NO es un diagnóstico, es solo una
-                    herramienta que <br />
-                    esperamos sirva para diagnosticar.
+                    Remember that this is NOT a diagnosis, this is just
+                    a tool for<br />
+                    further analisis
                   </p>
                 </footer>
               </div>

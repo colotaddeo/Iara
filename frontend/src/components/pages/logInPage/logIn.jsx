@@ -67,12 +67,12 @@ const LogIn = () => {
       navigate("/Home");
     } catch (err) {
       if (err.response.status === 404) {
-        setErrMsg("El email no es válido");
+        setErrMsg("Invalid email");
       }else if (err.response.status === 401){
-        setErrMsg("La contraseña no es válida");
+        setErrMsg("Invalid password");
       }
       else{
-        setErrMsg("El servidor no ha podido responder")
+        setErrMsg("No response from server")
       }
       errRef.current.focus();
     }
@@ -81,7 +81,7 @@ const LogIn = () => {
   return (
     <div className="login-container">
       <div className="form-login">
-        <h2 className="titulo__login">Inicio de sesión</h2>
+        <h2 className="titulo__login">Sign in</h2>
         <p className="login_error" ref={errRef}>{errMsg}</p>
         <Formik
           validationSchema={validationSchema}
@@ -124,7 +124,7 @@ const LogIn = () => {
                 as={TextField}
                 variant="outlined"
                 color="primary"
-                label="Contraseña"
+                label="Password"
                 size="normal"
                 error={Boolean(errors.password) && Boolean(touched.password)}
                 helperText={Boolean(touched.password) && errors.password}
@@ -133,7 +133,7 @@ const LogIn = () => {
 
               <h4>
                 <Link className="login__subtext_cyan" to="/forgotPassword">
-                  ¿Olvidaste tu contraseña?
+                  Forgot your password?
                 </Link>
               </h4>
 
@@ -147,14 +147,14 @@ const LogIn = () => {
                 size="large"
                 disabled={!dirty || !isValid}
               >
-                Continuar
+                Continue
               </Button>
 
               <h4 className="flex flex-jc-r">
-                ¿Aún no tienes cuenta?&nbsp;
+                Don't have an account?&nbsp;
                 <span>
                   <Link className="login__subtext_cyan" to="/signup">
-                    Registrate
+                    Sign up
                   </Link>
                 </span>
               </h4>

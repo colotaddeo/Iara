@@ -11,18 +11,17 @@ function DeletePopUp({setOpenModel, patientId, DeleteWarning}) {
     <div className="blur-backdrop" onClick={() => setOpenModel(false) }></div>
     <div className="deletePopUp">
       <img src={DeleteWarning} alt="DeleteWarning" />
-      <p>Estás a punto de borrar un paciente incluyendo todo <br />
-        su historial de radiografías y predicciones. Esta acción <br />
-        es <span className="iara_cyan"> IRREVERSIBLE</span>
+      <p>You are about to permanently delete a patient, <br />
+        this includes their complete upload history
       </p>
       
       <div className="deletePopUp_buttons">
-        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
+        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancel operation</button>
         <button onClick={() => {
           deletePatient(patientId)
           setOpenModel(false)
           refreshPage()
-        }} className="blandBtn">Continuar</button>
+        }} className="blandBtn">Continue</button>
       </div>
     </div>
   </div>

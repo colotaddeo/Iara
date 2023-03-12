@@ -35,30 +35,30 @@ const signUp = () => {
 
   const validationSchema = Yup.object({
     firstName: Yup.string()
-      .required("Campo obligatorio")
+      .required("Requiered field")
       .min(2, "Too Short!")
       .max(50, "Too Long!"),
 
     lastName: Yup.string()
-      .required("Campo obligatorio")
+      .required("Requiered field")
       .min(2, "Too Short!")
       .max(50, "Too Long!"),
 
-    email: Yup.string().required("Campo obligatorio").email("Email inválido"),
+    email: Yup.string().required("Requiered field").email("Invalid email"),
 
     password: Yup.string()
-      .required("Campo obligatorio")
+      .required("Requiered field")
       .min(2, "Too Short!")
       .max(50, "Too Long!"),
 
     confirmPassword: Yup.string()
-      .required("Campo obligatorio")
-      .oneOf([Yup.ref("password")], "Las passwords no coinciden"),
+      .required("Requiered field")
+      .oneOf([Yup.ref("password")], "Passwords must be the same"),
 
-    //HospitalEmail: Yup.string().required("Campo obligatorio"),
+    //HospitalEmail: Yup.string().required("Requiered field"),
 
     doctorId: Yup.string()
-      .required("Campo obligatorio")
+      .required("Requiered field")
       .min(2, "Too Short!")
       .max(50, "Too Long!"),
   });
@@ -89,7 +89,7 @@ const signUp = () => {
       </div>
 
       <div className="form">
-        <h2>Registro</h2>
+        <h2>Sign up</h2>
         <p ref={errRef}>{errMsg}</p>
 
         <Formik
@@ -119,7 +119,7 @@ const signUp = () => {
                   as={TextField}
                   variant="outlined"
                   color="primary"
-                  label="Nombre"
+                  label="Name"
                   error={
                     Boolean(errors.firstName) && Boolean(touched.firstName)
                   }
@@ -138,7 +138,7 @@ const signUp = () => {
                   as={TextField}
                   variant="outlined"
                   color="primary"
-                  label="Apellido"
+                  label="Lastname"
                   size="normal"
                   error={Boolean(errors.lastName) && Boolean(touched.lastName)}
                   helperText={Boolean(touched.lastName) && errors.lastName}
@@ -174,7 +174,7 @@ const signUp = () => {
                 as={TextField}
                 variant="outlined"
                 color="primary"
-                label="Contraseña"
+                label="Password"
                 size="normal"
                 error={Boolean(errors.password) && Boolean(touched.password)}
                 helperText={Boolean(touched.password) && errors.password}
@@ -191,7 +191,7 @@ const signUp = () => {
                 as={TextField}
                 variant="outlined"
                 color="primary"
-                label="Confirmar contraseña"
+                label="Confirm password"
                 error={
                   Boolean(errors.confirmPassword) &&
                   Boolean(touched.confirmPassword)
@@ -210,7 +210,7 @@ const signUp = () => {
                 >
                   <Select
                     name="HospitalEmail"
-                    label="Hospital correspondiente"
+                    label="Hospital"
                   />
                 </FormControl>
                 <Field
@@ -224,7 +224,7 @@ const signUp = () => {
                   as={TextField}
                   variant="outlined"
                   color="primary"
-                  label="Matrícula"
+                  label="Registration"
                   error={Boolean(errors.doctorId) && Boolean(touched.doctorId)}
                   helperText={Boolean(touched.doctorId) && errors.doctorId}
                   className="input__signup"
@@ -241,7 +241,7 @@ const signUp = () => {
                 size="large"
                 disabled={!dirty || !isValid}
               >
-                Continuar
+                Continue
               </Button>
             </Form>
           )}
@@ -249,9 +249,9 @@ const signUp = () => {
 
         <div className="button-container flex flex-jc-r">
           <h4>
-            ¿Ya tenes cuenta?&nbsp;
+            Already have an account?&nbsp;
             <Link to="/login">
-              <span className="login__subtext_cyan">Ingresá</span>
+              <span className="login__subtext_cyan">Sign in</span>
             </Link>
           </h4>
         </div>

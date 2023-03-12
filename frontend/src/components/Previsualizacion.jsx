@@ -27,17 +27,17 @@ function Previsualizacion( {selectedDni, images, patientId} ) {
                 />
                 <div className="ultima_prediccion_titles">
                   <h2>
-                    DNI: <span> {selectedDni} </span>
+                    ID: <span> {selectedDni} </span>
                   </h2>
                   <h2>
-                    Ultima predicción 1: <span> {image.prediccion_cnn} </span>
+                    Last prediction 1: <span> {image.prediccion_cnn} </span>
                   </h2>
                   <h2>
-                    Ultima predicción 2:{" "}
+                    Last prediction 2:{" "}
                     <span> {image.prediccion_transformers} </span>
                   </h2>
                   <h2 className="iara_cyan">
-                    Promedio: <span> {image.prediccion_promedio} </span>
+                    Average: <span> {image.prediccion_promedio} </span>
                   </h2>
                 </div>
               </div>
@@ -55,19 +55,19 @@ function Previsualizacion( {selectedDni, images, patientId} ) {
           <div className="no_rx_found">
             <img src={NoneFoundWarning} alt="No patients Image" />
             <h1 className="hero_empty_p">
-              DNI: <span className="iara_cyan">{selectedDni}</span>
+              ID: <span className="iara_cyan">{selectedDni}</span>
             </h1>
             <p className="hero_empty_p">
-              Este paciente no tiene
+              This patient doesn't have
               <br />
-              radiografías para mostrar,
+              radiographies to preview,
               <br />
-              puedes subir una&nbsp;
+              upload one&nbsp;
               <span
                 className="hero_empty_p_cyan"
                 onClick={() => navigate("/AddRadiography/" + patientId)}
               >
-                aquí
+                here
               </span>
             </p>
           </div>

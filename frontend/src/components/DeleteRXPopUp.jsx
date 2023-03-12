@@ -11,18 +11,18 @@ function DeleteRXPopUp({setOpenModel, rxId, imageId, DeleteWarning}) {
     <div className="deletePopUp">
       <img src={DeleteWarning} alt="DeleteWarning" />
       <p>
-          Estas a punto de eliminar una radiografía del historial<br />
-          de un paciente. Esta acción es
-          <span className="iara_cyan"> IRREVERSIBLE</span>
+          You are about to delete a radiography from a<br />
+          patients history, this action is
+          <span className="iara_cyan"> IRREVERSABLE</span>
       </p>
       
       <div className="deletePopUp_buttons">
-        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancelar operación</button>
+        <button onClick={() => setOpenModel(false) } className="blandTransparantBtn">Cancel operation</button>
         <button onClick={() => {
           deleteImage(rxId, imageId)
           setOpenModel(false)
           refreshPage()
-        }} className="blandBtn">Continuar</button>
+        }} className="blandBtn">Continue</button>
       </div>
     </div>
   </div>

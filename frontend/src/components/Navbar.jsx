@@ -28,13 +28,13 @@ function Navbar({ active, current }) {
       </div>
       <div className="side_bar_links">
         <Link to="/Home" className={current == "Recientes" ? "current" : ""}>
-          <img src={clock} alt="clock" /> Recientes
+          <img src={clock} alt="clock" /> Recent
         </Link>
         <Link
           to="/AllPatients"
           className={current == "Pacientes" ? "current" : ""}
         >
-          <img src={user} alt="user" /> Pacientes
+          <img src={user} alt="user" /> Patients
         </Link>
         {/* <Link
           to="/Settings"
@@ -51,7 +51,7 @@ function Navbar({ active, current }) {
         {openModel && (
           <div className="logout_BtnBubble">
             <button onClick={() => logout()} className="speach_btn btnArrow">
-              Cerrar sesión
+              Logout
             </button>
           </div>
         )}
@@ -70,9 +70,9 @@ function Navbar({ active, current }) {
                   {doctor.nombre} {doctor.apellido}
                 </h3>
                 {doctor.email == "PolloHospital@est.edu.ar" ? (
-                  <h5>Hospital Umai</h5>
+                  <h5>Umai Hospital</h5>
                 ) : (
-                  <h5>Hospital Muñiz</h5>
+                  <h5>Muñiz Hospital</h5>
                 )}
               </div>
             </div>
