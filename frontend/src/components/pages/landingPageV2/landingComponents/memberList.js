@@ -49,6 +49,7 @@ const TeamMembers = [
         name: "Luis Embón Strizzi",
         role: "Back-End Developer"
     }
+
 ]
 
 export default TeamMembers;

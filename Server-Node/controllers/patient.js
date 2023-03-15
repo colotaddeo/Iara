@@ -21,7 +21,8 @@ export const uploadPatient = async (req, res) => {
         res.json({ id: InsertedPatient[0].id, DNI: InsertedPatient[0].DNI, createdAt })
 
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ message: error });
+        console.log(error)
     }
 }
 

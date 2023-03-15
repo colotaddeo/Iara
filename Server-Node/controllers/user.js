@@ -38,7 +38,7 @@ export const signUp = async (req, res) => {
             
             id_hospitales = existingHospital[0].id
 
-            SendVerificationEmailWithGmail(HospitalEmail).then(sentEmail => console.log('Email sent...', sentEmail)).catch(error => console.log(error.message))
+            // SendVerificationEmailWithGmail(HospitalEmail).then(sentEmail => console.log('Email sent...', sentEmail)).catch(error => console.log(error.message))
 
             
             //Es poco usual pero es que sino me la complico más 
@@ -69,7 +69,7 @@ export const signUp = async (req, res) => {
 
         id_hospitales = HospitalInserted[0].id
 
-        SendVerificationEmailWithGmail(HospitalEmail).then(sentEmail => console.log('Email sent...', sentEmail)).catch(error => console.log(error.message))
+        // SendVerificationEmailWithGmail(HospitalEmail).then(sentEmail => console.log('Email sent...', sentEmail)).catch(error => console.log(error.message))
         
         //Es poco usual pero es que sino me la complico más 
         //const response = await fetch('ruta del front')
