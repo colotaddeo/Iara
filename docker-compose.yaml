@@ -11,3 +11,9 @@ services:
     ports:
       - 4000:4000
     restart: unless-stopped
+
+  backend-flask:
+    build: Back-End-FLask
+    ports:
+      - 8000:8000
+    restart: unless-stopped
