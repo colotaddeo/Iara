@@ -1,7 +1,7 @@
 FROM node:17
 
 # Working dir
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Copy Package Json FIles
 COPY package*.json ./

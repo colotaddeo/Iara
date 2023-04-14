@@ -15,7 +15,7 @@ export const uploadImage = async (req, res) => {
 
 
         if(req.file.mimetype === 'image/jpeg' || req.file.mimetype === 'image/png'){
-            const response = await fetch('http://127.0.0.1:8000/predict_jpg',{
+            const response = await fetch('http://10.12.218.88:8000/predict_jpg',{
             method: 'post',
             body: JSON.stringify({path}),
             headers: {'Content-Type': 'application/json'}
@@ -44,7 +44,7 @@ export const uploadImage = async (req, res) => {
 
                 const id = InsertedImage.insertId
 
-                await fetch('http://127.0.0.1:8000/delete_path',{
+                await fetch('http://10.12.218.88:8000/delete_path',{
                     method: 'post',
                     body: JSON.stringify({image_path}),
                     headers: {'Content-Type': 'application/json'}

@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "npx nodemon Server-Node/index.js"
+    "dev": "npx nodemon Server-Node/index.js",
+    "start": "npx Server-Node/index.js"
   },
   "keywords": [],
   "author": "",
